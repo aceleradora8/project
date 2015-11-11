@@ -5,5 +5,3 @@ sudo apt-get update
 sudo apt-get install postgresql-common
 sudo apt-get install postgresql-9.3 libpq-dev
 
-sudo -u postgres psql -c "CREATE EXTENSION IF NOT EXISTS unaccent;"
-
