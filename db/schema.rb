@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116165918) do
+ActiveRecord::Schema.define(version: 20151116193500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20151116165918) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "causes_ngos", force: :cascade do |t|
+    t.integer "ngo_id"
+    t.integer "cause_id"
+  end
+
   create_table "ngo_causes", force: :cascade do |t|
     t.integer  "ngo_id"
     t.integer  "cause_id"
@@ -48,6 +53,11 @@ ActiveRecord::Schema.define(version: 20151116165918) do
     t.integer  "address_id"
   end
 
+  create_table "ngos_causes", force: :cascade do |t|
+    t.integer "ngo_id"
+    t.integer "cause_id"
+  end
+
   create_table "opportunities", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -61,11 +71,9 @@ ActiveRecord::Schema.define(version: 20151116165918) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "opportunity_skills", force: :cascade do |t|
-    t.integer  "opportunity_id"
-    t.integer  "skill_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "opportunities_skills", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "skill_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -81,13 +89,4 @@ ActiveRecord::Schema.define(version: 20151116165918) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "ngo_causes", "causes"
-  add_foreign_key "ngo_causes", "ngos"
-  add_foreign_key "ngos", "addresses"
-  add_foreign_key "opportunities", "addresses"
-  add_foreign_key "opportunities", "causes"
-  add_foreign_key "opportunities", "ngos"
-  add_foreign_key "opportunity_skills", "opportunities"
-  add_foreign_key "opportunity_skills", "skills"
-  add_foreign_key "phones", "ngos"
 end

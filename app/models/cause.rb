@@ -1,5 +1,4 @@
 class Cause < ActiveRecord::Base
-	has_many :ngo_causes
- 	has_many :ngos, through: :ngo_causes 	
+	has_and_belongs_to_many :ngos 	
 	has_one :opportunity
 end

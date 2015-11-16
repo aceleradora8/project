@@ -1,4 +1,3 @@
 class Skill < ActiveRecord::Base
-	has_many :opportunity_skills
- 	has_many :opportunities, through: :opportunity_skills 	
+	has_and_belongs_to_many :opportunities
 end
