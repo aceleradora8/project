@@ -11,21 +11,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111161157) do
+ActiveRecord::Schema.define(version: 20151116161729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "schools", force: :cascade do |t|
-    t.string   "nome"
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address"
+    t.string   "cep"
+    t.string   "complement"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "causes", force: :cascade do |t|
     t.string   "name"
-    t.date     "birthday"
-    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ngo_causes", force: :cascade do |t|
+    t.integer  "ngo_id"
+    t.integer  "cause_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ngos", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "address_id"
+  end
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "address_id"
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.integer  "ngo_id"
+    t.integer  "cause_id"
+    t.integer  "vacancies"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "opportunity_skills", force: :cascade do |t|
+    t.integer  "opportunity_id"
+    t.integer  "skill_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string   "phone_number"
+    t.integer  "ngo_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
