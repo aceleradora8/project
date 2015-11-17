@@ -7,6 +7,8 @@
 
 ## Como configurar o banco
 
+### Ubuntu
+
 * Executar script-db.sh: `sh ./script-db.sh`
 * `bundle exec rake db:create`
 * `bundle exec rake db:migrate`
