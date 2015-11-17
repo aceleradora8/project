@@ -3,4 +3,5 @@ class Ngo < ActiveRecord::Base
 	has_many :phones
 	has_and_belongs_to_many :causes  	
 	has_one :opportunity
+	validates :address, :presence => true
 end
