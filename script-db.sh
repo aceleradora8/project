@@ -5,3 +5,7 @@ sudo apt-get update
 sudo apt-get install postgresql-common
 sudo apt-get install postgresql-9.3 libpq-dev
 
+sudo -u postgres psql -c "CREATE USER $USER;"	
+sudo -u postgres psql -c "ALTER ROLE $USER WITH CREATEDB;"
+
+
