@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116193500) do
+ActiveRecord::Schema.define(version: 20151117115803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,24 +38,12 @@ ActiveRecord::Schema.define(version: 20151116193500) do
     t.integer "cause_id"
   end
 
-  create_table "ngo_causes", force: :cascade do |t|
-    t.integer  "ngo_id"
-    t.integer  "cause_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ngos", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "address_id"
-  end
-
-  create_table "ngos_causes", force: :cascade do |t|
-    t.integer "ngo_id"
-    t.integer "cause_id"
   end
 
   create_table "opportunities", force: :cascade do |t|
@@ -89,4 +77,13 @@ ActiveRecord::Schema.define(version: 20151116193500) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "causes_ngos", "causes"
+  add_foreign_key "causes_ngos", "ngos"
+  add_foreign_key "ngos", "addresses"
+  add_foreign_key "opportunities", "addresses"
+  add_foreign_key "opportunities", "causes"
+  add_foreign_key "opportunities", "ngos"
+  add_foreign_key "opportunities_skills", "opportunities"
+  add_foreign_key "opportunities_skills", "skills"
+  add_foreign_key "phones", "ngos"
 end
