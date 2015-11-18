@@ -1,0 +1,8 @@
+
+<div class="field">
+	<%= form_tag(opportunities_path, :method => "get", :enforce_utf8 => false) do %>
+	<%= text_field_tag :text_search, params[:text_search] %>
+	<%= submit_tag "Pesquisar", :name => nil %>
+	<% end %>
+</div>
+
