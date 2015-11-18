@@ -1,3 +1,20 @@
 <p>Lista oportunidades</p>
 
 <%= render 'search_bar' %>
+<div class="container"> 
+	<div class="row">
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-9">
+				<%@OpportunitySearch.each do |opportunity| %>
+					<div class="opportunity">
+						<%=opportunity.title%>
+						<%=opportunity.description%>
+						<%=opportunity.address.city%>
+		 			</div>
+				<%end%>
+		  </div>
+		</div>
+</div>
+
+

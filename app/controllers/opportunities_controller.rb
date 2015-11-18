@@ -1,8 +1,11 @@
 class OpportunitiesController < ApplicationController
 
 	def index
-		text_search = params[:text_search] if params[:text_search] != nil
-		@OpportunitySearch = Opportunity.search("#{text_search}").to_a
+		if params[:text_search] == nil || params[:text_search] == ""
+			@OpportunitySearch = Opportunity.all
+		else
+			@OpportunitySearch = Opportunity.search("#{params[:text_search] }").to_a
+		end
 	end
 
 end
