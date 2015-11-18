@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151118161215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
