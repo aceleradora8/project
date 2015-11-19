@@ -6,6 +6,7 @@
 			<div class="col-sm-3">
 			</div>
 			<div class="col-sm-9">
+				<%= @not_found %>
 				<%@OpportunitySearch.each do |opportunity| %>
 					<div class="opportunity">
 						<%=opportunity.title%>

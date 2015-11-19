@@ -5,6 +5,9 @@ class OpportunitiesController < ApplicationController
 			@OpportunitySearch = Opportunity.all
 		else
 			@OpportunitySearch = Opportunity.search("#{params[:text_search] }").to_a
+			if @OpportunitySearch.empty? 
+				@not_found = "Sua pesquisa não encontrou resultados"
+			end
 		end
 	end
 
