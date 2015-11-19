@@ -14,14 +14,14 @@ skill_size = 5
 
 #populando enderecos para ongs
 (1..address_size).each do |index|
-	address = Address.new(address:"Rua Abcde",cep:"12123-123",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil")
-	address.save
+	address_ong = Address.new(address:"Rua Abcde",cep:"12123-123",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil")
+	address_ong.save
 end
 
 #populando enderecos para oportunidades
 (1..address_size).each do |index|
-	address = Address.new(address:"Rua oportunidades",cep:"12323-333",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil")
-	address.save
+	address_op = Address.new(address:"Rua oportunidades",cep:"12323-333",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil")
+	address_op.save
 end
 
 #populando causas
