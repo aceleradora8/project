@@ -9,8 +9,13 @@ class CreateOpportunities < ActiveRecord::Migration
       t.integer :ngo_id
       t.integer :cause_id
       t.integer :vacancies
-
       t.timestamps null: false
+	  t.references :address, index: true
+	  t.references :ngo, index: true
+	  t.references :causes, index: true
     end
+	add_foreign_key :opportunities, :addresses
+	add_foreign_key :opportunities, :ngos
+	add_foreign_key :opportunities, :causes
   end
 end

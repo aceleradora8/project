@@ -39,13 +39,18 @@ ActiveRecord::Schema.define(version: 20151118161215) do
     t.integer "cause_id"
   end
 
+  add_index "causes_ngos", ["cause_id"], name: "index_causes_ngos_on_cause_id", using: :btree
+  add_index "causes_ngos", ["ngo_id"], name: "index_causes_ngos_on_ngo_id", using: :btree
+
   create_table "ngos", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "address_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "address_id"
   end
+
+  add_index "ngos", ["address_id"], name: "index_ngos_on_address_id", using: :btree
 
   create_table "opportunities", force: :cascade do |t|
     t.string   "title"
@@ -58,7 +63,12 @@ ActiveRecord::Schema.define(version: 20151118161215) do
     t.integer  "vacancies"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "causes_id"
   end
+
+  add_index "opportunities", ["address_id"], name: "index_opportunities_on_address_id", using: :btree
+  add_index "opportunities", ["causes_id"], name: "index_opportunities_on_causes_id", using: :btree
+  add_index "opportunities", ["ngo_id"], name: "index_opportunities_on_ngo_id", using: :btree
 
   create_table "opportunities_skills", force: :cascade do |t|
     t.integer "opportunity_id"
@@ -82,10 +92,19 @@ ActiveRecord::Schema.define(version: 20151118161215) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "phones", ["ngo_id"], name: "index_phones_on_ngo_id", using: :btree
+
   create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "causes_ngos", "causes"
+  add_foreign_key "causes_ngos", "ngos"
+  add_foreign_key "ngos", "addresses"
+  add_foreign_key "opportunities", "addresses"
+  add_foreign_key "opportunities", "causes"
+  add_foreign_key "opportunities", "ngos"
+  add_foreign_key "phones", "ngos"
 end
