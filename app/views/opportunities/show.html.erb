@@ -1,39 +1,60 @@
 <div class="container">
-	<div>
-		<h1> <%= @Opportunity.title %> </h1>
-				
-	</div>
+	<div class="panel ">
+		<div >
+			<h1><%= @Opportunity.title %></h1>		
+		</div>
+		<div class="panel-body detailopp">
+			<div>
+				<p> <span class="bold">Descrição: </span> 
+				<br>
+				<span class="leftspace"><%= @Opportunity.description %></span> 
+				</p>
+			</div>
 
-	<div>
-		<p> Descrição: <%= @Opportunity.description %> </p>
-	</div>
+			<div>
+				<p> <span class="bold">Local: </span>  <br>
+				<span class="leftspace"><%= @Opportunity.address.print_address %> 
+				</p>
+			</div>
 
-	<div>
-		<p> Local: <%= @Opportunity.address.print_address %> </p>
-	</div>
+			<div>
+				<p> <span class="bold">Data de Início: </span> <%= @Opportunity.start_date %> </p>
+			</div>
 
-	<div>
-		<p> Data de Início: <%= @Opportunity.start_date %></p>
-	</div>
+			<div>
+				<p> <span class="bold">Data de Término: </span> <%= @Opportunity.finish_date %></p>
+			</div>
 
-	<div>
-		<p> Data de Término: <%= @Opportunity.finish_date %></p>
-	</div>
+			<div>
+				<p> <span class="bold">Ong: </span><%= @Opportunity.ngo.name %></p>
+			</div>
 
-	<div>
-		<p> Ong: <%= @Opportunity.ngo.name %></p>
-	</div>
+			<div>
+				<p> <span class="bold">Causa: </span><%= @Opportunity.cause.name %></p>
+			</div>
 
-	<div>
-		<p> Causa: <%= @Opportunity.cause.name %></p>
-	</div>
+			<div>
+				<p> <span class="bold">Vagas: </span><%= @Opportunity.vacancies %></p>
+			</div>
 
-	<div>
-		<p> Vagas: <%= @Opportunity.vacancies %></p>
-	</div>
+			<div>
+				<p> <span class="bold">Requisitos:</span> 
+				<span class="leftspace">
+				<ul>
+					<% @Opportunity.skills.each do |skill|%>
+						<li> <%= skill.name %> </li>
+					<% end %>
+				</ul>
 
-	<div>
-		<p> Requisitos: </p>
+				 </span>
+				</p>
+			</div>
+			<div class="alignright">
+				<a href="" class="label label-primary">Candidatar-se a vaga</a>
+			</div>
+
+		</div>
+
 	</div>
 </div>
 
