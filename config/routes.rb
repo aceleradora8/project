@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :opportunities
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+  root 'home#index'
 
-   get '/opportunities/:text_search' => 'opportunities#index'
-
-   get '/opportunities' => 'opportunities#index'
-
+  get '/opportunities' => 'opportunities#index'
+  get '/opportunities/:id' => 'opportunities#show'
+   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
