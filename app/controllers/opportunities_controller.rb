@@ -15,11 +15,13 @@ class OpportunitiesController < ApplicationController
 	def show
 	end
 
-
 	private 
-
 		def set_opportunity
-			@opportunity = Opportunity.find(params[:id])
+			if Opportunity.where(:id => params[:id]).present?
+				@Opportunity = Opportunity.find(params[:id])
+			else
+				redirect_to "/404"
+			end
 		end
 
 end

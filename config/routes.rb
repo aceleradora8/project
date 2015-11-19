@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
   root 'home#index'
 
   get '/opportunities' => 'opportunities#index'
   get '/opportunities/:id' => 'opportunities#show'
    
+#3 <@pauladbol, @lucassveloso, @andrimenegotto> - criando tela de detalhe das oportunidades
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
