@@ -3,19 +3,45 @@
 <%= render 'search_bar' %>
 <div class="container"> 
 	<div class="row">
-			<div class="col-sm-3">
+			<div class="col-lg-3">
+			<p>Filtros Barra</p>
 			</div>
-			<div class="col-sm-9">
-				<%= @not_found %>
-				<%@OpportunitySearch.each do |opportunity| %>
-					<div class="opportunity">
-						<%=opportunity.title%>
-						<%=opportunity.description%>
-						<%=opportunity.address.city%>
+			<div class="col-lg-9">
+				<% @opportunity_search.each do |opportunity| %>
+					<div class="row opportunity">
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-12">
+									<%= link_to "#{opportunity.title}", opportunity %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<span>Por: <%= opportunity.ngo.name %></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<%= opportunity.description %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<span><%= opportunity.address.city %>, 
+									<%= opportunity.address.state %> </span>
+								</div>
+									<div class="col-lg-4">
+										<%= opportunity.cause.name %>
+								</div>
+								<div class="col-lg-4">
+										<%opportunity.skills.to_a.each do |skill| %>
+											<%= skill.name %>
+										<%end%>
+								</div>
+							</div>
+						</div>
 		 			</div>
 				<%end%>
 		  </div>
 		</div>
 </div>
-
-
