@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 20151118161215) do
     t.integer "skill_id"
   end
 
+  add_index "opportunities_skills", ["opportunity_id"], name: "index_opportunities_skills_on_opportunity_id", using: :btree
+  add_index "opportunities_skills", ["skill_id"], name: "index_opportunities_skills_on_skill_id", using: :btree
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -106,5 +109,7 @@ ActiveRecord::Schema.define(version: 20151118161215) do
   add_foreign_key "opportunities", "addresses"
   add_foreign_key "opportunities", "causes"
   add_foreign_key "opportunities", "ngos"
+  add_foreign_key "opportunities_skills", "opportunities"
+  add_foreign_key "opportunities_skills", "skills"
   add_foreign_key "phones", "ngos"
 end
