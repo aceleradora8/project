@@ -1,7 +1,21 @@
+<div class ="container-fluid">
+	<div class ="row">
+		<div class = "col-lg-4">
+		</div>
+		<div class = "col-lg-4">
+			<div class="field" style="text-align: center">
+					<%= form_tag(opportunities_path, :method => "get", :enforce_utf8 => false) do %>
 
-<div class="field">
-	<%= form_tag(opportunities_path, :method => "get", :enforce_utf8 => false) do %>
-	<%= text_field_tag :text_search, params[:text_search] %>
-	<%= submit_tag "Pesquisar", :name => nil %>
-	<% end %>
+						<%= text_field_tag :text_search, params[:text_search], :class => "form-control" %>
+
+						<%= submit_tag "Pesquisar", :class => "btn", :name => nil %>
+
+
+						<% end %>
+
+			</div>
+		</div>
+		<div class = "col-lg-4">
+		</div>
+	</div>
 </div>

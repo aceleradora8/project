@@ -1,12 +1,10 @@
-<p>Lista oportunidades</p>
-
 <%= render 'search_bar' %>
 <div class="container"> 
-	<div class="row">
-			<div class="col-lg-3">
-			<p>Filtros Barra</p>
+	<div class="row ">
+			<div class="col-lg-4">
+		
 			</div>
-			<div class="col-lg-9">
+			<div class="col-lg-4">
 				<% @opportunity_search.each do |opportunity| %>
 					<div class="row opportunity">
 						<div class="col-lg-12">
@@ -42,6 +40,8 @@
 						</div>
 		 			</div>
 				<%end%>
-		  </div>
+		    </div>
+		    <div class="col-lg-4">
+		    </div>
 		</div>
 </div>
