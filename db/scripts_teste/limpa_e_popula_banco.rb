@@ -32,7 +32,7 @@ end
 
 #populando ongs
 (1..ngo_size).each do |index|
-	ngo = Ngo.new(name:"Patas Dadas #{index}",description:"descr",address_id:index)
+	ngo = Ngo.new(name:"Patas Dadas #{index}",description:"descr",address_id:index, email: "ongarium@ongarium.com")
 	ngo.save
 end
 
