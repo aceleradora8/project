@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/opportunities' => 'opportunities#index'
   get '/opportunities/:id' => 'opportunities#show'
-  get '/form' => 'opportunities#form_interest'
+  get '/opportunities/interest/:id' => 'opportunities#interest'
    
 #3 <@pauladbol, @lucassveloso, @andrimenegotto> - criando tela de detalhe das oportunidades
   # Example of regular route:

@@ -27,20 +27,17 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-3">
+							<div class="col-lg-">
 								<span><%= opportunity.address.city %>, 
 								<%= opportunity.address.state %> </span>
 							</div>
-								<div class="col-lg-3">
+								<div class="col-lg-4">
 									<%= opportunity.cause.name %>
 								</div>
-							<div class="col-lg-3">
+							<div class="col-lg-4">
 									<%opportunity.skills.to_a.each do |skill| %>
 										<%= skill.name %>
 									<%end%>
-							</div>
-							<div class="col-lg-3">
-								<button type="button" class="btn btn-default">Candidatar-se</button>
 							</div>
 						</div>
 		 			</div>

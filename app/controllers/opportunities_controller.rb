@@ -1,5 +1,5 @@
 class OpportunitiesController < ApplicationController
-	before_action :set_opportunity, only: [:show]
+	before_action :set_opportunity, only: [:show,:interest]
 
 	def index
 		if params[:text_search] == nil || params[:text_search] == ""
@@ -13,6 +13,10 @@ class OpportunitiesController < ApplicationController
 	end
 
 	def show
+	end
+
+	def interest
+
 	end
 
 	private 
