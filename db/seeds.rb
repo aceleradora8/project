@@ -15,6 +15,7 @@ cause_size = 15
 ngo_size = 15
 opportunity_size = 15
 skill_size = 15
+volunteer_size = 15
 
 #populando enderecos para ongs
 (1..address_size).each do |index|
@@ -58,6 +59,12 @@ end
 	volunteer.save
 end
 
+#populando interesses(voluntarios_oportunidades)
+#(1..interest_size).each do |index|
+#	interest = Interest.new(volunteer_id:index, opportunity_id:index+1)
+#	interest.save
+#end
+
 #buscando oportunidade do banco
 op1 = Opportunity.first
 
@@ -66,8 +73,9 @@ Skill.all.each do |skill|
 	op1.skills.push(skill) 
 end
 
-#criando relacao oportunidade e voluntário
+#criando relacao oportunidade e voluntário (na interest)
 vo = Volunteer.first
-op1.volunteers.push(vo) 
+
+interesse = Interest.create!(volunteer_id:vo.id,opportunity_id:op1.id,confirmed: false,presence: nil)
 
 #Comando para executar o script: rake db:seed

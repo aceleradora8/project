@@ -3,7 +3,7 @@ class Opportunity < ActiveRecord::Base
 	belongs_to :ngo
 	belongs_to :cause
 	has_and_belongs_to_many :skills
-	has_and_belongs_to_many :volunteers
+	has_many :interests
 	validates :address, :presence => true
 	validates :ngo, :presence => true
 	validates :cause, :presence => true

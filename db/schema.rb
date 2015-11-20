@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120123026) do
+ActiveRecord::Schema.define(version: 20151120165702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20151120123026) do
 
   add_index "causes_ngos", ["cause_id"], name: "index_causes_ngos_on_cause_id", using: :btree
   add_index "causes_ngos", ["ngo_id"], name: "index_causes_ngos_on_ngo_id", using: :btree
+
+  create_table "interests", force: :cascade do |t|
+    t.integer  "volunteer_id"
+    t.integer  "opportunity_id"
+    t.boolean  "confirmed"
+    t.boolean  "presence"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "ngos", force: :cascade do |t|
     t.string   "name"
@@ -78,14 +87,6 @@ ActiveRecord::Schema.define(version: 20151120123026) do
 
   add_index "opportunities_skills", ["opportunity_id"], name: "index_opportunities_skills_on_opportunity_id", using: :btree
   add_index "opportunities_skills", ["skill_id"], name: "index_opportunities_skills_on_skill_id", using: :btree
-
-  create_table "opportunities_volunteers", force: :cascade do |t|
-    t.integer "opportunity_id"
-    t.integer "volunteer_id"
-  end
-
-  add_index "opportunities_volunteers", ["opportunity_id"], name: "index_opportunities_volunteers_on_opportunity_id", using: :btree
-  add_index "opportunities_volunteers", ["volunteer_id"], name: "index_opportunities_volunteers_on_volunteer_id", using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
@@ -129,7 +130,5 @@ ActiveRecord::Schema.define(version: 20151120123026) do
   add_foreign_key "opportunities", "ngos"
   add_foreign_key "opportunities_skills", "opportunities"
   add_foreign_key "opportunities_skills", "skills"
-  add_foreign_key "opportunities_volunteers", "opportunities"
-  add_foreign_key "opportunities_volunteers", "volunteers"
   add_foreign_key "phones", "ngos"
 end
