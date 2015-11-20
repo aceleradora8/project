@@ -1,17 +1,15 @@
 <div class ="container-fluid">
 	<div class ="row">
-		<%= form_tag do %>
-			<%= label_tag(:q, "Nome:") %>
-			<%= text_field_tag(:q) %>
-			<%= submit_tag "Candidatar-se", :class => "btn btn-default btn-lg btn-block" %>	
+		<%= form_for '/volunteer' do |form| %>
+		  <%= form.label :nome %>
+		  <%= form.text_field :name %>
+		  <%= form.label :email %>
+		  <%= form.text_field :email %>
+		  <%= form.label :telefone %>
+		  <%= form.text_field :phone %>
+		  <%= form.label :observações %>
+		  <%= form.text_field :observations %>
+		  <%= form.submit "Candidatar-se", :class => "btn btn-default btn-lg btn-block" %>
 		<% end %>
 	</div>
 </div>
-
-
-
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  
-  
-<% end %>
