@@ -1,17 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Address.delete_all
-Cause.delete_all
-Ngo.delete_all
-Opportunity.delete_all
-Phone.delete_all
-Skill.delete_all
+Rake::Task["db:reset"]
 
 ##variaveis
 address_size = 5
@@ -19,6 +6,7 @@ cause_size = 5
 ngo_size = 5
 opportunity_size = 5
 skill_size = 5
+volunteer_size = 5
 
 #populando enderecos para ongs
 (1..address_size).each do |index|
@@ -56,11 +44,22 @@ end
 	skill.save
 end
 
-#criando relacao  oportunidade e skill
+#populando volunteers
+(1..volunteer_size).each do |index|
+	volunteer = Volunteer.new(email:"email@ongarium", name:"Fulano #{index}", phone:"123456", observations:"Sou um cara legal!")
+	volunteer.save
+end
+
+#buscando oportunidade do banco
 op1 = Opportunity.first
 
+#criando relacao  oportunidade e skill
 Skill.all.each do |skill|
 	op1.skills.push(skill) 
 end
 
-#Comando para executar o script: load './db/scripts_teste/limpa_e_popula_banco.rb'
+#criando relacao oportunidade e voluntário
+vo = Volunteer.first
+op1.volunteers.push(vo) 
+
+#Comando para executar o script: rake db:seed
