@@ -1,5 +1,17 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe OpportunitiesController, type: :controller do
+# describe OpportunitiesController, type: :controller do
+#     describe "#index" do
+#         before :each do
+#             @opportunitiesController = OpportunitiesController.new
+#         end
 
-end
+#         it "returns all opportunities when text_search is nil" do
+#             oppotunity = double(Opportunity)
+#             allow(oppotunity).to receive(:all) { "all opportunities" }
+#               get :index, :text_search => "teste"
+#             expect(oppotunity.all).to be == "all opportunities"
+#         end
+#     end
+
+# end
