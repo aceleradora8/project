@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.panel{
+	margin-top: 25px;
+}
 
 .detailopp {
 	background-color: #f0f0f0;
@@ -20,9 +23,8 @@
 	font-size: 20px;
 }
 
-.opportunity {
-	padding: 10px;
-	margin-bottom: 20px;
+.opportunity-title {
+	margin-bottom: 15px;
 }
 
 .opportunity-skill-tag {
@@ -38,4 +40,44 @@
 .opportunity-button-detail{
 	color: red;
 	background-color: #000;
+}
+
+.description {
+	width: 250px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+}
+
+.oppt-ngo {
+	font-weight: bold;
+}
+
+
+.btn.outline {
+    background: none;
+    padding: 5px 10px;
+}
+
+.btn-primary.outline {
+	background: none;
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+    background: none;
+}
+
+.link-style{
+	color: #0099cc;
+}
+
+.link-style:hover{
+	color: #33a6cc;
+	text-decoration: none;
 }
