@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Search
 gem 'pg_search'
 
+#Pagination
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 # Heroku's gem
 gem 'rails_12factor', group: :production
 

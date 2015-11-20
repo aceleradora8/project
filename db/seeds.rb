@@ -9,12 +9,12 @@
 Rake::Task["db:reset"]
 
 ##variaveis
-address_size = 5
-cause_size = 5
-ngo_size = 5
-opportunity_size = 5
-skill_size = 5
-volunteer_size = 5
+
+address_size = 15
+cause_size = 15
+ngo_size = 15
+opportunity_size = 15
+skill_size = 15
 
 #populando enderecos para ongs
 (1..address_size).each do |index|
