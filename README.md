@@ -1,4 +1,4 @@
-# ongarium-rails
+# ongarium-rails [![Build Status](https://snap-ci.com/aceleradora8/ongarium-rails/branch/master/build_image)](https://snap-ci.com/aceleradora8/ongarium-rails/branch/master)
 
 ## Criando o projeto
 
