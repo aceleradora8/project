@@ -2,48 +2,42 @@
 <div class="container"> 
 
 	<div class="row ">
-			<div class="col-lg-4">
-		
-			</div>
-			<div class="col-lg-4">
-				<% @opportunity_search.each do |opportunity| %>
-					<div class="row opportunity">
-						<div class="col-lg-12">
-							<div class="row">
-								<div class="col-lg-12">
-									<%= link_to "#{opportunity.title}", opportunity %>
-								</div>
-
+		<div class="col-lg-12">
+			<% @opportunity_search.each do |opportunity| %>
+				<div class="panel">
+					<div class="row panel-body detailopp">
+						<div class="row">
+							<div class="col-lg-12 opportunity-title">
+								<h3><%=opportunity.title%></h3>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-12">
-								<span>Por: <%= opportunity.ngo.name %></span>
+							<div class="col-lg-12 oppt-ngo">
+								<span>Por <%= opportunity.ngo.name %></span>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-12">
+							<div class="col-lg-12 description">
 								<%= opportunity.description %>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-">
+							<div class="col-lg-4">
 								<span><%= opportunity.address.city %>, 
 								<%= opportunity.address.state %> </span>
 							</div>
-								<div class="col-lg-4">
-									<%= opportunity.cause.name %>
-								</div>
 							<div class="col-lg-4">
-									<%opportunity.skills.to_a.each do |skill| %>
-										<%= skill.name %>
-									<%end%>
+								<%= opportunity.cause.name %>
+							</div>
+							<div class="col-lg-4">
+								<div class="alignright btn btn-primary outline col-lg-3">
+		 							<%= link_to "Ver mais", opportunity, :class=>"link-style" %>
+		 						</div>
 							</div>
 						</div>
 		 			</div>
-				<%end%>
-		    </div>
-		    <div class="col-lg-4">
-		    </div>
+		 		</div>
+			<%end%>
 		</div>
+	</div>
 </div>
