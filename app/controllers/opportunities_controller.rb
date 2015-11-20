@@ -15,8 +15,12 @@ class OpportunitiesController < ApplicationController
 	def show
 	end
 
-	def interest
 
+	def interest
+	end
+
+
+	def mailer
 	end
 
 	private 
