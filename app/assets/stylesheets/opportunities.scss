@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.opportunity{
-	border-color:#ccc;
-	border: solid 1px;
-	margin: 10px 0 0 5px;
-}
 
 .detailopp {
 	background-color: #f0f0f0;
@@ -23,4 +18,24 @@
 .alignright {
 	float: right !important;
 	font-size: 20px;
+}
+
+.opportunity {
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.opportunity-skill-tag {
+	background-color: #BA4A3E;
+	color: #FFF;
+	padding: 2px;
+}
+
+.opportunity-title {
+	font-size: 20px;
+}
+
+.opportunity-button-detail{
+	color: red;
+	background-color: #000;
 }
