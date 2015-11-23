@@ -19,7 +19,7 @@ class OpportunitiesController < ApplicationController
 	private 
 		def set_opportunity
 			if Opportunity.where(:id => params[:id]).present?
-				@Opportunity = Opportunity.find(params[:id])
+				@opportunity = Opportunity.find(params[:id])
 			else
 				redirect_to "/404"
 			end

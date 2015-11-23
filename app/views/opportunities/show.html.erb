@@ -1,47 +1,47 @@
 <div class="container">
 	<div class="panel ">
 		<div >
-			<h1><%= @Opportunity.title %></h1>		
+			<h1><%= @opportunity.title %></h1>		
 		</div>
 		<div class="panel-body detailopp">
 			<div>
 				<p> <span class="bold">Descrição: </span> 
 				<br>
-				<span class="leftspace"><%= @Opportunity.description %></span> 
+				<span class="leftspace"><%= @opportunity.description %></span> 
 				</p>
 			</div>
 
 			<div>
 				<p> <span class="bold">Local: </span>  <br>
-				<span class="leftspace"><%= @Opportunity.address.print_address %> 
+				<span class="leftspace"><%= @opportunity.address.print_address %> 
 				</p>
 			</div>
 
 			<div>
-				<p> <span class="bold">Data de Início: </span> <%= @Opportunity.start_date %> </p>
+				<p> <span class="bold">Data de Início: </span> <%= @opportunity.start_date %> </p>
 			</div>
 
 			<div>
-				<p> <span class="bold">Data de Término: </span> <%= @Opportunity.finish_date %></p>
+				<p> <span class="bold">Data de Término: </span> <%= @opportunity.finish_date %></p>
 			</div>
 
 			<div>
-				<p> <span class="bold">Ong: </span><%= @Opportunity.ngo.name %></p>
+				<p> <span class="bold">Ong: </span><%= @opportunity.ngo.name %></p>
 			</div>
 
 			<div>
-				<p> <span class="bold">Causa: </span><%= @Opportunity.cause.name %></p>
+				<p> <span class="bold">Causa: </span><%= @opportunity.cause.name %></p>
 			</div>
 
 			<div>
-				<p> <span class="bold">Vagas: </span><%= @Opportunity.vacancies %></p>
+				<p> <span class="bold">Vagas: </span><%= @opportunity.vacancies %></p>
 			</div>
 
 			<div>
 				<p> <span class="bold">Requisitos:</span> 
 				<span class="leftspace">
 				<ul>
-					<% @Opportunity.skills.each do |skill|%>
+					<% @opportunity.skills.each do |skill|%>
 						<li> <%= skill.name %> </li>
 					<% end %>
 				</ul>
@@ -49,12 +49,7 @@
 				 </span>
 				</p>
 			</div>
-			<div class="alignright">
-			 	<%= link_to "Candidatar-se", new_interest_path, class:"btn btn-primary outline"%>
-			</div>
-
+			<%= link_to "Candidatar-se a vaga", {controller: "opportunities", action: "interest", id: @opportunity}, class: "link-style btn btn-primary outline pull-right" %>
 		</div>
-
 	</div>
 </div>
-

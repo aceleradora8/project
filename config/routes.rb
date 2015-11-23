@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
    
-#3 <@pauladbol, @lucassveloso, @andrimenegotto> - criando tela de detalhe das oportunidades
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
