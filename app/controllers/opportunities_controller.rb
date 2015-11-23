@@ -3,9 +3,9 @@ class OpportunitiesController < ApplicationController
 
 	def index
 		if params[:text_search] == nil || params[:text_search] == ""
-			@opportunity_search = Opportunity.all.page params[:page]
+			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause).page params[:page]
 		else
-			@opportunity_search = Opportunity.search("#{params[:text_search] }").page params[:page]
+			@opportunity_search = Opportunity.search("#{params[:text_search] }").includes(:address,:ngo,:cause).page params[:page]
 			if @opportunity_search.empty? 
 				@not_found = "Sua pesquisa não encontrou resultados"
 			end
