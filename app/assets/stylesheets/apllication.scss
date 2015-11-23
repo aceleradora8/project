@@ -1,0 +1,28 @@
+html, body {
+   height: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+section {
+   margin-top: 60px;
+   min-height: 100%;
+   color: gray;
+   
+   height: -200px;
+}
+
+footer {
+   background-color: gray;
+   height: 200px;
+}
+
+.home {
+	min-height: 100%;
+}
+
+.btn-search {
+	margin-top: 10px;
+}
