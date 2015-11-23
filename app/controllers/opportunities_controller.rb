@@ -13,11 +13,6 @@ class OpportunitiesController < ApplicationController
 	end
 
 
-	def interest
-		@volunteer = Volunteer.new(params[:volunteer])
-	end
-
-
 	def mailer
 	end
 
