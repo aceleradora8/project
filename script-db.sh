@@ -21,7 +21,5 @@ sudo -u postgres psql -c "ALTER ROLE $USER WITH CREATEDB;"
 
 # Installing unaccent
 #create extension unaccent schema pg_catalog;
-sudo -u postgres psql -c "\c ongarium-rails_test\n CREATE EXTENSION IF NOT EXISTS unaccent;"
-sudo -u postgres psql -c "\c ongarium-rails_development\n CREATE EXTENSION IF NOT EXISTS unaccent;"
-
+sudo -u postgres psql -c "CREATE EXTENSION unaccent schema pg_catalog;"
 
