@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="panel ">
+	<p id="notice" class="success"><%= notice %></p>
 		<div >
 			<h1><%= @opportunity.title %></h1>		
 		</div>
@@ -49,7 +50,12 @@
 				 </span>
 				</p>
 			</div>
-			<%= link_to "Candidatar-se a vaga", {controller: "opportunities", action: "interest", id: @opportunity}, class: "link-style btn btn-primary outline pull-right" %>
+			<div class="alignright">
+			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline"%>
+			</div>
+
 		</div>
+
 	</div>
 </div>
+
