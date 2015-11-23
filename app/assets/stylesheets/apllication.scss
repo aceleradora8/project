@@ -1,17 +1,16 @@
 html, body {
-   height: 100%;
+  height: 100%;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 section {
-   margin-top: 60px;
-   min-height: 100%;
-   color: gray;
-   
-   height: -200px;
+  margin-top: 60px;
+  min-height: 100%;
+  color: gray;
+  height: -200px;
 }
 
 footer {
@@ -28,9 +27,13 @@ footer {
 }
 
 .link-footer a:link {
-    color: white;
+  color: white;
 }
+
 .link-footer a:visited {
-    color: white;
+  color: white;
 }
-ul {list-style-type: none;}
+
+ul { 
+  list-style-type: none; 
+}

@@ -1,4 +1,5 @@
 class VolunteersController < ApplicationController
+	
 	def index
 		@volunteer = Volunteer.all
 	end
@@ -7,7 +8,6 @@ class VolunteersController < ApplicationController
 	end
 
 	def show
-		
 	end
 
 	def create
@@ -23,6 +23,6 @@ class VolunteersController < ApplicationController
 		def volunteer_params
 			params.require(:volunteer).permit(:name, :email, :phone, :observations)	
 		end
-
+		
 end
 

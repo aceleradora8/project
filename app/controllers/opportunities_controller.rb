@@ -1,4 +1,5 @@
 class OpportunitiesController < ApplicationController
+	
 	before_action :set_opportunity, only: [:show,:interest]
 
 	def index
@@ -12,6 +13,9 @@ class OpportunitiesController < ApplicationController
 	def show
 	end
 
+	def interest
+		@volunteer = Volunteer.new(params[:volunteer])
+	end
 
 	def mailer
 	end
