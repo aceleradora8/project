@@ -17,6 +17,7 @@ class OpportunitiesController < ApplicationController
 
 
 	def interest
+		@volunteer = Volunteer.new(params[:volunteer])
 	end
 
 
