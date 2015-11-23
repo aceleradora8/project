@@ -3,7 +3,14 @@
 
 	<div class="row ">
 		<div class="col-lg-12">
-			<% @opportunity_search.each do |opportunity| %>
+			<%if @opportunity_search.empty? %>
+				<div class = "panel">
+					<div class="row panel-body detailopp">
+						<h3> <%="Sua pesquisa não encontrou resultados"%> </h3>
+					</div>
+				</div>
+			<%end%>
+		<% @opportunity_search.each do |opportunity| %>
 				<div class="panel">
 					<div class="row panel-body detailopp">
 						<div class="row">
@@ -43,27 +50,4 @@
 	<div class="alignright">
 	<%= paginate @opportunity_search, :theme => 'twitter-bootstrap-3' %>
 	</div>
-	<!-- <div class="row"> 
-		<nav>
-		  <ul class="pagination alignright">
-		    <li class="disabled">
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
-	</div> -->
-
-
 </div>

@@ -27,12 +27,6 @@ describe OpportunitiesController, type: :controller do
 
             expect(assigns(:opportunity_search)).to match_array([@opportunity1])
         end
-
-        it "returns the opportunity when text_search matches the title" do
-            get :index, text_search: "Opportunity3"
-
-            expect(assigns(:not_found)).to be == "Sua pesquisa não encontrou resultados"
-        end
     end
 
 end
