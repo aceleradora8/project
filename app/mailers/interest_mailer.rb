@@ -1,18 +1,10 @@
 class InterestMailer < ApplicationMailer
 
-	@volunteer = nil
-	@opportunity = nil
-	@ngo = nil
+	default from: 'centrodeinovacaodememes@gmail.com'
 
-	def volunteeremail(volunteer, opportunity)
+	def interest_email(volunteer, opportunity)
 		@volunteer = volunteer
 		@opportunity = opportunity
-		mail(to: @volunteer.email, subject: 'Confirmamos seu interesse na vaga #{@opportunity.title}')
-		ngoemail()
-	end
-
-	def ngoemail()
-		@ngo = @opportunity.ngo
-		mail(to: @ngo.email, subject: 'Um voluntário se interessou por sua vaga: #{@opportunity.title}')
+		mail(to: @volunteer.email, subject: "Confirmamos seu interesse na vaga #{@volunteer.name}")
 	end
 end
