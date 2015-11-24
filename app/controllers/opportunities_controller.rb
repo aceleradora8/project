@@ -3,6 +3,9 @@ class OpportunitiesController < ApplicationController
 	before_action :set_opportunity, only: [:show,:interest]
 
 	def index
+		@causes_all = Causes.all()
+		@address_all = Address.all()
+		
 		if params[:text_search] == nil || params[:text_search] == ""
 			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause).page params[:page]
 		else
@@ -15,10 +18,9 @@ class OpportunitiesController < ApplicationController
 
 	def filter(params, already_checked)
 		if(params.keys[0] == :address && already_checked == true)
-			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.address_id == params[:address]}
-			
+			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.address.city == params[:address]}		
 		elsif(params.keys[0] == :cause && already_checked == true)
-			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.cause_id == params[:cause]}
+			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.cause == params[:cause]}
 			
 		elsif(already_checked == false)
 			@filtered_opportunity = @filtered_opportunity.push(@opportunity_search.filter_by(params))

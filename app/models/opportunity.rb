@@ -15,8 +15,6 @@ class Opportunity < ActiveRecord::Base
 		 	:address => [:neighbourhood, :city, :state], 
 		 	:cause => [:name],
 		 	:skills => [:name] }
-		 	#:ignoring => :accents (Ver com o viola!)
-
 end
 
 
