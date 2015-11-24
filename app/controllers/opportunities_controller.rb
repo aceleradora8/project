@@ -43,7 +43,7 @@ class OpportunitiesController < ApplicationController
 		end
 
 		def set_causesandcitys
-			@causes_all = Causes.all()
+			@causes_all = Cause.all()
 			@address_all = Address.all()
 		end
 
