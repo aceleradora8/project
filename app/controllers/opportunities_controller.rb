@@ -1,11 +1,9 @@
 class OpportunitiesController < ApplicationController
 	
 	before_action :set_opportunity, only: [:show,:interest]
+	before_action :set_causesandcitys
 
 	def index
-		@causes_all = Cause.all()
-		@address_all = Address.all()
-
 		if params[:text_search] == nil || params[:text_search] == ""
 			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause).page params[:page]
 		else
@@ -42,6 +40,11 @@ class OpportunitiesController < ApplicationController
 			else
 				redirect_to "/404"
 			end
+		end
+
+		def set_causesandcitys
+			@causes_all = Causes.all()
+			@address_all = Address.all()
 		end
 
 end
