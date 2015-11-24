@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/filter' => 'opportunities#filter'
+  get 'email' => 'volunteer_mailer#volunteer_email'
+
 
    
   # Example of regular route:

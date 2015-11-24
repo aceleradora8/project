@@ -11,7 +11,7 @@ def create
 
 	respond_to do |format|
 		if @interest.save
-			InterestMailer.interest_email(@interest.volunteer, @interest.opportunity).deliver_later
+			VolunteerMailer.volunteer_email(@interest.volunteer, @interest.opportunity).deliver_later
 			NgoMailer.ngo_email(@interest.volunteer, @interest.opportunity).deliver_later
 			format.html { redirect_to @interest.opportunity, notice: 'Interesse registrado com sucesso' }
 		else
