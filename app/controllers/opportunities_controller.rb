@@ -13,6 +13,19 @@ class OpportunitiesController < ApplicationController
 	def show
 	end
 
+	def filter(params, already_checked)
+		if(params.keys[0] == :address && already_checked == true)
+			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.address_id == params[:address]}
+			
+		elsif(params.keys[0] == :cause && already_checked == true)
+			@filtered_opportunity = @filtered_opportunity.delete_if {|x| x.cause_id == params[:cause]}
+			
+		elsif(already_checked == false)
+			@filtered_opportunity = @filtered_opportunity.push(@opportunity_search.filter_by(params))
+			
+		end
+	end
+
 	def interest
 		@volunteer = Volunteer.new(params[:volunteer])
 	end

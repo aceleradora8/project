@@ -9,7 +9,7 @@ class Opportunity < ActiveRecord::Base
 	validates :cause, :presence => true
 
 	include PgSearch
-		 pg_search_scope :search,  :against =>  [:title,:description], 
+		 pg_search_scope :search, :against =>  [:title,:description], 
 		 :associated_against =>  { 
 		 	:ngo => [:name], 
 		 	:address => [:neighbourhood, :city, :state], 
