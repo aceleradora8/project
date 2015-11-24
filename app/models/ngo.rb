@@ -7,5 +7,5 @@ class Ngo < ActiveRecord::Base
 
 
 	include PgSearch
-		 pg_search_scope :search, :against => [:name,:description], :ignoring => :accents
+		 pg_search_scope :search, :against => [:name,:description] #(:ignoring => :accents)
 end
