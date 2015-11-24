@@ -3,9 +3,9 @@ class OpportunitiesController < ApplicationController
 	before_action :set_opportunity, only: [:show,:interest]
 
 	def index
-		@causes_all = Causes.all()
+		@causes_all = Cause.all()
 		@address_all = Address.all()
-		
+
 		if params[:text_search] == nil || params[:text_search] == ""
 			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause).page params[:page]
 		else
