@@ -1,0 +1,55 @@
+<table cellpadding="0" cellpadding="0" width="100%">
+<tbody>
+	<tr style="background: transparent linear-gradient(90deg, #8E7ffC, #7BADEB); color: #fff; text-align: center; background-color: #8E7ffC;">
+		<td>
+			<table id="container" width="640" align="center" color:"#fff" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed"; width: 640px; min-width: 640px; margin: 10px auto; border: none;>
+				<tbody>
+					<tr>
+						<td>
+							<img src="http://www.denybonfante.com/files/Logo%20Deny%20Bonfante%20-%20Branco.PNG" width="200px">
+						</td>
+					</tr>
+
+					<tr style="text-align: left;">
+						<td>	
+							<br>						
+							<p style="font-size:16px;"> Olá <%= @volunteer.name %>, agradecemos seu interesse de voluntariado da Ong <b><%= @opportunity.ngo.name %></b>! </p>			
+						</td>
+					</tr>
+					<tr style="text-align: left;">
+						<td>
+							<p style="font-size:14px;"><b><%= @opportunity.title %></b> </p>
+							<p style="font-size:14px;"><%= @opportunity.description %> </p>
+							<p style="font-size:14px;"> <b>Endereço: </b><%= @opportunity.address.print_address %></p>
+							<p style="font-size:14px;"><b>Data de Início: </b> <%= @opportunity.start_date %>   |   <b>Data de Término: </b> <%= @opportunity.finish_date %> </p>
+							<br>
+						</td>
+					</tr> 
+					<tr>
+						<td>
+							<table width="1" align="center" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; border-spacing: 0px; max-width: 270px; min-width: 180px; margin: 0 auto; border: medium none;" >
+								<tbody>
+									<tr>
+										<td valign="middle" height="35" align="center" bgcolor="#fff" style="border-radius: 4px; text-align: center;">
+											<a style="color: #7BADEB; text-decoration: none; display: inline-block; font-size: 16px; line-height: 40px; max-width: 210px; min-width: 90px;" href="#"> <b> Mais Detalhes</b></a>
+
+										</td>	
+									</tr>
+										
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					<tr> 
+						<td>
+						<br>
+							<p style="font-size:16px; text-align: left;"> Aguarde para mais informações da Ong <%= @opportunity.ngo.name %> </p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	
+	</tbody>
+</table>
