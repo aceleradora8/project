@@ -88,66 +88,66 @@ skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
 #populando oportunidades
-opportunity = Opportunity.new(title:"Evento de doação de cachorros e gatos",description:"texto de descrição",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Evento de doação de cachorros e gatos",description:"Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Ajuda com grupo de estudos",description:"texto de descrição",address_id:2,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Ajuda com grupo de estudos",description:"Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper.",address_id:2,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(6))
 opportunity.skills.push(Skill.find(8))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"texto de descrição",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer Ispecialista im mé intende tudis nuam golada, vinho, uiski, carirí, rum da jamaikis, só num pode ser mijis. Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Ajudar moradores de rua",description:"texto de descrição",address_id:3,ngo_id:1,cause_id:3,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Ajudar moradores de rua",description:"Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Etiam ultricies tincidunt ligula, sed accumsan sapien mollis et. Delegadis gente finis.",address_id:3,ngo_id:1,cause_id:3,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(3))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"texto de descrição",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravida. Quisque vitae metus id massa tincidunt iaculis sed sed purus. Vestibulum viverra lobortis faucibus. Vestibulum et turpis.",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Cursos voluntários de computação",description:"texto de descrição",address_id:2,ngo_id:4,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Cursos voluntários de computação",description:"Vitis e adipiscing enim. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justo enim. Atirei o pau no gatis.",address_id:2,ngo_id:4,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(1))
 opportunity.skills.push(Skill.find(6))
 opportunity.skills.push(Skill.find(8))
 
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"texto de descrição",address_id:4,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Nullam pellentesque metus nec libero laoreet vitae vestibulum ante ultricies. Phasellus non mollis purus. Integer vel lacus dolor. Proin eget mi nec mauris convallis ullamcorper vel ac nulla. Nulla et semper metus.",address_id:4,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Precisa-se de professor de Inglês",description:"texto de descrição",address_id:5,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Precisa-se de professor de Inglês",description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.",address_id:5,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(8))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"texto de descrição",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Ajuda com construção de casas",description:"texto de descrição",address_id:7,ngo_id:6,cause_id:7,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Ajuda com construção de casas",description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.",address_id:7,ngo_id:6,cause_id:7,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(4))
 opportunity.skills.push(Skill.find(9))
 
-opportunity = Opportunity.new(title:"Precisa-se de ajuda para limpar terreno",description:"texto de descrição",address_id:8,ngo_id:6,cause_id:7,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Precisa-se de ajuda para limpar terreno",description:"Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",address_id:8,ngo_id:6,cause_id:7,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(9))
 
 
-opportunity = Opportunity.new(title:"Precisa-se de profissional de saúde",description:"texto de descrição",address_id:9,ngo_id:3,cause_id:8,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Precisa-se de profissional de saúde",description:"Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.",address_id:9,ngo_id:3,cause_id:8,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(2))
 
-opportunity = Opportunity.new(title:"Precisa-se de cozinheiro",description:"texto de descrição",address_id:10,ngo_id:2,cause_id:6,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Precisa-se de cozinheiro",description:"Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est.",address_id:10,ngo_id:2,cause_id:6,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(3))
 
