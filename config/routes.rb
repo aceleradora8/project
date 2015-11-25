@@ -13,13 +13,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/filter' => 'opportunities#filter'
-<<<<<<< HEAD
   #get 'email' => 'ngo_mailer#ngo_email'
+  #get 'email' => 'volunteer_mailer#volunteer_email'
 
-
-=======
-  get 'email' => 'volunteer_mailer#volunteer_email'
->>>>>>> #5 <@feliperdius, @mibaratto> Criando formulario de cadastro
    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
