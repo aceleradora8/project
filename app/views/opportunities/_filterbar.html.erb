@@ -22,3 +22,28 @@
 		</div>
 	</div>
 </div>
+
+
+<script>
+
+$( document ).ready(function() {
+  $(".cb_cause").on("change", function() {
+
+      var causeList = []
+
+      $("input.cb_cause:checked").each(function(){
+    		causeList.push($(this).val());
+		});
+
+    $.get( 
+      "/opportunities", 
+      { cause: causeList }, 
+      function(data) {
+        $("#opportunities").replaceWith(data)  
+        }
+    );
+
+  });
+});
+
+</script>
