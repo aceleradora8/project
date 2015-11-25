@@ -1,2 +1,67 @@
-<p> Oi ONG </p>
-<p><%= @ngo.name %></p>
+<table cellpadding="0" cellpadding="0" width="100%">
+<tbody>
+	<tr style="background: transparent linear-gradient(90deg, #8E7ffC, #7BADEB); color: #fff; text-align: center; background-color: #8E7ffC;">
+		<td>
+			<table id="container" width="640" align="center" color:"#fff" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed"; width: 640px; min-width: 640px; margin: 10px auto; border: none;>
+				<tbody>
+					<tr>
+						<td height="35">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://www.denybonfante.com/files/Logo%20Deny%20Bonfante%20-%20Branco.PNG" width="200px">
+						</td>
+					</tr>
+
+					<tr style="text-align: left;">
+						<td>	
+							<br>						
+							<p style="font-size:16px;"><%= @opportunity.ngo.name %>, recebemos um interessado na oportunidade: <b><%= @opportunity.title %></b>, confira abaixo os dados do candidato a vaga:</p>			
+						</td>
+					</tr>
+					<tr style="text-align: left;">
+						<td>
+							<p style="font-size:14px;"><b>Nome: </b> <%= @volunteer.name %></p>
+							<p style="font-size:14px;"><b>Email: </b> <%= @volunteer.email %></p>
+							<p style="font-size:14px;"><b>Telefone: </b> <%= @volunteer.phone %></p>
+							<p style="font-size:14px;"><b>Observações: </b> <%= @volunteer.observations %></p>
+							<br>
+
+							<p style="font-size:16px;"><b>Resumo da Oportunidade:</b></p>
+							<p style="font-size:14px;"><b><%= @opportunity.title %></b> </p>
+							<p style="font-size:14px;"><%= @opportunity.description %> </p>
+							<p style="font-size:14px;"> <b>Endereço: </b><%= @opportunity.address.print_address %></p>
+
+							<p style="font-size:14px;"><b>Data de Início: </b> <%= @opportunity.start_date %>   |   <b>Data de Término: </b> <%= @opportunity.finish_date %> </p>
+							<br>
+						</td>
+					</tr> 
+					<tr>
+						<td>
+							<table width="1" align="center" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; border-spacing: 0px; max-width: 270px; min-width: 180px; margin: 0 auto; border: medium none;" >
+								<tbody>
+									<tr>
+										<td valign="middle" height="35" align="center" bgcolor="#fff" style="border-radius: 4px; text-align: center;">
+											<span style="color: #7BADEB;  text-decoration: none; display: inline-block; font-size: 16px; line-height: 40px; max-width: 210px; min-width: 90px;"><b>
+												<%= link_to "Mais Detalhes", @opportunity %> </b>
+											</span>
+										</td>	
+									</tr>
+										
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	
+	</tbody>
+</table>
