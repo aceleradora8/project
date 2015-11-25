@@ -12,10 +12,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'home#index'
-  get '/filter' => 'opportunities#filter'
-  #get 'email' => 'ngo_mailer#ngo_email'
-  #get 'email' => 'volunteer_mailer#volunteer_email'
-
    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

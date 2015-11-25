@@ -4,43 +4,34 @@ class OpportunitiesController < ApplicationController
 
 	def index
 		@causes = Cause.all
-
 		@cities = Address.uniq.pluck(:city)
 
 		if params[:text_search] == nil || params[:text_search] == ""
-			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause).page params[:page]
+			@opportunity_search = Opportunity.all.includes(:address,:ngo,:cause)
 		else
-			@opportunity_search = Opportunity.search("#{params[:text_search] }").includes(:address,:ngo,:cause).page params[:page]
+			@opportunity_search = Opportunity.search("#{params[:text_search] }").includes(:address,:ngo,:cause)
 		end
+
+		respond_to do |format|
+	      	if request.xhr? 
+				@opportunities_result = [];
+
+		        params[:cause].each do |cause|
+		        	@opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i })
+		        end
+
+		        @opportunities_result = Kaminari.paginate_array(@opportunities_result.flatten).page(params[:page])
+		        
+		        format.js
+	      	else 
+	      		@opportunities_result = Kaminari.paginate_array(@opportunity_search).page(params[:page])
+	        	
+	        	format.html
+	    	end
+    	end
 	end
 
 	def show
-	end
-
-	def filter
-		if(params[:city] != nil && params[:checked] == true)
-			@filtered_opportunity = @filtered_opportunity.delete_if {|opportunity| opportunity.address.city == params[:city]}		
-		elsif(params[:cause] != nil && params[:checked] == true)
-			@filtered_opportunity = @filtered_opportunity.delete_if {|opportunity| opportunity.cause.id == params[:cause]}
-			
-		elsif(params[:checked] == false)
-			@filtered_opportunity = @filtered_opportunity.push(@opportunity_search.filter_by(params))
-
-		end
-		@teste = Opportunity.first
-		respond_to do |format|
-			format.json { render :json => @teste}
-		end
-	end
-
-	def interest
-		@volunteer = Volunteer.new(params[:volunteer])
-	end
-
-	def mailer
-	end
-
-	def filterbar
 	end
 
 	private 
