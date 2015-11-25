@@ -7,7 +7,7 @@ class VolunteerMailer < ApplicationMailer
 		@opportunity = opportunity
 		mail(
 			to: @volunteer.email, 
-			subject: "Confirmamos seu interesse na vaga #{@volunteer.name}",
+			subject: "Confirmamos seu interesse na vaga #{@opportunity.title}",
 			content_type: "text/html"
 			)
 
