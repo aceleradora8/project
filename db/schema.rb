@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(version: 20151120165702) do
   add_index "opportunities_skills", ["opportunity_id"], name: "index_opportunities_skills_on_opportunity_id", using: :btree
   add_index "opportunities_skills", ["skill_id"], name: "index_opportunities_skills_on_skill_id", using: :btree
 
+  create_table "opportunities_volunteers", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "volunteer_id"
+  end
+
+  add_index "opportunities_volunteers", ["opportunity_id"], name: "index_opportunities_volunteers_on_opportunity_id", using: :btree
+  add_index "opportunities_volunteers", ["volunteer_id"], name: "index_opportunities_volunteers_on_volunteer_id", using: :btree
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -130,5 +138,7 @@ ActiveRecord::Schema.define(version: 20151120165702) do
   add_foreign_key "opportunities", "ngos"
   add_foreign_key "opportunities_skills", "opportunities"
   add_foreign_key "opportunities_skills", "skills"
+  add_foreign_key "opportunities_volunteers", "opportunities"
+  add_foreign_key "opportunities_volunteers", "volunteers"
   add_foreign_key "phones", "ngos"
 end
