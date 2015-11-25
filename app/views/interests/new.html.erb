@@ -1,11 +1,25 @@
 <div class ="form-horizontal">
 	<%= form_for(@interest) do |f| %>
+		<% if @interest.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@interest.errors.count, "error") %> prohibited
+		        this interest from being saved:
+		      </h2>
+		      <ul>
+		        <% @interest.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+  		<% end %>
 		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
 		<%= f.fields_for :volunteer do |form| %>
 			<div class="form-group">
 				<%= form.label "Nome:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
 					<%= form.text_field :name, :class => "form-control" %>
+					
 				</div>
 			</div>
 
@@ -32,7 +46,7 @@
 
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-8">
-					<%= f.submit "Candidatar-se", :class => "btn btn-default btn-lg btn-block" %>
+					<%= f.submit "Enviar", :class => "btn btn-default btn-lg btn-block" %>
 				</div>
 			</div>
 		<% end %>
