@@ -1,5 +1,5 @@
 echo "Warning: This script will write information to your .bashrc file,"
-echo "If you don't want this hit ctrl-c and export the variables manually to your environment":w
+echo "If you don't want this hit ctrl-c and export the variables manually to your environment"
 
 # Exporting rails mailer variables
 if [ -z "$USER_NAME_GMAIL"]; then
