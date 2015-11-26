@@ -48,6 +48,7 @@ class OpportunitiesController < ApplicationController
 
 	def new
 		@opportunity = Opportunity.new
+		@opportunity.build_address
 	end
 
 	def create
@@ -77,6 +78,6 @@ class OpportunitiesController < ApplicationController
 		end
 
 	def opportunity_params
-		params.require(:opportunity).permit(:id, :title, :description, :address_id, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies)
+		params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood])
 	end
 end

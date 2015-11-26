@@ -8,6 +8,7 @@ class NgosController < ApplicationController
 
 	def show
 	end
+
 	def create
 		@ngo = Ngo.new(ngo_params)
 			if(@ngo.save)
@@ -19,6 +20,6 @@ class NgosController < ApplicationController
 
 	private
 		def ngo_params
-			params.require(:ngo).permit(:name, :description, :email, :address_attributes => [:address, :cep, :complement, :state, :city, :country])
+			params.require(:ngo).permit(:name, :description, :email, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood])
 		end
 	end

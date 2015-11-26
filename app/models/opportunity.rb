@@ -8,6 +8,8 @@ class Opportunity < ActiveRecord::Base
 	validates :ngo, :presence => true
 	validates :cause, :presence => true
 
+	accepts_nested_attributes_for :address
+
 	include PgSearch
 		 pg_search_scope :search, :against =>  [:title,:description], 
 		 :associated_against =>  { 

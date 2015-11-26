@@ -37,12 +37,57 @@
 				</div>
 			</div>
 
+			<%= f.fields_for :address do |a| %>
 			<div class="form-group">
-				<%= f.label "Endereço[botar com html]:", :class => "col-lg-2 control-label" %>
+				<%= a.label "Rua: ", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
-					<%= f.text_field :address_id, :class => "form-control" %>
+					<%= a.text_field :address, :class => "form-control" %>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<%= a.label "CEP: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :cep, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= a.label "Complemento: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :complement, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= a.label "Bairro: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :neighbourhood, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= a.label "Cidade: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :city, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= a.label "Estado: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :state, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= a.label "Pais: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= a.text_field :country, :class => "form-control" %>
+				</div>
+			</div>
+
+			<% end %>
 
 			<div class="form-group">
 				<%= f.label "Data de inicio:", :class => "col-lg-2 control-label" %>
