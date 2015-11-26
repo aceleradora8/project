@@ -11,11 +11,13 @@ class NgosController < ApplicationController
 
 	def create
 		@ngo = Ngo.new(ngo_params)
+		respond_to do |format|
 			if(@ngo.save)
-				format.html { redirect_to @ngo.show, notice: "ONG cadastrada com sucesso" }
+				format.html { redirect_to "/ngos/#{@ngo.id}", notice: "ONG cadastrada com sucesso" }
 			else
 				puts "Erro"
 			end
+		end
 	end
 
 	private
