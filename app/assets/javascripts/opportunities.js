@@ -22,6 +22,7 @@ requestOpportunities = function() {
 
 getCausesChecked = function() {
   $('.cb_cause').on('change', function() {
+    causeList = [];
     $('input.cb_cause:checked').each(function() {
       causeList.push($(this).val());
     });
@@ -30,8 +31,8 @@ getCausesChecked = function() {
 };
 
 getCitiesChecked = function() {
-  cityList = [];
   $('.cb_city').on('change', function() {
+    cityList = [];
     $('input.cb_city:checked').each(function() {
       cityList.push($(this).val());
     });

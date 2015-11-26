@@ -16,7 +16,6 @@ class OpportunitiesController < ApplicationController
 	    if request.xhr? 
 				@opportunities_result = [];
 
-        puts "PARAMS:::::::: #{params[:city]}"
         if(params[:cause] != nil && params[:city] != nil)
         	params[:cause].each do |cause|
 	        	params[:city].each do |c|
@@ -37,7 +36,7 @@ class OpportunitiesController < ApplicationController
 	      params[:city] = nil;
 
         @opportunities_result = Kaminari.paginate_array(@opportunities_result.flatten).page(params[:page])
-        
+      
         format.js
     	else 
     		@opportunities_result = Kaminari.paginate_array(@opportunity_search).page(params[:page])
