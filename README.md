@@ -9,12 +9,14 @@
 ### Criando as variáveis de ambiente
 * `sh ./script-varenv.sh`
 
-### Banco
+### Populando banco com registros para testes
+* `bundle exec rake db:seed
 
-#### Ubuntu
+### Ubuntu
 * `sh ./script-db.sh`
 * `bundle exec rake db:create`
 * `bundle exec rake db:migrate`
+
 
 
 ## Rodando o servidor:
