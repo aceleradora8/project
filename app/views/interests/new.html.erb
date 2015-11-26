@@ -1,5 +1,5 @@
 <div class ="form-horizontal">
-	<%= form_for(@interest) do |f| %>
+	<%= form_for(@interest ,:html=>{:onsubmit=>"return validateForm();"}) do |f| %>
 		<% if @interest.errors.any? %>
 		    <div id="error_explanation">
 		      <h2>
@@ -16,36 +16,51 @@
 		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
 		<%= f.fields_for :volunteer do |form| %>
 			<div class="form-group">
-				<%= form.label "Nome:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= form.text_field :name, :class => "form-control" %>
-					
+				<%= form.label "Nome:", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :name, :class => "form-control"%>
+				</div>
+				<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger">
+					<p>Campo Obrigatório!</p>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= form.label "Email:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= form.text_field :email, :class => "form-control" %>
+				<%= form.label "Email:", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :email, :class => "form-control"%>
+				</div>
+				<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
+					<p>Email Inválido!</p>
+				</div>
+				<div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
+					<p>Campo Obrigatório!</p>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<%= form.label "Telefone:", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :phone, :class => "form-control"%>
+				</div>
+				<div id="phoneErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
+					<p>Telefone Inválido!</p>
+				</div>
+				<div id="phoneErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
+					<p>Campo Obrigatório!</p>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= form.label "Telefone:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= form.text_field :phone, :class => "form-control" %>
+				<%= form.label "Observações:", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_area :observations, :class => "form-control"%>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= form.label "Observações:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= form.text_area :observations, :class => "form-control", :rows => "3" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-lg-offset-2 col-lg-8">
+				<div class="col-lg-offset-3 col-lg-5">
 					<%= f.submit "Enviar", :class => "btn btn-default btn-lg btn-block" %>
 				</div>
 			</div>
