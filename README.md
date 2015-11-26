@@ -9,8 +9,8 @@
 ### Criando as variáveis de ambiente
 * `sh ./script-varenv.sh`
 
-### Populando banco com registros para testes
-* `bundle exec rake db:seed
+### Populando banco com registros para testes (fictícios)
+* `bundle exec rake db:seed`
 
 ### Ubuntu
 * `sh ./script-db.sh`
