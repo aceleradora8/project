@@ -1,0 +1,88 @@
+<div class ="form-horizontal">
+	<%= form_for(@opportunity) do |f| %>
+		<% if @opportunity.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@opportunity.errors.count, "error") %> prohibited
+		        this opportunity from being saved:
+		      </h2>
+		      <ul>
+		        <% @opportunity.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+  		<% end %> 
+  		<%= form_for(@opportunity) do |f| %>
+			<div class="form-group">
+				<%= f.label "Nome da oportunidade:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :title, :class => "form-control" %>
+					
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Causa[botar com html]:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :cause_id, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Ong[botar com html]:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :ngo_id, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Endereço[botar com html]:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :address_id, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Data de inicio:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :start_date, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Data de termino:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :finish_date, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Quantidade de vagas:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_field :vacancies, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Descrição:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+
+			<!-- <div class="form-group">
+				<%= f.label "Requisitos:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-8">
+					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div> -->
+
+			<div class="form-group">
+				<div class="col-lg-offset-2 col-lg-8">
+					<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block" %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

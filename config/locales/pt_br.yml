@@ -6,3 +6,14 @@ pt_br:
       previous: "&lsaquo; Anterior"
       next: "Próximo &rsaquo;"
       truncate: "&hellip;"
+  activerecord:
+    errors:
+      models:
+        opportunity:
+          attributes:
+            address:
+              blank: "Endereço deve ser preenchido!"
+            ngo:
+              blank: "ONG deve ser preenchido!"
+            cause:
+              blank: "Causa deve ser preenchido!"

@@ -46,6 +46,24 @@ class OpportunitiesController < ApplicationController
     end
 	end
 
+	def new
+		@opportunity = Opportunity.new
+	end
+
+	def create
+		@opportunity = Opportunity.new(opportunity_params)
+		#@opportunity.address_id = 1
+		#@opportunity.ngo_id = 1
+		#@opportunity.cause_id = 1
+		respond_to do |format|
+			if @opportunity.save
+				format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
+			else
+				format.html { render :new }
+			end
+		end
+	end
+
 	def show
 	end
 
@@ -57,4 +75,8 @@ class OpportunitiesController < ApplicationController
 				redirect_to "/404"
 			end
 		end
+
+	def opportunity_params
+		params.require(:opportunity).permit(:id, :title, :description, :address_id, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies)
+	end
 end
