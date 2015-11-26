@@ -194,7 +194,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
   capybara
-  coffee-rails (~> 4.1.0)
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
