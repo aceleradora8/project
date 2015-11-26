@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :opportunities
   resources :volunteers
   resources :interests
-  resources :ngo
+  resources :ngos
 
 
   # The priority is based upon order of creation: first created -> highest priority.

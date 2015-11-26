@@ -5,6 +5,8 @@ class Ngo < ActiveRecord::Base
 	has_one :opportunity, dependent: :destroy
 	validates :address, :presence => true
 
+	accepts_nested_attributes_for :address
+
 
 	include PgSearch
 		 pg_search_scope :search, :against => [:name,:description] #(:ignoring => :accents)

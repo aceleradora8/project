@@ -1,0 +1,14 @@
+<%= form_for(@ngo) do |ngo| %>
+Nome da ONG: <%= ngo.text_field :name %>
+Descrição: <%= ngo.text_field :description %>
+Email: <%= ngo.text_field :email %>
+<%= ngo.fields_for :address do |f| %>
+Endereço:<%= f.text_field :address %>
+<br><%= f.text_field :cep %></br>
+<br><%= f.text_field :complement %></br>
+<br><%= f.text_field :city %></br>
+<br><%= f.text_field :state %></br>
+<br><%= f.text_field :country %></br>
+<% end %>
+<%= ngo.submit "Cadastrar ONG" %>
+<% end %>
