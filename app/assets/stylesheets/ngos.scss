@@ -1,3 +1,14 @@
 // Place all the styles related to the Ngos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input-text-error{
+  border: 2px solid red !important;
+}
+
+.custom-alert-danger
+{
+	padding: 6px !important;
+	text-align: center;
+	display: none;
+}
