@@ -31,7 +31,7 @@
 			</div>
 
 			<div class="form-group">
-				<%= f.label "Ong[botar com html]:", :class => "col-lg-2 control-label" %>
+				<%= f.label "Ong[**Integrar com o sistema de login**]:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
 					<%= f.text_field :ngo_id, :class => "form-control" %>
 				</div>
@@ -39,56 +39,44 @@
 
 			<%= f.fields_for :address do |a| %>
 			<div class="form-group">
-				<%= a.label "Rua: ", :class => "col-lg-2 control-label" %>
+				<%= a.label "Endereço: ", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
 					<%= a.text_field :address, :class => "form-control" %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= a.label "CEP: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
+				<%= a.label "Complemento: ", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-2">
+					<%= a.text_field :complement, :class => "form-control" %>
+				</div>
+				<%= a.label "Bairro: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= a.text_field :neighbourhood, :class => "form-control" %>
+				</div>
+				<%= a.label "CEP: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
 					<%= a.text_field :cep, :class => "form-control" %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= a.label "Complemento: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= a.text_field :complement, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<%= a.label "Bairro: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= a.text_field :neighbourhood, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
 				<%= a.label "Cidade: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
+				<div class="col-lg-2">
 					<%= a.text_field :city, :class => "form-control" %>
 				</div>
-			</div>
-
-			<div class="form-group">
-				<%= a.label "Estado: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
+				<%= a.label "Estado: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
 					<%= a.text_field :state, :class => "form-control" %>
 				</div>
-			</div>
-
-			<div class="form-group">
-				<%= a.label "Pais: ", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
+				<%= a.label "Pais: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
 					<%= a.text_field :country, :class => "form-control" %>
 				</div>
 			</div>
 
 			<% end %>
-
+<!--	colocar aqui calendarios!!!
 			<div class="form-group">
 				<%= f.label "Data de inicio:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
@@ -102,13 +90,7 @@
 					<%= f.date_select :finish_date, start_year: Time.now.year, end_year: Time.now.year + 2, :class => "form-control" %>
 				</div>
 			</div>
-
-			<div class="form-group">
-				<%= f.label "Quantidade de vagas:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-					<%= f.text_field :vacancies, :class => "form-control" %>
-				</div>
-			</div>
+-->
 
 			<div class="form-group">
 				<%= f.label "Descrição:", :class => "col-lg-2 control-label" %>
@@ -120,7 +102,15 @@
 			 <div class="form-group">
 				<%= f.label "Requisitos:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
-					<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name) %>
+				<!-- CONTINUANDO AQUI -->
+					<%= collection_check_boxes :opportunity, :skill_ids, Skill.all, :id, :name, {:class => "col-lg-2 control-label"} %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label "Quantidade de vagas:", :class => "col-lg-2 control-label" %>
+				<div class="col-lg-1">
+					<%= f.text_field :vacancies, :class => "form-control" %>
 				</div>
 			</div>
 
