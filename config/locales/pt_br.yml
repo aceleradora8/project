@@ -1,4 +1,55 @@
 pt_br:
+  date: #Throws an exception otherwise.
+    abbr_day_names:
+      - Seg
+      - Ter
+      - Qua
+      - Qui
+      - Sex
+      - Sab
+      - Dom
+    abbr_month_names:
+      - 
+      - Jan.
+      - Fev.
+      - Mar.
+      - Abr.
+      - Mai.
+      - Jun.
+      - Jul.
+      - Ago.
+      - Set.
+      - Out.
+      - Nov.
+      - Dez.
+    day_names:
+      - Segunda
+      - Terça
+      - Quarta
+      - Quinta
+      - Sexta
+      - Sábado
+      - Domingo
+    formats:
+      default: "%d/%m/%Y"
+    month_names:
+      - 
+      - Janeiro
+      - Fevereiro
+      - Março
+      - Abril
+      - Maio
+      - Junho
+      - Julho
+      - Agosto
+      - Setembro
+      - Outubro
+      - Novembro
+      - Dezembo
+    order:
+      - "day"
+      - "month"
+      - "year"
   views:
     pagination:
       first: "&laquo; Primeiro"
