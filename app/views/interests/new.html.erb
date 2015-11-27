@@ -1,17 +1,15 @@
 <div class ="form-horizontal">
 	<%= form_for(@interest ,:html=>{:onsubmit=>"return validateForm();"}) do |f| %>
 		<% if @interest.errors.any? %>
-		    <div id="error_explanation">
-		      <h2>
-		        <%= pluralize(@interest.errors.count, "error") %> prohibited
-		        this interest from being saved:
-		      </h2>
+			<div class="col-lg-3"> </div>
+		    <div id="error_explanation" class="col-lg-5 alert alert-danger">
 		      <ul>
-		        <% @interest.errors.full_messages.each do |msg| %>
-		          <li><%= msg %></li>
+		        <% @interest.errors.messages.each do |msg| %>
+		          <li><%= msg[1][0] %></li>
 		        <% end %>
 		      </ul>
 		    </div>
+		    <div class="col-lg-12"> </div>
   		<% end %>
 		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
 		<%= f.fields_for :volunteer do |form| %>
@@ -28,7 +26,7 @@
 			<div class="form-group">
 				<%= form.label "Email:", :class => "col-lg-3 control-label" %>
 				<div class="col-lg-5">
-					<%= form.text_field :email, :class => "form-control"%>
+					<%= form.text_field :email, :placeholder => "exemplo@exemplo.com", :class => "form-control"%>
 				</div>
 				<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
 					<p>Email Inválido!</p>
@@ -42,7 +40,7 @@
 			<div class="form-group">
 				<%= form.label "Telefone:", :class => "col-lg-3 control-label" %>
 				<div class="col-lg-5">
-					<%= form.text_field :phone, :class => "form-control"%>
+					<%= form.text_field :phone, :placeholder => "(99)9999-9999", :class => "form-control"%>
 				</div>
 				<div id="phoneErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
 					<p>Telefone Inválido!</p>
