@@ -4,6 +4,9 @@ class NgosController < ApplicationController
 		@ngo.build_address
 	end
 
+	def index
+		@ngos_result = Ngo.all.includes(:address)
+	end
 
 	def show
 	end
@@ -38,3 +41,4 @@ class NgosController < ApplicationController
 			params.require(:ngo).permit(:name, :description, :email, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood])
 		end
 end
+

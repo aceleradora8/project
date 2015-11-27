@@ -12,3 +12,17 @@
 	text-align: center;
 	display: none;
 }
+
+
+.ngo-title {
+	margin-bottom: 15px;
+}
+
+.description {
+	width: 250px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+}
