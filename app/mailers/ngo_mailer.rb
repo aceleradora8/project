@@ -10,4 +10,11 @@ class NgoMailer < ApplicationMailer
 			subject: "Recebemos interesse na sua vaga: #{@opportunity.title}", 
 			content_type: "text/html")
 	end
+
+	def email_confirmation(ngo)
+		@ngo = ngo
+		mail(to: @ngo.email,
+			subject: "Confirme o registro de sua ONG.",
+			content_type: "text/html")
+	end
 end
