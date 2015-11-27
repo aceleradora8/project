@@ -1,4 +1,4 @@
-class OpportunitiesController < ApplicationControlle
+class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
 
