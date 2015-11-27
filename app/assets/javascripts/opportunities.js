@@ -1,31 +1,24 @@
 
-var causeList, cityList, getCauseList, getCausesChecked, getCitiesChecked, getCityList, requestOpportunities;
+var causesList, citiesList, getCauseList, getCausesChecked, getCitiesChecked, getCityList, requestOpportunities;
 
-causeList = [];
+causesList = [];
 
-cityList = [];
+citiesList = [];
 
-getCauseList = function() {
-  return console.log(causeList);
-};
-
-getCityList = function() {
-  return console.log(cityList);
-};
 
 requestOpportunities = function() {
   $.get('/opportunities', {
-    cause: causeList,
-    city: cityList,
+    causes: causesList,
+    cities: citiesList,
     text_search: $('#text_search').val()
   });
 };
 
 getCausesChecked = function() {
   $('.cb_cause').on('change', function() {
-    causeList = [];
+    causesList = [];
     $('input.cb_cause:checked').each(function() {
-      causeList.push($(this).val());
+      causesList.push($(this).val());
     });
     requestOpportunities();
   });
@@ -33,9 +26,9 @@ getCausesChecked = function() {
 
 getCitiesChecked = function() {
   $('.cb_city').on('change', function() {
-    cityList = [];
+    citiesList = [];
     $('input.cb_city:checked').each(function() {
-      cityList.push($(this).val());
+      citiesList.push($(this).val());
     });
     requestOpportunities();
   });
