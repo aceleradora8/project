@@ -1,5 +1,4 @@
 class NgosController < ApplicationController
-
 	def new
 		@ngo = Ngo.new
 		@ngo.build_address
@@ -11,6 +10,7 @@ class NgosController < ApplicationController
 
 	def create
 		@ngo = Ngo.new(ngo_params)
+
 		respond_to do |format|
 			if(@ngo.save)
 				NgoMailer.email_confirmation(@ngo).deliver
@@ -37,4 +37,4 @@ class NgosController < ApplicationController
 		def ngo_params
 			params.require(:ngo).permit(:name, :description, :email, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood])
 		end
-	end
+end
