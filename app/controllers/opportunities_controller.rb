@@ -53,9 +53,7 @@ class OpportunitiesController < ApplicationController
 
 	def create
 		@opportunity = Opportunity.new(opportunity_params)
-		#@opportunity.address_id = 1
-		#@opportunity.ngo_id = 1
-		#@opportunity.cause_id = 1
+		@skill = Skill.all
 		respond_to do |format|
 			if @opportunity.save
 				format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
@@ -78,6 +76,6 @@ class OpportunitiesController < ApplicationController
 		end
 
 	def opportunity_params
-		params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood])
+		params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood], :skill_ids => [])
 	end
 end

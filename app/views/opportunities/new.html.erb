@@ -24,9 +24,9 @@
 			</div>
 
 			<div class="form-group">
-				<%= f.label "Causa[botar com html]:", :class => "col-lg-2 control-label" %>
+				<%= f.label "Causa:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
-					<%= f.text_field :cause_id, :class => "form-control" %>
+					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
 				</div>
 			</div>
 
@@ -117,12 +117,12 @@
 				</div>
 			</div>
 
-			<!-- <div class="form-group">
+			 <div class="form-group">
 				<%= f.label "Requisitos:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
-					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+					<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name) %>
 				</div>
-			</div> -->
+			</div>
 
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-8">
