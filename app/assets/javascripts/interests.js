@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	hideDivsError();
+});
+
 function validateForm()
 {
 	if (validateName() && validateEmail() && validatePhone()){
@@ -48,13 +52,14 @@ function validatePhone()
 	var phoneformat = /^([0-9]{2})?(\([0-9]{2})\)([0-9]{3}|[0-9]{4})-[0-9]{4}$/;
 	//Formatos aceitos: 55(21)123-4567 | (11)1234-5678 | 55(71)4562-2234
 	
-	if(phone.val()!="" && phone.val().match(phoneformat)){		
+	if(phone.val()!="" && phone.val().match(phoneformat)){	
+		hideDivsError();	
 		phone.removeClass("input-text-error");
 		return true;
 	}else{
 		phone.focus();  
 		phone.addClass("input-text-error");
-		hideDivsError();
+		
 		if(phone.val()==""){
 			$('#phoneErrorNil').show();
 		}else{
@@ -68,7 +73,3 @@ function validatePhone()
 function hideDivsError(){
 	$(".custom-alert-danger").hide();
 }
-
-$(document).ready(function() {
-	hideDivsError();
-});
