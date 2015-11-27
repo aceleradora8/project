@@ -1,4 +1,4 @@
-class OpportunitiesController < ApplicationController
+class OpportunitiesController < ApplicationControlle
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
 
@@ -67,7 +67,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood], :skill_ids => [])
+      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :neighbourhood], :skill_ids => [])
     end
 
     def filter_with_causes_and_cities(causes, cities)
@@ -89,5 +89,4 @@ class OpportunitiesController < ApplicationController
         @opportunities_result.push(@opportunity_search.select { |obj| obj.address.city == city})
       end
     end
-
 end
