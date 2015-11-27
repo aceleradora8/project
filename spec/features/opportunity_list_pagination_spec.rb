@@ -1,3 +1,4 @@
+require "rails_helper"
 require 'capybara/rspec'
 
 feature 'opportunity list pagination tests' do
@@ -5,8 +6,8 @@ feature 'opportunity list pagination tests' do
 	describe '2 page list' do
 
     before :each do
-      address = Address.create!
-    	ngo = Ngo.create!(address_id: address.id, email: 'email')
+      address = Address.create!(city:"POA")
+    	ngo = Ngo.create!(address_id: address.id, email: 'email', name:"nome")
 			cause = Cause.create!
     	(1..14).each do |index|
     		Opportunity.create!(title: "Opportunity #{index}", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)
@@ -37,7 +38,7 @@ feature 'opportunity list pagination tests' do
 
 		before :each do
       address = Address.create!
-      ngo = Ngo.create!(address_id: address.id, email: 'email')
+      ngo = Ngo.create!(address_id: address.id, email: 'email', name:"nome")
       cause = Cause.create!
       (1..5).each do |index|
         Opportunity.create!(title: "Opportunity #{index}", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)

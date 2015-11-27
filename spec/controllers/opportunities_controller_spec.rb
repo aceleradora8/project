@@ -3,8 +3,8 @@ require 'rails_helper'
 describe OpportunitiesController, type: :controller do
     describe '#index' do
         before :each do
-          address = Address.create!()
-        	ngo = Ngo.create!(address_id: address.id, email:'email')
+          address = Address.create!(city:"POA")
+        	ngo = Ngo.create!(address_id: address.id, email:'email', name:"nome")
         	cause = Cause.create!()
         	@opportunity1 = Opportunity.create!(title: 'Opportunity1', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)
         	@opportunity2 = Opportunity.create!(title: 'Opportunity2', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)
