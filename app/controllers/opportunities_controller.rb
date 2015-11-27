@@ -14,23 +14,25 @@ class OpportunitiesController < ApplicationController
 
 		respond_to do |format|
 	    if request.xhr? 
-				@opportunities_result = [];
+			@opportunities_result = [];
 
-        if(params[:cause] != nil && params[:city] != nil)
-        	params[:cause].each do |cause|
-	        	params[:city].each do |c|
-	        		@opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i and obj.address.city == c})
-	        	end
-	        end
-        elsif params[:cause] != nil
-	        params[:cause].each do |cause|
-	        	@opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i })
-	        end
-      	elsif params[:city] != nil
-	        params[:city].each do |c|
-	        	@opportunities_result.push(@opportunity_search.select { |obj| obj.address.city == c})
-	        end
-	      end
+	        if(params[:cause] != nil && params[:city] != nil)
+	        	params[:cause].each do |cause|
+		        	params[:city].each do |c|
+		        		@opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i && obj.address.city == c})
+		        	end
+		        end
+	        elsif params[:cause] != nil
+		        params[:cause].each do |cause|
+		        	@opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i })
+		        end
+	      	elsif params[:city] != nil
+		        params[:city].each do |c|
+		        	@opportunities_result.push(@opportunity_search.select { |obj| obj.address.city == c})
+		        end
+		    else
+		    	@opportunities_result = Kaminari.paginate_array(@opportunity_search).page(params[:page])
+		    end
 
 	      params[:cause] = nil;
 	      params[:city] = nil;

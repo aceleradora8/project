@@ -16,7 +16,8 @@ getCityList = function() {
 requestOpportunities = function() {
   $.get('/opportunities', {
     cause: causeList,
-    city: cityList
+    city: cityList,
+    text_search: $('#text_search').val()
   });
 };
 
@@ -40,7 +41,10 @@ getCitiesChecked = function() {
   });
 };
 
-$(document).ready(function() {
+var ready = function() {
   getCausesChecked();
   getCitiesChecked();
-});
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
