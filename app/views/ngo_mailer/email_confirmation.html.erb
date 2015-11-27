@@ -1,0 +1,5 @@
+Olá <%= @ngo.name %>,
+
+Obrigado por se registrar, para confirmar o registro da sua ong clique no endereço abaixo.
+
+<%= confirm_email_ngo_url(@ngo.confirm_token) %>
