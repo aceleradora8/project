@@ -76,7 +76,7 @@
 			</div>
 
 			<% end %>
-			
+
 			<div class="form-group">
 				<%= f.label "Data de inicio:", :class => "col-lg-2 control-label" %>
 				<div class="col-lg-8">
@@ -100,9 +100,14 @@
 
 			 <div class="form-group">
 				<%= f.label "Requisitos:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-8">
-				<!-- CONTINUANDO AQUI -->
-					<%= collection_check_boxes :opportunity, :skill_ids, Skill.all, :id, :name, {:class => "col-lg-2 control-label"} %>
+				<div class="col-sm-6">
+					<div class="col-md-9">
+						<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name)  do |b| %>
+						<div class="col-md-6">
+	  						<%= b.label(:"data-value" => b.value) { b.check_box + b.text } %>
+	  						</div>
+						<%end%>
+					</div>
 				</div>
 			</div>
 
