@@ -8,22 +8,13 @@ class NgosController < ApplicationController
 	end
 
 	def index
-		@ngos_result = Ngo.all.includes(:address).page params[:page]
+		@ngos_result = Ngo.all.includes(:address, :user).page params[:page]
 	end
 
 	def show
 	end
 
-	private 
-    def set_ngo
-      if Ngo.where(:id => params[:id]).present?
-        @ngo = Ngo.find(params[:id])
-      else
-        redirect_to "/404"
-      end
-    end
-
-	def create
+		def create
 		@ngo = Ngo.new(ngo_params)
 
 		respond_to do |format|
@@ -35,6 +26,15 @@ class NgosController < ApplicationController
 			end
 		end
 	end
+
+	private 
+    def set_ngo
+      if Ngo.where(:id => params[:id]).present?
+        @ngo = Ngo.find(params[:id])
+      else
+        redirect_to "/404"
+      end
+    end
 
 	private
 		def ngo_params
