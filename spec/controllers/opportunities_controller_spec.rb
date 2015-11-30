@@ -6,8 +6,10 @@ describe OpportunitiesController, type: :controller do
           address = Address.create!(city:"POA")
         	ngo = Ngo.create!(address_id: address.id, email:'email', name:"nome")
         	cause = Cause.create!()
-        	@opportunity1 = Opportunity.create!(title: 'Opportunity1', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)
-        	@opportunity2 = Opportunity.create!(title: 'Opportunity2', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id)
+          start_date = "2015-03-03"
+          finish_date = "2015-04-03"
+        	@opportunity1 = Opportunity.create!(title: 'Opportunity1', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
+        	@opportunity2 = Opportunity.create!(title: 'Opportunity2', address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
         end
 
         it 'returns all opportunities when text_search is nil' do
