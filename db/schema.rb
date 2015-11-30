@@ -55,11 +55,9 @@ ActiveRecord::Schema.define(version: 20151130133025) do
     t.string   "name"
     t.text     "description"
     t.integer  "address_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "email",                           null: false
-    t.boolean  "email_confirmed", default: false
-    t.string   "confirm_token"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "ngos", ["address_id"], name: "index_ngos_on_address_id", using: :btree
@@ -113,6 +111,16 @@ ActiveRecord::Schema.define(version: 20151130133025) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "role"
+    t.boolean  "confirmed",       default: false
+    t.string   "confirm_token"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "volunteers", force: :cascade do |t|

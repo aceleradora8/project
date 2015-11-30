@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-	<%= form_for(@ngo ,:html=>{:onsubmit=>"return validateForm();"}) do |ngo| %>
+	<%= form_for(@ngo ,:html=>{:onsubmit=>"return validateForm();"}) do |f| %>
 		<% if @ngo.errors.any? %>
 		    <div id="error_explanation">
 		      <h2>
@@ -13,7 +13,6 @@
 		      </ul>
 		    </div>
   		<% end %>
-		
 		<div class="form-group">
 			<label class="control-label col-lg-3">
 				<h3>Dados da ONG:</h3>
@@ -26,7 +25,7 @@
 				Nome da ONG:
 			</label> 
 			<div class="col-lg-5">
-				<%= ngo.text_field :name, :class => "form-control" %>
+				<%= f.text_field :name, :class => "form-control" %>
 			</div>
 			<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger">
 				<p>Campo Obrigatório!</p>
@@ -38,26 +37,13 @@
 				Descrição:			
 			</label>
 			<div class="col-lg-5">
-				<%= ngo.text_field :description, :class => "form-control" %>
-			</div>
-		</div>
-	 
-		<div class="form-group">
-			<label class="control-label col-lg-3">
-				E-mail:
-			</label>
-			<div class="col-lg-5">
-				<%= ngo.text_field :email, :class => "form-control" %>
-			</div>
-			<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
-				<p>Email Inválido!</p>
-			</div>
-			<div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
-				<p>Campo Obrigatório!</p>
+				<%= f.text_field :description, :class => "form-control" %>
 			</div>
 		</div>
 
-		<%= ngo.fields_for :address do |f| %> <!-- Model Address-->
+		<%= render 'users/form', f:f %>
+
+		<%= f.fields_for :address do |ff| %> <!-- Model Address-->
 
 			<div class="form-group">
 				<label class="control-label col-lg-3">
@@ -72,7 +58,7 @@
 					Rua:
 				</label>
 				<div class="col-lg-5">
-					<%= f.text_field :address, :class => "form-control" %>
+					<%= ff.text_field :address, :class => "form-control" %>
 				</div>
 			</div>
 			<div class="form-group">
@@ -80,7 +66,11 @@
 					CEP:
 				</label>
 				<div class="col-lg-5">
+<<<<<<< HEAD
 					<%= f.text_field :zipcode, :class => "form-control" %>
+=======
+					<%= ff.text_field :cep, :class => "form-control" %>
+>>>>>>> #8 <@lucassveloso, @ghig> - Adicionando lógica de cadastro de usuário com email de confirmação
 				</div>
 			</div>
 
@@ -89,7 +79,7 @@
 					Complemento:
 				</label>
 				<div class="col-lg-5">
-					<%= f.text_field :complement, :class => "form-control" %>
+					<%= ff.text_field :complement, :class => "form-control" %>
 				</div>
 			</div>
 
@@ -98,7 +88,11 @@
 					Bairro:
 				</label>
 				<div class="col-lg-5">
+<<<<<<< HEAD
 					<%= f.text_field :neighborhood, :class => "form-control" %>
+=======
+					<%= ff.text_field :neighbourhood, :class => "form-control" %>
+>>>>>>> #8 <@lucassveloso, @ghig> - Adicionando lógica de cadastro de usuário com email de confirmação
 				</div>
 			</div>
 
@@ -107,7 +101,7 @@
 					Cidade:
 				</label>
 				<div class="col-lg-5">
-					<%= f.text_field :city, :class => "form-control" %>
+					<%= ff.text_field :city, :class => "form-control" %>
 				</div>
 			</div>
 
@@ -116,7 +110,7 @@
 					Estado:
 				</label>
 				<div class="col-lg-5">
-					<%= f.text_field :state, :class => "form-control" %>
+					<%= ff.text_field :state, :class => "form-control" %>
 				</div>
 			</div>
 
@@ -125,13 +119,13 @@
 					País:
 				</label>
 				<div class="col-lg-5">
-					<%= f.text_field :country, :class => "form-control" %>
+					<%= ff.text_field :country, :class => "form-control" %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-lg-offset-3 col-lg-5">
-					<%= ngo.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block" %>
+					<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block" %>
 				</div>
 			</div>
 		<% end %>

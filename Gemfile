@@ -42,6 +42,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 #RuboCop
 gem 'rubocop', require: false
 
+gem 'bcrypt', '~> 3.1.6'
+
 # Code Climate
 gem "codeclimate-test-reporter", group: :test, require: nil
 
