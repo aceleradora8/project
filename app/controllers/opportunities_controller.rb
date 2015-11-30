@@ -1,6 +1,5 @@
 require 'correios-cep'
 
-
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
@@ -36,18 +35,23 @@ class OpportunitiesController < ApplicationController
 
   def new
     @opportunity = Opportunity.new
-
-    @opportunity.build_address
+    finder = Correios::CEP::AddressFinder.new
+    #@address_finder = Correios::CEP::AddressFinder.get("91720090") 
+    @opportunity.build_address   
+    respond_to do |format|
+      if request.xhr? 
+        if params[:zipcode] 
+          @address = Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))
+          format.json
+        end
+      else
+        format.html
+      end
+    end
   end
 
   def create
-
-    finder = Correios::CEP::AddressFinder.new
-
-
     @opportunity = Opportunity.new(opportunity_params)
-    ##pegar zipcode do carinha
-    address = Correios::CEP::AddressFinder.get("91720090") 
     @skill = Skill.all
     respond_to do |format|
       if @opportunity.save

@@ -15,33 +15,26 @@
 				<span class="leftspace"><%= @opportunity.description %></span> 
 				</p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Local: </span>  <br>
 				<span class="leftspace"><%= @opportunity.address.print_address %> 
 				</p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Data de Início: </span> <%= @opportunity.start_date %> </p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Data de Término: </span> <%= @opportunity.finish_date %></p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Ong: </span><%= @opportunity.ngo.name %></p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Causa: </span><%= @opportunity.cause.name %></p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Vagas: </span><%= @opportunity.vacancies %></p>
 			</div>
-
 			<div>
 				<p> <span class="bold">Requisitos:</span> 
 				<span class="leftspace">
@@ -50,16 +43,13 @@
 						<li> <%= skill.name %> </li>
 					<% end %>
 				</ul>
-
 				 </span>
 				</p>
 			</div>
 			<div class="alignright">
 			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline"%>
 			</div>
-
 		</div>
-
 	</div>
 </div>
 

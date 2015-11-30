@@ -1,0 +1,32 @@
+<%= f.fields_for :address do |a| %>
+			<div class="form-group">
+				<%= a.label "Endereço: ", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-4">
+					<%= a.text_field :address, :id => "inputAddress", :class => "form-control" %>
+				</div>
+				<%= a.label "Complemento: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= a.text_field :complement, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= a.label "Bairro: ", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-4">
+					<%= a.text_field :neighborhood, :id => "inputNeighborhood", :class => "form-control" %>
+				</div>
+				<%= a.label "CEP: ",:class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= a.text_field :zipcode, :id => "inputCep", :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= a.label "Cidade: ", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-4">
+					<%= a.text_field :city, :id => "inputCity", :class => "form-control" %>
+				</div>
+				<%= a.label "Estado: ", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= a.text_field :state, :id => "inputState", :class => "form-control" %>
+				</div>
+			</div>
+			<% end %>

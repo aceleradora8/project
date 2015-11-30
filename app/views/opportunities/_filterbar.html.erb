@@ -4,17 +4,16 @@
 		<hr>
 		<div class="causes">
 			<h4> Causa: </h4>
-		  	<% @causes.each do |cause| %>
+			<% @causes.each do |cause| %>
 				<input type="checkbox" name="causes" value="<%=cause.id%>" class="cb_cause">
 				<label for="causes"><%=cause.name%></label>
 				<br>
 				<%end%>
 		</div>
 		<hr>
-
 		<div class="cities">
 			<h4> Cidade: </h4>
-		  	<% @cities.each do |city| %>
+			<% @cities.each do |city| %>
 				<input type="checkbox" name="cities" value="<%=city%>" class="cb_city">
 				<label for="cities"><%=city%></label>
 				<br>
@@ -22,4 +21,3 @@
 		</div>
 	</div>
 </div>
-

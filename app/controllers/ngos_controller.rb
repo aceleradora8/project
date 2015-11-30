@@ -39,7 +39,7 @@ class NgosController < ApplicationController
 
 	private
 		def ngo_params
-			params.require(:ngo).permit(:user_id, :name, :description, :address_attributes => [:address, :cep, :complement, :state, :city, :country, :neighbourhood], :user_attributes => [:email, :password, :password_confirmation])
+			params.require(:ngo).permit(:user_id, :name, :description, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :user_attributes => [:email, :password, :password_confirmation])
 		end
 end
 

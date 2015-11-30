@@ -1,43 +1,40 @@
-
-<%if @opportunities_result.empty? %>
-				<div class = "panel">
-					<div class="row panel-body detailopp">
-						<h3> <%="Sua pesquisa não encontrou resultados"%> </h3>
-					</div>
+<% if @opportunities_result.empty? %>
+	<div class="panel">
+		<div class="row panel-body detailopp">
+			<h3><%= "Sua pesquisa não encontrou resultados" %></h3>
+		</div>
+	</div>
+<% end %>
+<% @opportunities_result.each do |opportunity| %>
+	<div class="panel">
+		<div class="row panel-body detailopp">
+			<div class="row">
+				<div class="col-lg-12 opportunity-title">
+					<h3><%= opportunity.title %></h3>
 				</div>
-			<%end%>
-		<% @opportunities_result.each do |opportunity| %>
-				<div class="panel">
-					<div class="row panel-body detailopp">
-						<div class="row">
-							<div class="col-lg-12 opportunity-title">
-								<h3><%=opportunity.title%></h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 oppt-ngo">
-								<span>Por <%= opportunity.ngo.name %></span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 description">
-								<%= opportunity.description %>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4">
-								<span><%= opportunity.address.city %>, 
-								<%= opportunity.address.state %> </span>
-							</div>
-							<div class="col-lg-4">
-								<%= opportunity.cause.name %>
-							</div>
-							<div class="col-lg-4">
-		 						<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary outline pull-right" %>
-							</div>
-						</div>
-		 			</div>
-		 		</div>
-			<%end%>
-		
-			
+			</div>
+			<div class="row">
+				<div class="col-lg-12 oppt-ngo">
+					<span>Por <%= opportunity.ngo.name %></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 description">
+					<%= opportunity.description %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<span><%= opportunity.address.city %>, 
+						<%= opportunity.address.state %> </span>
+				</div>
+				<div class="col-lg-4">
+					<%= opportunity.cause.name %>
+				</div>
+				<div class="col-lg-4">
+			 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary outline pull-right" %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
