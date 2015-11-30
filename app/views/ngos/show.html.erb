@@ -1,5 +1,26 @@
-		<div class= "alert alert-success">
-			<p id="notice" class="success"><%= notice %></p>
+<div class="container">
+	<div class="panel ">
+		<% if notice != nil %>
+			<div class= "alert alert-success">
+				<p id="notice"><%= notice %></p>
+			</div>
+		<%end%>
+		<div >
+			<h1><%= @ngo.name %></h1>		
 		</div>
+		<div class="panel-body detailopp">
+			<div>
+				<p> <span class="bold">Descrição: </span> 
+				<br>
+				<span class="leftspace"><%= @ngo.description %></span> 
+				</p>
+			</div>
 
-METODO SHOW
+			<div>
+				<p> <span class="bold">Local: </span>  <br>
+				<span class="leftspace"><%= @ngo.address.print_address %></span> 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,15 +1,26 @@
 class NgosController < ApplicationController
+	before_action :set_ngo, only: [:show]
+
 	def new
 		@ngo = Ngo.new
 		@ngo.build_address
 	end
 
 	def index
-		@ngos_result = Ngo.all.includes(:address)
+		@ngos_result = Ngo.all.includes(:address).page params[:page]
 	end
 
 	def show
 	end
+
+	private 
+    def set_ngo
+      if Ngo.where(:id => params[:id]).present?
+        @ngo = Ngo.find(params[:id])
+      else
+        redirect_to "/404"
+      end
+    end
 
 	def create
 		@ngo = Ngo.new(ngo_params)

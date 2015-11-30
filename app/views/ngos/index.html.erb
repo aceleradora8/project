@@ -1,11 +1,16 @@
 <div class="container"> 
-	<div class="row ">
-		<div class="col-lg-2">
-			<%=link_to "Cadastrar ONGs", new_ngo_path%> 
+	<div class="row">
+		<div class="col-lg-offset-10 col-lg-2">
+			<%=link_to "Cadastrar ONGs", new_ngo_path, :class=>"link-style btn btn-primary outline pull-right"%>
 		</div>
-		<div id="listOngs" class="col-lg-10">
+	</div>
+	<div class="row ">
+		
+		<div id="listOngs" class="col-lg-offset-2 col-lg-10">
 			<%= render 'list_ngos' %>
 		</div>
 		<div id="paginator" class="pull-right">
+			<%= paginate @ngos_result, :theme => 'twitter-bootstrap-3' %>
 		</div>
+	</div>
 </div>

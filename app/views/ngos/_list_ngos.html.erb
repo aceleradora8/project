@@ -18,11 +18,14 @@
 					<%= ngo.email %>
 				</div>
 			</div>
-
+ 
 			<div class="row">
 				<div class="col-lg-4">
 					<%= ngo.address.city %>, 
 					<%= ngo.address.state %>
+				</div>
+				<div class="col-lg-offset-4 col-lg-4">
+				<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary outline pull-right" %>
 				</div>
 			</div>
 		</div>
