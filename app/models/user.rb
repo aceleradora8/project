@@ -1,37 +1,50 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-	has_one :ngo, dependent: :destroy
+  has_one :ngo, dependent: :destroy
 
-	include BCrypt
+  include BCrypt
 
-	has_secure_password
+  has_secure_password
 
-	before_create :confirmation_token
+  before_create :confirm_token
 
-	def email_activate
-		self.confirmed = true
-		self.confirm_token = nil
-		save!
-	end
+  def email_activate
+    self.confirmed = true
+    self.confirm_token = nil
+    save!
+  end
 
-	def ngo?
-		self.role == "ngo"
-	end
+  def ngo?
+    self.role == "ngo"
+  end
 
-	def volunteer?
-		self.role == "volunteer"
-	end
+  def volunteer?
+    self.role == "volunteer"
+  end
 
-	def admin?
-		self.role == "admin"
-	end
+  def admin?
+    self.role == "admin"
+  end
 
-	private
-	def confirmation_token
-		if self.confirm_token.blank?
-			self.confirm_token = SecureRandom.urlsafe_base64.to_s
-		end
-	end
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
+  private
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
+  end
+  
+  def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
+  end
 
 end

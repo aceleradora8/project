@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
   resources :opportunities
   resources :volunteers
   resources :interests
+  resources :password_resets
   resources :users do
     member do
       get :confirm_email
