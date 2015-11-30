@@ -4,7 +4,7 @@ describe OpportunitiesController, type: :controller do
     describe '#index' do
         before :each do
           address = Address.create!(city:"POA")
-        	ngo = Ngo.create!(address_id: address.id, email:'email', name:"nome")
+        	ngo = Ngo.create!(address_id: address.id, name:"nome")
         	cause = Cause.create!()
           start_date = "2015-03-03"
           finish_date = "2015-04-03"
