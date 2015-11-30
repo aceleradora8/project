@@ -4,7 +4,7 @@ class Address < ActiveRecord::Base
 
 	def print_address
 		"#{self.address},  #{self.complement} -
-		 #{self.neighbourhood}, #{self.city} -
-		 #{self.state}, #{self.country}, #{self.cep}"
+		 #{self.neighborhood}, #{self.city} -
+		 #{self.state}, #{self.country}, #{self.zipcode}"
 	end
 end

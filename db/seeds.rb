@@ -10,25 +10,25 @@ Rake::Task["db:reset"]
 ##variaveis
 
 #populando enderecos para ongs/oportunidades
-address = Address.new(address:"Av Ipiranga",cep:"90619-900",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "Partenon", complement: "6681")
+address = Address.new(address:"Av Ipiranga",zipcode:"90619-900",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "Partenon", complement: "6681")
 address.save
-address = Address.new(address:"Av Bento Gonçalves",cep:"90600-900",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "Partenon", complement: "666")
+address = Address.new(address:"Av Bento Gonçalves",zipcode:"90600-900",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "Partenon", complement: "666")
 address.save
-address = Address.new(address:"Av Osvaldo Aranha",cep:"90300-666",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "Bomfim", complement: "333")
+address = Address.new(address:"Av Osvaldo Aranha",zipcode:"90300-666",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "Bomfim", complement: "333")
 address.save
-address = Address.new(address:"Av Paulista",cep:"30200-126",city:"São Paulo", state:"São Paulo",country:"Brasil", neighbourhood: "Consolação", complement: "76")
+address = Address.new(address:"Av Paulista",zipcode:"30200-126",city:"São Paulo", state:"São Paulo",country:"Brasil", neighborhood: "Consolação", complement: "76")
 address.save
-address = Address.new(address:"Rua Augusta",cep:"30200-112",city:"São Paulo", state:"São Paulo",country:"Brasil", neighbourhood: "Consolação", complement: "11")
+address = Address.new(address:"Rua Augusta",zipcode:"30200-112",city:"São Paulo", state:"São Paulo",country:"Brasil", neighborhood: "Consolação", complement: "11")
 address.save
-address = Address.new(address:"Av Rio Branco",cep:"60220-152",city:"Rio De Janeiro", state:"Rio de Janeiro",country:"Brasil", neighbourhood: "Centro", complement: "98")
+address = Address.new(address:"Av Rio Branco",zipcode:"60220-152",city:"Rio De Janeiro", state:"Rio de Janeiro",country:"Brasil", neighborhood: "Centro", complement: "98")
 address.save
-address = Address.new(address:"Rua Humaitá",cep:"60170-152",city:"Rio De Janeiro", state:"Rio de Janeiro",country:"Brasil", neighbourhood: "Humaitá", complement: "125")
+address = Address.new(address:"Rua Humaitá",zipcode:"60170-152",city:"Rio De Janeiro", state:"Rio de Janeiro",country:"Brasil", neighborhood: "Humaitá", complement: "125")
 address.save
-address = Address.new(address:"Av Osório",cep:"90570-322",city:"Imbé", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "João Clemente", complement: "21")
+address = Address.new(address:"Av Osório",zipcode:"90570-322",city:"Imbé", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "João Clemente", complement: "21")
 address.save
-address = Address.new(address:"Av Assis Brasil",cep:"90670-385",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "Passo d'Areia", complement: "781")
+address = Address.new(address:"Av Assis Brasil",zipcode:"90670-385",city:"Porto Alegre", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "Passo d'Areia", complement: "781")
 address.save
-address = Address.new(address:"Av Júlio de Castilhos",cep:"90143-235",city:"Caxias do Sul", state:"Rio Grande do Sul",country:"Brasil", neighbourhood: "São Pelegrino", complement: "14")
+address = Address.new(address:"Av Júlio de Castilhos",zipcode:"90143-235",city:"Caxias do Sul", state:"Rio Grande do Sul",country:"Brasil", neighborhood: "São Pelegrino", complement: "14")
 address.save
 
 #populando causas

@@ -32,6 +32,8 @@ gem 'pg_search'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
+# Correios CEP
+gem 'correios-cep'
 # Heroku's gem
 gem 'rails_12factor', group: :production
 

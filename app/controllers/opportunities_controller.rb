@@ -1,3 +1,6 @@
+require 'correios-cep'
+
+
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
@@ -31,11 +34,18 @@ class OpportunitiesController < ApplicationController
 
   def new
     @opportunity = Opportunity.new
+
     @opportunity.build_address
   end
 
   def create
+
+    finder = Correios::CEP::AddressFinder.new
+
+
     @opportunity = Opportunity.new(opportunity_params)
+    ##pegar zipcode do carinha
+    address = Correios::CEP::AddressFinder.get("91720090") 
     @skill = Skill.all
     respond_to do |format|
       if @opportunity.save
@@ -67,7 +77,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :cep, :complement, :state, :city, :neighbourhood], :skill_ids => [])
+      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :zipcode, :complement, :state, :city, :neighborhood], :skill_ids => [])
     end
 
     def filter_with_causes_and_cities(causes, cities)
