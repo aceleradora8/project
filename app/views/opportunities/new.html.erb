@@ -92,7 +92,7 @@ para buscar automaticamente o id da ong e o seu país cadastrado
 					<div class="col-md-9 margin-dropdown-lists">
 						<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name)  do |b| %>
 						<div class="col-md-6 margin-checkbox-lists">
-	  						<%= b.label(:"data-value" => b.value) { b.check_box + b.text } %>
+	  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
 	  						</div>
 						<%end%>
 					</div>
@@ -102,7 +102,7 @@ para buscar automaticamente o id da ong e o seu país cadastrado
 			<div class="form-group">
 				<%= f.label "Quantidade de vagas:", :class => "col-lg-3 control-label" %>
 				<div class="col-lg-1">
-					<%= f.text_field :vacancies, :class => "form-control" %>
+					<%= f.number_field :vacancies, min:1, :class => "form-control" %>
 				</div>
 			</div>
 
