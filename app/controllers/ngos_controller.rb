@@ -16,6 +16,7 @@ class NgosController < ApplicationController
 
 		def create
 		@ngo = Ngo.new(ngo_params)
+		@ngo.user.role = "ngo"
 
 		respond_to do |format|
 			if(@ngo.save)

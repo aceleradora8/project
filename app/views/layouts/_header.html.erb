@@ -17,7 +17,33 @@
         <li> <%= link_to "ONGs", ngos_url%>
         </li>
         <li><a href="#">Sobre Nós</a></li>
-      </ul>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>          
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.ngo.name %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+              <% if current_user.ngo? %>
+              <%= link_to "Cadastrar Oportunidades", new_opportunity_path%>
+               <li role="separator" class="divider"></li>
+              <%end%>
+              </li>
+              <li><%= link_to "Sair", logout_path, method: "delete"%></li>
+            </ul>
+        </li>
+        <% else %>
+         <li><%= link_to "Login", login_path%></li>
+          <li>          
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastre-se<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "ONG", new_ngo_path%></li>
+              <li><%= link_to "Voluntário", "#"%></li>
+            </ul>
+        </li>
+        <% end %>
+        </ul>
     </div>
   </div>
 </nav>

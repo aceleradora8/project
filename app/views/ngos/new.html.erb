@@ -41,8 +41,7 @@
 			</div>
 		</div>
 
-		<%= render 'users/form', f:f %>
-
+		
 		<%= f.fields_for :address do |ff| %> <!-- Model Address-->
 
 			<div class="form-group">
@@ -84,6 +83,7 @@
 					Bairro:
 				</label>
 				<div class="col-lg-5">
+
 					<%= ff.text_field :neighborhood, :class => "form-control" %>
 				</div>
 			</div>
@@ -115,12 +115,16 @@
 				</div>
 			</div>
 
+			<%= render 'users/form', f:f %>
+
 			<div class="form-group">
 				<div class="col-lg-offset-3 col-lg-5">
 					<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block" %>
 				</div>
 			</div>
 		<% end %>
+
+
 	<% end %>
 	
 </div>

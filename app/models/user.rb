@@ -15,6 +15,18 @@ class User < ActiveRecord::Base
 		save!
 	end
 
+	def ngo?
+		self.role == "ngo"
+	end
+
+	def volunteer?
+		self.role == "volunteer"
+	end
+
+	def admin?
+		self.role == "admin"
+	end
+
 	private
 	def confirmation_token
 		if self.confirm_token.blank?

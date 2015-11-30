@@ -5,6 +5,8 @@ class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
 
+  before_action :require_ngo, only: [:new, :create]
+
   def index
     if params[:text_search] == nil || params[:text_search] == ""
       @opportunity_search = Opportunity.all.includes(:address,:ngo,:cause)
