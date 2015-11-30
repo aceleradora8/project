@@ -20,7 +20,7 @@ class Opportunity < ActiveRecord::Base
 		 pg_search_scope :search, :against =>  [:title,:description], 
 		 :associated_against =>  { 
 		 	:ngo => [:name], 
-		 	:address => [:neighbourhood, :city, :state], 
+		 	:address => [:neighborhood, :city, :state], 
 		 	:cause => [:name],
 		 	:skills => [:name] }
 end
