@@ -3,6 +3,7 @@ require 'correios-cep'
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index]
+  before_action :set_skills, only: [:new]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create]
 
@@ -52,7 +53,6 @@ class OpportunitiesController < ApplicationController
 
   def create
     @opportunity = Opportunity.new(opportunity_params)
-    @skill = Skill.all
     respond_to do |format|
       if @opportunity.save
         format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
@@ -74,6 +74,10 @@ class OpportunitiesController < ApplicationController
       end
     end
 
+    def set_skills
+      @skill = Skill.all
+    end
+
     def set_causes
       @causes = Cause.all
     end
@@ -83,7 +87,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :zipcode, :complement, :state, :city, :neighborhood], :skill_ids => [])
+      params.require(:opportunity).permit(:id, :title, :description, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :skill_ids => [])
     end
 
     def filter_with_causes_and_cities(causes, cities)
