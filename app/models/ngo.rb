@@ -4,7 +4,7 @@ class Ngo < ActiveRecord::Base
 	has_many :phones, dependent: :destroy
 	has_and_belongs_to_many :causes  	
 	has_one :opportunity, dependent: :destroy
-	validates :name, presence: true	 	
+	validates :name, presence: true
 
 	accepts_nested_attributes_for :address
 	accepts_nested_attributes_for :user
