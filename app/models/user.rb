@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  before_create :confirm_token
+  before_create :confirmation_token
 
   def email_activate
     self.confirmed = true
@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
-  private
-  def confirmation_token
+
+   private
+    def confirmation_token
     if self.confirm_token.blank?
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end

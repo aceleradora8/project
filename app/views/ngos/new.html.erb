@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-	<%= form_for(@ngo ,:html=>{:onsubmit=>"return validateForm();"}) do |f| %>
+	<%= form_for(@ngo) do |f| %>
 		<% if @ngo.errors.any? %>
 		    <div id="error_explanation">
 		      <h2>
