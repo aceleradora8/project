@@ -11,10 +11,10 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active margin-left-200px">
-           <%= link_to "Oportunidades", opportunities_url%>
+        <li class="margin-left-200px">
+           <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li%>
         </li>
-        <li> <%= link_to "ONGs", ngos_url%>
+        <li> <%= active_link_to "ONGs", ngos_url, :wrap_tag => :li%>
         </li>
         <li><a href="#">Sobre Nós</a></li>
         </ul>
@@ -34,7 +34,7 @@
             </ul>
         </li>
         <% else %>
-         <li><%= link_to "Login", login_path%></li>
+         <li><%= active_link_to "Login", login_path, :wrap_tag => :li%></li>
           <li>          
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastre-se<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -47,3 +47,14 @@
     </div>
   </div>
 </nav>
+
+<script type="text/javascript">
+      $('.navbar li').click(function(e) {
+        $('.navbar li.active').removeClass('active');
+        var $this = $(this);
+        if (!$this.hasClass('active')) {
+            $this.addClass('active');
+        }
+
+    });
+</script>

@@ -32,6 +32,9 @@ gem 'pg_search'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
+#Active_Link_to
+gem 'active_link_to'
+
 # Correios CEP
 gem 'correios-cep'
 # Heroku's gem
