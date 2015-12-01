@@ -1,4 +1,4 @@
-<div class ="form-horizontal">
+<div class ="container">
 	<%= form_for(@opportunity) do |f| %>
 		<% if @opportunity.errors.any? %>
 		    <div id="error_explanation">
@@ -13,61 +13,72 @@
 		      </ul>
 		    </div>
   		<% end %> 	
-  		<%= form_for(@opportunity) do |f| %>
-			<div class="form-group">
-				<%= f.label "Nome da oportunidade:", :class => "col-lg-3 control-label" %>
-				<div class="col-lg-7">
-					<%= f.text_field :title, :class => "form-control" %>
+			<div class="col-lg-12 text-center">
+				<h1>Nova Oportunidade</h1>
+			</div>
+			<div class="row col-lg-offset-1">
+				<%= form_for(@opportunity) do |f| %>
+				<div class="col-lg-7 form-group">
+				<%= f.label "Título:", :for => "title-oportunity", :class => "control-label" %>
+				<%= f.text_field :title, :id => "title-oportunity", :class => "form-control col-lg-3" ,:placeholder => "Título da oportunidade" %>
 				</div>
+				<div class="col-lg-2 form-group ">
+					<%= f.label "Causa:", :class => "control-label" %>
+					<div class="row">
+						<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
+					</div>
+				</div>
+				<div class="col-lg-1 form-group ">
+					<%= f.label "Vagas:", :class => "col-lg-1" %>
+					<div class="row">
+						<%= f.number_field :vacancies, min:1, :class => "form-control" %>
+					</div>
+				</div>
+			</div>
+			<div class="row col-lg-offset-1">
+				<div class="form-group col-lg-10">
+				<%= f.label "Descrição:", :class => "control-label" %>
+				<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+
+			<div class="row col-lg-offset-2">
+				<div class="form-group">
+					<%= f.label "Início:", :class => "col-lg-1 control-label" %>
+					<div class="col-lg-3 margin-dropdown-lists">
+						<%= f.date_select :start_date, start_year: Time.now.year, end_year: Time.now.year + 1, :class => "form-control" %>
+					</div>
+					<%= f.label "Término:", :class => "col-lg-1 control-label" %>
+					<div class="col-lg-3 margin-dropdown-lists">
+						<%= f.date_select :finish_date, start_year: Time.now.year, end_year: Time.now.year + 2, :class => "form-control" %>
+					</div>
+				</div>
+			</div>
+			<div class="row col-lg-offset-1">
+				 <div class="form-group">
+					<%= f.label "Requisitos:", :class => "col-lg-1 control-label" %>
+					<div class="col-lg-10">
+						<div class="col-lg-9 margin-dropdown-lists">
+							<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name)  do |b| %>
+							<div class="col-lg-6 margin-checkbox-lists">
+		  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
+		  						</div>
+							<%end%>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 text-center">
+				<h3>Endereço da oportunidade</h3>
 			</div>
 			<div id="address">
 			<%= render 'address_form', f:f %>
 			</div>
-			<div class="form-group">
-				<%= f.label "Início:", :class => "col-lg-3 control-label" %>
-				<div class="col-lg-3 margin-dropdown-lists">
-					<%= f.date_select :start_date, start_year: Time.now.year, end_year: Time.now.year + 1, :class => "form-control" %>
-				</div>
-				<%= f.label "Término:", :class => "col-lg-2 control-label" %>
-				<div class="col-lg-3 margin-dropdown-lists">
-					<%= f.date_select :finish_date, start_year: Time.now.year, end_year: Time.now.year + 2, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= f.label "Descrição:", :class => "col-lg-3 control-label" %>
-				<div class="col-lg-7">
-					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= f.label "Causa:", :class => "col-lg-3 control-label" %>
-				<div class="col-lg-2 margin-dropdown-lists">
-					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
-				</div>
-			</div>
-			 <div class="form-group">
-				<%= f.label "Requisitos:", :class => "col-lg-3 control-label" %>
-				<div class="col-sm-6">
-					<div class="col-md-9 margin-dropdown-lists">
-						<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name)  do |b| %>
-						<div class="col-md-6 margin-checkbox-lists">
-	  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
-	  						</div>
-						<%end%>
+				<div class="form-group">
+					<div class="col-lg-offset-4 col-lg-4 margin-dropdown-lists">
+						<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block btn-primary" %>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<%= f.label "Quantidade de vagas:", :class => "col-lg-3 control-label" %>
-				<div class="col-lg-1">
-					<%= f.number_field :vacancies, min:1, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-lg-offset-3 col-lg-7">
-					<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block btn-primary" %>
-				</div>
-			</div>
 			<%= f.hidden_field :ngo_id, :value => current_user.ngo.id %>
 		<% end %>
 	<% end %>
