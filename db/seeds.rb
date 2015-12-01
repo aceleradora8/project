@@ -92,7 +92,7 @@ skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
 #populando oportunidades
-opportunity = Opportunity.new(title:"Evento de doação de cachorros e gatos",description:"Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Falar com a Amanda",description:"Ul-Ruául-Rau-ra-raul...ruaruaruaruaruaruuarruawruwraruwruwruawuruawru, uwauruawuruauwruwaru, awruwauruawuruawruuawru.",address_id:1,ngo_id:1,cause_id:2,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
