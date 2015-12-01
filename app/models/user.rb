@@ -3,6 +3,9 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   has_one :ngo, dependent: :destroy
 
+  validates :email, presence: true 
+  validates :password, presence: true 
+
   include BCrypt
 
   has_secure_password
@@ -42,5 +45,5 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
   end
-
+ 
 end
