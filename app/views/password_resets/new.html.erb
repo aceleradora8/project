@@ -1,10 +1,16 @@
-
-
-<%= form_tag password_resets_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="actions"><%= submit_tag "Recuperar Senha" %></div>
-<% end %>
+<div class="form-horizontal">
+	<%= form_tag password_resets_path, :method => :post do %>
+		<div class="form-group">
+			<div class="col-lg-offset-3 col-lg-5">
+				<%= text_field_tag :email, params[:email], :placeholder => "E-mail", :class => "form-control" %>
+	    	</div>
+	    </div>
+	 	
+	 	<div class="form-group">
+			<div class="col-lg-offset-3 col-lg-5">
+	  			<%= submit_tag "Recuperar Senha", :class => "btn btn-default btn-lg btn-block" %>
+	  		</div>
+		</div>
+	<% end %>
+</div>
 
