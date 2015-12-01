@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  before_create :confirmation_token
+  before_create { generate_token(:auth_token) }
+  before_create { generate_token(:confirm_token) }
 
   def email_activate
     self.confirmed = true
@@ -35,13 +36,7 @@ class User < ActiveRecord::Base
   end
 
 
-   private
-    def confirmation_token
-    if self.confirm_token.blank?
-      self.confirm_token = SecureRandom.urlsafe_base64.to_s
-    end
-  end
-  
+  private
   def generate_token(column)
       begin
         self[column] = SecureRandom.urlsafe_base64

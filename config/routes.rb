@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :volunteers
   resources :interests
   resources :password_resets
+  resources :sessions
   resources :users do
     member do
       get :confirm_email
