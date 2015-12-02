@@ -25,7 +25,7 @@
 				Nome da ONG:
 			</label> 
 			<div class="col-lg-5">
-				<%= f.text_field :name, :class => "form-control" %>
+				<%= f.text_field :name, :id => "inputName", :class => "form-control" %>
 			</div>
 			<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger">
 				<p>Campo Obrigatório!</p>
@@ -41,7 +41,6 @@
 			</div>
 		</div>
 
-		
 		<%= f.fields_for :address do |ff| %> <!-- Model Address-->
 
 			<div class="form-group">
@@ -123,8 +122,5 @@
 				</div>
 			</div>
 		<% end %>
-
-
 	<% end %>
-	
 </div>

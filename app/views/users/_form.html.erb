@@ -1,40 +1,46 @@
-<%= f.fields_for :user do |ff| %> <!-- Model Address-->
-<div class="form-group">
-	<label class="control-label col-lg-3">
-		<h3>Usuário:</h3>
-	</label>
-	<div class="col-lg-5">
-		
+<%= f.fields_for @user do |ff| %> <!-- Model Address-->
+	<div class="form-group">
+		<label class="control-label col-lg-3">
+			<h3>Usuário:</h3>
+		</label>
+		<div class="col-lg-5">
+			
+		</div>
 	</div>
-</div>
-<div class="form-group">
-	<label class="control-label col-lg-3">
-		Email:
-	</label>
-	<div class="col-lg-5">
-		<%= ff.text_field :email, :placeholder => 'exemplo@exemplo.com', :class => "form-control" %>
+	<div class="form-group">
+		<label class="control-label col-lg-3">
+			Email:
+		</label>
+		<div class="col-lg-5">
+			<%= ff.text_field :email, :id => "inputEmail", :placeholder => 'exemplo@exemplo.com', :class => "form-control" %>
+		</div>
 	</div>
-</div>
-<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
-				<p>Email Inválido!</p>
-			</div>
-			<div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
-				<p>Campo Obrigatório!</p>
-			</div>
-<div class="form-group">
-	<label class="control-label col-lg-3">
-		Senha:
-	</label>
-	<div class="col-lg-5">
-		<%= ff.password_field :password, :class => "form-control" %>
+	<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
+		<p>Email Inválido!</p>
 	</div>
-</div>
-<div class="form-group">
-	<label class="control-label col-lg-3">
-		Confirmar Senha:
-	</label>
-	<div class="col-lg-5">
-		<%= ff.password_field :password_confirmation, :class => "form-control" %>
+		<div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
+			<p>Campo Obrigatório!</p>
+		</div>
+	<div class="form-group">
+		<label class="control-label col-lg-3">
+			Senha:
+		</label>
+		<div class="col-lg-5">
+			<%= ff.password_field :password, :id => "inputPassword", :class => "form-control" %>
+		</div>
+		<div id="passwordError" class="col-lg-2 alert alert-danger custom-alert-danger">
+			<p>Campo Obrigatório!</p>
+		</div>
 	</div>
-</div>
+	<div class="form-group">
+		<label class="control-label col-lg-3">
+			Confirmar Senha:
+		</label>
+		<div class="col-lg-5">
+			<%= ff.password_field :password_confirmation, :id => "inputPassword", :class => "form-control" %>
+		</div>
+		<div id="passwordError" class="col-lg-2 alert alert-danger custom-alert-danger">
+			<p>Campo Obrigatório!</p>
+		</div>
+	</div>
 <% end %>

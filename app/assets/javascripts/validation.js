@@ -19,6 +19,21 @@ VALIDATION.validateName = function validateName()
 	}
 }
 
+VALIDATION.validatePassword = function validatePassword()
+{
+	passwordField = $("#inputPassword");
+	if(passwordField.val()!=""){
+		passwordField.removeClass("input-text-error");
+		return true;
+	}else{
+		passwordField.focus();  
+		passwordField.addClass("input-text-error");
+		VALIDATION.hideDivsError();
+		$('#passwordError').show();
+		return false;
+	}
+}
+
 VALIDATION.validateEmail = function validateEmail()
 {
 	email = $("#inputEmail");
