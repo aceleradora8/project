@@ -3,8 +3,12 @@ class PasswordResetsController < ApplicationController
 
 def create
   user = User.find_by_email(params[:email])
-  user.send_password_reset if user
-  redirect_to login_url, :notice => "Confira seu email, enviamos instruções de recuperação de senha"
+  if user
+    user.send_password_reset
+    redirect_to login_url, :notice => "Confira seu email, enviamos instruções de recuperação de senha"
+  else 
+    redirect_to new_password_reset_path, :error => "Email não cadastrado"
+  end
 end
 
 def edit

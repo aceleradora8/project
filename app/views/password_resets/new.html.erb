@@ -1,4 +1,11 @@
 <div class="form-horizontal">
+  <% if error != nil %>
+    <div class= "alert alert-danger col-lg-offset-3 col-lg-5">
+      <p id="error"><%= error %></p>
+    </div>
+  <%end%>
+
+
 	<%= form_tag password_resets_path, :method => :post do %>
 		<div class="form-group">
 			<div class="col-lg-offset-3 col-lg-5">
