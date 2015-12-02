@@ -32,23 +32,23 @@ address = Address.new(address:"Av Júlio de Castilhos",zipcode:"90143-235",city:
 address.save
 
 #populando causas
-cause = Cause.new(name:"Animal")
+cause = Cause.new(name:"Proteção animal")
 cause.save
-cause = Cause.new(name:"Ajudar idosos")
+cause = Cause.new(name:"Cultura e artes")
 cause.save
-cause = Cause.new(name:"Doação de alimentos")
+cause = Cause.new(name:"Crianças")
 cause.save
-cause = Cause.new(name:"Doação de cobertores")
+cause = Cause.new(name:"Direitos civis")
 cause.save
 cause = Cause.new(name:"Educação")
-cause.save
-cause = Cause.new(name:"Fazer comida")
 cause.save
 cause = Cause.new(name:"Meio ambiente")
 cause.save
 cause = Cause.new(name:"Saúde")
 cause.save
-cause = Cause.new(name:"Trânsito")
+cause = Cause.new(name:"Serviços sociais")
+cause.save
+cause = Cause.new(name:"Idosos")
 cause.save
 
 #populando users
@@ -80,7 +80,7 @@ skill = Skill.new(name:"Engenharia")
 skill.save
 skill = Skill.new(name:"Gostar de animais")
 skill.save
-skill = Skill.new(name:"Gostar de crianças")
+skill = Skill.new(name:"Facilidade com crianças")
 skill.save
 skill = Skill.new(name:"Gostar de idosos")
 skill.save
@@ -92,17 +92,17 @@ skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
 #populando oportunidades
-opportunity = Opportunity.new(title:"Falar com a Amanda",description:"Ul-Ruául-Rau-ra-raul...ruaruaruaruaruaruuarruawruwraruwruwruawuruawru, uwauruawuruauwruwaru, awruwauruawuruawruuawru.",address_id:1,ngo_id:1,cause_id:2,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Contar histórias para crianças",description:"Contar histórias para crianças ajuda no desenvolvimento da linguagem Se na hora de dormir, pais contarem uma história para os filhos, ao menos 2 vezes por semana, criança vai conhecer mais de 500 contos até os 5 anos. Contar histórias ajuda muito no desenvolvimento da linguagem. Você sabe qual a melhor forma de despertar o interesse das crianças? A atriz Flávia Alessandra convidou papais, mamães e um vovô para uma divertida expedição ao reino do faz de conta." ,address_id:1,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
-opportunity.skills.push(Skill.find(5))
-opportunity.skills.push(Skill.find(10))
+opportunity.skills.push(Skill.find(6))
+opportunity.skills.push(Skill.find(8))
 
 opportunity = Opportunity.new(title:"Ajuda com grupo de estudos",description:"Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper.",address_id:2,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(6))
 opportunity.skills.push(Skill.find(8))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer Ispecialista im mé intende tudis nuam golada, vinho, uiski, carirí, rum da jamaikis, só num pode ser mijis. Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Resgatar gatos em árvores",description:"Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer Ispecialista im mé intende tudis nuam golada, vinho, uiski, carirí, rum da jamaikis, só num pode ser mijis. Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
@@ -111,28 +111,28 @@ opportunity = Opportunity.new(title:"Ajudar moradores de rua",description:"Forev
 opportunity.save
 opportunity.skills.push(Skill.find(3))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravida. Quisque vitae metus id massa tincidunt iaculis sed sed purus. Vestibulum viverra lobortis faucibus. Vestibulum et turpis.",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Dar banho em cachorros",description:"In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravida. Quisque vitae metus id massa tincidunt iaculis sed sed purus. Vestibulum viverra lobortis faucibus. Vestibulum et turpis.",address_id:1,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Cursos voluntários de computação",description:"Vitis e adipiscing enim. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justo enim. Atirei o pau no gatis.",address_id:2,ngo_id:4,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Cursos de computação",description:"Vitis e adipiscing enim. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justo enim. Atirei o pau no gatis.",address_id:2,ngo_id:4,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(1))
 opportunity.skills.push(Skill.find(6))
 opportunity.skills.push(Skill.find(8))
 
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Nullam pellentesque metus nec libero laoreet vitae vestibulum ante ultricies. Phasellus non mollis purus. Integer vel lacus dolor. Proin eget mi nec mauris convallis ullamcorper vel ac nulla. Nulla et semper metus.",address_id:4,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"História de Cachorro",description:"O projeto nasceu da percepção do quanto os cães marcam nossas vidas e são capazes de transformar realidades com sua simples presença. Este é o espaço onde as pessoas poderão dividir e eternizar essas experiências que falam sobre isso: a relação entre cães, pessoas e amor.",address_id:4,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
 
-opportunity = Opportunity.new(title:"Precisa-se de professor de Inglês",description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.",address_id:5,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
+opportunity = Opportunity.new(title:"Apoio Pedagógico",description:"A partir de uma análise do perfil de cada beneficiado, o voluntário deverá, junto à ONG e ao beneficiado, estruturar a trilha de desenvolvimento educacional a ser percorrida por este e realizar o acompanhamento periódico do desempenho e da frequência, mantendo-se em contato com os professores de cada curso (dos quais os beneficiados participam).",address_id:5,ngo_id:5,cause_id:5,vacancies:30, start_date:"2015-10-12", finish_date:"2015-10-24")
 opportunity.save
 opportunity.skills.push(Skill.find(8))
 
-opportunity = Opportunity.new(title:"Ajuda Patas Dadas",description:"Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
+opportunity = Opportunity.new(title:"Cuidados Veterinários Felinos",description:"Ajude a Catland a conseguir realizar esse sonho de ver todos os gatos livres dos maus tratos e abandono! O voluntário de cuidados veterinários terá as seguintes atribuições: - Trabalho voluntario diurno e noturno. - Observação diária da saúde dos resgatinhos - Administração de Medicação oral - Administração de Medicação injetável - Realização de curativos.",address_id:8,ngo_id:1,cause_id:1,vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(5))
 opportunity.skills.push(Skill.find(10))
