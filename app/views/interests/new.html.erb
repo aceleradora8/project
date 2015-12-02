@@ -11,41 +11,40 @@
 	<%= form_for(@interest ,:html=>{:onsubmit=>"return INTEREST.validateForm();"}) do |f| %>
 		
 		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
-			<%= f.fields_for :volunteer do |form| %>
-				<div class="form-group">
-					<%= form.label "Nome:", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-5">
-						<%= form.text_field :name, :id => "inputName", :class => "form-control"%>
-					</div>
-					<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger">
-						<p>Campo Obrigatório!</p>
-					</div>
+
+		<%= f.fields_for :volunteer do |form| %>
+			<div class="form-group">
+				<%= form.label "Nome:", :for => "name-volunteer", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :name, :id => "name-volunteer", :class => "form-control validate-name"%>
+				</div>
+				<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-name-volunteer">
+					<p>Campo Obrigatório!</p>
 				</div>
 
-				<div class="form-group">
-					<%= form.label "Email:", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-5">
-						<%= form.text_field :email, :id => "inputEmail", :placeholder => "exemplo@exemplo.com", :class => "form-control"%>
-					</div>
-					<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
-						<p>Email Inválido!</p>
-					</div>
-					<div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
-						<p>Campo Obrigatório!</p>
-					</div>
+				
+			<div class="form-group">
+				<%= form.label "Email:", :for => "email-volunteer", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :email, :id => "email-volunteer", :placeholder => "exemplo@exemplo.com", :class => "form-control validate-email"%>
+				</div>
+				<div class="col-lg-2 alert alert-danger custom-alert-danger email-error-invalid">
+					<p>Email Inválido!</p>
+				</div>
+				<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-email-volunteer">
+					<p>Campo Obrigatório!</p>
 				</div>
 
-				<div class="form-group">
-					<%= form.label "Telefone:", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-5">
-						<%= form.text_field :phone, :id => "inputPhone",:placeholder => "(99)9999-9999", :class => "form-control phone_with_ddd"%>
-					</div>
-					<div id="phoneErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger">
-						<p>Telefone Inválido!</p>
-					</div>
-					<div id="phoneErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger">
-						<p>Campo Obrigatório!</p>
-					</div>
+			<div class="form-group">
+				<%= form.label "Telefone:", :for => "phone-volunteer", :class => "col-lg-3 control-label" %>
+				<div class="col-lg-5">
+					<%= form.text_field :phone, :id => "phone-volunteer",:placeholder => "(99)9999-9999", :class => "form-control phone_with_ddd validate-phone"%>
+				</div>
+        <div class="col-lg-2 alert alert-danger custom-alert-danger phone-error-invalid">
+          <p>Telefone Inválido!</p>
+        </div>
+				<div id="phoneErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-phone-volunteer">
+					<p>Campo Obrigatório!</p>
 				</div>
 
 				<div class="form-group">

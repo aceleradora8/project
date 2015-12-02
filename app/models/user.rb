@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_one :ngo, dependent: :destroy
 
   validates :email, presence: true 
-  validates :password, presence: true 
+  validates :password_digest, presence: true 
 
   include BCrypt
 
