@@ -1,7 +1,10 @@
 var INTEREST = INTEREST || {}
 	
 INTEREST.validateForm = function validateForm(){	
-	if (VALIDATION.validateName() && VALIDATION.validateEmail() && VALIDATION.validatePhone()){
+  validateName =VALIDATION.validateName();
+  validateEmail = VALIDATION.validateEmail();
+  validatePhone = VALIDATION.validatePhone();
+	if (validateName && validateEmail && validatePhone){
 		return true;
 	} else{
 		return false;
