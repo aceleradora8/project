@@ -21,24 +21,27 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-lg-3">
+			<label class="control-label col-lg-3" for="name-ngo">
 				Nome da ONG:
 			</label> 
 			<div class="col-lg-5">
-				<%= f.text_field :name, :id => "inputName", :class => "form-control" %>
+				<%= f.text_field :name, :id => "name-ngo", :class => "form-control validate-name" %>
 			</div>
-			<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger">
+			<div id="nameError" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-name-ngo">
 				<p>Campo Obrigatório!</p>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="control-label col-lg-3">
+			<label class="control-label col-lg-3" for="description-ngo">
 				Descrição:			
 			</label>
 			<div class="col-lg-5">
-				<%= f.text_field :description, :class => "form-control" %>
+				<%= f.text_area :description, :class => "form-control validate-description" , :id => "description-ngo"%>
 			</div>
+      <div id="description-error" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-description-ngo">
+        <p>Campo Obrigatório!</p>
+      </div>
 		</div>
 
 		<%= f.fields_for :address do |ff| %> <!-- Model Address-->

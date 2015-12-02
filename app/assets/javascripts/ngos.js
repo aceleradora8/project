@@ -2,10 +2,14 @@ var NGO = NGO || {}
 
 NGO.validateForm = function validateForm()
 {	
-	if (VALIDATION.validateName() && VALIDATION.validateEmail()){
-		return true;
-	} else{
-		return false;
-	}
+	validateName =VALIDATION.validateName();
+  validateDescription =VALIDATION.validateDescription();
+  validateEmail = VALIDATION.validateEmail();
+  validatePassword = VALIDATION.validatePassword();
+  validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
+  if (validateName && validateDescription && validateEmail && validatePassword && validatePasswordConfirmation){
+    return true;
+  } else{
+    return false;
+  }
 }
-

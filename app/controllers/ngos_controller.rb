@@ -14,19 +14,19 @@ class NgosController < ApplicationController
 	def show
 	end
 
-		def create
-		@ngo = Ngo.new(ngo_params)
-		@ngo.user.role = "ngo"
-
-		respond_to do |format|
-			if(@ngo.save)
-				UserMailer.email_confirmation(@ngo).deliver
-				format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
-			else
-				render 'new'
-			end
-		end
-	end
+	def create
+    @ngo = Ngo.new(ngo_params)
+    @ngo.user.role = "ngo"
+ 
+  	respond_to do |format|
+  		if(@ngo.save)
+  			UserMailer.email_confirmation(@ngo).deliver
+  			format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
+  		else
+  			render 'new'
+  		end
+  	end
+  end
 
 	private 
     def set_ngo

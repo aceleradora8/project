@@ -14,19 +14,36 @@ VALIDATION.validateEmpty = function validateEmpty(input)
 	}
 }
 
-VALIDATION.validatePassword = function validatePassword()
+VALIDATION.validateName = function validateName() {
+  return VALIDATION.validateEmpty($(".validate-name"));
+}
+
+VALIDATION.validateDescription = function validateDescription() {
+  return VALIDATION.validateEmpty($(".validate-description"));
+}
+
+VALIDATION.validatePassword = function validatePassword(){  
+    return VALIDATION.validateEmpty($(".validate-password"));
+}
+
+VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation()
 {
-	passwordField = $("#inputPassword");
-	if(passwordField.val()!=""){
-		passwordField.removeClass("input-text-error");
-		return true;
-	}else{
-		passwordField.focus();  
-		passwordField.addClass("input-text-error");
-		VALIDATION.hideDivsError();
-		$('#passwordError').show();
-		return false;
-	}
+  password = $(".validate-password");
+  passwordConfirmation = $(".validate-password-confirmation-user");
+   if(VALIDATION.validateEmpty($(".validate-password-confirmation-user"))){
+    if(password.val() == passwordConfirmation.val()){    
+      passwordConfirmation.removeClass("input-text-error");
+      $(".password-confirmation-invalid").hide();
+      return true;
+    }else{
+      passwordConfirmation.focus();  
+      passwordConfirmation.addClass("input-text-error");
+      $(".password-confirmation-invalid").show();
+      return false;
+    }
+  }else{
+    return false;
+  }
 }
 
 VALIDATION.validateEmail = function validateEmail()
@@ -68,8 +85,5 @@ VALIDATION.validatePhone = function validatePhone(){
   }
 }
 
-VALIDATION.validateName = function validateName() {
-  return VALIDATION.validateEmpty($(".validate-name"));
-}
 
 
