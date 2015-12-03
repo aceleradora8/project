@@ -59,9 +59,9 @@
 				<div class="form-group">
 					<div class="col-lg-12">
 						<div class="col-lg-10 margin-dropdown-lists">
-							<%= collection_check_boxes(:opportunity, :skill_ids, Skill.all, :id, :name)  do |b| %>
-							<div class="col-lg-4 margin-checkbox-lists">
-		  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
+							<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name)  do |b| %>
+								<div class="col-lg-4 margin-checkbox-lists">
+		  							<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
 		  						</div>
 							<%end%>
 						</div>
