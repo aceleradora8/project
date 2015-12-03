@@ -15,10 +15,13 @@ function validateForm()
 }
 
 function validateZipcode() {
-  $("#inputCep").change(function() {
+  $("#inputCep").keyup(function() {
     if ($(this).val().length == 9) {
       requestOpportunitiesNew();
       //alert("Chegou ao tamanho certo. " + $(this).val());
+    }
+    else {
+      cleanFields();
     };
   });
 }
@@ -27,16 +30,26 @@ function validateDate() {
 
 }
 
+function cleanFields() {
+  $("#inputState").attr("text","");
+  $("#inputCity").attr("text","");
+  $("#inputNeighborhood").attr("text","");
+  $("#inputAddress").attr("text","");
+}
 
 requestOpportunitiesNew = function() {
   $.ajax({
   url: '/opportunities/new',
   data: { zipcode: $("#inputCep").val()},
-  success: function(data) {
-      $("#inputState").attr("value",data.state);
-      $("#inputCity").attr("value",data.city);
-      $("#inputNeighborhood").attr("value",data.neighborhood);
-      $("#inputAddress").attr("value",data.address);
+  success: function(response) {
+      $("#inputState").attr("value",response.state);
+      $("#inputState").attr("text",response.state);
+      $("#inputCity").attr("value",response.city);
+      $("#inputCity").attr("text",response.city);
+      $("#inputNeighborhood").attr("value",response.neighborhood);
+      $("#inputNeighborhood").attr("text",response.neighborhood);
+      $("#inputAddress").attr("value",response.address);
+      $("#inputAddress").attr("text",response.address);
       }
 });
 };
