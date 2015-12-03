@@ -37,7 +37,6 @@ class OpportunitiesController < ApplicationController
   def new
     @opportunity = Opportunity.new
     finder = Correios::CEP::AddressFinder.new
-    #@address_finder = Correios::CEP::AddressFinder.get("91720090") 
     @opportunity.build_address   
     respond_to do |format|
       if request.xhr? 
