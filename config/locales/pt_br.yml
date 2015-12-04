@@ -60,6 +60,14 @@ pt_br:
   activerecord:
     errors:
       models:
+        address:
+          attributes:
+            address:
+              blank: "Endereço deve ser preenchido!"
+            neighborhood:
+              blank: "Bairro deve ser preenchido!"
+            city:
+              blank: "Cidade deve ser preenchida!"
         volunteer:
           attributes:
             name:
@@ -70,9 +78,11 @@ pt_br:
               blank: "Telefone deve ser preenchido!"
         opportunity:
           attributes:
-            address:
-              blank: "Endereço deve ser preenchido!"
             ngo:
               blank: "ONG deve ser preenchido!"
             cause:
               blank: "Causa deve ser preenchido!"
+            title:
+              blank: "Título deve ser preenchido!"
+            description:
+              blank: "Descrição deve ser preenchida!"

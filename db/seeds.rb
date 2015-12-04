@@ -52,7 +52,7 @@ cause = Cause.new(name:"Idosos")
 cause.save
 
 #populando users
-user = User.new(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken")
+user = User.new(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
 user.save
 
 #populando ongs
