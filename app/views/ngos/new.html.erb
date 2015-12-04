@@ -43,6 +43,15 @@
         <p>Campo Obrigatório!</p>
       </div>
 		</div>
+		<%= f.fields_for :phones do |p| %>
+		<div class="form-group">
+			<label class="control-label col-lg-3" for="description-ngo">
+				Telefones:			
+			</label>
+			<div class="col-lg-5">
+				<%= p.telephone_field :phone_number %>
+			</div>
+			<%end%>
 
 		<%= f.fields_for :address do |ff| %> <!-- Model Address-->
 
