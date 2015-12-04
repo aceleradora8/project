@@ -1,2 +1,12 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var PASS_RESETS = PASS_RESETS || {}
+
+PASS_RESETS.validateForm = function validateForm()
+{ 
+  validatePassword = VALIDATION.validatePassword();
+  validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
+  if (validatePassword && validatePasswordConfirmation){
+    return true;
+  } else{
+    return false;
+  }
+}
