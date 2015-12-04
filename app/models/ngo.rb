@@ -3,7 +3,7 @@ class Ngo < ActiveRecord::Base
 	belongs_to :user, dependent: :destroy
 	has_many :phones, dependent: :destroy
 	has_and_belongs_to_many :causes  	
-	has_one :opportunity, dependent: :destroy
+	has_many :opportunities, dependent: :destroy
 	validates :name, presence: true
   	validates :description, presence: true
 

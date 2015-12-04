@@ -21,9 +21,17 @@
 
 .description {
 	width: 250px;
-  	white-space: nowrap;
-  	overflow: hidden;
-  	text-overflow: ellipsis;
-  	padding-top: 10px;
-  	padding-bottom: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.opportunity-title {
+  font-size: 20px;
+}
+
+.oppt-ngo {
+  font-weight: bold;
 }
