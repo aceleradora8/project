@@ -21,8 +21,10 @@ class NgosController < ApplicationController
   		respond_to do |format|
   			if(@ngo.save)
   				ngo_params[:phones_attributes].each do |x, phone|
-    				p = Phone.new(phone_number: phone[:phone_number], ngo_id: @ngo.id)
-    				p.save
+    				if(phone[:phone_number] != "")
+              p = Phone.new(phone_number: phone[:phone_number], ngo_id: @ngo.id)
+    				  p.save
+            end
    				end
   				UserMailer.email_confirmation(@ngo).deliver
   				format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
@@ -43,7 +45,7 @@ class NgosController < ApplicationController
 
 	private
 		def ngo_params
-			params.require(:ngo).permit(:user_id, :name, :description, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :user_attributes => [:email, :password, :password_confirmation], :phones_attributes => [:phone_number])
+			params.require(:ngo).permit(:user_id, :name, :description, :privacy, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :user_attributes => [:email, :password, :password_confirmation], :phones_attributes => [:phone_number])
 		end
 end
 

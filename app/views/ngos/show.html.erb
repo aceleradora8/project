@@ -15,10 +15,10 @@
 				<span class="leftspace"><%= @ngo.description %></span> 
 				</p>
 			</div>
-
 			<div>
-				<p> <span class="bold">Local: </span>  <br>
-				<span class="leftspace"><%= @ngo.address.print_address %></span> 
+				<p><span class="bold">Local: </span><br>
+				<!-- Criar o if privacy == true mostrar a mensagem que a ONG deixou os dados privados. -->
+				<span class="leftspace"><%= @ngo.address.print_address unless @ngo.privacy == true %></span>
 				</p>
 			</div>
 		</div>

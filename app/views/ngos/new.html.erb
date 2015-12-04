@@ -14,11 +14,9 @@
 		    </div>
   		<% end %>
 		<div class="form-group">
-			<label class="control-label col-lg-3">
-				<h3>Dados da ONG:</h3>
+			<label class="col-lg-3 col-lg-offset-2">
+				<h2>Dados da ONG:</h2>
 			</label>
-			<div class="col-lg-5">
-			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-lg-3" for="name-ngo">
@@ -45,11 +43,11 @@
 		</div>
 		<%= f.fields_for :phones do |p| %>
 		<div class="form-group">
-			<label class="control-label col-lg-3" for="description-ngo">
+			<label class="control-label col-lg-1" for="description-ngo">
 				Telefones:			
 			</label>
-			<div class="col-lg-5">
-				<%= p.telephone_field :phone_number %>
+			<div class="col-lg-3">
+				<%= p.telephone_field :phone_number, :class => "col-lg-5" %>
 			</div>
 			<%end%>
 
@@ -125,9 +123,12 @@
 					<%= ff.text_field :country, :class => "form-control", :disabled => true %>
 				</div>
 			</div>
-
 			<%= render 'users/form', f:f %>
-
+			<div class="form-group">
+				<label class="control-label col-lg-3 col-lg-offset-3">
+					<%= f.check_box :privacy %> Ocultar dados da ONG!
+				</label>
+			</div>
 			<div class="form-group">
 				<div class="col-lg-offset-3 col-lg-5">
 					<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block btn-primary" %>
