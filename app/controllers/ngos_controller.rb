@@ -16,11 +16,14 @@ class NgosController < ApplicationController
 	end
 
 	def create
-    @userEmail = User.find_by_email(ngo_params[:user_attributes][:email])
+    @user_email = User.find_by_email(ngo_params[:user_attributes][:email])
+    @ngo_name = Ngo.find_by_name(ngo_params[:name])
     @ngo = Ngo.new(ngo_params)
     respond_to do |format|
-      if(@ngo.user.email == @userEmail.email)
+      if(@user_email != nil)
         format.html { redirect_to '/ngos/new', notice: "Erro. Email já existe!" }
+      elsif(@ngo_name != nil)
+        format.html { redirect_to '/ngos/new', notice: "Erro. ONG já existe!" }
       else
         @ngo.user.role = "ngo"
     		if(@ngo.save)
@@ -35,9 +38,9 @@ class NgosController < ApplicationController
     		else
     			render 'new'
     		end
-    	 end
-      end
+    	end
     end
+  end
 
 	private 
     def set_ngo
