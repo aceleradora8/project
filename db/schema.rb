@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20151201130141) do
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
-    t.string   "phone_number"
+    t.string   "phone_number", null: false
     t.integer  "ngo_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
