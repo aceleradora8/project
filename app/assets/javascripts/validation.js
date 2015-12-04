@@ -85,5 +85,37 @@ VALIDATION.validatePhone = function validatePhone(){
   }
 }
 
+VALIDATION.validateDate = function validateDate(){
+  var startDate =  new Date($('#opportunity_start_date_1i').val() + "/" + $('#opportunity_start_date_2i').val()  + "/" + $('#opportunity_start_date_3i').val());
+  var finishDate =  new Date($('#opportunity_finish_date_1i').val()  + "/" + $('#opportunity_finish_date_2i').val()  + "/" + $('#opportunity_finish_date_3i').val());
+  if(startDate > finishDate){
+     $('.error-date-opportunities').show();
+    return false;
+  }
+  else{ 
+    return true;
+  }
+}
+
+
+VALIDATION.validateZipCode = function validateZipCode() {
+  zipCode = $(".validate-zipcode");
+   if(VALIDATION.validateEmpty($(".validate-zipcode"))){
+    if($("#inputCity").val().length == 0){
+      zipCode.focus();  
+      zipCode.addClass("input-text-error");
+      $('.error-zipcode-invalid').show();
+      return false;      
+    }else{
+      zipCode.removeClass("input-text-error");
+      $('.error-zipcode-invalid').hide();
+      return true;
+    }
+  }else{
+    return false;
+  }
+}
+
+
 
 

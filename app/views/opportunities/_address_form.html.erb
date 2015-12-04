@@ -2,11 +2,16 @@
 	<div class="row col-lg-offset-1">
 		<div class="form-group">
 			<%= a.label "CEP: ",:class => "col-lg-1 control-label" %>
-			<div class="col-lg-2">
-				<%= a.text_field :zipcode, :id => "inputCep", :class => "form-control" %>
+			<div class="col-lg-2 margin-end-bot">
+				<%= a.text_field :zipcode, :id => "zipcode-opportunity", :class => "form-control cep validate-zipcode" %>
 			</div>
-			<div class="btn glyphicon glyphicon-search btn-primary"></div>
-		</div>
+			<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-zipcode-opportunity">
+				<p>Campo Obrigatório!</p>
+			</div>
+			<div class="col-lg-2 alert alert-danger custom-alert-danger error-zipcode-invalid">
+				<p>Cep Inválido!</p>
+			</div>
+		</div>		
 	</div>
 	<div class="row col-lg-offset-1">
 		<div class="form-group">
@@ -28,12 +33,12 @@
 			</div>
 			<%= a.label "Cidade: ", :class => "col-lg-1 control-label" %>
 			<div class="col-lg-3">
-				<%= a.text_field :city, :id => "inputCity", :class => "form-control" %>
+				<%= a.text_field :city, :id => "inputCity", :class => "form-control", disabled: true %>
 			</div>
 			<div class="form-group">
 				<%= a.label "Estado: ", :class => "col-lg-1 control-label" %>
 				<div class="col-lg-1">
-					<%= a.text_field :state, :id => "inputState", :class => "form-control" %>
+					<%= a.text_field :state, :id => "inputState", :class => "form-control", disabled: true %>
 				</div>
 			</div>
 		</div>

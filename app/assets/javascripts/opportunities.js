@@ -1,12 +1,15 @@
+var OPPORTUNITIES = OPPORTUNITIES || {}
+
+
 var causesList, citiesList, getCauseList, getCausesChecked, getCitiesChecked, getCityList, requestOpportunities;
 
 causesList = [];
 
 citiesList = [];
 
-function validateForm()
+OPPORTUNITIES.validateForm = function validateForm()
 {
-  if (validateZipcode() && validateDate()) {
+  if (VALIDATION.validateZipCode() && VALIDATION.validateDate()) {
     return true;
   } else {
     return false;
@@ -14,33 +17,28 @@ function validateForm()
 
 }
 
-function validateZipcode() {
-  $("#inputCep").keyup(function() {
+OPPORTUNITIES.requestTriggerZipcode = function requestTriggerZipcode() {
+  $("#zipcode-opportunity").keyup(function() {
     if ($(this).val().length == 9) {
-      requestOpportunitiesNew();
-      //alert("Chegou ao tamanho certo. " + $(this).val());
+      OPPORTUNITIES.requestOpportunitiesNew();
     }
     else {
-      cleanFields();
+      OPPORTUNITIES.cleanFields();
     };
   });
 }
 
-function validateDate() {
-
-}
-
-function cleanFields() {
+OPPORTUNITIES.cleanFields = function cleanFields() {
   $("#inputState").attr("text","");
   $("#inputCity").attr("text","");
   $("#inputNeighborhood").attr("text","");
   $("#inputAddress").attr("text","");
 }
 
-requestOpportunitiesNew = function() {
+OPPORTUNITIES.requestOpportunitiesNew = requestOpportunitiesNew = function() {
   $.ajax({
   url: '/opportunities/new',
-  data: { zipcode: $("#inputCep").val()},
+  data: { zipcode: $("#zipcode-opportunity").val()},
   success: function(response) {
       $("#inputState").attr("value",response.state);
       $("#inputState").attr("text",response.state);
@@ -54,7 +52,7 @@ requestOpportunitiesNew = function() {
 });
 };
 
-requestOpportunities = function() {
+OPPORTUNITIES.requestOpportunities = function() {
   $.get('/opportunities', {
     causes: causesList,
     cities: citiesList,
@@ -62,32 +60,34 @@ requestOpportunities = function() {
   });
 };
 
-getCausesChecked = function() {
+
+OPPORTUNITIES.getRecurrentChecked = function() {
+  $('#recurrent').on('change', function() {
+    if ($(this).is(":checked")) {
+        $(".cd_data").prop("disabled", true);
+     } else {  
+        $(".cd_data").prop("disabled", false);
+     }
+});
+}
+
+OPPORTUNITIES.getCausesChecked = function() {  
+  $(".cd_data").prop("disabled", true);
   $('.cb_cause').on('change', function() {
     causesList = [];
     $('input.cb_cause:checked').each(function() {
       causesList.push($(this).val());
     });
-    requestOpportunities();
+    OPPORTUNITIES.requestOpportunities();
   });
 };
 
-getCitiesChecked = function() {
+OPPORTUNITIES.getCitiesChecked = function() {
   $('.cb_city').on('change', function() {
     citiesList = [];
     $('input.cb_city:checked').each(function() {
       citiesList.push($(this).val());
     });
-    requestOpportunities();
+    OPPORTUNITIES.requestOpportunities();
   });
 };
-
-var ready = function() {
-  $('#inputCep').mask('00000-000');
-  getCausesChecked();
-  getCitiesChecked();
-  validateZipcode();
-}
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
