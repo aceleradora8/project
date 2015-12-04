@@ -13,6 +13,14 @@
 		      </ul>
 		    </div>
   		<% end %>
+  		
+  		<div class="panel ">
+		<% if notice != nil %>
+			<div class= "alert alert-danger">
+				<p id="notice"><%= notice %></p>
+			</div>
+		<%end%>
+
 		<div class="form-group">
 			<label class="col-lg-3 col-lg-offset-2">
 				<h2>Dados da ONG:</h2>

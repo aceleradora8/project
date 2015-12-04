@@ -16,22 +16,27 @@ class NgosController < ApplicationController
 	end
 
 	def create
+    @userEmail = User.find_by_email(ngo_params[:user_attributes][:email])
     @ngo = Ngo.new(ngo_params)
-    @ngo.user.role = "ngo"
-  		respond_to do |format|
-  			if(@ngo.save)
-  				ngo_params[:phones_attributes].each do |x, phone|
-    				if(phone[:phone_number] != "")
+    respond_to do |format|
+      if(@ngo.user.email == @userEmail.email)
+        format.html { redirect_to '/ngos/new', notice: "Erro. Email já existe!" }
+      else
+        @ngo.user.role = "ngo"
+    		if(@ngo.save)
+    			ngo_params[:phones_attributes].each do |x, phone|
+      		  if(phone[:phone_number] != "")
               p = Phone.new(phone_number: phone[:phone_number], ngo_id: @ngo.id)
-    				  p.save
+      			  p.save
             end
-   				end
-  				UserMailer.email_confirmation(@ngo).deliver
-  				format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
-  			else
-  				render 'new'
-  			end
-  		end
+     			end
+    		UserMailer.email_confirmation(@ngo).deliver
+    		format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
+    		else
+    			render 'new'
+    		end
+    	 end
+      end
     end
 
 	private 
