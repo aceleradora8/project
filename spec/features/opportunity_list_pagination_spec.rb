@@ -6,13 +6,13 @@ feature 'opportunity list pagination tests' do
   describe '2 page list' do
 
     before :each do
-      address = Address.create!(city:"POA")
+      address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
       start_date = "2015-03-03"
       finish_date = "2015-04-03"
       (1..14).each do |index|
-        Opportunity.create!(title: "Opportunity #{index}", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
+        Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
       end
     end
 
@@ -39,13 +39,13 @@ feature 'opportunity list pagination tests' do
   describe '1 page list' do
 
     before :each do
-      address = Address.create!
+      address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
       start_date = "2015-03-03"
       finish_date = "2015-04-03"
       (1..5).each do |index|
-      Opportunity.create!(title: "Opportunity #{index}", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
+      Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id, cause_id: cause.id, start_date: start_date, finish_date: finish_date)
       end
     end
         
