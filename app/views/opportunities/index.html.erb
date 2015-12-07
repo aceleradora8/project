@@ -13,7 +13,7 @@
 						<span>Você pesquisou por <strong><%=params[:text_search] %></strong></span>
 					<%end%>
 				</div>
-				<div id="paginator" class="pull-right">
+				<div id="paginatorTop" class="pull-right paginator">
 					<%= paginate @opportunities_result, :theme => 'twitter-bootstrap-3' %>
 				</div>
 			</div>
@@ -23,7 +23,7 @@
 		</div>		
 	</div>
 	<div class="row">
-		<div id="paginator" class="pull-right">
+		<div id="paginatorBottom" class="pull-right paginator">
 			<%= paginate @opportunities_result, :theme => 'twitter-bootstrap-3' %>
 		</div>
 	</div>

@@ -1,2 +1,2 @@
 $('#listOpportunities').html("<%= escape_javascript render 'list_opportunities' %>");
-$('#paginator').html("<%= escape_javascript(paginate @opportunities_result, :remote => true, :theme => 'twitter-bootstrap-3') %>");
+$('.paginator').html("<%= escape_javascript(paginate @opportunities_result, :remote => true, :theme => 'twitter-bootstrap-3') %>");
