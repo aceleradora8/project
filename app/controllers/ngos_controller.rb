@@ -5,7 +5,8 @@ class NgosController < ApplicationController
 		@ngo = Ngo.new
 		@ngo.build_address
 		@ngo.build_user
-		3.times { @ngo.phones.build }
+    @ngo.phones.build
+		#3.times { @ngo.phones.build }
 	end
 
 	def index
