@@ -1,28 +1,18 @@
 <div class ="container">
 	<%= form_for(@opportunity, :html=>{:onsubmit=>"return OPPORTUNITIES.validateForm();"}) do |f| %>
-	<% if @opportunity.errors.any? %>
-	<div id="error_explanation" class="col-lg-5 col-lg-offset-3 alert alert-danger">
-		<ul>
-			<% @opportunity.errors.messages.each do |msg| %>
-			<li><%= msg[1][0] %></li>
+			<% if @opportunity.errors.any? %>
+			    <div id="error_explanation" class="col-lg-5 col-lg-offset-3 alert alert-danger">
+			      <ul>
+			        <% @opportunity.errors.messages.each do |msg| %>
+			          <li><%= msg[1][0] %></li>
+			        <% end %>
+			      </ul>
+			    </div>
 			<% end %>
-		</ul>
-	</div>
-	<% end %>
-	<div class="col-lg-12 text-center">
-		<h1>Nova Oportunidade</h1>
-	</div>
-	<div class="row col-lg-offset-1">
-		<%= form_for(@opportunity) do |f| %>
-		<div class="col-lg-7 form-group">
-			<%= f.label "Título:", :for => "title-oportunity", :class => "control-label" %>
-			<%= f.text_field :title, :id => "title-oportunity", :class => "form-control col-lg-3" ,:placeholder => "Título da oportunidade" %>
-		</div>
-		<div class="col-lg-2 form-group ">
-			<%= f.label "Causa:", :class => "control-label" %>
-			<div class="row">
-				<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
-			</div>			
+			<div class="col-lg-12 text-center">
+				<h1>Nova Oportunidade</h1>
+			</div>
+			
 			<%= form_for(@opportunity) do |f| %>
 				<div class="row">
 					<div class=" col-lg-offset-1 col-lg-7 form-group">
@@ -80,9 +70,7 @@
 								<%end%>
 							</div>
 						</div>
-
 					</div>
-					<%end%>
 				</div>
 				<div class="row">
 					<div class="col-lg-12 text-center margin-end-bot margin-end-top">
