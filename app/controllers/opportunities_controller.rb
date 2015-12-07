@@ -36,7 +36,7 @@ class OpportunitiesController < ApplicationController
 
   def new
     @opportunity = Opportunity.new
-    finder = Correios::CEP::AddressFinder.new
+    #finder = Correios::CEP::AddressFinder.new
     @opportunity.build_address   
     respond_to do |format|
       if request.xhr? 

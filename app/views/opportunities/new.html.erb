@@ -22,69 +22,85 @@
 			<%= f.label "Causa:", :class => "control-label" %>
 			<div class="row">
 				<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
-			</div>
-		</div>
-		<div class="col-lg-1 form-group">
-			<%= f.label "Vagas:"%>
-			<div class="row">
-				<%= f.number_field :vacancies, min:1, :class => "form-control" %>
-			</div>
-		</div>
-	</div>
-	<div class="row col-lg-offset-1">
-		<div class="form-group col-lg-10">
-			<%= f.label "Descrição:", :class => "control-label" %>
-			<%= f.text_area :description, :class => "form-control", :rows => "3" %>
-		</div>
-	</div>
-	<div class="row col-lg-offset-1">
-		<div class="form-group col-lg-10">
-			<%= f.check_box :recurrent, :id => "recurrent", checked: true %>
-			<%= f.label "Recorrente", :class => "control-label" %>
-		</div>
-	</div>
-	<div class="row col-lg-offset-2 margin-end-top margin-end-bot">
-		<div class="form-group">
-			<%= f.label "Início:", :class => "col-lg-1 control-label" %>
-			<div class="col-lg-3">
-				<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data" }%>
-			</div>
-			<%= f.label "Término:", :class => "col-lg-1 control-label" %>
-			<div class="col-lg-3">
-				<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data"}%>
-			</div>
+			</div>			
+			<%= form_for(@opportunity) do |f| %>
+				<div class="row">
+					<div class=" col-lg-offset-1 col-lg-7 form-group">
+					<%= f.label "Título:", :for => "title-oportunity", :class => "control-label" %>
+					<%= f.text_field :title, :id => "title-oportunity", :class => "form-control col-lg-3" ,:placeholder => "Título da oportunidade" %>
+					</div>
+					<div class="col-lg-2 form-group ">
+						<%= f.label "Causa:", :class => "control-label" %>
+						<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
+					</div>
+					<div class="col-lg-1 form-group">
+						<%= f.label "Vagas:"%>	
+						<%= f.number_field :vacancies, min:1, :class => "form-control" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-offset-1 form-group col-lg-10">
+					<%= f.label "Descrição:", :class => "control-label" %>
+					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-offset-1 form-group col-lg-10">
+					<%= f.check_box :recurrent, :id => "recurrent", checked: true %>
+					<%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label" %>
+					</div>
+				</div>
+				<div class="row margin-end-top margin-end-bot">
+					<div class="col-lg-offset-1 form-group">
+						<div class="col-lg-4">
+							<%= f.label "Início:", {:class => "control-label labelmarginright"} %>
+							<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data" }%>
+						</div>
+						<div class="col-lg-4">
+							<%= f.label "Término:", {:class => "control-label labelmarginright"} %>
+							<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data"}%>
+						</div>
 
-			<div id="dateError" class="col-lg-2 alert alert-danger custom-alert-danger error-date-opportunities">
-				<p>Data de Término precisa ser maior que a data de inicio!</p>
-			</div>
-		</div>
-	</div>
-	<div class="row margin-end-top col-lg-offset-1 br">
-		<%= f.label "Requisitos:", :class => "control-label row col-lg-offset-4" %>
-		<div class="form-group">
-			<div class="col-lg-12">
-				<div class="col-lg-10 margin-dropdown-lists">
-					<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name)  do |b| %>
-					<div class="col-lg-4 margin-checkbox-lists">
-						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
+						<div id="dateError" class="col-lg-2 alert alert-danger custom-alert-danger error-date-opportunities">
+							<p>Data de Término precisa ser maior que a data de inicio!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-end-top br">
+					<div class="col-lg-offset-1 form-group ">
+						<div class="col-lg-4">
+							<%= f.label "Requisitos:", :class => "control-label" %>
+						</div>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
+								<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name)  do |b| %>
+									<div class="col-lg-4 margin-checkbox-lists">
+				  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
+				  					</div>
+								<%end%>
+							</div>
+						</div>
+
 					</div>
 					<%end%>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-12 text-center margin-end-bot margin-end-top">
-		<h3>Endereço da oportunidade</h3>
-	</div>
-	<div id="address">
-		<%= render './addresses/address_form', f:f %>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
-			<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block btn-primary" %>
-		</div>
-	</div>
-	<%= f.hidden_field :ngo_id, :value => current_user.ngo.id %>
-	<% end %>
+				<div class="row">
+					<div class="col-lg-12 text-center margin-end-bot margin-end-top">
+						<h3>Endereço da oportunidade</h3>
+					</div>
+				</div>
+				
+				<div id="address">
+					<%= render './addresses/address_form', f:f %>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+							<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+						</div>
+					</div>
+					<%= f.hidden_field :ngo_id, :value => current_user.ngo.id %>
+				</div>
+		<% end %>
 	<% end %>
 </div>
