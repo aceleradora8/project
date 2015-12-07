@@ -1,11 +1,13 @@
 var PHONES = PHONES || {}
+var countFields = 0;
 var count = 0;
 
  PHONES.addPhones = function addPhones(){   
   var max_fields = 9;   
   $(".add_field_button").click(function(e){ 
       e.preventDefault();
-      if(count < max_fields){ 
+      if(countFields < max_fields){ 
+          countFields++;
           count++;
           $(".input_fields_wrap").append('\
             <div>\
@@ -22,6 +24,6 @@ var count = 0;
 
 PHONES.removePhones = function removePhones(){ 
   $(".input_fields_wrap").on("click",".remove_field", function(e){
-    e.preventDefault(); $(this).parent('div').parent('div').remove(); count--;
+    e.preventDefault(); $(this).parent('div').parent('div').remove(); countFields--;
   });
 }
