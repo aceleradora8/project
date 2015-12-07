@@ -53,107 +53,36 @@
 		</div>
 
 		<%= f.fields_for :phones do |p| %>
-  		<div class="form-group">
-  			<label class="control-label col-lg-3" for="phone-ong">
-  				Telefones:			
-  			</label>
-  			<div class="col-lg-5">
-        <div class="row">
-          <div class="col-lg-11">
-            <%= p.telephone_field :phone_number, :class => "form-control", :id =>"phone-ong" %>
-          </div>
-          <div class="col-lg-1 btn-add align-left">
-            <a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>          
-          </div> 	
-          </div>		   
-        </div>        
-      </div>
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="phone-ong">Telefones:</label>
+				<div class="col-lg-5">
+					<div class="row">
+						<div class="col-lg-11">
+							<%= p.telephone_field :phone_number, :class => "form-control", :id =>"phone-ong" %>
+						</div>
+						<div class="col-lg-1 btn-add align-left">
+							<a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>         
+						</div> 	
+					</div>		   
+				</div>        
+			</div>
 		<%end%>
-    
-
-		<%= f.fields_for :address do |ff| %> <!-- Model Address-->
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					<h3>Endereço:</h3>
-				</label>
-				<div class="col-lg-5">
-					
-				</div>
+			<div class="col-lg-12 text-center margin-end-bot margin-end-top">
+				<h3>Endereço da oportunidade</h3>
 			</div>
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					Rua:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :address, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					CEP:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :zipcode, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					Complemento:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :complement, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					Bairro:
-				</label>
-				<div class="col-lg-5">
-
-					<%= ff.text_field :neighborhood, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					Cidade:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :city, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					Estado:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :state, :class => "form-control" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3">
-					País:
-				</label>
-				<div class="col-lg-5">
-					<%= ff.text_field :country, :class => "form-control", :disabled => true %>
-				</div>
+    		<div id="address">
+				<%= render './addresses/address_form', f:f %>
 			</div>
 			<%= render 'users/form', f:f %>
-			<div class="form-group">
-				<label class="control-label col-lg-3 col-lg-offset-3">
-					<%= f.check_box :privacy %> Ocultar dados da ONG!
-				</label>
-			</div>
+				<div class="form-group">
+					<label class="control-label col-lg-3 col-lg-offset-3">
+						<%= f.check_box :privacy %> Ocultar dados da ONG!
+					</label>
+				</div>
 			<div class="form-group">
 				<div class="col-lg-offset-3 col-lg-5">
 					<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block btn-primary" %>
 				</div>
 			</div>
-		<% end %>
 	<% end %>
 </div>

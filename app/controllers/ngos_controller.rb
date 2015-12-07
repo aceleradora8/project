@@ -3,10 +3,21 @@ class NgosController < ApplicationController
 
 	def new
 		@ngo = Ngo.new
+    finder = Correios::CEP::AddressFinder.new
 		@ngo.build_address
 		@ngo.build_user
     @ngo.phones.build
 		#3.times { @ngo.phones.build }
+     respond_to do |format|
+      if request.xhr? 
+        if params[:zipcode] 
+          @address = Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))
+          format.json
+        end
+      else
+        format.html
+      end
+    end
 	end
 
 	def index

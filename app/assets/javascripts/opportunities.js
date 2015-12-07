@@ -17,40 +17,6 @@ OPPORTUNITIES.validateForm = function validateForm()
 
 }
 
-OPPORTUNITIES.requestTriggerZipcode = function requestTriggerZipcode() {
-  $("#zipcode-opportunity").keyup(function() {
-    if ($(this).val().length == 9) {
-      OPPORTUNITIES.requestOpportunitiesNew();
-    }
-    else {
-      OPPORTUNITIES.cleanFields();
-    };
-  });
-}
-
-OPPORTUNITIES.cleanFields = function cleanFields() {
-  $("#inputState").attr("text","");
-  $("#inputCity").attr("text","");
-  $("#inputNeighborhood").attr("text","");
-  $("#inputAddress").attr("text","");
-}
-
-OPPORTUNITIES.requestOpportunitiesNew = requestOpportunitiesNew = function() {
-  $.ajax({
-  url: '/opportunities/new',
-  data: { zipcode: $("#zipcode-opportunity").val()},
-  success: function(response) {
-      $("#inputState").attr("value",response.state);
-      $("#inputState").attr("text",response.state);
-      $("#inputCity").attr("value",response.city);
-      $("#inputCity").attr("text",response.city);
-      $("#inputNeighborhood").attr("value",response.neighborhood);
-      $("#inputNeighborhood").attr("text",response.neighborhood);
-      $("#inputAddress").attr("value",response.address);
-      $("#inputAddress").attr("text",response.address);
-      }
-});
-};
 
 OPPORTUNITIES.requestOpportunities = function() {
   $.get('/opportunities', {
