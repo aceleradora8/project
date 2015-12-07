@@ -1,15 +1,30 @@
 <%= render './layouts/search_bar' %>
 <div class="container"> 
-	<div class="row ">
-		<div class="col-lg-2">
-		<%= render 'filterbar' %>
+	<div class="row">
+		<div class="col-lg-2" id="filtros">
+			<%= render 'filterbar' %>
 		</div>
-		<div id="listOpportunities" class="col-lg-10">
-			<%= render 'list_opportunities' %>
-		</div>
+		<div class="col-lg-10" id="tudo-lado">
+			<div class="row col-lg-12 resume-search">
+				<div id="texto" class="col-lg-6 br">
+					<% if params[:text_search] == nil || params[:text_search] == ""%>
+						<span>Exibindo todas oportunidades</span>
+					<%else%>
+						<span>Você pesquisou por <strong><%=params[:text_search] %></strong></span>
+					<%end%>
+				</div>
+				<div id="paginator" class="pull-right">
+					<%= paginate @opportunities_result, :theme => 'twitter-bootstrap-3' %>
+				</div>
+			</div>
+			<div class="row col-lg-12" id="listOpportunities">
+				<%= render 'list_opportunities' %>
+			</div>
+		</div>		
+	</div>
+	<div class="row">
 		<div id="paginator" class="pull-right">
 			<%= paginate @opportunities_result, :theme => 'twitter-bootstrap-3' %>
 		</div>
 	</div>
 </div>
-
