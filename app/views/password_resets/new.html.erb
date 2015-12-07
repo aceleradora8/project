@@ -6,18 +6,24 @@
   <%end%>
 
 
-	<%= form_tag password_resets_path, :method => :post do %>
-		<div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
-				<%= text_field_tag :email, params[:email], :placeholder => "E-mail", :class => "form-control" %>
-	    	</div>
-	    </div>
-	 	
-	 	<div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
-	  			<%= submit_tag "Recuperar Senha", :class => "btn btn-default btn-lg btn-block" %>
-	  		</div>
-		</div>
-	<% end %>
+  <%= form_tag password_resets_path, :onsubmit=>"return PASS_RESETS.validateFormEmail();", :method => :post do %>
+    <div class="form-group">
+      <div class="col-lg-offset-3 col-lg-5">
+        <%= text_field_tag :email, params[:email], :id => "email-reset-pass", :placeholder => "E-mail", :class => "form-control validate-email" %>
+      </div>
+      <div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger email-error-invalid">
+        <p>Email Inválido!</p>
+      </div>
+      <div id="emailErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-email-reset-pass">
+        <p>Campo Obrigatório!</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-offset-3 col-lg-5">
+          <%= submit_tag "Recuperar Senha", :class => "btn btn-default btn-lg btn-block" %>
+        </div>
+    </div>
+  <% end %>
 </div>
 

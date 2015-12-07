@@ -1,11 +1,12 @@
 var LOGIN = LOGIN || {}
 
 LOGIN.validateForm = function validateForm()
-{	
-	if (VALIDATION.validateEmail()){
-		return true;
-	} else{
-		return false;
-	}
+{ 
+  validateEmail = VALIDATION.validateEmail();
+  validatePassword = VALIDATION.validatePassword();
+  if (validateEmail && validatePassword){
+    return true;
+  } else{
+    return false;
+  }
 }
-
