@@ -52,21 +52,26 @@
       </div>
 		</div>
 
-		<%= f.fields_for :phones do |p| %>
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="phone-ong">Telefones:</label>
-				<div class="col-lg-5">
-					<div class="row">
-						<div class="col-lg-11">
-							<%= p.telephone_field :phone_number, :class => "form-control", :id =>"phone-ong" %>
-						</div>
-						<div class="col-lg-1 btn-add align-left">
-							<a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>         
-						</div> 	
-					</div>		   
-				</div>        
-			</div>
-		<%end%>
+    <%= f.fields_for :phones do |p| %>
+      <div class="form-group">
+        <label class="control-label col-lg-3" for="phone-ong">
+          Telefones:      
+        </label>
+        <div class="col-lg-5">
+          <div class="row">
+            <div class="col-lg-11">
+                <%= p.telephone_field :phone_number, :class => "form-control", :id =>"phone-ong" %>
+            </div>
+            <div class="col-lg-1 btn-add align-left">
+              <a href="#"><span class="glyphicon glyphicon-plus add_field_button" aria-hidden="true"></span></a>          
+            </div> 
+            <div class="input_fields_wrap">
+            </div> 
+          </div>       
+        </div>        
+      </div>
+    <%end%>
+
 			<div class="col-lg-12 text-center margin-end-bot margin-end-top">
 				<h3>Endereço da oportunidade</h3>
 			</div>

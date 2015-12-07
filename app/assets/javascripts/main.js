@@ -6,6 +6,8 @@ var ready = function() {
 	OPPORTUNITIES.getCausesChecked();
 	OPPORTUNITIES.getCitiesChecked();
 	OPPORTUNITIES.getRecurrentChecked();
+  PHONES.addPhones();
+  PHONES.removePhones();
 }
 
 $(document).ready(ready);

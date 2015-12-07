@@ -7,7 +7,7 @@ class NgosController < ApplicationController
 		@ngo.build_address
 		@ngo.build_user
     @ngo.phones.build
-		#3.times { @ngo.phones.build }
+
      respond_to do |format|
       if request.xhr? 
         if params[:zipcode] 
