@@ -2,8 +2,12 @@
 	margin-top: 25px;
 }
 
+.panel-body {
+	padding-top: 0 !important;
+}
+
 .detailopp {
-	background-color: #f0f0f0;
+	background-color: #fafafa;
 }
 
 .bold {
@@ -15,7 +19,6 @@
 }
 
 .opportunity-title {
-	margin-bottom: 15px;
 }
 
 .opportunity-skill-tag {
@@ -26,6 +29,7 @@
 
 .opportunity-title {
 	font-size: 20px;
+	color: #0488cf;
 }
 
 .opportunity-button-detail{
@@ -43,7 +47,9 @@
 }
 
 .oppt-ngo {
-	font-weight: bold;
+	font-weight: normal;
+	color: #aaa;
+	margin-bottom: 10px;
 }
 
 .btn.outline {
@@ -100,7 +106,24 @@
 	margin-top: 30px; 
 }
 
-
 .labelmarginright{
 	margin-right: 10px !important;
+}
+
+.resume-search {
+    height: 45px !important;
+}
+
+.bs-callout {
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout-info {
+    border-left-color: #ddd;
+}
+
+.bs-callout-info:hover{
+    border-left-color: #0488cf;
 }
