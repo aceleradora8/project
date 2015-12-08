@@ -10,7 +10,6 @@ NGO.validateForm = function validateForm()
   validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
   if (validateName && validateDescription && validateAddress && validateEmail && validatePassword && validatePasswordConfirmation){
     return true;
-  } else{
+  } 
     return false;
-  }
 }
