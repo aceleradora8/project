@@ -16,7 +16,8 @@ section {
 
 footer {
    background-color: gray;
-   height: 200px;
+   padding-top:20px;
+   padding-bottom: 20px;
 }
 
 .home {
@@ -37,6 +38,7 @@ footer {
 
 ul { 
   list-style-type: none; 
+  padding-left:0;
 }
 
 .centralize {
