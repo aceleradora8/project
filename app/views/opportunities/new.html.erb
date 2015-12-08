@@ -15,10 +15,11 @@
 			
 			<%= form_for(@opportunity) do |f| %>
 				<div class="row">
-					<div class=" col-lg-offset-1 col-lg-7 form-group">
-					<%= f.label "Título:", :for => "title-oportunity", :class => "control-label" %>
-					<%= f.text_field :title, :id => "title-oportunity", :class => "form-control col-lg-3" ,:placeholder => "Título da oportunidade" %>
+					<div class="col-lg-offset-1 col-lg-7 form-group">
+						<%= f.label "Título:", :for => "title-opportunity", :class => "control-label" %>
+						<%= f.text_field :title, :id => "title-opportunity", :class => "form-control validate-name col-lg-3" ,:placeholder => "Título da oportunidade" %>
 					</div>
+					
 					<div class="col-lg-2 form-group ">
 						<%= f.label "Causa:", :class => "control-label" %>
 						<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
@@ -27,12 +28,22 @@
 						<%= f.label "Vagas:"%>	
 						<%= f.number_field :vacancies, min:1, :class => "form-control" %>
 					</div>
+					<div class="col-lg-offset-1 col-lg-7">
+						<div id="titleError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-title-opportunity">
+							<p>Campo Obrigatório!</p>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-offset-1 form-group col-lg-10">
-					<%= f.label "Descrição:", :class => "control-label" %>
-					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+						<%= f.label "Descrição:", :class => "control-label" %>
+						<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
 					</div>
+					<div class="col-lg-offset-1 col-lg-7">
+						<div id="description-error" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-description-opportunity">
+		        			<p>Campo Obrigatório!</p>
+		    			</div>
+		    		</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-offset-1 form-group col-lg-10">

@@ -9,7 +9,11 @@ citiesList = [];
 
 OPPORTUNITIES.validateForm = function validateForm()
 {
-  if (VALIDATION.validateZipCode() && VALIDATION.validateDate()) {
+  validateTitle = VALIDATION.validateName();
+  validateDescription =VALIDATION.validateDescription();
+  validateAddress = VALIDATION.validateZipCode();
+  validateDate = VALIDATION.validateDate();
+  if (validateTitle && validateDescription && validateAddress && validateDate) {
     return true;
   } else {
     return false;
