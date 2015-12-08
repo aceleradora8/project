@@ -11,7 +11,7 @@ var count = 0;
           count++;
           $(".input_fields_wrap").append('\
             <div class="col-lg-2 form-group">\
-              <input class="form-control" id="phone-ong" name="ngo[phones_attributes]['+count+'][phone_number]" type="tel">\
+              <input class="form-control phone_with_ddd validate-phone", id="phone-ngo", name="ngo[phones_attributes]['+count+'][phone_number]" type="tel">\
             </div>');
       }
   });      
@@ -19,6 +19,8 @@ var count = 0;
 
 PHONES.removePhones = function removePhones(){ 
   $(".remove_field").on("click", function(e){
+    if(countFields>0) {
     e.preventDefault(); $(".input_fields_wrap").children().last().remove(); countFields--;
+    };
   });
 }
