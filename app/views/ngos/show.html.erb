@@ -30,45 +30,51 @@
 				</p>
 			</div>
 			<div>
-				<span class="bold">Causa:</span>
+				<p><span class="bold">Email: </span><br>
+					<span class="leftspace"><%= @ngo.user.email %></span>
+				</p>
+			</div>
+			<div>
+				<span class="bold">Causa:</span><br>
 				<% @ngo.causes.each do |cause| %>		
 				<span class="leftspace"><%= cause.name %></span>
 
 				<% end %>	
 			</div>
 		</div>
-	</div>
-	<div class="ngo-opportunities">
-		<div>
-			<h3 class="">Lista De Oportunidades:</h3>
-		</div>
-		<% @ngo.opportunities.each do |opportunity| %>	
-			<div class="panel">
-				<div class="row panel-body detailopp">
-					<div class="row">
-						<div class="col-lg-12 opportunity-title">
-							<h3><%= opportunity.title %></h3>
+
+		<div class="ngo-opportunities">
+			<div>
+				<h3 class="">Lista De Oportunidades:</h3>
+			</div>
+			<% @ngo.opportunities.each do |opportunity| %>	
+				<div class="panel">
+					<div class="row panel-body detailopp">
+						<div class="row">
+							<div class="col-lg-12 opportunity-title">
+								<h3><%= opportunity.title %></h3>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-12 description">
-							<%= opportunity.description %>
+						<div class="row">
+							<div class="col-lg-12 description">
+								<%= opportunity.description %>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4">
-							<span><%= opportunity.address.city %>, 
-								<%= opportunity.address.state %> </span>
-						</div>
-						<div class="col-lg-4">
-							<%= opportunity.cause.name %>
-						</div>
-						<div class="col-lg-4">
-					 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary outline pull-right" %>
+						<div class="row">
+							<div class="col-lg-4">
+								<span><%= opportunity.address.city %>, 
+									<%= opportunity.address.state %> </span>
+							</div>
+							<div class="col-lg-4">
+								<%= opportunity.cause.name %>
+							</div>
+							<div class="col-lg-4">
+						 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary outline pull-right" %>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>
