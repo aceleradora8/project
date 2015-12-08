@@ -33,9 +33,11 @@ class NgosController < ApplicationController
     @ngo = Ngo.new(ngo_params)
     respond_to do |format|
       if(@user_email != nil)
-        format.html { render :new, notice: "Erro. Email já existe!" }
+        flash[:error] = "Erro. Email já existe!"
+        format.html { redirect_to request.referrer}
       elsif(@ngo_name != nil)
-        format.html { render :new, notice: "Erro. ONG já existe!" }
+        flash[:error] = "Erro. Ong já existe!"
+        format.html { redirect_to request.referrer}
       else
         @ngo.user.role = "ngo"
     		if(@ngo.save)
