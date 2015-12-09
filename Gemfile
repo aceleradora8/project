@@ -28,8 +28,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Search
 gem 'pg_search'
 
-gem 'puma'
-
 #Pagination
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'

@@ -116,7 +116,6 @@ GEM
       activesupport (>= 3.1)
       arel
     powerpack (0.1.1)
-    puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -237,7 +236,6 @@ DEPENDENCIES
   kaminari
   pg
   pg_search
-  puma
   rails (= 4.2.4)
   rails_12factor
   rspec-mocks
