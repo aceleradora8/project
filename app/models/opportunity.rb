@@ -20,7 +20,7 @@ class Opportunity < ActiveRecord::Base
 	end
 
 	include PgSearch
-		 pg_search_scope :search, :against =>  [:title,:description], 
+		 pg_search_scope :search, :against =>  [:title,:description], :ignoring => :accents,
 		 :associated_against =>  { 
 		 	:ngo => [:name], 
 		 	:address => [:neighborhood, :city, :state], 

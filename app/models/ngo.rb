@@ -14,7 +14,7 @@ class Ngo < ActiveRecord::Base
     :reject_if => lambda { |a| a[:content].blank? }
 
 	include PgSearch
-		 pg_search_scope :search, :against => [:name,:description] #(:ignoring => :accents)
+		 pg_search_scope :search, :against => [:name,:description], :ignoring => :accents
 
 
 end
