@@ -2,8 +2,7 @@
 	<div class="row margin-end-top margin-end-bot">
 		<div class="col-lg-offset-2 form-group">
 			<div class="col-lg-3">
-				<%= a.label "CEP: ",:class => "control-label" %>
-	
+				<%= a.label "CEP: ",:class => "control-label", :for => "inputZipcode"  %>
 				<%= a.text_field :zipcode, :id => "inputZipcode", :class => "form-control cep validate-zipcode" %>
 			</div>
 			<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-inputZipcode">
@@ -17,33 +16,31 @@
 	<div class="row margin-end-top margin-end-bot">
 		<div class="col-lg-offset-2 form-group">
 			<div class="col-lg-6">
-				<%= a.label "Rua: ", :class => "control-label" %>
+				<%= a.label "Rua: ", :class => "control-label", :for => "inputAddress"%>
 			
 				<%= a.text_field :address, :id => "inputAddress", :class => "form-control" %>
 			</div>
 			<div class="col-lg-2">
-				<%= a.label "Complemento: ", :class => "control-label" %>
+				<%= a.label "Complemento: ", :class => "control-label", :for => "inputComplement"%>
 		
-				<%= a.text_field :complement, :class => "form-control" %>
+				<%= a.text_field :complement, :class => "form-control", :id => "inputComplement"%>
 			</div>
 		</div>
 	</div>
 	<div class="row margin-end-top margin-end-bot">
 		<div class="col-lg-offset-2">
 			<div class="col-lg-3 form-group">
-				<%= a.label "Bairro: ", :class => "control-label" %>
+				<%= a.label "Bairro: ", :class => "control-label", :for => "inputNeighborhood" %>
 			
 				<%= a.text_field :neighborhood, :id => "inputNeighborhood", :class => "form-control" %>
 			</div>
 			<div class="col-lg-4">
-				<%= a.label "Cidade: ", :class => "control-label" %>
-			
+				<%= a.label "Cidade: ", :class => "control-label", :for => "inputCity"%>
 				<%= a.text_field :city, :id => "inputCity", :class => "form-control" %>
 			</div>
 		
 			<div class="col-lg-1">
-				<%= a.label "Estado: ", :class => "control-label" %>
-	
+				<%= a.label "Estado: ", :class => "control-label", :for => "inputState"%>
 				<%= a.text_field :state, :id => "inputState", :class => "form-control"%>
 			</div>
 		</div>	
