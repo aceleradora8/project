@@ -34,7 +34,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-offset-1 form-group col-lg-10">
-					<%= f.label "Descrição:", :class => "control-label" %>
+					<%= f.label "Descrição:", :class => "control-label", :for => "description-opportunity" %>
 					<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
 				</div>
 				<div class="col-lg-offset-1 col-lg-7">
@@ -46,7 +46,7 @@
 			<div class="row">
 				<div class="col-lg-offset-1 form-group col-lg-10">
 				<%= f.check_box :recurrent, :id => "recurrent", checked: true %>
-				<%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label" %>
+				<%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label", :for => "recurrent" %>
 				</div>
 			</div>
 			<div class="row margin-end-top margin-end-bot">
