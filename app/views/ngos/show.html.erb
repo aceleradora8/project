@@ -8,38 +8,47 @@
 		<div >
 			<h1><%= @ngo.name %></h1>		
 		</div>
-		<div class="row panel-body detailopp">
-			<div>
-				<p> <span class="bold">Descrição: </span> 
-				<br>
-				<span class="leftspace"><%= @ngo.description %></span> 
-				</p>
+		<div class="panel-body detailopp">
+			<div class="formsession">
+				<div class="row">
+					<strong>Descrição: </strong> 
+				</div>
+				<div class="row">
+					<span class="leftspace"><%= @ngo.description %></span> 
+				</div>
 			</div>
-			<div>
-				<p><span class="bold">Local: </span><br>
-				<!-- Criar o if privacy == true mostrar a mensagem que a ONG deixou os dados privados. -->
-				<span class="leftspace"><%= @ngo.address.print_address unless @ngo.privacy == true %></span>
-				</p>
-			</div>
-			<div>
-				<p>
-				<span class="bold">Telefone: </span><br>
-				<% @ngo.phones.each do |phone| %>		
-				<span class="leftspace"><%= phone.phone_number %></span>
-				<% end %>	
-				</p>
-			</div>
-			<div>
-				<p><span class="bold">Email: </span><br>
-					<span class="leftspace"><%= @ngo.user.email %></span>
-				</p>
-			</div>
-			<div>
-				<span class="bold">Causa:</span><br>
-				<% @ngo.causes.each do |cause| %>		
-				<span class="leftspace"><%= cause.name %></span>
 
-				<% end %>	
+			<div class="formsession">
+				<div class="row">
+					<strong>Local: </strong>
+					<!-- Criar o if privacy == true mostrar a mensagem que a ONG deixou os dados privados. -->
+					<%= @ngo.address.print_address unless @ngo.privacy == true %>
+				</div>
+			</div>
+
+			<div class="formsession">
+				<div class="row">
+					<strong>Telefone: </strong>
+					<% @ngo.phones.each do |phone| %>
+						<%= phone.phone_number %>
+					<% end %>
+				</div>	
+			</div>
+
+			<div class="formsession">
+				<div class="row">
+					<strong>Email: </strong>
+					<%= @ngo.user.email %>
+				</div>
+			</div>
+
+			<div class="formsession">
+				<div class="row">
+					<strong>Causa:</strong>
+					<% @ngo.causes.each do |cause| %>	
+						<%= cause.name %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 
@@ -49,10 +58,15 @@
 			</div>
 			<% @ngo.opportunities.each do |opportunity| %>	
 				<div class="panel">
-					<div class="row panel-body detailopp">
+					<div class="row panel-body detailopp bs-callout bs-callout-info">
 						<div class="row">
 							<div class="col-lg-12 opportunity-title">
 								<h3><%= opportunity.title %></h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 oppt-ngo">
+								<span>Por <%= opportunity.ngo.name %></span>
 							</div>
 						</div>
 						<div class="row">
@@ -65,11 +79,11 @@
 								<span><%= opportunity.address.city %>, 
 									<%= opportunity.address.state %> </span>
 							</div>
-							<div class="col-lg-4">
+							<div class="col-lg-4 card-cause">
 								<%= opportunity.cause.name %>
 							</div>
 							<div class="col-lg-4">
-						 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary outline pull-right" %>
+						 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
 							</div>
 						</div>
 					</div>

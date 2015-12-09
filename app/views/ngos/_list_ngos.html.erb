@@ -1,6 +1,6 @@
 <% @ngos_result.each do |ngo| %>
 	<div class="panel">
-		<div class="row panel-body detailopp">
+		<div class="row panel-body detailopp bs-callout bs-callout-info">
 			<div class="row">
 				<div class="col-lg-12 ngo-title">
 					<h3><%=ngo.name%></h3>
@@ -25,9 +25,10 @@
 					<%= ngo.address.state %>
 				</div>
 				<div class="col-lg-offset-4 col-lg-4">
-				<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary outline pull-right" %>
+				<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary pull-right" %>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 <%end%>

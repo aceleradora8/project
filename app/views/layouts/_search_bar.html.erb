@@ -1,13 +1,11 @@
 <div class="container home">
 	<div class="row">
-		<div class="col-lg-4 col-lg-offset-4">
-			<div class="field" style="text-align: center">
-				<h1>ONGARIUM</h1>
-				<%= form_tag(opportunities_path, :method => "get", :enforce_utf8 => false) do %>
-				<%= text_field_tag :text_search, params[:text_search], :class => "form-control" %>
-				<%= submit_tag "Pesquisar Oportunidades", :class => "btn btn-default btn-search", :name => nil %>
-				<% end %>
-			</div>
+		<div class="col-lg-6 col-lg-offset-3 aligncenter">
+			<h1>ONGARIUM</h1>
+			<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :enforce_utf8 => false) do %>
+				<%= text_field_tag :text_search, params[:text_search], :class => "inputsize" %>
+				<button type="submit" class="btn btn-primary glyphicon glyphicon-search"></button>
+			<% end %>
 		</div>
 	</div>
 </div>
