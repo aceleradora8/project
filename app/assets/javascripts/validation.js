@@ -28,6 +28,7 @@ VALIDATION.validatePassword = function validatePassword(){
 
 VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation()
 {
+  $(".password-confirmation-invalid").hide();
   password = $(".validate-password");
   passwordConfirmation = $(".validate-password-confirmation-user");
    if(VALIDATION.validateEmpty($(".validate-password-confirmation-user"))){
@@ -48,6 +49,7 @@ VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation(
 
 VALIDATION.validateEmail = function validateEmail()
 {
+  $('.email-error-invalid').hide();
 	email = $(".validate-email");
 	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
    if(VALIDATION.validateEmpty($(".validate-email"))){
@@ -99,6 +101,7 @@ VALIDATION.validateDate = function validateDate(){
 
 
 VALIDATION.validateZipCode = function validateZipCode() {
+  $('.error-zipcode-invalid').hide();
   zipCode = $(".validate-zipcode");
    if(VALIDATION.validateEmpty($(".validate-zipcode"))){
     if($("#inputCity").val().length == 0){
