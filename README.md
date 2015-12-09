@@ -4,18 +4,15 @@
 * `git clone https://github.com/aceleradora8/ongarium-rails.git`
 * `cd ongarium-rails`
 
+## Ubuntu
+
 ## Configurando o Ambiente
 
 ### Criando as variáveis de ambiente
 * `sh ./script-varenv.sh`
 
-### Populando banco com registros para testes (fictícios)
-* `bundle exec rake db:seed`
-
-## Ubuntu
+### Criando o banco
 * `sh ./script-db.sh`
-* `bundle exec rake db:create`
-* `bundle exec rake db:migrate`
 
 ## Rodando o servidor:
 * `bundle exec rails server`

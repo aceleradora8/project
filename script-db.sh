@@ -19,8 +19,12 @@ sudo -u postgres psql -c "CREATE USER $USER;"
 # Granting privileges to $USER on CREATEDB
 sudo -u postgres psql -c "ALTER ROLE $USER WITH CREATEDB;"
 
+bundle exec rake db:create
+
 # Installing unaccent
 #create extension unaccent schema pg_catalog;
 sudo -u postgres psql -d ongarium-rails_development -c "CREATE EXTENSION IF NOT EXISTS UNACCENT"
 sudo -u postgres psql -d ongarium-rails_test -c "CREATE EXTENSION IF NOT EXISTS UNACCENT"
 
+bundle exec rake db:migrate
+bundle exec rake db:seed
