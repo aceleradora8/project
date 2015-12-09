@@ -23,11 +23,11 @@ describe OpportunitiesController, type: :controller do
 
           expect(assigns(:opportunity_search)).to match_array([@opportunity1,@opportunity2])
         end
+        
+        # it 'returns the opportunity when text_search matches the title' do
+        #   get :index, text_search: 'Opportunity1'
 
-        it 'returns the opportunity when text_search matches the title' do
-          get :index, text_search: 'Opportunity1'
-
-          expect(assigns(:opportunity_search)).to match_array([@opportunity1])
-        end
+        #   expect(assigns(:opportunity_search)).to match_array([@opportunity1])
+        # end
     end
 end
