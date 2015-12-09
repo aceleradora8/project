@@ -21,5 +21,5 @@ sudo -u postgres psql -c "ALTER ROLE $USER WITH CREATEDB;"
 
 # Installing unaccent
 #create extension unaccent schema pg_catalog;
-sudo -u postgres psql -c "CREATE EXTENSION unaccent schema pg_catalog;"
+sudo -u postgres psql -c "CREATE EXTENSION unaccent schema public;"
 
