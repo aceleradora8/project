@@ -24,11 +24,11 @@
   		<% end %>
 		<div class="row">
 			<label class="col-lg-12 text-center margin-end-bot margin-end-top">
-				<h3>Dados da ONG:</h3>
+				<h3>Cadastro da ONG</h3>
 			</label>
 		</div>
 		<div class="row">
-			<div class="col-lg-offset-1 col-lg-10 form-group">
+			<div class="col-lg-offset-2 col-lg-5 form-group">
 				<%= f.label "Nome da ONG:", :for => "name-ngo", :class => "control-label" %>
 				<%= f.text_field :name, :id => "name-ngo", :class => "form-control validate-name" %>
 			</div>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-offset-1 col-lg-10 form-group">
+			<div class="col-lg-offset-2 col-lg-8 form-group">
 				<%= f.label "Descrição:", :for => "description-ngo", :class => "control-label" %>
 				<%= f.text_area :description, :class => "form-control validate-description" , :id => "description-ngo"%>
 			</div>
@@ -52,7 +52,7 @@
 
     <%= f.fields_for :phones do |p| %>
       	<div class="row">
-	        <div class="col-lg-offset-1 col-lg-4 form-group">
+	        <div class="col-lg-offset-2 col-lg-4 form-group">
 				<%= p.label "Telefone(s):", :for => "phone-ngo", :class => "control-label" %> 
 			    <a href="#"><span class="glyphicon glyphicon-plus add_field_button" aria-hidden="true"></span></a>
 			    <a href="#" class="remove_field"><span class="glyphicon glyphicon-minus" aria-hidden="true">
@@ -60,25 +60,25 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-offset-1 col-lg-10 input_fields_wrap">
+			<div class="col-lg-offset-2 col-lg-10 input_fields_wrap">
 				<div class="col-lg-2 form-group">
 					<%= p.telephone_field :phone_number, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone-ngo" %>
 				</div>
 			</div>
 		</div>
     <%end%>
-	<div class="col-lg-12 text-center margin-end-bot margin-end-top">
-		<h3>Endereço da ONG</h3>
-	</div>
+
     <div id="address">
 		<%= render './addresses/address_form', f:f %>
-	</div>
-	<%= render 'users/form', f:f %>
-	<div class="row">
-		<div class="col-lg-offset-1 col-lg-7 form-group">
+	</div
+>		<div class="row">
+		<div class="col-lg-offset-2 col-lg-7 form-group">
 			<%= f.check_box :privacy %> Ocultar dados da ONG!
 		</div>
 	</div>
+
+	<%= render 'users/form', f:f %>
+
 	<div class="row">
 		<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
 			<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block btn-primary" %>

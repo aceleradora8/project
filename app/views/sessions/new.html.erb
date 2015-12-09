@@ -13,7 +13,7 @@
 
 	<%= form_for(:session, url: login_path, :html=>{:onsubmit=>"return LOGIN.validateForm();"}) do |f| %> 
 	  <div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
+			<div class="col-lg-offset-4 col-lg-4">
 				<%= f.text_field :email, :id => "email-session", :placeholder => "E-mail", :class => "form-control validate-email" %>
 			</div>
 			<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger email-error-invalid">
@@ -24,7 +24,7 @@
 			</div>
 	  </div>
 	  <div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
+			<div class="col-lg-offset-4 col-lg-4">
 				<%= f.password_field :password, id: "password-session", :placeholder => "Senha", :class => "form-control validate-password" %>
 			</div>
       <div id="passwordError" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-password-session">
@@ -32,17 +32,17 @@
       </div>
 		</div>
 	  	<div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
+			<div class="col-lg-offset-4 col-lg-4">
 				<%= f.submit "Entrar", :class => "btn btn-default btn-lg btn-block btn-primary" %>
 			</div>
 		</div>
 	    <div class="form-group">
-			<div class="col-lg-offset-3 col-lg-5">
+			<div class="col-lg-offset-4 col-lg-3">
 				<%= link_to "Esqueceu sua senha?", new_password_reset_path %>
 			</div>
 		</div>
 		 <div class="form-group">
-			<div class="col-lg-offset-3 col-lg-3">
+			<div class="col-lg-offset-4 col-lg-3">
 				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
   				<%= label_tag "Manter-me logado" %>
 			</div>

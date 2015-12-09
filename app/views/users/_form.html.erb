@@ -1,11 +1,6 @@
 <%= f.fields_for :user do |ff| %> <!-- Model Address-->
 	<div class="row">
-		<label class="col-lg-12 text-center margin-end-bot margin-end-top">
-			<h3>Usuário:</h3>
-		</label>
-	</div>
-	<div class="row">
-		<div class="col-lg-offset-1 col-lg-10 form-group">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= f.label "Email:", :for => "email-user", :class => "control-label" %>
 			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" %>
 		</div>
@@ -22,7 +17,7 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-lg-offset-1 col-lg-10 form-group">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= f.label "Senha:", :for => "password-user", :class => "control-label" %>
 			<%= ff.password_field :password, :id => "password-user", :class => "form-control validate-password" %>
 		</div>
@@ -33,7 +28,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-offset-1 col-lg-10 form-group">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= f.label "Confirmar Senha:", :for => "password-confirmation-user", :class => "control-label" %>
 			<%= ff.password_field :password_confirmation, :id => "password-confirmation-user", :class => "form-control validate-password-confirmation-user" %>
 		</div>
