@@ -5,8 +5,8 @@
 		<div class="causes">
 			<h4> Causa: </h4>
 			<% @causes.each do |cause| %>
-				<input type="checkbox" name="causes" value="<%=cause.id%>" class="cb_cause">
-				<label for="causes"><%=cause.name%></label>
+				<input type="checkbox" name="causes" id="<%=cause.id%>" value="<%=cause.id%>" class="cb_cause">
+				<label for="<%=cause.id%>"><%=cause.name%></label>
 				<br>
 				<%end%>
 		</div>

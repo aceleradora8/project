@@ -62,9 +62,9 @@
 
 			<div class="row">
 				<div class="form-group">
-					<%= form.label "Observações:", :class => "col-lg-3 control-label" %>
+					<%= form.label "Observações:", :for => "observations-volunteer", :class => "col-lg-3 control-label" %>
 					<div class="col-lg-6">
-						<%= form.text_area :observations, :class => "form-control"%>
+						<%= form.text_area :observations, :id => "observations-volunteer", :class => "form-control"%>
 					</div>
 				</div>
 			</div>
