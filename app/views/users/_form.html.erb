@@ -2,19 +2,24 @@
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= f.label "Email:", :for => "email-user", :class => "control-label" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-3">
 			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" %>
 		</div>
-		<div class="col-lg-offset-1 col-lg-7">
-			<div id="emailErrorInvalid" class="col-lg-2 alert alert-danger custom-alert-danger email-error-invalid">
+		<div class="col-lg-5">
+			<div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
 	    		<p>Email Inválido!</p>
 	  		</div>
-	  	</div>
-	  	<div class="col-lg-offset-1 col-lg-7">
-	    	<div id="emailErrorNil" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-email-user">
+  		</div>
+  		<div class="col-lg-5">
+	    	<div id="emailErrorNil" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-email-user">
 	    	  	<p>Campo Obrigatório!</p>
 	    	</div>
-	    </div>
+    	</div>
 	</div>
+	
 	
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3 form-group">
