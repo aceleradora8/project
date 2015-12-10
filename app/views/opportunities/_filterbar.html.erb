@@ -14,8 +14,8 @@
 		<div class="cities">
 			<h4> Cidade: </h4>
 			<% @cities.each do |city| %>
-				<input type="checkbox" name="cities" value="<%=city%>" class="cb_city">
-				<label for="cities"><%=city%></label>
+				<input type="checkbox" name="cities" id="<%=city%>" value="<%=city%>" class="cb_city">
+				<label for="<%=city%>"><%=city%></label>
 				<br>
 				<%end%>
 		</div>

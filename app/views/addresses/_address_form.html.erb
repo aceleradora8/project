@@ -2,14 +2,14 @@
 	<div class="row margin-end-top margin-end-bot">
 		<div class="col-lg-offset-2 form-group">
 			<div class="col-lg-3">
-				<%= a.label "CEP: ",:class => "control-label", :for => "inputZipcode"  %>
+				<label class="control-label", for="inputZipcode">CEP:</label>
 				<%= a.text_field :zipcode, :id => "inputZipcode", :class => "form-control cep validate-zipcode" %>
 			</div>
 			<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-inputZipcode">
 				<p>Campo Obrigatório!</p>
 			</div>
 			<div class="col-lg-2 alert alert-danger custom-alert-danger error-zipcode-invalid">
-				<p>Cep Inválido!</p>
+				<p>CEP inválido!</p>
 			</div>
 		</div>		
 	</div>

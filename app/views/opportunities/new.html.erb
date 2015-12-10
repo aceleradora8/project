@@ -19,12 +19,12 @@
 					<%= f.text_field :title, :id => "title-opportunity", :class => "form-control validate-name col-lg-3" ,:placeholder => "Título da oportunidade" %>
 				</div>	
 				<div class="col-lg-2 form-group ">
-					<%= f.label "Causa:", :class => "control-label" %>
-					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"} %>
+					<%= f.label "Causa:", :class => "control-label", :for => "causes-opportunity" %>
+					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity" %>
 				</div>
 				<div class="col-lg-1 form-group">
-					<%= f.label "Vagas:"%>	
-					<%= f.number_field :vacancies, min:1, :class => "form-control" %>
+					<%= f.label "Vagas:", :for => "vacancies-opportunity"%>	
+					<%= f.number_field :vacancies, :id => "vacancies-opportunity", min:1, :class => "form-control" %>
 				</div>
 				<div class="col-lg-offset-1 col-lg-7">
 					<div id="titleError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-title-opportunity">
@@ -52,12 +52,12 @@
 			<div class="row margin-end-top margin-end-bot">
 				<div class="col-lg-offset-1 form-group">
 					<div class="col-lg-4">
-						<%= f.label "Início:", {:class => "control-label labelmarginright"} %>
-						<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data" }%>
+						<%= f.label "Início:", {:class => "control-label labelmarginright"}, :for => "start_date" %>
+						<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data", :id => "start_date"}%>
 					</div>
 					<div class="col-lg-4">
-						<%= f.label "Término:", {:class => "control-label labelmarginright"} %>
-						<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data"}%>
+						<%= f.label "Término:", {:class => "control-label labelmarginright"}, :for => "finish_date" %>
+						<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data", :id =>"finish_date"}%>
 					</div>
 
 					<div id="dateError" class="col-lg-2 alert alert-danger custom-alert-danger error-date-opportunities">
@@ -72,7 +72,7 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
-							<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name)  do |b| %>
+							<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name) do |b| %>
 								<div class="col-lg-4 margin-checkbox-lists">
 			  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
 			  					</div>
