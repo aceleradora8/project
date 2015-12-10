@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if @user != nil
 				@user.email_activate
-				format.html { redirect_to "/", notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
+				format.html { redirect_to login_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
 			else
-				format.html { redirect_to root_path, notice: "Falha, a ONG não existe." }
+				format.html { redirect_to login_path, error: "Falha, a ONG não existe." }
 			end
 		end
 	end
