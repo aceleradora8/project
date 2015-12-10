@@ -11,7 +11,7 @@
 		</div>
 	<%end%>
 
-	<%= form_for(:session, url: login_path, :html=>{:onsubmit=>"return LOGIN.validateForm();"}) do |f| %> 
+	<%= form_for(:session, url: login_path, :html=>{:id=>"form-login"}) do |f| %> 
 	  <div class="form-group">
 			<div class="col-lg-offset-4 col-lg-4">
 				<%= f.text_field :email, :id => "email-session", :placeholder => "E-mail", :class => "form-control validate-email" %>
