@@ -163,25 +163,25 @@ opportunity.save
 opportunity.skills.push(Skill.find(3))
 
 #populando volunteers
-volunteer = Volunteer.new(email:"joao@gmail.com", name:"Joao", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Joao", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"pedrofontoura@gmail.com", name:"Pedro Fontoura", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Pedro Fontoura", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"gabriel@gmail.com", name:"Gabriel", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Gabriel", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"felipe@gmail.com", name:"Felipe", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Felipe", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"ghilherme@gmail.com", name:"Ghilherme", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Ghilherme", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"guilherme@gmail.com", name:"Guilherme", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Guilherme", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"paula@gmail.com", name:"Paula", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Paula", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"amanda@gmail.com", name:"Amanda", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Amanda", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"michele@gmail.com", name:"Michele", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Michele", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
-volunteer = Volunteer.new(email:"andriele@gmail.com", name:"Andriele", phone:"123456", observations:"Sou uma pessoa legal!")
+volunteer = Volunteer.new(name:"Andriele", phone:"123456", observations:"Sou uma pessoa legal!")
 volunteer.save
 
 
