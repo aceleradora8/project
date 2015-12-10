@@ -8,7 +8,7 @@
 			<%end%>
 		</div>
 	</div>
-	<%= form_for(@ngo,:html=>{:onsubmit=>"return NGO.validateForm();"}) do |f| %>
+	<%= form_for(@ngo,:html=>{:id=>"form-ngo"}) do |f| %>
 		<% if @ngo.errors.any? %>
 		    <div id="error_explanation">
 		      <h2>
