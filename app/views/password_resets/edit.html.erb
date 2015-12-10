@@ -1,5 +1,5 @@
 <div class="form-horizontal"> 
-  <%= form_for @user, :html=>{:onsubmit=>"return PASS_RESETS.validateFormResetPass();"}, :url => password_reset_path(params[:id])  do |f| %>
+  <%= form_for @user, :html=>{:id=>"form-password-reset"}, :url => password_reset_path(params[:id])  do |f| %>
     <% if @user.errors.any? %>
       <div class="error_messages">
         <h2>Form is invalid</h2>

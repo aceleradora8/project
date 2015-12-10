@@ -1,17 +1,20 @@
 var PASS_RESETS = PASS_RESETS || {}
 
-PASS_RESETS.validateFormResetPass = function validateFormResetPass()
+PASS_RESETS.validateFormResetPassOnSubmit = function validateFormResetPass()
 { 
-  validatePassword = VALIDATION.validatePassword();
-  validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
-  if (validatePassword && validatePasswordConfirmation){
-    return true;
-  } else{
-    return false;
-  }
+	$("#form-password-reset").submit(function(){  
+		validatePassword = VALIDATION.validatePassword();
+		validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
+		if (validatePassword && validatePasswordConfirmation){
+			return true;
+		} else{
+			return false;
+		}
+	});
 }
 
-PASS_RESETS.validateFormEmail= function validateFormEmail()
-{ 
- return VALIDATION.validateEmail();
+PASS_RESETS.validateFormEmailOnSubmit = function validateFormEmail(){ 
+	$("#form-password-reset-email").submit(function(){  
+ 		return VALIDATION.validateEmail();
+ 	});
 }

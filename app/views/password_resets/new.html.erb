@@ -6,7 +6,7 @@
   <%end%>
 
 
-  <%= form_tag password_resets_path, :onsubmit=>"return PASS_RESETS.validateFormEmail();", :method => :post do %>
+  <%= form_tag password_resets_path, :id=>"form-password-reset-email", :method => :post do %>
     <div class="form-group">
       <div class="col-lg-offset-3 col-lg-5">
         <%= text_field_tag :email, params[:email], :id => "email-reset-pass", :placeholder => "E-mail", :class => "form-control validate-email" %>
