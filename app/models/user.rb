@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   has_one :ngo, dependent: :destroy
+  has_one :volunteer, dependent: :destroy 
 
   validates :email, uniqueness: true, presence: true
   validates :password_digest, presence: true 
