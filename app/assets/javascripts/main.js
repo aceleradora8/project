@@ -6,8 +6,15 @@ var ready = function() {
 	OPPORTUNITIES.getCausesChecked();
 	OPPORTUNITIES.getCitiesChecked();
 	OPPORTUNITIES.getRecurrentChecked();
-  PHONES.addPhones();
-  PHONES.removePhones();
+  	PHONES.addPhones();
+  	PHONES.removePhones();
+  	INTEREST.validateFormOnSubmit();
+  	NGO.validateFormOnSubmit();
+  	OPPORTUNITIES.validateFormOnSubmit();
+  	PASS_RESETS.validateFormEmailOnSubmit();
+	PASS_RESETS.validateFormResetPassOnSubmit();
+	LOGIN.validateFormOnSubmit();
+
 }
 
 $(document).ready(ready);

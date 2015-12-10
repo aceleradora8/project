@@ -13,7 +13,7 @@
 		<h1>Candidatar-se à Oportunidade</h1>
 	</div>
 
-	<%= form_for(@interest ,:html=>{:onsubmit=>"return INTEREST.validateForm();"}) do |f| %>
+	<%= form_for(@interest,:html => {:id => "form-interest"}) do |f| %>
 		
 		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
 
