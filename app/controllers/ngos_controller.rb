@@ -31,7 +31,8 @@ class NgosController < ApplicationController
     @ngo = Ngo.new(ngo_params)
     @ngo.user.role = "ngo"  
     respond_to do |format|  
-      if(ngo_exists?(ngo_params[:name],ngo_params[:user_attributes][:email]))
+      if(ngo_exists?(ngo_params[:name],ngo_params[:user_attributes][:email]))        
+        flash[:error] = "ONG já cadastrada!" 
         format.html { render 'new' }  
     	elsif(@ngo.save)
         set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil
@@ -43,30 +44,25 @@ class NgosController < ApplicationController
     end
   end
 
-	private 
+    def ngo_exists?(ngo_name, email)
+      (User.find_by_email(email) != nil || Ngo.find_by_name(ngo_name) != nil) ? true : false
+    end
+
+  private 
     def set_ngo
       if Ngo.where(:id => params[:id]).present?
         @ngo = Ngo.find(params[:id])
+        if @ngo.privacy == true
+          @ngo.address = Address.new
+        end
       else
         redirect_to "/404"
       end
     end
 
-		def ngo_params
-			params.require(:ngo).permit(:user_id, :name, :description, :privacy, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :user_attributes => [:email, :password, :password_confirmation], :phones_attributes => [:phone_number])
-		end
-
-    def ngo_exists?(ngo_name, email)
-      if(User.find_by_email(email) != nil)
-        flash[:error] = "Erro. Email já existe!"
-        return true
-      elsif(Ngo.find_by_name(ngo_name) != nil)
-        flash[:error] = "Erro. Ong já existe!"
-        return true
-      end
-      return false
+    def ngo_params
+      params.require(:ngo).permit(:user_id, :name, :description, :privacy, :address_attributes => [:address, :zipcode, :complement, :state, :city, :country, :neighborhood], :user_attributes => [:email, :password, :password_confirmation], :phones_attributes => [:phone_number])
     end
-
 
     def set_ngo_list_phones(phones_list)
       phones_list.each do |x, phone|
