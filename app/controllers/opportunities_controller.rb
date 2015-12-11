@@ -3,7 +3,7 @@ require 'correios-cep'
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest]
   before_action :set_causes,:set_cities, only: [:index, :new]
-  before_action :set_skills, only: [:new,:create]
+  before_action :set_skills, only: [:new,:create, :edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create]
 
@@ -66,6 +66,24 @@ class OpportunitiesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    @opportunity = Opportunity.find(params[:id])
+  end
+
+  def update
+    @opportunity = Opportunity.find(params[:id])
+    if @opportunity.update(opportunity_params)
+      redirect_to @opportunity
+    else
+      render 'edit'
+    end
+  end
+
+  def my_opportunities
+    @user = current_user
+    @ngo = Ngo.find_by_user_id(@user.id)
   end
 
   private 
