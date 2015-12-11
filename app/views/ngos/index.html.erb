@@ -1,7 +1,7 @@
 <div class="container"> 
 	<div class="row">
 		<div class="col-lg-offset-10 col-lg-2">
-			<%=link_to "Cadastrar ONGs", new_ngo_path, :class=>"link-style btn btn-primary pull-right"%>
+			<%=link_to "Cadastrar ONGs", new_ngo_path, :class=>"link-style btn btn-primary pull-right" unless current_user %>
 		</div>
 	</div>
 	<div class="row ">

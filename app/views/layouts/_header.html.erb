@@ -26,7 +26,9 @@
             <ul class="dropdown-menu">
               <li>
               <% if current_user.ngo? %>
+              <%= link_to "Meu Perfil", @ngo%>
               <%= link_to "Cadastrar Oportunidades", new_opportunity_path%>
+              <%= link_to "Ver minhas Oportunidades", '/myopportunities'%>
                <li role="separator" class="divider"></li>
               <%end%>
               </li>
