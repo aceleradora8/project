@@ -1,11 +1,11 @@
 <%= f.fields_for :user do |ff| %> <!-- Model Address-->
 	<div class="row">
-		<div class="col-lg-offset-2 col-lg-3 form-group">
+		<div class="col-lg-offset-2 col-lg-3">
 			<%= f.label "Email:", :for => "email-user", :class => "control-label" %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-offset-2 col-lg-3">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" %>
 		</div>
 		<div class="col-lg-5">
@@ -22,28 +22,38 @@
 	
 	
 	<div class="row">
-		<div class="col-lg-offset-2 col-lg-3 form-group">
+		<div class="col-lg-offset-2 col-lg-3">
 			<%= f.label "Senha:", :for => "password-user", :class => "control-label" %>
-			<%= ff.password_field :password, :id => "password-user", :class => "form-control validate-password" %>
-		</div>
-		<div class="col-lg-offset-1 col-lg-7">
-			<div id="passwordError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-password-user">
-				<p>Campo Obrigatório!</p>
-			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3 form-group">
+			<%= ff.password_field :password, :id => "password-user", :class => "form-control validate-password" %>
+		</div>
+	<div class="col-lg-5">
+		<div id="passwordError" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-password-user">
+			<p>Campo Obrigatório!</p>
+		</div>
+	</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-3">
 			<%= f.label "Confirmar Senha:", :for => "password-confirmation-user", :class => "control-label" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= ff.password_field :password_confirmation, :id => "password-confirmation-user", :class => "form-control validate-password-confirmation-user" %>
 		</div>
-		<div class="col-lg-offset-1 col-lg-7">
-			<div id="passwordConfirmationError" class="col-lg-3 alert alert-danger custom-alert-danger password-confirmation-invalid">
+
+		<div class="col-lg-5">
+			<div id="passwordConfirmationError" class="col-lg-5 alert alert-danger custom-alert-danger password-confirmation-invalid">
 				<p>Senhas não são iguais!</p>
 			</div>
 		</div>
-		<div class="col-lg-offset-1 col-lg-7">
-		    <div id="passwordConfirmationErrorNil" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-password-confirmation-user">
+		<div class="col-lg-5">
+		    <div id="passwordConfirmationErrorNil" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-password-confirmation-user">
 		      <p>Campo Obrigatório!</p>
 		    </div>
 		</div>
