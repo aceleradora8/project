@@ -2,7 +2,7 @@
 	<div class="col-lg-12">
 		<h3>Filtros</h3>
 		<hr>
-		<div class="causes">
+		<div>
 			<h4> Causa: </h4>
 			<% @causes.each do |cause| %>
 				<input type="checkbox" name="causes" id="<%=cause.id%>" value="<%=cause.id%>" class="cb_cause">
@@ -11,7 +11,7 @@
 				<%end%>
 		</div>
 		<hr>
-		<div class="cities">
+		<div>
 			<h4> Cidade: </h4>
 			<% @cities.each do |city| %>
 				<input type="checkbox" name="cities" id="<%=city%>" value="<%=city%>" class="cb_city">

@@ -1,0 +1,46 @@
+.opportunity-background {
+	background-color: #fafafa;
+}
+
+.opportunity-title {
+	font-size: 20px;
+	color: #0488cf;
+}
+
+.oppt-ngo {
+	font-weight: normal;
+	color: #aaa;
+	margin-bottom: 10px;
+}
+
+.description {
+	width: 250px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+}
+
+.bs-callout {
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout-info {
+    border-left-color: #ddd;
+}
+
+.bs-callout-info:hover{
+    border-left-color: #0488cf;
+}
+
+.card-cause {
+  color: #0488CF;
+  font-weight: bold;
+}
+
+.resume-search {
+    height: 45px !important;
+}

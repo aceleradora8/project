@@ -1,25 +1,21 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Ongarium", root_url, :class=>"navbar-brand"%>
+      <%= link_to "Ongarium", root_url, :class=>"navbar-brand" %>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="navbar-menu-collapse">
       <ul class="nav navbar-nav">
-        <li class="margin-left-200px">
-           <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li%>
-        </li>
-        <li> <%= active_link_to "ONGs", ngos_url, :wrap_tag => :li%>
-        </li>
+        <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li %>
+        <%= active_link_to "ONGs", ngos_url, :wrap_tag => :li %>
         <li><a href="#">Sobre Nós</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <% if current_user.ngo? %>
             <li>          
@@ -48,16 +44,16 @@
             </li>  
           <% end %> 
         <% else %>
-         <li><%= active_link_to "Login", login_path, :wrap_tag => :li%></li>
+          <%= active_link_to "Entrar", login_path, :wrap_tag => :li %>
           <li>          
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastre-se<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Inscreva-se <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "ONG", new_ngo_path%></li>
-              <li><%= link_to "Voluntário", new_volunteer_path%></li>
+              <li><%= link_to "ONG", new_ngo_path %></li>
+              <li><%= link_to "Voluntário", new_volunteer_path %></li>
             </ul>
-        </li>
+          </li>
         <% end %>
-        </ul>
+      </ul>
     </div>
   </div>
 </nav>

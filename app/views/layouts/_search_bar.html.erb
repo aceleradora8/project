@@ -1,10 +1,12 @@
 <div class="container home">
 	<div class="row">
-		<div class="col-lg-6 col-lg-offset-3 aligncenter">
+		<div class="col-lg-6 col-lg-offset-3 text-center">
 			<h1>ONGARIUM</h1>
 			<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :enforce_utf8 => false) do %>
-				<%= text_field_tag :text_search, params[:text_search], :class => "inputsize" %>
-				<button type="submit" class="btn btn-primary glyphicon glyphicon-search alignbutton"></button>
+				<%= text_field_tag :text_search, params[:text_search], :class => "form-control input-search-bar" %>
+			<button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-search"></span>
+			</button>
 			<% end %>
 		</div>
 	</div>
