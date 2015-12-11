@@ -17,7 +17,7 @@ sudo apt-get install postgresql-contrib-9.3
 sudo -u postgres psql -c "CREATE USER $USER;"	
 
 # Granting privileges to $USER on CREATEDB
-sudo -u postgres psql -c "ALTER ROLE $USER WITH CREATEDB;"
+sudo -u postgres psql -c "ALTER ROLE $USER SUPERUSER;"
 
 bundle exec rake db:create
 
