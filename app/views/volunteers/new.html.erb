@@ -1,10 +1,23 @@
 <div class="container">
-  <div class="row"> 
-    <div class="col-lg-10 col-lg-offset-1">
-      
+  <% if flash[:error] != nil %>
+    <div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
+      <p id="error"><%= error %></p>
     </div>
+  <%end%>
   <%= form_for(@volunteer,:html=>{:id=>"form-volunteer"}) do |f| %>
-    
+    <% if @volunteer.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@volunteer.errors.count, "error") %> prohibited
+            this interest from being saved:
+          </h2>
+          <ul>
+            <% @volunteer.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     <div class="row">
       <label class="col-lg-12 text-center margin-end-bot margin-end-top">
         <h3>Cadastro do Voluntário</h3>
@@ -13,10 +26,14 @@
     <div class="row">
       <div class="col-lg-offset-2 col-lg-5 form-group">
         <%= f.label "Nome da Voluntário:", :for => "name-volunteer", :class => "control-label" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-5 form-group">
         <%= f.text_field :name, :id => "name-volunteer", :class => "form-control validate-name" %>
       </div>
-      <div class="col-lg-offset-1 col-lg-7">
-        <div id="nameError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-name-ngo">
+      <div class="col-lg-5">
+        <div id="nameError" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-name-volunteer">
           <p>Campo Obrigatório!</p>
         </div>
       </div>
@@ -33,8 +50,8 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-lg-offset-2 col-lg-4 form-group">
-          <%= f.label "Telefone(s):", :class => "control-label" %> 
+      <div class="col-lg-offset-2 col-lg-4 form-group">
+        <%= f.label "Telefone(s):", :class => "control-label" %> 
       </div>
     </div> 
     <div class="row">

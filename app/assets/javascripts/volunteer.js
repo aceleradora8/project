@@ -1,2 +1,15 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var VOLUNTEER = VOLUNTEER || {}
+
+VOLUNTEER.validateFormOnSubmit = function validateForm(){ 
+  $("#form-volunteer").submit(function(){  
+    validateName =VALIDATION.validateName();
+    validateDescription =VALIDATION.validateDescription();
+    validateEmail = VALIDATION.validateEmail();
+    validatePassword = VALIDATION.validatePassword();
+    validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
+    if (validateName && validateDescription && validateEmail && validatePassword && validatePasswordConfirmation){
+      return true;
+    } 
+      return false;
+  });
+}

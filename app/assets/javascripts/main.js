@@ -12,6 +12,7 @@ var ready = function() {
   	NGO.validateFormOnSubmit();
   	OPPORTUNITIES.validateFormOnSubmit();
   	PASS_RESETS.validateFormEmailOnSubmit();
+    VOLUNTEER.validateFormOnSubmit();
 	PASS_RESETS.validateFormResetPassOnSubmit();
 	LOGIN.validateFormOnSubmit();
 

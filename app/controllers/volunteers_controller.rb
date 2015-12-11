@@ -15,16 +15,14 @@ class VolunteersController < ApplicationController
     @user_email = User.find_by_email(volunteer_params[:user_attributes][:email])
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.user.role = "volunteer"
-    respond_to do |format|
       if email_exists?(@volunteer)
-        format.html {render :new, error: "O email informado já está cadastrado"}
+        redirect_to new_volunteer_url, :error => "O email informado já está cadastrado" 
       elsif @volunteer.save
         UserMailer.email_confirmation(@volunteer).deliver
-        format.html {redirect_to '/login', notice: "Voluntário cadastrado com sucesso, confirme o email para continuar"}
+        redirect_to login_url, :notice => "Voluntário cadastrado com sucesso, confirme o email para continuar!"
       else
         render 'new'
       end
-    end
   end
 
   private
