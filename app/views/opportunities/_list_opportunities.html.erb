@@ -9,30 +9,29 @@
 	<div class="panel">
 		<div class="row panel-body bs-callout bs-callout-info opportunity-background">
 			<div class="row">
-				<div class="col-lg-12 opportunity-title">
-					<h3><%= opportunity.title %></h3>
+				<div class="col-lg-12">
+					<h3 class="opportunity-title"><%= opportunity.title %></h3>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 oppt-ngo">
-					<span>Por <%= opportunity.ngo.name %></span>
+				<div class="col-lg-12">
+					<span class="oppt-ngo">Por <%= opportunity.ngo.name %></span>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 description">
-					<%= opportunity.description %>
+				<div class="col-lg-12">
+					<div class="description"><%= opportunity.description %></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<span><%= opportunity.address.city %>, 
-						<%= opportunity.address.state %> </span>
-				</div>
-				<div class="col-lg-4 card-cause">
-					<%= opportunity.cause.name %>
+					<span><%= opportunity.address.city %>, <%= opportunity.address.state %></span>
 				</div>
 				<div class="col-lg-4">
-			 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
+					<span class="card-cause"><%= opportunity.cause.name %></span>
+				</div>
+				<div class="col-lg-4">
+			 		<%= link_to "Ver mais", opportunity, :class=>"btn btn-primary pull-right" %>
 				</div>
 			</div>
 		</div>

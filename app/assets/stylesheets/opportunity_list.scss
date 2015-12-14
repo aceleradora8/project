@@ -3,44 +3,43 @@
 }
 
 .opportunity-title {
-	font-size: 20px;
+  font: 20px;
 	color: #0488cf;
+  margin-top: 0 !important;
 }
 
 .oppt-ngo {
-	font-weight: normal;
-	color: #aaa;
+	color: #aaaaaa;
 	margin-bottom: 10px;
 }
 
 .description {
-	width: 250px;
-  	white-space: nowrap;
-  	overflow: hidden;
-  	text-overflow: ellipsis;
-  	padding-top: 10px;
-  	padding-bottom: 10px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
 }
 
 .bs-callout {
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
+  border: 1px solid #eeeeee;
+  border-left-width: 5px;
+  border-radius: 3px;
 }
 
 .bs-callout-info {
-    border-left-color: #ddd;
+  border-left-color: #dddddd;
 }
 
 .bs-callout-info:hover{
-    border-left-color: #0488cf;
+  border-left-color: #0488cf;
 }
 
 .card-cause {
-  color: #0488CF;
+  color: #0488cf;
   font-weight: bold;
 }
 
-.resume-search {
-    height: 45px !important;
+.result-search {
+  margin-top: 45px;
 }

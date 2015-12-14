@@ -3,7 +3,7 @@ html, body {
 }
 
 input:focus {
-  outline: none;
+	outline: none;
 }
 
 section {
@@ -11,45 +11,13 @@ section {
   min-height: 100%;
   color: gray;
   height: -200px;
-
 }
 
 .home {
 	min-height: 100%;
 }
 
-.btn-search {
-	margin-top: 10px;
-}
-
-.link-footer a:link {
-  color: white;
-}
-
-.link-footer a:visited {
-  color: white;
-}
-
-ul { 
-  list-style-type: none; 
-  padding-left:0;
-}
-
-.centralize {
-  text-align: center;
-}
-
 .card-cause {
-  color: #0488CF;
+	color: #0488CF;
   font-weight: bold;
 }
-
-.aligncenter {
-  text-align: center;
-}
-
-.alignbutton {
-  margin-bottom: 3px !important;
-}
-
-
