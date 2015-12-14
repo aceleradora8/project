@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token
       end
-    redirect_to root_url, :notice => "Logado!"
+    redirect_to root_url, :notice => "Login realizado com sucesso!"
     elsif @user.confirmed == false
       redirect_to login_url, :error => "Sua conta não foi ativada. Cheque seu email!"
     else
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
-    redirect_to root_url, :notice => "Deslogado!"
+    redirect_to root_url, :notice => "Você finalizou a sua sessão!"
   end
 
 end
