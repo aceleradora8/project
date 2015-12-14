@@ -1,0 +1,96 @@
+<%= form_for(@opportunity, :html=>{:id=>"form-opportunity"}) do |f| %>
+			<% if @opportunity.errors.any? %>
+			    <div id="error_explanation" class="col-lg-5 col-lg-offset-3 alert alert-danger">
+			      <ul>
+			        <% @opportunity.errors.messages.each do |msg| %>
+			          <li><%= msg[1][0] %></li>
+			        <% end %>
+			      </ul>
+			    </div>
+			<% end %>
+			<div class="row">
+				<div class="col-lg-offset-1 col-lg-7 form-group">
+					<%= f.label "Título:", :for => "title-opportunity", :class => "control-label" %>
+					<%= f.text_field :title, :id => "title-opportunity", :class => "form-control validate-name col-lg-3" ,:placeholder => "Título da oportunidade" %>
+				</div>	
+				<div class="col-lg-2 form-group ">
+					<%= f.label "Causa:", :class => "control-label", :for => "causes-opportunity" %>
+					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity" %>
+				</div>
+				<div class="col-lg-1 form-group">
+					<%= f.label "Vagas:", :for => "vacancies-opportunity"%>	
+					<%= f.number_field :vacancies, :id => "vacancies-opportunity", min:1, :class => "form-control" %>
+				</div>
+				<div class="col-lg-offset-1 col-lg-7">
+					<div id="titleError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-title-opportunity">
+						<p>Campo Obrigatório!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-offset-1 form-group col-lg-10">
+					<%= f.label "Descrição:", :class => "control-label", :for => "description-opportunity" %>
+					<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
+				</div>
+				<div class="col-lg-offset-1 col-lg-7">
+					<div id="description-error" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-description-opportunity">
+	        			<p>Campo Obrigatório!</p>
+	    			</div>
+	    		</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-offset-1 form-group col-lg-10">
+				<%= f.check_box :recurrent, :id => "recurrent", checked: true %>
+				<%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label", :for => "recurrent" %>
+				</div>
+			</div>
+			<div class="row margin-end-top margin-end-bot">
+				<div class="col-lg-offset-1 form-group">
+					<div class="col-lg-4">
+						<%= f.label "Início:", {:class => "control-label labelmarginright"}, :for => "start_date" %>
+						<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data", :id => "start_date"}%>
+					</div>
+					<div class="col-lg-4">
+						<%= f.label "Término:", {:class => "control-label labelmarginright"}, :for => "finish_date" %>
+						<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data", :id =>"finish_date"}%>
+					</div>
+
+					<div id="dateError" class="col-lg-2 alert alert-danger custom-alert-danger error-date-opportunities">
+						<p>Data de Término precisa ser maior que a data de inicio!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-end-top br">
+				<div class="col-lg-offset-1 form-group ">
+					<div class="col-lg-4">
+						<%= f.label "Requisitos:", :class => "control-label" %>
+					</div>
+					<div class="row">
+						<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
+							<%= collection_check_boxes(:opportunity, :skill_ids, @skill, :id, :name) do |b| %>
+								<div class="col-lg-4 margin-checkbox-lists">
+			  						<%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
+			  					</div>
+							<%end%>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center margin-end-bot margin-end-top">
+					<h3>Endereço da oportunidade</h3>
+				</div>
+			</div>
+			
+			<div id="address">
+				<%= render './addresses/address_form', f:f %>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+						<%= f.submit "Criar oportunidade", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+					</div>
+				</div>
+				<%= f.hidden_field :ngo_id, :value => current_user.ngo.id %>
+			</div>
+	<% end %>

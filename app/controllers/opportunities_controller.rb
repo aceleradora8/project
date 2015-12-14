@@ -1,7 +1,7 @@
 require 'correios-cep'
 
 class OpportunitiesController < ApplicationController
-  before_action :set_opportunity, only: [:show,:interest]
+  before_action :set_opportunity, only: [:show,:interest,:edit,:destroy]
   before_action :set_causes,:set_cities, only: [:index, :new]
   before_action :set_skills, only: [:new,:create, :edit]
   before_action :require_user, only: [:new, :create]
@@ -69,7 +69,6 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
-    @opportunity = Opportunity.find(params[:id])
   end
 
   def update
@@ -78,6 +77,13 @@ class OpportunitiesController < ApplicationController
       redirect_to @opportunity
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @opportunity.destroy
+    respond_to do |format|
+      format.html { redirect_to ngo_path(@opportunity.ngo), notice: "A oportunidade #{@opportunity.title} foi removida com sucesso" }
     end
   end
 
