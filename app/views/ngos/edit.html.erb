@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-lg-offset-2 col-lg-8">
+      <% if flash[:error] != nil %>
+        <div class= "alert alert-danger text-center">
+          <p id="error"><%= error %></p>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  <%= form_for(@ngo,:html=>{:id=>"form-ngo"}) do |f| %>
+    <% if @ngo.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@ngo.errors.count, "error") %> prohibited
+            this interest from being saved:
+          </h2>
+          <ul>
+            <% @ngo.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <div class="row">
+      <label class="col-lg-12 text-center margin-end-bot margin-end-top">
+        <h3>Cadastro da ONG</h3>
+      </label>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-5 form-group">
+        <%= f.label "Nome da ONG:", :for => "name-ngo", :class => "control-label" %>
+        <%= f.text_field :name, :id => "name-ngo", :class => "form-control validate-name" %>
+      </div>
+      <div class="col-lg-offset-2 col-lg-5">
+        <div id="nameError" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-name-ngo">
+          <p>Campo Obrigatório!</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-8 form-group">
+        <%= f.label "Descrição:", :for => "description-ngo", :class => "control-label" %>
+        <%= f.text_area :description, :class => "form-control validate-description" , :id => "description-ngo"%>
+      </div>
+          <div class="col-lg-offset-2 col-lg-5">
+        <div id="description-error" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-description-ngo">
+              <p>Campo Obrigatório!</p>
+          </div>
+        </div>
+    </div>
+    <%= f.fields_for :phones do |p| %>
+        <div class="row">
+          <div class="col-lg-offset-2 col-lg-4 form-group">
+        <%= p.label "Telefone(s):", :for => "phone-ngo", :class => "control-label" %> 
+          <a href="#"><span class="glyphicon glyphicon-plus add_field_button" aria-hidden="true"></span></a>
+          <a href="#" class="remove_field"><span class="glyphicon glyphicon-minus" aria-hidden="true">
+          </span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-10 input_fields_wrap">
+        <div class="col-lg-2 form-group">
+          <%= p.telephone_field :phone_number, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone-ngo" %>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <div id="address">
+    <%= render './addresses/address_form', f:f %>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-2 col-lg-10 form-group">
+      <%= f.check_box :privacy, :id =>"privacy-ngo" %>
+      <%= f.label "Ocultar dados da ONG!",:for => "privacy-ngo" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+      <%= f.submit "Editar ONG", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>
