@@ -11,6 +11,19 @@ class VolunteersController < ApplicationController
   def show
   end
 
+  def edit
+    @volunteer = Volunteer.find(params[:id])
+  end
+
+  def update
+    @volunteer = Volunteer.find(params[:id])
+    if @volunteer.update(volunteer_params)
+      redirect_to @volunteer
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @user_email = User.find_by_email(volunteer_params[:user_attributes][:email])
     @volunteer = Volunteer.new(volunteer_params)

@@ -108,7 +108,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def opportunity_params
-      params.require(:opportunity).permit(:id, :title, :description, :recurrent, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :zipcode, :complement, :state, :city, :neighborhood], :skill_ids => [])
+      params.require(:opportunity).permit(:title, :description, :recurrent, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, :address_attributes => [:address, :zipcode, :complement, :state, :city, :neighborhood], :skill_ids => [])
     end
 
     def filter_with_causes_and_cities(causes, cities)
