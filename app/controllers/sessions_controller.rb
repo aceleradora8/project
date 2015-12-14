@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    session[:return_to] ||= request.referer
   end
 
   def create
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token
       end
-      redirect_to root_url, :notice => "Login realizado com sucesso!"
+      redirect_to session.delete(:return_to), :notice => "Login realizado com sucesso!"
     elsif @user.confirmed == false
       redirect_to login_url, :error => "Sua conta não foi ativada. Cheque seu email!"
     else
@@ -26,5 +27,4 @@ class SessionsController < ApplicationController
     cookies.delete(:auth_token)
     redirect_to root_url, :notice => "Você finalizou a sua sessão!"
   end
-
 end
