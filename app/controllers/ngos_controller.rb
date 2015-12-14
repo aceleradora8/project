@@ -27,6 +27,20 @@ class NgosController < ApplicationController
 	def show
 	end
 
+  def edit
+    @ngo = Ngo.find(params[:id])
+  end
+
+  def update
+    @ngo = Ngo.find(params[:id])
+    @ngo.user.id = current_user.id
+    if @ngo.update(ngo_params)
+      redirect_to @ngo
+    else
+      render 'edit'
+    end
+  end
+
 	def create
     @ngo = Ngo.new(ngo_params)
     @ngo.user.role = "ngo"  

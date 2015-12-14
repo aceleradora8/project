@@ -6,7 +6,14 @@
 			</div>
 		<%end%>
 		<div >
-			<h1><%= @ngo.name %></h1>		
+			<h1>
+        <%= @ngo.name %>
+        <a href="<%=current_user.ngo.id%>/edit" class="link-style" title="Editar">
+          <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+          </button>
+        </a>
+      </h1>
 		</div>
 		<div class="panel-body detailopp">
 			<div class="formsession">

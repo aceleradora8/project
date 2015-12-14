@@ -40,7 +40,7 @@ class VolunteersController < ApplicationController
 
   private
     def volunteer_params
-      params.require(:volunteer).permit(:user_id, :name, :observations, :phone, :phone1, :phone2, :user_attributes => [:email, :password, :password_confirmation])
+      params.require(:volunteer).permit(:name, :observations, :phone, :phone1, :phone2, :user_attributes => [:email, :password, :password_confirmation])
     end
 
     def email_exists?(volunteer)
