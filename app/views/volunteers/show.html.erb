@@ -1,9 +1,31 @@
-<div>
-  <h1>Perfil do voluntário</h1>
-  <label><%= current_user.volunteer.name %></label>
-  <label><%= current_user.email%></label>
-  <label><%= current_user.volunteer.observations%></label>
-  <label><%= current_user.volunteer.phone%></label>
-  <label><%= current_user.volunteer.phone1%></label>
-  <label><%= current_user.volunteer.phone2%></label>   
+<div class="container">
+	<div class="panel ">
+		<div>
+			<h1><%= current_user.volunteer.name %></h1>		
+		</div>
+		<div class="panel-body detailopp">
+			<div class="formsession">
+				<div class="row">
+					<strong>Telefone(s): </strong>
+					<%= current_user.volunteer.phone %>
+					<%= current_user.volunteer.phone1 %>
+					<%= current_user.volunteer.phone2 %>
+				</div>	
+			</div>
+			<div class="formsession">
+				<div class="row">
+					<strong>Email: </strong>
+					<%= current_user.email %>
+				</div>
+			</div>
+			<div class="formsession">
+				<div class="row">
+					<strong>Observações: </strong> 
+				</div>
+				<div class="row">
+					<span class="leftspace"><%= current_user.volunteer.observations %></span> 
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
