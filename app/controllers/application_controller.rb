@@ -31,8 +31,13 @@ class ApplicationController < ActionController::Base
     redirect_to '/' unless current_user.ngo.id == opportunity.ngo.id
   end
 
+  def store_location
+    @last_location ||= request.referer
+    puts "LAST LOCATION: #{@last_location}"
+  end
+
   def ngo_owner_of_opportunity(opportunity)
-    if current_user.ngo.id == opportunity.ngo.id
+    if (current_user != nil && current_user.ngo.id == opportunity.ngo.id)
       return true
     else
       return false
