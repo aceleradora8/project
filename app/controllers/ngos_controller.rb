@@ -1,5 +1,5 @@
 class NgosController < ApplicationController
-	before_action :set_ngo, only: [:show]
+	before_action :set_ngo, only: [:show, :edit, :destroy]
 
 	def new
 		@ngo = Ngo.new
@@ -27,20 +27,6 @@ class NgosController < ApplicationController
 	def show
 	end
 
-  def edit
-    @ngo = Ngo.find(params[:id])
-  end
-
-  def update
-    @ngo = Ngo.find(params[:id])
-    @ngo.user.id = current_user.id
-    if @ngo.update(ngo_params)
-      redirect_to @ngo
-    else
-      render 'edit'
-    end
-  end
-
 	def create
     @ngo = Ngo.new(ngo_params)
     @ngo.user.role = "ngo"  
@@ -55,6 +41,28 @@ class NgosController < ApplicationController
     	else
     			format.html { render 'new' }
     	end      
+    end
+  end
+
+def edit
+  end
+
+ def update
+    @ngo = Ngo.find(params[:id])
+    if @ngo.update(ngo_params)
+      redirect_to @ngo
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @ngo.user.email = nil
+    @ngo.user.role = nil
+    @ngo.destroy
+    cookies.delete(:auth_token)
+    respond_to do |format|
+      format.html { redirect_to '/', notice: "A ONG foi removida com sucesso" }
     end
   end
 
