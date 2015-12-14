@@ -53,7 +53,7 @@
 				</p>
 			</div>
 			<div class="alignright">
-			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline" unless current_user.role == "ngo"%>
+			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id, volunteer:current_user), class:"btn btn-primary" unless current_user.role == "ngo"%>
 			</div>
 			<div class="col-lg-1">
 				<a href= "<%=@opportunity.id%>/edit" class="link-style" title="Editar">

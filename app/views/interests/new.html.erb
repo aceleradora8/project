@@ -1,79 +1,42 @@
-<div class ="form-horizontal">
-	<% if @interest.errors.any? %>
-	    <div id="error_explanation" class="col-lg-5 col-lg-offset-3 alert alert-danger">
-	      <ul>
-	        <% @interest.errors.messages.each do |msg| %>
-	          <li><%= msg[1][0] %></li>
-	        <% end %>
-	      </ul>
-	    </div>
-	<% end %>
-
-	<div class="col-lg-12 text-center">
-		<h1>Candidatar-se à Oportunidade</h1>
+<div class="container">
+	<div class="panel ">
+		<div>
+			<h1><%= current_user.volunteer.name %></h1>		
+		</div>
+		<div class="panel-body detailopp">
+			<div class="formsession">
+				<div class="row">
+					<strong>Telefone(s): </strong>
+					<%= current_user.volunteer.phone %>
+					<%= current_user.volunteer.phone1 %>
+					<%= current_user.volunteer.phone2 %>
+				</div>	
+			</div>
+			<div class="formsession">
+				<div class="row">
+					<strong>Email: </strong>
+					<%= current_user.email %>
+				</div>
+			</div>
+			<div class="formsession">
+				<div class="row">
+					<strong>Observações: </strong> 
+				</div>
+				<div class="row">
+					<span class="leftspace"><%= current_user.volunteer.observations %></span> 
+				</div>
+			</div>
+		</div>
 	</div>
-
 	<%= form_for(@interest,:html => {:id => "form-interest"}) do |f| %>
-		
-		<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
+		<div class="col-lg-offset-3 col-lg-6">
+			<%=  f.hidden_field :opportunity_id, :value => params[:opportunity]%>
+			<%= f.submit "Enviar", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+		</div>
+	<%end%>
 
-		<%= f.fields_for :volunteer do |form| %>
-			<div class="row">
-				<div class="form-group">
-					<%= form.label "Nome:", :for => "name-volunteer", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-6">
-						<%= form.text_field :name, :id => "name-volunteer", :class => "form-control validate-name"%>
-					</div>
-					<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-name-volunteer">
-						<p>Campo Obrigatório!</p>
-					</div>
-				</div>
-			</div>
 
-			<div class="row">	
-				<div class="form-group">
-					<%= form.label "Email:", :for => "email-volunteer", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-6">
-						<%= form.text_field :email, :id => "email-volunteer", :placeholder => "exemplo@exemplo.com", :class => "form-control validate-email"%>
-					</div>
-					<div class="col-lg-2 alert alert-danger custom-alert-danger email-error-invalid">
-						<p>Email Inválido!</p>
-					</div>
-					<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-email-volunteer">
-						<p>Campo Obrigatório!</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group">
-					<%= form.label "Telefone:", :for => "phone-volunteer", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-6">
-						<%= form.text_field :phone, :id => "phone-volunteer",:placeholder => "(99)9999-9999", :class => "form-control phone_with_ddd validate-phone"%>
-					</div>
-			        <div class="col-lg-2 alert alert-danger custom-alert-danger phone-error-invalid">
-			          <p>Telefone Inválido!</p>
-			        </div>
-					<div id="phoneErrorNil" class="col-lg-2 alert alert-danger custom-alert-danger empty-error-phone-volunteer">
-						<p>Campo Obrigatório!</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group">
-					<%= form.label "Observações:", :for => "observations-volunteer", :class => "col-lg-3 control-label" %>
-					<div class="col-lg-6">
-						<%= form.text_area :observations, :id => "observations-volunteer", :class => "form-control"%>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-lg-offset-3 col-lg-6">
-					<%= f.submit "Enviar", :class => "btn btn-default btn-lg btn-block btn-primary" %>
-				</div>
-			</div>
-		<% end %>
-	<% end %>
 </div>
+
+
+
