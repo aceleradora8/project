@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ngo_owner_of_opportunity(opportunity)
-    if (current_user != nil && current_user.ngo.id == opportunity.ngo.id)
+    if (current_user != nil && current_user.ngo? && current_user.ngo.id == opportunity.ngo.id)
       return true
     else
       return false
