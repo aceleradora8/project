@@ -3,8 +3,7 @@ class NgosController < ApplicationController
   before_action :require_ngo, only: [:edit, :destroy]
 
 	def new
-		@ngo = Ngo.new
-    finder = Correios::CEP::AddressFinder.new
+		@ngo = Ngo.new   
 		@ngo.build_address
 		@ngo.build_user
     @ngo.phones.build
@@ -12,8 +11,7 @@ class NgosController < ApplicationController
      respond_to do |format|
       if request.xhr? 
         if params[:zipcode] 
-          @address = Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))
-          format.json
+          format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
         end
       else
         format.html
@@ -47,6 +45,15 @@ class NgosController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      if request.xhr? 
+        if params[:zipcode] 
+          format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
+        end
+      else
+        format.html 
+      end
+    end
   end
 
  def update
