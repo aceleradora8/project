@@ -39,6 +39,9 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
+  def user_exists?
+    User.find_by_email(self.email) != nil ? true : false
+  end
 
   private
   def generate_token(column)
@@ -46,4 +49,5 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
   end
+
 end

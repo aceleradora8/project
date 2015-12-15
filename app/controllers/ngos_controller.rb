@@ -30,7 +30,7 @@ class NgosController < ApplicationController
     @ngo = Ngo.new(ngo_params)
     @ngo.user.role = "ngo"  
     respond_to do |format|  
-      if(ngo_exists?(ngo_params[:name],ngo_params[:user_attributes][:email]))
+      if(ngo_exists?(@ngo))
         format.html { 
           flash[:error] = "ONG já cadastrada!"          
           render :new}  
@@ -75,8 +75,8 @@ class NgosController < ApplicationController
     end
   end
 
-    def ngo_exists?(ngo_name, email)
-      (User.find_by_email(email) != nil || Ngo.find_by_name(ngo_name) != nil) ? true : false
+    def ngo_exists?(ngo)
+      (ngo.user.user_exists? || Ngo.find_by_name(ngo.name) != nil) ? true : false
     end
 
   private 

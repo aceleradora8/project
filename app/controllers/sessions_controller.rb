@@ -22,9 +22,9 @@ class SessionsController < ApplicationController
     end
   end
 
-
   def destroy
     cookies.delete(:auth_token)
     redirect_to root_url, :notice => "Você finalizou a sua sessão!"
   end
 end
+
