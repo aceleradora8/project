@@ -1,0 +1,82 @@
+<div class="container">
+	<div class="panel ">
+		<div>
+			<h1>
+				<%= @interest.opportunity.title %>
+			</h1>
+		</div>
+		<div class="panel-body detailopp">
+			<div>
+				<p> <span class="bold">Descrição: </span> 
+				<br>
+				<span class="leftspace"><%= @interest.opportunity.description %></span> 
+				</p>
+			</div>
+			<div>
+				<p> <span class="bold">Local: </span>  <br>
+				<span class="leftspace"><%= @interest.opportunity.address.print_address %> 
+				</p>
+			</div>
+			<% if @interest.opportunity.recurrent %>
+				<div>
+					<p> <span class="bold">Ocorre com frequência</span> </p>
+				</div>
+			<% else %>	
+			<div>
+				<p> <span class="bold">Data de Início: </span> <%= @interest.opportunity.start_date %> </p>
+			</div>
+			<div>
+				<p> <span class="bold">Data de Término: </span> <%= @interest.opportunity.finish_date %></p>
+			</div>
+			<% end %>
+			<div>
+				<p> <span class="bold">Ong: </span><%= @interest.opportunity.ngo.name %></p>
+			</div>
+			<div>
+				<p> <span class="bold">Causa: </span><%= @interest.opportunity.cause.name %></p>
+			</div>
+			<div>
+				<p> <span class="bold">Vagas: </span><%= @interest.opportunity.vacancies %></p>
+			</div>
+			<div>
+				<p> <span class="bold">Requisitos:</span> 
+				<span class="leftspace">
+				<ul>
+					<% @interest.opportunity.skills.each do |skill|%>
+						<li> <%= skill.name %> </li>
+					<% end %>
+				</ul>
+				 </span>
+				</p>
+			</div>		
+		</div>
+	</div>
+	<div>
+		<h3> Dados do interessado:</h3>		
+		<h1><%= current_user.volunteer.name %></h1>		
+	</div>
+	<div class="panel-body detailopp">
+		<div class="formsession">
+			<div class="row">
+				<strong>Telefone(s): </strong>
+				<%= current_user.volunteer.phone %>
+				<%= current_user.volunteer.phone1 %>
+				<%= current_user.volunteer.phone2 %>
+			</div>	
+		</div>
+		<div class="formsession">
+			<div class="row">
+				<strong>Email: </strong>
+				<%= current_user.email %>
+			</div>
+		</div>
+		<div class="formsession">
+			<div class="row">
+				<strong>Observações: </strong> 
+			</div>
+			<div class="row">
+				<span class="leftspace"><%= current_user.volunteer.observations %></span> 
+			</div>
+		</div>
+	</div>
+</div>
