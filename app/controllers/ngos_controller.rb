@@ -1,5 +1,6 @@
 class NgosController < ApplicationController
 	before_action :set_ngo, only: [:show, :edit, :destroy]
+  before_action :require_ngo, only: [:edit, :destroy]
 
 	def new
 		@ngo = Ngo.new
@@ -44,7 +45,7 @@ class NgosController < ApplicationController
     end
   end
 
-def edit
+  def edit
   end
 
  def update

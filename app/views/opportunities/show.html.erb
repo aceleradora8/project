@@ -67,7 +67,7 @@
 				</p>
 			</div>
 			<div class="alignright">
-			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline" unless current_user.role == "ngo"%>
+			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline" if( current_user ?  current_user.role != "ngo" : true)%>
 			</div>
 			
 		</div>
