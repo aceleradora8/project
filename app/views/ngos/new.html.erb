@@ -2,5 +2,26 @@
 	<div class="col-lg-12 text-center">
 		<h1>Nova ONG</h1>
 	</div>
-	<%= render 'form'%>
+	<%= form_for(@ngo,:html=>{:id=>"form-ngo"}) do |f| %>
+	<% if @ngo.errors.any? %>
+	    <div id="error_explanation">
+	      <h2>
+	        <%= pluralize(@ngo.errors.count, "error") %> prohibited
+	        this interest from being saved:
+	      </h2>
+	      <ul>
+	        <% @ngo.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	<% end %>
+	<%= render 'form', f:f %>
+	<%= render 'users/form', f:f %>
+	<div class="row">
+		<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+			<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+		</div>
+	</div>
+<% end %>
 </div>
