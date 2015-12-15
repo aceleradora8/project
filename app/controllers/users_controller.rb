@@ -13,6 +13,24 @@ class UsersController < ApplicationController
 		 end
 	end
 
+  def show
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
+
+
 	def confirm_email
 		@user = User.find_by_confirm_token(params[:id])
 		respond_to do |format|
