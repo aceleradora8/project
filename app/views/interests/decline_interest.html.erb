@@ -1,14 +1,17 @@
 <div class="container">
 	<div class="panel ">
-		<div>
-			<h1> Motivo de ter despilhado do interesse:</h1>		
-		</div>
-		<div class="panel-body detailopp">
-			<div class="formsession">
-				<div class="row">
-					<strong>Descrição: </strong>	
+		<div class="formsession">
+			<div class="row">
+				<h2> Motivo de ter despilhado do interesse:</h2>		
+				<%= form_tag "/opportunities/send_email", :id=>"form-volunteer-cancel-interest", :method => :destroy do %>
+				<%= text_area_tag "reason" %>
+				<%= @interest.opportunity.title %>
+				<div>
+					<%= submit_tag "Save" %>
 				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
