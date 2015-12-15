@@ -3,7 +3,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_causes,:set_cities, only: [:index, :new]
   before_action :set_skills, only: [:new,:create, :edit]
   before_action :require_user, only: [:new, :create]
-  before_action :require_ngo, only: [:new, :create]
+  before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
     opportunity = Opportunity.find(params[:id])
     require_ngo_owner_opportunity(opportunity)

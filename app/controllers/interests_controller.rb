@@ -22,6 +22,25 @@ class InterestsController < ApplicationController  # Prevent CSRF attacks by rai
 		end
 	end
 
+	def show
+		@interest = Interest.find_by_id(params[:id])
+	end
+
+	def destroy
+		@interest = Interest.find_by_id(params[:id])
+		@interest.destroy
+		redirect_to '/'
+	end
+
+	def my_interests
+	    @user = current_user
+	    @volunteer = Volunteer.find_by_user_id(@user.id)
+  	end
+
+  	def decline_interest
+  		
+  	end
+
 	private
 	    def interest_params
 	    	params.require(:interest).permit(:opportunity_id, :volunteer_attributes => [:name, :email, :phone, :observations])
