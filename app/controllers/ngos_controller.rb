@@ -32,9 +32,10 @@ class NgosController < ApplicationController
     @ngo = Ngo.new(ngo_params)
     @ngo.user.role = "ngo"  
     respond_to do |format|  
-      if(ngo_exists?(ngo_params[:name],ngo_params[:user_attributes][:email]))        
-        flash[:error] = "ONG já cadastrada!" 
-        format.html { render 'new' }  
+      if(ngo_exists?(ngo_params[:name],ngo_params[:user_attributes][:email]))
+        format.html { 
+          flash[:error] = "ONG já cadastrada!"          
+          render :new}  
     	elsif(@ngo.save)
         set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil
     		UserMailer.email_confirmation(@ngo).deliver
