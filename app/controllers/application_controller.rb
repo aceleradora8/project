@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
 	def require_ngo_owner_opportunity(opportunity)
 		if current_user != nil
-		redirect_to '/' unless current_user.ngo.id == opportunity.ngo.id
+			redirect_to '/' unless current_user.ngo.id == opportunity.ngo.id
 		else
 			redirect_to '/'
 		end
@@ -59,11 +59,13 @@ class ApplicationController < ActionController::Base
 	end
 
 	def volunteer_is_interested(opportunity)
-		current_user.volunteer.interests.each do |interest|
-			if interest.opportunity_id == opportunity.id
-				return true
-			else
-				return false
+		if current_user != nil && current_user.volunteer? 
+			current_user.volunteer.interests.each do |interest|
+				if interest.opportunity_id == opportunity.id
+					return true
+				else
+					return false
+				end
 			end
 		end
 	end
