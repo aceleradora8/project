@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get '/myopportunities' => 'opportunities#my_opportunities'
+  get '/myinterests' => 'interests#my_interests'
+  get '/despilhei' => 'interests#decline_interest'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
