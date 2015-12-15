@@ -66,10 +66,15 @@
 				 </span>
 				</p>
 			</div>
-			<div class="alignright">
-			 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline" if( current_user ?  current_user.role != "ngo" : true)%>
-			</div>
-			
+			<%if volunteer_is_interested(@opportunity)%>
+				<div class="alignright">
+				 	<%= link_to "Cancelar Candidatura", root_url, class:"btn btn-primary outline"%>
+				</div>
+			<%else%>
+				<div class="alignright">
+				 	<%= link_to "Candidatar-se", new_interest_path(opportunity:@opportunity.id), class:"btn btn-primary outline" if( current_user ?  current_user.role != "ngo" : true)%>
+				</div>
+			<%end%>
 		</div>
 	</div>
 </div>

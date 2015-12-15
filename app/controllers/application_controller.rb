@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 	helper_method :ngo_owner_of_opportunity
 	helper_method :require_user_owner_ngo
+	helper_method :volunteer_is_interested
 
 	def current_user
 		#@current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -54,6 +55,16 @@ class ApplicationController < ActionController::Base
 			return true
 		else
 			return false
+		end
+	end
+
+	def volunteer_is_interested(opportunity)
+		current_user.volunteer.interests.each do |interest|
+			if interest.opportunity_id == opportunity.id
+				return true
+			else
+				return false
+			end
 		end
 	end
 end
