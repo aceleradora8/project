@@ -1,5 +1,3 @@
-require 'correios-cep'
-
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show,:interest,:edit,:destroy]
   before_action :set_causes,:set_cities, only: [:index, :new]
@@ -40,13 +38,11 @@ class OpportunitiesController < ApplicationController
 
   def new
     @opportunity = Opportunity.new
-    #finder = Correios::CEP::AddressFinder.new
     @opportunity.build_address   
     respond_to do |format|
       if request.xhr? 
         if params[:zipcode] 
-          @address = Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))
-          format.json
+          format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
         end
       else
         format.html
@@ -73,6 +69,15 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      if request.xhr? 
+        if params[:zipcode] 
+          format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
+        end
+      else
+        format.html
+      end
+    end
   end
 
   def update
