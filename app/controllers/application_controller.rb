@@ -63,10 +63,9 @@ class ApplicationController < ActionController::Base
 			current_user.volunteer.interests.each do |interest|
 				if interest.opportunity_id == opportunity.id
 					return true
-				else
-					return false
 				end
 			end
+			return false
 		end
 	end
 end
