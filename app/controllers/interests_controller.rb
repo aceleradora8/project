@@ -1,5 +1,4 @@
-class InterestsController < ApplicationController  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+class InterestsController < ApplicationController 
   before_action :require_user, only: [:new, :create]
 
 	def new
@@ -35,13 +34,6 @@ class InterestsController < ApplicationController  # Prevent CSRF attacks by rai
 	def my_interests
 	    @user = current_user
 	    @volunteer = Volunteer.find_by_user_id(@user.id)
-  	end
-
-  	def decline_interest
-  		@interest = Interest.find_by_id(params[:id])
-  	end
-
-  	def send_email
   	end
   	
 	private
