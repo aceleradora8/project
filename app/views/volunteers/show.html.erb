@@ -35,43 +35,5 @@
 				</div>
 			</div>
 		</div>
-		<div class="volunteer-opportunities">
-			<div>
-				<h3 class="">Oportunidades que você se candidatou:</h3>
-			</div>
-			<% current_user.volunteer.interests.each do |interest| %>	
-				<div class="panel">
-					<div class="row panel-body detailopp bs-callout bs-callout-info">
-						<div class="row">
-							<div class="col-lg-12 opportunity-title">
-								<h3><%= interest.opportunity.title %></h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 oppt-ngo">
-								<span>Por <%= interest.opportunity.ngo.name %></span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 description">
-								<%= interest.opportunity.description %>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4">
-								<span><%= interest.opportunity.address.city %>, 
-									<%= interest.opportunity.address.state %> </span>
-							</div>
-							<div class="col-lg-4 card-cause">
-								<%= interest.opportunity.cause.name %>
-							</div>
-							<div class="col-lg-4">
-						 		<%= link_to "Ver mais", interest.opportunity, :class=>"link-style btn btn-primary pull-right" %>
-							</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		</div>
 	</div>
 </div>
