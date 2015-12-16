@@ -14,7 +14,11 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token
       end
-      redirect_to session.delete(:return_to), :notice => "Login realizado com sucesso!"
+      if session[:return_to] 
+        redirect_to session.delete(:return_to), :notice => "Login realizado com sucesso!"
+      else
+        redirect_to root_url, :notice => "Login realizado com sucesso!"
+      end
     elsif @user.confirmed == false
       redirect_to login_url, :error => "Sua conta não foi ativada. Cheque seu email!"
     else
