@@ -20,29 +20,28 @@
 	    		</div>
 	    	</div>
 		</div>
-    <%= f.fields_for :phones do |p| %>
-      	<div class="row">
-	        <div class="col-lg-offset-2 col-lg-4 form-group">
-				<%= p.label "Telefone(s):", :for => "phone-ngo", :class => "control-label" %> 
-			    <a href="#"><span class="glyphicon glyphicon-plus add_field_button" aria-hidden="true"></span></a>
-			    <a href="#" class="remove_field"><span class="glyphicon glyphicon-minus" aria-hidden="true">
-			    </span></a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-offset-2 col-lg-10 input_fields_wrap">
-				<div class="col-lg-2 form-group">
-					<%= p.telephone_field :phone_number, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone-ngo" %>
-				</div>
-			</div>
-		</div>
-    <%end%>
+    <div name="phones">
+      <div class="row">
+        <div class="col-lg-offset-2 col-lg-4 form-group">
+        <%= f.label "Telefone(s):", :for => "phone-ngo", :class => "control-label" %> 
+          <a href="#"><span class="glyphicon glyphicon-plus add_field_button" aria-hidden="true"></span></a>
+          <a href="#" class="remove_field"><span class="glyphicon glyphicon-minus" aria-hidden="true">
+          </span></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-2 col-lg-10 input_fields_wrap">
+          <input type="hidden" value="<%=@phones %>" id="phones-ngo"/>
+        </div>
+      </div>
+    </div>
+
     <div id="address">
-		<%= render './addresses/address_form', f:f %>
-	</div>
-	<div class="row">
-		<div class="col-lg-offset-2 col-lg-10 form-group">
-			<%= f.check_box :privacy, :id =>"privacy-ngo" %>
-			<%= f.label "Ocultar dados da ong",:for => "privacy-ngo" %>
-		</div>
-	</div>
+		  <%= render './addresses/address_form', f:f %>
+    </div>
+  	<div class="row">
+  		<div class="col-lg-offset-2 col-lg-10 form-group">
+  			<%= f.check_box :privacy, :id =>"privacy-ngo" %>
+  			<%= f.label "Ocultar dados da ong",:for => "privacy-ngo" %>
+  	  </div>
+	 </div>
