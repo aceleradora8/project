@@ -24,12 +24,10 @@
                   <li>
                     <%= link_to "Meu Perfil", current_user.ngo %> 
                     <%= link_to "Cadastrar Oportunidades", new_opportunity_path%>
-                    <%= link_to "Ver minhas Oportunidades", '/myopportunities'%>
-
+                    <%= link_to "Minhas Oportunidades", '/myopportunities'%>
                     <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="Editar">
-                      Alterar senha / email
+                      Configurações de conta
                     </a>
-
                      <li role="separator" class="divider"></li>
                   </li>
                    <li><%= link_to "Sair", logout_path, method: "delete"%></li>
@@ -43,7 +41,7 @@
                   <li>
                     <%= link_to "Meu Perfil", current_user.volunteer%>
                     <%= link_to "Minhas Oportunidades", '/myinterests'%>
-                      <li role="separator" class="divider"></li>
+                    <li role="separator" class="divider"></li>
                   </li>  
                  <li><%= link_to "Sair", logout_path, method: "delete"%></li>
                 </ul>

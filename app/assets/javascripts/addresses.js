@@ -4,10 +4,8 @@ ADDRESSES.validateForm = function validateForm()
 {
   if (VALIDATION.validateZipCode()) {
     return true;
-  } else {
-    return false;
   }
-
+  return false;
 }
 
 ADDRESSES.cleanFields = function cleanFields() {
@@ -19,20 +17,19 @@ ADDRESSES.cleanFields = function cleanFields() {
 
 ADDRESSES.requestZipCode = requestZipCode = function() { 
   $.ajax({
-  url: $(location).attr('pathname'),
-  data: { zipcode: $("#inputZipcode").val()},
-  success: function(response) {
-       console.log("fsdfsd");
-      $("#inputState").attr("value",response.state);
-      $("#inputState").attr("text",response.state);
-      $("#inputCity").attr("value",response.city);
-      $("#inputCity").attr("text",response.city);
-      $("#inputNeighborhood").attr("value",response.neighborhood);
-      $("#inputNeighborhood").attr("text",response.neighborhood);
-      $("#inputAddress").attr("value",response.address);
-      $("#inputAddress").attr("text",response.address);
-      }
-});
+    url: $(location).attr('pathname'),
+    data: { zipcode: $("#inputZipcode").val()},
+    success: function(response) {
+        $("#inputState").attr("value",response.state);
+        $("#inputState").attr("text",response.state);
+        $("#inputCity").attr("value",response.city);
+        $("#inputCity").attr("text",response.city);
+        $("#inputNeighborhood").attr("value",response.neighborhood);
+        $("#inputNeighborhood").attr("text",response.neighborhood);
+        $("#inputAddress").attr("value",response.address);
+        $("#inputAddress").attr("text",response.address);
+        }
+  });
 };
 
 ADDRESSES.requestTriggerZipcode = function requestTriggerZipcode() {

@@ -18,14 +18,18 @@ var max_fields = 5;
 }
 
 PHONES.loadPhones = function loadPhones(){
-  $.each(JSON.parse($("#phones-ngo").val()), function(i, phone) {
-    countFields++;
-    count++;
-    $(".input_fields_wrap").append('\
-      <div class="col-lg-2 form-group">\
-        <input value="'+phone+'" class="form-control phone_with_ddd validate-phone", id="phone-ngo", name="ngo[phones_attributes]['+count+'][phone_number]" type="tel">\
-      </div>'); 
-  });
+  if ($("#phones-ngo").length) {
+    if ($("#phones-ngo").val() != "") {
+      $.each(JSON.parse($("#phones-ngo").val()), function(i, phone) {
+        countFields++;
+        count++;
+        $(".input_fields_wrap").append('\
+          <div class="col-lg-2 form-group">\
+            <input value="'+phone+'" class="form-control phone_with_ddd validate-phone", id="phone-ngo", name="ngo[phones_attributes]['+count+'][phone_number]" type="tel">\
+          </div>'); 
+      });
+    }
+  }
 }
 
 PHONES.removePhones = function removePhones(){ 
