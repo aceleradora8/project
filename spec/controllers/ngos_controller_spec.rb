@@ -22,6 +22,5 @@ describe NgosController, type: :controller do
         it 'returns false when a new ngo is passed' do
           expect(@controller.ngo_exists?(@ngo_new)).to be false
         end
-
-      end
     end
+end

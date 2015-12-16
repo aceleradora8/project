@@ -25,10 +25,9 @@ class VolunteersController < ApplicationController
   end
 
   def create
-    @user_email = User.find_by_email(volunteer_params[:user_attributes][:email])
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.user.role = "volunteer"
-      if email_exists?(@volunteer)
+      if @volunteer.user.user_exists?
         redirect_to new_volunteer_url, :error => "O email informado já está cadastrado" 
       elsif @volunteer.save
         UserMailer.email_confirmation(@volunteer).deliver
@@ -42,12 +41,4 @@ class VolunteersController < ApplicationController
     def volunteer_params
       params.require(:volunteer).permit(:name, :observations, :phone, :phone1, :phone2, :user_attributes => [:email, :password, :password_confirmation])
     end
-
-    def email_exists?(volunteer)
-      if User.find_by_email(volunteer.user.email) != nil
-        return true
-      end
-
-    end
-
 end
