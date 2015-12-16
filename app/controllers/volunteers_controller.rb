@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-
+  before_action :set_volunteer, only: [:show,:edit,:update]
   def new
     @volunteer = Volunteer.new
     @volunteer.build_user
@@ -12,13 +12,12 @@ class VolunteersController < ApplicationController
   end
 
   def edit
-    @volunteer = Volunteer.find(params[:id])
+  
   end
 
   def update
-    @volunteer = Volunteer.find(params[:id])
     if @volunteer.update(volunteer_params)
-      redirect_to @volunteer
+      redirect_to @volunteer, :notice => "Voluntário atualizado com sucesso!"
     else
       render 'edit'
     end
@@ -36,6 +35,14 @@ class VolunteersController < ApplicationController
         render 'new'
       end
   end
+
+  def set_volunteer
+      if Volunteer.where(:id => params[:id]).present?
+        @volunteer = Volunteer.find(params[:id])
+      else
+        redirect_to "/404"
+      end
+    end
 
   private
     def volunteer_params
