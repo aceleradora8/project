@@ -51,6 +51,8 @@ class NgosController < ApplicationController
           format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
         end
       else
+        @phones = Hash[@ngo.phones.map {|phone| [phone.id.to_s ,phone.phone_number]}]
+        @phones = @phones.to_json
         format.html 
       end
     end
@@ -58,6 +60,8 @@ class NgosController < ApplicationController
 
  def update
     @ngo = Ngo.find(params[:id])
+    @ngo.phones = []
+    set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil      
     if @ngo.update(ngo_params)
       redirect_to @ngo
     else
