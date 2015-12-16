@@ -6,15 +6,17 @@ var ready = function() {
 	OPPORTUNITIES.getCausesChecked();
 	OPPORTUNITIES.getCitiesChecked();
 	OPPORTUNITIES.getRecurrentChecked();
-  	PHONES.addPhones();
-  	PHONES.removePhones();
-  	INTEREST.validateFormOnSubmit();
-  	NGO.validateFormOnSubmit();
-  	OPPORTUNITIES.validateFormOnSubmit();
-  	PASS_RESETS.validateFormEmailOnSubmit();
-    VOLUNTEER.validateFormOnSubmit();
+	PHONES.addPhones();
+  PHONES.removePhones();
+  PHONES.loadPhones();
+	INTEREST.validateFormOnSubmit();
+	NGO.validateFormOnSubmit();
+	OPPORTUNITIES.validateFormOnSubmit();
+	PASS_RESETS.validateFormEmailOnSubmit();
+  VOLUNTEER.validateFormOnSubmit();
 	PASS_RESETS.validateFormResetPassOnSubmit();
 	LOGIN.validateFormOnSubmit();
+
 
 }
 
