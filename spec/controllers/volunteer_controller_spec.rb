@@ -1,4 +1,5 @@
-require 'rails_helper'
+require "rails_helper"
+require 'capybara/rspec'
 
 describe VolunteersController, type: :controller do 
 	describe '#index' do
@@ -29,5 +30,12 @@ describe VolunteersController, type: :controller do
 			redirect_to @volunteer_teste
 			expect(flash[:notice]).to eq("Voluntário atualizado com sucesso!")
 		end
+
+		it 'verify if volunteers is a Volunteer instance' do
+			get :new
+			expect(assigns(:volunteer)).to be_a_new(Volunteer)
+		end
+
 	end
+
 end
