@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token
       end
-      if session[:return_to] 
+      if session[:return_to] != nil
         redirect_to session.delete(:return_to), :notice => "Login realizado com sucesso!"
       else
         redirect_to root_url, :notice => "Login realizado com sucesso!"

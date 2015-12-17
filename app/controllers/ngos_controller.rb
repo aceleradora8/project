@@ -45,6 +45,7 @@ class NgosController < ApplicationController
   end
 
   def edit
+    @ngo = Ngo.find(params[:id])
     respond_to do |format|
       if request.xhr? 
         if params[:zipcode] 
