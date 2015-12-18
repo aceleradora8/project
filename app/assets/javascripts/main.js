@@ -3,7 +3,7 @@ var ready = function() {
 	OPPORTUNITIES.getCausesChecked();
 	PHONES.addPhones();
 	PHONES.loadPhones();
-	INTEREST.validateFormOnSubmit();
+	INTEREST.disableButtonOnSubmit();
 	NGO.validateFormOnSubmit();
 	OPPORTUNITIES.validateFormOnSubmit();
 	PASS_RESETS.validateFormEmailOnSubmit();
