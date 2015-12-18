@@ -25,9 +25,13 @@
 	<div class="row margin-end-top margin-end-bot">
 		<div class="col-lg-offset-2 form-group">
 			<div class="col-lg-6">
-				<%= a.label "Rua: ", :class => "control-label", :for => "inputAddress"%>
+				<%= a.label "Endereço: ", :class => "control-label", :for => "inputAddress"%>
 			
 				<%= a.text_field :address, :id => "inputAddress", :class => "form-control" %>
+			</div>
+			<div class="col-lg-1">
+				<%= a.label "Número: ", :class => "control-label", :for => "inputNumber"%>
+				<%= a.text_field :number, :id => "inputNumber", :class => "form-control"%>
 			</div>
 			<div class="col-lg-2">
 				<%= a.label "Complemento: ", :class => "control-label", :for => "inputComplement"%>
