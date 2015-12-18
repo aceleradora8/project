@@ -19,19 +19,16 @@ feature 'opportunity list pagination tests' do
     scenario 'finds an opportunity at page 1' do
       visit 'opportunities?page=1'
       expect(page).to have_content 'Opportunity 1'
-      expect(page).to have_no_content 'Sua pesquisa não encontrou resultados' 
     end
 
     scenario 'finds an opportunity at page 2' do
       visit 'opportunities?page=2'
       expect(page).to have_content 'Opportunity 13'
-      expect(page).to have_no_content 'Sua pesquisa não encontrou resultados'
     end
 
     scenario 'finds no opportunities at page 3' do
       visit 'opportunities?page=3'
       expect(page).to have_content 'Sua pesquisa não encontrou resultados'
-      expect(page).to have_no_content 'Opportunity'
     end
 
   end
@@ -52,7 +49,6 @@ feature 'opportunity list pagination tests' do
     scenario 'finds no extra pages' do
       visit 'opportunities?page=1'
       expect(page).to have_content 'Opportunity'
-      expect(page).to have_no_content 'Próximo'
     end
 
   end

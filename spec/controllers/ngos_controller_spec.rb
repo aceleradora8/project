@@ -73,7 +73,8 @@ describe NgosController, type: :controller do
           address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}          
         }
       }     
-      redirect_to @ngo 
+      redirect_to @ngo
+      expect(flash[:notice]).to eq("ONG atualizada com sucesso") 
     end
 
   end

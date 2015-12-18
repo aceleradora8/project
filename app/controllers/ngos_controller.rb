@@ -65,7 +65,7 @@ class NgosController < ApplicationController
     set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil
     respond_to do |format|      
       if @ngo.update(ngo_params)
-      format.html { redirect_to @ngo, notice: "ONG editada com sucesso!" }
+      format.html { redirect_to @ngo, notice: "ONG atualizada com sucesso" }
       else
       format.html{ render 'edit', error: "Erro!" }
       end
