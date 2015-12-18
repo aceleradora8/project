@@ -19,7 +19,7 @@
 				</div>
 				<div class="col-lg-1 form-group">
 					<%= f.label "Vagas:", :for => "vacancies-opportunity"%>	
-					<%= f.number_field :vacancies, :id => "vacancies-opportunity", min:1, :class => "form-control" %>
+					<%= f.number_field :vacancies, :id => "vacancies-opportunity", min:1, :class => "form-control", max: 999 %>
 				</div>
 				<div class="col-lg-offset-1 col-lg-7">
 					<div id="titleError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-title-opportunity">
