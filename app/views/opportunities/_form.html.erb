@@ -15,7 +15,7 @@
 				</div>	
 				<div class="col-lg-2 form-group ">
 					<%= f.label "Causa:", :class => "control-label", :for => "causes-opportunity" %>
-					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity" %>
+					<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity", placeholder:"sdasad" %>
 				</div>
 				<div class="col-lg-1 form-group">
 					<%= f.label "Vagas:", :for => "vacancies-opportunity"%>	
