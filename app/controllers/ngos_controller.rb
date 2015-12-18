@@ -59,14 +59,16 @@ class NgosController < ApplicationController
     end
   end
 
- def update
+  def update
     @ngo = Ngo.find(params[:id])
     @ngo.phones = []
-    set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil      
-    if @ngo.update(ngo_params)
-      redirect_to @ngo
-    else
-      render 'edit'
+    set_ngo_list_phones(ngo_params[:phones_attributes]) if ngo_params[:phones_attributes] != nil
+    respond_to do |format|      
+      if @ngo.update(ngo_params)
+      format.html { redirect_to @ngo, notice: "ONG editada com sucesso!" }
+      else
+      format.html{ render 'edit', error: "Erro!" }
+      end
     end
   end
 
