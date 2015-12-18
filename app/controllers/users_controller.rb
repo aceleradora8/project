@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 				@user.email_activate
 				format.html { redirect_to login_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
 			else
-				format.html { redirect_to login_path, error: "Falha, a ONG não existe." }
+				format.html { redirect_to login_path, error: "Token não encontrado. Usuário já ativado ou não existe." }
 			end
 		end
 	end
