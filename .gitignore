@@ -14,3 +14,4 @@
 *.swp
 *.swo
 .env
+/.sass-cache
