@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   default from: 'centrodeinovacaodememes@gmail.com'
 
   def email_confirmation(user)
@@ -11,7 +10,6 @@ class UserMailer < ApplicationMailer
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Recuperação de Senha - ONGARIUM"
+    mail to: user.email, subject: "Recuperação de Senha - ONGARIUM"
   end
-  
 end
