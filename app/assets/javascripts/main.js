@@ -1,27 +1,21 @@
 var ready = function() {
-  ADDRESSES.requestTriggerZipcode();
-
-  INTEREST.disableButtonOnSubmit();
-
-  LOGIN.validateFormOnSubmit();
-
-  MASKS.addMasks();
-
-  NGO.validateFormOnSubmit();
-
-  OPPORTUNITIES.validateFormOnSubmit();
-  OPPORTUNITIES.getCausesChecked();
-  OPPORTUNITIES.getCitiesChecked();
-  OPPORTUNITIES.getRecurrentChecked();
-
-  PASS_RESETS.validateFormEmailOnSubmit();
-  PASS_RESETS.validateFormResetPassOnSubmit();
-
-  PHONES.addPhones();
-  PHONES.loadPhones();
-  PHONES.removePhones();
-
-  VOLUNTEER.validateFormOnSubmit();
+	ADDRESSES.requestTriggerZipcode();
+	OPPORTUNITIES.getCausesChecked();
+	PHONES.addPhones();
+	PHONES.loadPhones();
+	INTEREST.disableButtonOnSubmit();
+	NGO.validateFormOnSubmit();
+	OPPORTUNITIES.validateFormOnSubmit();
+	PASS_RESETS.validateFormEmailOnSubmit();
+	VOLUNTEER.validateFormOnSubmit();
+	PASS_RESETS.validateFormResetPassOnSubmit();
+	LOGIN.validateFormOnSubmit();
+	$('.cep').mask('00000-000');
+	$('.phone_with_ddd').mask('(00)0000-0000');
+	$('.cpf').mask('000.000.000-00', {reverse: true});
+	OPPORTUNITIES.getCitiesChecked();
+	OPPORTUNITIES.getRecurrentChecked();
+	PHONES.removePhones();
 }
 
 $(document).ready(ready);

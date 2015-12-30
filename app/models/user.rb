@@ -2,11 +2,15 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   has_one :ngo, dependent: :destroy
-  has_one :volunteer, dependent: :destroy
+  has_one :volunteer, dependent: :destroy 
+
   validates :email, uniqueness: true, presence: true
-  validates :password_digest, presence: true
+  validates :password_digest, presence: true 
+
   include BCrypt
+
   has_secure_password
+
   before_create { generate_token(:auth_token) }
   before_create { generate_token(:confirm_token) }
 
@@ -17,15 +21,15 @@ class User < ActiveRecord::Base
   end
 
   def ngo?
-    role == "ngo"
+    self.role == "ngo"
   end
 
   def volunteer?
-    role == "volunteer"
+    self.role == "volunteer"
   end
 
   def admin?
-    role == "admin"
+    self.role == "admin"
   end
 
   def send_password_reset
@@ -36,14 +40,14 @@ class User < ActiveRecord::Base
   end
 
   def user_exists?
-    !User.find_by_email(email).nil? ? true : false
+    User.find_by_email(self.email) != nil ? true : false
   end
 
   private
   def generate_token(column)
-    loop do
-      self[column] = SecureRandom.urlsafe_base64
-      break unless User.exists?(column => self[column])
-    end
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
   end
+
 end
