@@ -6,19 +6,22 @@ RSpec.describe PasswordResetsController, type: :controller do
   	before :each do
   		address = Address.create!(city:"POA", zipcode: "5", address:"rua")
   		@user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-  	end
+    end
 
-  	it 'expect sucess when user email valid' do
+  	it 'expect success when user email valid' do
+      mailer = instance_double("mailer", deliver: "enviou")
+      allow(UserMailer).to receive(:password_reset) { mailer }
   		post :create, email: @user.email
-  		redirect_to login_url
   		expect(flash[:notice]).to eq("Confira seu email, enviamos instruções de recuperação de senha")
-	end
+	 end
 
 	it 'expect error when user email doesnt exists' do
+    mailer = instance_double("mailer", deliver: "enviou")
+    allow(UserMailer).to receive(:password_reset) { mailer }
 		post :create, email: 'qualquercoisa@lol.com'
 		expect(flash[:error]).to eq("Email não cadastrado")
 	end
-  end
+end
 
   describe '#edit' do
   	before :each do
@@ -39,7 +42,7 @@ RSpec.describe PasswordResetsController, type: :controller do
   		@user2 = User.create!(email:"birra@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutokene2", role:"ngo", password_reset_token: "esseaqui2", password_reset_sent_at: Time.new(2008,6,21, 13,30,0, "+09:00"))
   	end
 
-  	it 'return sucess when password is updated' do
+  	it 'return success when password is updated' do
   		put :update, {
   			id: @user.password_reset_token,
   			user: { email:"teste@teste.com", password: "321", password_confirmation: "321"}

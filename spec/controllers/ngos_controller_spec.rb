@@ -59,7 +59,7 @@ describe NgosController, type: :controller do
         @ngo2 = Ngo.create!(address_id: address.id, name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
       end
 
-    it 'return sucess if NGO was created' do
+    it 'return success if NGO was created' do
       mailer = instance_double("mailer", deliver: "enviou")
       allow(UserMailer).to receive(:email_confirmation) { mailer }
       post :create, {ngo: 
@@ -72,7 +72,6 @@ describe NgosController, type: :controller do
         phones_attributes: {"1"=>{phone_number:"123456789"} }
         }
       }
-        redirect_to ngo_path('1')
         expect(flash[:notice]).to eq("ONG cadastrada com sucesso, confirme o email para continuar")
     end
 
@@ -143,7 +142,6 @@ describe NgosController, type: :controller do
           address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}          
         }
       }     
-      redirect_to @ngo
       expect(flash[:notice]).to eq("ONG atualizada com sucesso") 
     end
 
@@ -169,11 +167,9 @@ describe NgosController, type: :controller do
       @ngo_new = Ngo.new(address_id: address.id, name:"nome_new", description: "Qualquer coisa",user:user_new)
     end
 
-     it 'return sucees when the NGO was deleted' do
+     it 'return success when the NGO was deleted' do
        cookies[:auth_token] = @ngo.user.auth_token
-       delete :destroy, id: @ngo.id,
-       :authenticity_token => "esseehmeutoken"
-       redirect_to root_path
+       delete :destroy, id: @ngo.id
        expect(flash[:notice]).to eq("A ONG foi removida com sucesso")
      end
   end
