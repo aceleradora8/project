@@ -66,6 +66,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def show
+    @interest = Interest.new
   end
 
   def edit

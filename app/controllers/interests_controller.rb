@@ -1,12 +1,5 @@
 class InterestsController < ApplicationController
-  before_action :require_user, only: [:new, :create]
-  before_action :set_interest, only: [:show, :destroy]
-
-  def new
- 		@interest = Interest.new
- 		@user = current_user
- 		@volunteer = @user.volunteer
-  end
+  before_action :require_user, only: [:create]
 
   def create
  		@interest = Interest.new(interest_params)
@@ -26,8 +19,9 @@ class InterestsController < ApplicationController
   end
 
   def destroy
- 		@interest.destroy
- 		redirect_to '/'
+    interest = Interest.find_by(opportunity_id:params[:id], volunteer_id: current_user.volunteer.id)
+ 		interest.destroy
+ 		redirect_to interest.opportunity, notice: 'Interesse desmarcado com sucesso'
   end
 
   def my_interests
@@ -39,9 +33,5 @@ class InterestsController < ApplicationController
 
   def interest_params
     params.require(:interest).permit(:opportunity_id, volunteer_attributes: [:name, :email, :phone, :observations])
-  end
-
-  def set_interest
-    @interest = Interest.find_by_id(params[:id])
   end
 end
