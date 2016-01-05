@@ -62,11 +62,11 @@ describe NgosController, type: :controller do
     it 'return success if NGO was created' do
       mailer = instance_double("mailer", deliver: "enviou")
       allow(UserMailer).to receive(:email_confirmation) { mailer }
-      post :create, {ngo: 
+      post :create, {ngo:
         {
-        name:"ABC", 
-        description:"Abobora", 
-        privacy: true, 
+        name:"ABC",
+        description:"Abobora",
+        privacy: true,
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"},
         phones_attributes: {"1"=>{phone_number:"123456789"} }
@@ -134,28 +134,28 @@ describe NgosController, type: :controller do
     end
 
     it 'return success when ngo is updated' do
-      put :update, 
+      put :update,
       {
-        id: @ngo.id, ngo: 
+        id: @ngo.id, ngo:
         {
-          name:"ONG atualizada", description:"ae", privacy:false, 
-          address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}          
+          name:"ONG atualizada", description:"ae", privacy:false,
+          address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}
         }
-      }     
-      expect(flash[:notice]).to eq("ONG atualizada com sucesso") 
+      }
+      expect(flash[:notice]).to eq("ONG atualizada com sucesso")
     end
 
     it 'render edit if fails and show "Error" on notice' do
-      put :update, 
+      put :update,
       {
-        id: @ngo.id, ngo: 
+        id: @ngo.id, ngo:
         {
-          name:"ONG atualizada", description:"ae", privacy:false, 
-          address_attributes: {zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}          
+          name:"ONG atualizada", description:"ae", privacy:false,
+          address_attributes: {zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}
         }
       }
       expect(response).to render_template('edit')
-    end 
+    end
   end
 
   describe '#destroy' do
@@ -169,11 +169,11 @@ describe NgosController, type: :controller do
 
      it 'return success when the NGO was deleted' do
        cookies[:auth_token] = @ngo.user.auth_token
-       delete :destroy, id: @ngo.id
+       delete :destroy, id: @ngo.id, password:"123"
        expect(flash[:notice]).to eq("A ONG foi removida com sucesso")
      end
   end
-  
+
   describe '#new' do
     it 'expect ngo be a instance of Ngo' do
       get :new
