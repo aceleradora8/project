@@ -23,6 +23,8 @@ class NgosController < ApplicationController
 	end
 
 	def show
+		@ngo = Ngo.find_by_user_id(current_user.id) unless current_user == nil
+		@user = current_user
 	end
 
 	def create
@@ -73,13 +75,17 @@ class NgosController < ApplicationController
  end
 
  def destroy
-   @ngo.user.email = nil
-   @ngo.user.role = nil
-   @ngo.destroy
-   cookies.delete(:auth_token)
-   respond_to do |format|
-     format.html { redirect_to '/', notice: "A ONG foi removida com sucesso" }
-   end
+  if @ngo.user.authenticate(params[:password])
+		@ngo.destroy
+   	cookies.delete(:auth_token)
+   	respond_to do |format|
+     	format.html { redirect_to '/', notice: "A ONG foi removida com sucesso" }
+   	end
+ 	else
+		respond_to do |format|
+			format.html { redirect_to @ngo, error: "Senha incorreta" }
+		end
+	end
  end
 
  def ngo_exists?(ngo)
