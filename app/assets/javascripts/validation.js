@@ -26,14 +26,11 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-password").focusout(function(){
     VALIDATION.validatePassword();
   });
-  $(".validate-password-confirmation-user").focusout(function(){
+  $(".validate-password-confirmation-user").keyup(function(){
     VALIDATION.validatePasswordConfirmation();
   });
   $(".validate-email").focusout(function(){
     VALIDATION.validateEmail();
-  });
-  $(".validate-phone").focusout(function(){
-    VALIDATION.validatePhone();
   });
   $(".validate-zipcode").focusout(function(){
     VALIDATION.validateZipCode();
@@ -51,7 +48,6 @@ VALIDATION.validatePassword = function validatePassword() {
 VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation() {
     password = $(".validate-password");
     passwordConfirmation = $(".validate-password-confirmation-user");
-    VALIDATION.validateEmpty($(".validate-password-confirmation-user"));
       if (password.val() == passwordConfirmation.val()) {
         passwordConfirmation.removeClass("input-text-error");
         $(".password-confirmation-invalid").hide();
