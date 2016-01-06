@@ -14,10 +14,3 @@ NGO.validateFormOnSubmit = function validateForm() {
     return false;
   });
 }
-
-NGO.disableButtonOnSubmit = function validateForm() {
-  $("#form-ngo").submit(function() {
-    $("#confirm-ngo").prop("disabled", true);
-    $("#confirm-ngo").val("Aguarde...")
-  });
-}

@@ -54,10 +54,3 @@ OPPORTUNITIES.getCitiesChecked = function() {
     OPPORTUNITIES.requestOpportunities();
   });
 };
-
-OPPORTUNITIES.disableButtonOnSubmit = function validateForm() {
-  $("#form-opportunity").submit(function() {
-    $("#confirm-opportunity").prop("disabled", true);
-    $("#confirm-opportunity").val("Aguarde...")
-  });
-}
