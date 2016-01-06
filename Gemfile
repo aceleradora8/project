@@ -15,7 +15,6 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'active_link_to'
 gem 'correios-cep'
-gem 'rails_12factor'
 gem 'bcrypt', '~> 3.1.6'
 
 group :development, :test do
@@ -33,6 +32,10 @@ group :development do
   gem 'spring'
   gem 'rubocop'
   gem 'livingstyleguide'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 ruby "2.2.3"
