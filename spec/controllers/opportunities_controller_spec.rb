@@ -27,13 +27,13 @@ describe OpportunitiesController, type: :controller do
 
         expect(assigns(:opportunity_search)).to match_array([@opportunity1,@opportunity2])
       end
-      
+
       it 'returns the opportunity when text_search matches the title' do
         get :index, text_search: 'Opportunity1'
 
         expect(assigns(:opportunity_search)).to match_array([@opportunity1])
       end
-  
+
       it 'returns Viamãos and healths opportunities when city is Viamão and cause is health' do
         xhr :get, :index, {cities: [@address_viamao.city], causes:[@cause_health]}
         expect(assigns(:opportunities_result)).to match_array([@opportunity2])
@@ -154,22 +154,22 @@ describe OpportunitiesController, type: :controller do
 
     it 'redirect to opportunity if update was a success' do
       put :update, {
-        id: @opportunity1.id, opportunity: 
+        id: @opportunity1.id, opportunity:
         {
-          title: 'Opportunitdade EE', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date          
+          title: 'Opportunitdade EE', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date
         }
       }
-      expect(response).to redirect_to(@opportunity1)  
+      expect(response).to redirect_to(@opportunity1)
     end
 
     it 'render edit if anything goes wrong' do
       put :update, {
-        id: @opportunity1.id, opportunity: 
+        id: @opportunity1.id, opportunity:
         {
-          title: nil, description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date          
+          title: nil, description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date
         }
       }
-      expect(response).to render_template("edit") 
+      expect(response).to render_template("edit")
     end
   end
 
@@ -202,11 +202,5 @@ describe OpportunitiesController, type: :controller do
         @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date)
         cookies[:auth_token] = @ngo.user.auth_token
       end
-
-    it 'expect user to be equals current_user and Ngo equals Ngo' do
-      get :my_opportunities
-      expect(assigns(:user)).to eq(@user)
-      expect(assigns(:ngo)).to eq(@ngo)
-    end
   end
 end

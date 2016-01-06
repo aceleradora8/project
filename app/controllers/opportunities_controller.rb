@@ -96,13 +96,8 @@ class OpportunitiesController < ApplicationController
     end
   end
 
-  def my_opportunities
-    @user = current_user
-    @ngo = Ngo.find_by_user_id(@user.id)
-  end
-
   private
-  
+
   def set_opportunity
     if Opportunity.where(id: params[:id]).present?
       @opportunity = Opportunity.find(params[:id])
