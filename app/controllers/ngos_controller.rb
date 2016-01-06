@@ -39,7 +39,7 @@ class NgosController < ApplicationController
 			elsif @ngo.save
 				set_ngo_list_phones(ngo_params[:phones_attributes]) unless ngo_params[:phones_attributes].nil?
 				UserMailer.email_confirmation(@ngo).deliver
-				format.html { redirect_to @ngo, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
+				format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
 			else
 				format.html { render 'new' }
 			end
