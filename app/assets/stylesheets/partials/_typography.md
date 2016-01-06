@@ -1,18 +1,18 @@
 # Typography
 
-*Georgia* for headlines:
+*Open Sans* for headlines:
 
 ~~~
-@font-example 24px bold Georgia
+@font-example bold 24px Open Sans
 ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ
 ~~~
 
 *Georgia* for normal/small text:
 
 ~~~
-@font-example bold 14px Georgia
+@font-example bold 14px Open Sans
 ~~~
 
 ~~~
-@font-example 14px Georgia
+@font-example 14px Open Sans
 ~~~

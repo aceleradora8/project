@@ -19,7 +19,7 @@ Simple default example:
 <form class="form">
   ***
   <div class="form--field">
-    <label class="form--label" for="example-id-1">Some label</label>
+    <label class="form--label form-inline" for="example-id-1">Some label</label>
     <div class="form--field-container">
       <input id="example-id-1" class="form--textfield" type="text">
     </div>
