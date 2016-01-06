@@ -13,3 +13,10 @@ VOLUNTEER.validateFormOnSubmit = function validateForm() {
     return false;
   });
 };
+
+VOLUNTEER.disableButtonOnSubmit = function validateForm() {
+  $("#form-volunteer").submit(function() {
+    $("#confirm-volunteer").prop("disabled", true);
+    $("#confirm-volunteer").val("Aguarde...")
+  });
+}

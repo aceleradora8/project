@@ -8,11 +8,13 @@ var ready = function() {
   MASKS.addMasks();
 
   NGO.validateFormOnSubmit();
+  NGO.disableButtonOnSubmit();
 
   OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getCausesChecked();
   OPPORTUNITIES.getCitiesChecked();
   OPPORTUNITIES.getRecurrentChecked();
+  OPPORTUNITIES.disableButtonOnSubmit();
 
   PASS_RESETS.validateFormEmailOnSubmit();
   PASS_RESETS.validateFormResetPassOnSubmit();
@@ -22,6 +24,7 @@ var ready = function() {
   PHONES.removePhones();
 
   VOLUNTEER.validateFormOnSubmit();
+  VOLUNTEER.disableButtonOnSubmit();
 }
 
 $(document).ready(ready);
