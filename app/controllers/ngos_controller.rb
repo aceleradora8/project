@@ -23,8 +23,6 @@ class NgosController < ApplicationController
 	end
 
 	def show
-		@ngo = Ngo.find_by_user_id(current_user.id) unless current_user == nil
-		@user = current_user
 	end
 
 	def create

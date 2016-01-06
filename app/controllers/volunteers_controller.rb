@@ -35,6 +35,15 @@ class VolunteersController < ApplicationController
     end
   end
 
+  def destroy
+    @volunteer = Volunteer.find_by_id(params[:id])
+    cookies.delete(:auth_token)
+    @volunteer.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Voluntário deletado com sucesso!" }
+    end
+  end
+
   def set_volunteer
     if Volunteer.where(id: params[:id]).present?
       @volunteer = Volunteer.find(params[:id])
