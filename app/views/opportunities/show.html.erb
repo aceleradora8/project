@@ -38,7 +38,7 @@
 				      <div class="modal-footer">
 				        <%= form_tag(@opportunity, method: :delete) do %>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-									<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-primary" %>
+									<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-danger" %>
 								<%end%>
 				      </div>
 				    </div>
@@ -58,7 +58,7 @@
 				      </div>
 				    	<div class="modal-footer">
 					    	<a href= "/interests/<%=@opportunity.id%>" class="link-style" title="Deletar" data-method="delete">
-									<button type="button" class="btn btn-default btn-primary" aria-label="Left Align">Excluir Interesse</button>
+									<button type="button" class="btn btn-default btn-danger" aria-label="Left Align">Excluir Interesse</button>
 								</a>
 				      </div>
 				    </div>
@@ -114,7 +114,7 @@
 			</div>
 			<%if volunteer_is_interested(@opportunity)%>
 				<div class="col-lg-1">
-					<button class="btn btn-primary outline" data-toggle="modal" data-target="#confirm-delete-interest-modal">
+					<button class="btn btn-danger outline" data-toggle="modal" data-target="#confirm-delete-interest-modal">
 					  Desmarcar Interesse
 					</button>
 				</div>
