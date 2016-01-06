@@ -10,7 +10,7 @@
 			<% end %>
 			<div class="row">
 				<div class="col-lg-offset-1 col-lg-7 form-group">	
-					<label class="control-label", for="title-opportunity">Título:**</label>
+					<label class="control-label", for="title-opportunity">Título:<span class="mandatory">*</span></label>
 					<%= f.text_field :title, :id => "title-opportunity", :class => "form-control validate-name col-lg-3" ,:placeholder => "Título da oportunidade" %>
 				</div>	
 				<div class="col-lg-2 form-group ">
@@ -29,7 +29,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-offset-1 form-group col-lg-10">
-				<label class="control-label", for="description-opportunity">Descrição:**</label>
+				<label class="control-label", for="description-opportunity">Descrição:<span class="mandatory">*</span></label>
 					<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
 				</div>
 				<div class="col-lg-offset-1 col-lg-7">
@@ -85,6 +85,11 @@
 			<div id="address">
 				<%= render './addresses/address_form', f:f %>
 			</div>
+			<div class="row">
+		        <div class="col-lg-offset-2 col-lg-4 form-group">
+		        	<span class="mandatory">*Campos Obrigatórios</span>
+		    	</div>
+		   	</div>
 			<div class="row">
 				<div class="form-group">
 					<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
