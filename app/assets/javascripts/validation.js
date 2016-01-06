@@ -84,6 +84,11 @@ VALIDATION.validatePhone = function validatePhone() {
   }
 }
 
+VALIDATION.disableButtonOnSubmit = function validateForm() {
+    $("input[name='commit']").prop("disabled", true);
+    $("input[name='commit']").val("Aguarde...")
+}
+
 VALIDATION.validateDate = function validateDate() {
   var startDate = new Date($('#opportunity_start_date_1i').val() + "/" + $('#opportunity_start_date_2i').val() + "/" + $('#opportunity_start_date_3i').val());
   var finishDate = new Date($('#opportunity_finish_date_1i').val() + "/" + $('#opportunity_finish_date_2i').val() + "/" + $('#opportunity_finish_date_3i').val());

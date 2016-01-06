@@ -9,6 +9,7 @@ NGO.validateFormOnSubmit = function validateForm() {
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     if (validateName && validateDescription && validateAddress && validateEmail && validatePassword && validatePasswordConfirmation) {
+      VALIDATION.disableButtonOnSubmit();      
       return true;
     }
     return false;

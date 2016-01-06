@@ -10,6 +10,7 @@ OPPORTUNITIES.validateFormOnSubmit = function validateForm() {
     validateAddress = VALIDATION.validateZipCode();
     validateDate = VALIDATION.validateDate();
     if (validateTitle && validateDescription && validateAddress && validateDate) {
+      VALIDATION.disableButtonOnSubmit();      
       return true;
     }
     return false;
