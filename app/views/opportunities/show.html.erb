@@ -46,8 +46,9 @@
 				<p> <span class="bold">Data de Término: </span> <%= @opportunity.finish_date %></p>
 			</div>
 			<% end %>
-			<div>
-				<p> <span class="bold">Ong: </span><%= @opportunity.ngo.name %></p>
+			<div> 
+
+				<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>
 			<div>
 				<p> <span class="bold">Causa: </span><%= @opportunity.cause.name %></p>
