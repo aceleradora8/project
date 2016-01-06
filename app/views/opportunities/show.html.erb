@@ -30,16 +30,36 @@
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Confirmar Interesse</h4>
+				        <h4 class="modal-title" id="myModalLabel">Excluir Oportunidade</h4>
 				      </div>
 				      <div class="modal-body">
 				        <span> Olá <%= current_user.ngo.name if current_user.ngo %>, você tem certeza que deseja excluir a oportunidade <%= @opportunity.title %>? </span>
 				      </div>
 				      <div class="modal-footer">
 				        <%= form_tag(@opportunity, method: :delete) do %>
-							<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-							<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-primary" %>
-						<%end%>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+									<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-primary" %>
+								<%end%>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			<%end%>
+			<%if current_user.volunteer%>
+				<div class="modal fade" id="confirm-delete-interest-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Excluir Interesse</h4>
+				      </div>
+				      <div class="modal-body">
+				        <span> Olá <%= current_user.volunteer.name if current_user.volunteer %>, você tem certeza que deseja excluir o seu interesse na oportunidade <%= @opportunity.title %>? </span>
+				      </div>
+				    	<div class="modal-footer">
+					    	<a href= "/interests/<%=@opportunity.id%>" class="link-style" title="Deletar" data-method="delete">
+									<button type="button" class="btn btn-default btn-primary" aria-label="Left Align">Excluir Interesse</button>
+								</a>
 				      </div>
 				    </div>
 				  </div>
@@ -94,11 +114,9 @@
 			</div>
 			<%if volunteer_is_interested(@opportunity)%>
 				<div class="col-lg-1">
-					<a href="/interests/<%=@opportunity.id%>" class="link-style" title="Cancelar Candidatura", data-method="delete" >
-						<button type="button" class="btn btn-danger" aria-label="Left Align">
-						  Desmarcar Interesse
-						</button>
-					</a>
+					<button class="btn btn-primary outline" data-toggle="modal" data-target="#confirm-delete-interest-modal">
+					  Desmarcar Interesse
+					</button>
 				</div>
 			<%else%>
 				<div class="alignright">
