@@ -14,7 +14,6 @@ var ready = function() {
   OPPORTUNITIES.getCitiesChecked();
   OPPORTUNITIES.getRecurrentChecked();
 
-  PASS_RESETS.validateFormEmailOnSubmit();
   PASS_RESETS.validateFormResetPassOnSubmit();
 
   PHONES.addPhones();
@@ -22,6 +21,8 @@ var ready = function() {
   PHONES.removePhones();
 
   VOLUNTEER.validateFormOnSubmit();
+
+  VALIDATION.eventsValidate();
 }
 
 $(document).ready(ready);

@@ -8,8 +8,7 @@ NGO.validateFormOnSubmit = function validateForm() {
     validateEmail = VALIDATION.validateEmail();
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
-    if (validateName && validateDescription && validateAddress && validateEmail && validatePassword && validatePasswordConfirmation) {
-      VALIDATION.disableButtonOnSubmit();      
+    if ($(".input-text-error").length == 0) {  
       return true;
     }
     return false;

@@ -9,10 +9,9 @@ OPPORTUNITIES.validateFormOnSubmit = function validateForm() {
     validateDescription = VALIDATION.validateDescription();
     validateAddress = VALIDATION.validateZipCode();
     validateDate = VALIDATION.validateDate();
-    if (validateTitle && validateDescription && validateAddress && validateDate) {
-      VALIDATION.disableButtonOnSubmit();      
-      return true;
-    }
+    if ($(".input-text-error").length == 0) {  
+        return true;
+      }
     return false;
   });
 };
