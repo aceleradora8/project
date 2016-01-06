@@ -12,8 +12,8 @@
 				<%= a.text_field :zipcode, :id => "inputZipcode", :class => "form-control cep validate-zipcode" %>
 			</div>
 		</div>	
-
 		<div>
+			<%=image_tag("ajax-loader.gif", id:"ajax-loader")%>
 			<%= link_to "não sei meu CEP", "http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCep.cfm", :target => "_blank" %>
 		</div>
 

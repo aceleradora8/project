@@ -1,4 +1,5 @@
 var ready = function() {
+    $("#ajax-loader").hide();
   ADDRESSES.requestTriggerZipcode();
 
   INTEREST.disableButtonOnSubmit();

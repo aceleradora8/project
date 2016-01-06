@@ -7,11 +7,15 @@ ADDRESSES.validateForm = function validateForm() {
   return false;
 }
 
-ADDRESSES.cleanFields = function cleanFields() {
+ADDRESSES.cleanFields = function cleanFields() { 
   $("#inputState").attr("text", "");
+  $("#inputState").attr("value", "");
   $("#inputCity").attr("text", "");
+  $("#inputCity").attr("value", "");
   $("#inputNeighborhood").attr("text", "");
+  $("#inputNeighborhood").attr("value", "");
   $("#inputAddress").attr("text", "");
+  $("#inputAddress").attr("value", "");
 }
 
 ADDRESSES.requestZipCode = requestZipCode = function() {
@@ -21,6 +25,7 @@ ADDRESSES.requestZipCode = requestZipCode = function() {
       zipcode: $("#inputZipcode").val()
     },
     success: function(response) {
+      $("#ajax-loader").hide();   
       $("#inputState").attr("value", response.state);
       $("#inputState").attr("text", response.state);
       $("#inputCity").attr("value", response.city);
@@ -29,16 +34,15 @@ ADDRESSES.requestZipCode = requestZipCode = function() {
       $("#inputNeighborhood").attr("text", response.neighborhood);
       $("#inputAddress").attr("value", response.address);
       $("#inputAddress").attr("text", response.address);
+    },error: function(){
+      ($("#inputZipcode").val().length == 0) ? $("#ajax-loader").hide() : $("#ajax-loader").show(); 
+      ADDRESSES.cleanFields();
     }
   });
 };
 
 ADDRESSES.requestTriggerZipcode = function requestTriggerZipcode() {
   $("#inputZipcode").keyup(function() {
-    if ($(this).val().length == 9) {
       ADDRESSES.requestZipCode();
-    } else {
-      ADDRESSES.cleanFields();
-    };
   });
 }
