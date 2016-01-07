@@ -35,10 +35,28 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-zipcode").focusout(function(){
     VALIDATION.validateZipCode();
   });
+  $(".validate-vacancies").change(function(){
+    VALIDATION.validateVacancies();
+  });
 }
 
 VALIDATION.validateDescription = function validateDescription() {
     return VALIDATION.validateEmpty($(".validate-description"));
+};
+
+VALIDATION.validateVacancies = function validateVacancies() {
+  vacancies = $(".validate-vacancies");
+  VALIDATION.validateEmpty($(".validate-vacancies"))
+  if (vacancies.val() > 0 && vacancies.val() < 1000){
+    vacancies.removeClass("input-text-error");
+    $('.vacancies-error-invalid').hide();
+  }
+  else {
+    vacancies.focus();
+    vacancies.addClass("input-text-error");
+    $('.vacancies-error-invalid').show();
+  }
+  VALIDATION.buttonState();
 };
 
 VALIDATION.validatePassword = function validatePassword() {
@@ -64,7 +82,7 @@ VALIDATION.validateEmail = function validateEmail() {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.val().match(mailformat)) {
       email.removeClass("input-text-error");
-      $('.email-error-invalid').hide();      
+      $('.email-error-invalid').hide();
     } else {
       email.focus();
       email.addClass("input-text-error");
@@ -121,9 +139,9 @@ VALIDATION.validateZipCode = function validateZipCode() {
 
 
 VALIDATION.buttonState = function buttonState() {
-  if ($(".input-text-error").length == 0) {  
+  if ($(".input-text-error").length == 0) {
     $("input[name='commit']").prop("disabled", false);
   } else {
-   $("input[name='commit']").prop("disabled", true); 
+   $("input[name='commit']").prop("disabled", true);
   }
 }
