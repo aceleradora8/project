@@ -1,7 +1,11 @@
 <div class="container">
 	<div class="volunteer-interests">
 		<div>
-			<h3 class="">Meus Interesses:</h3>
+			<% if @volunteer.interests.empty? %>
+				<h3>Você não possui interesses registrados</h3>
+			<% else %>
+				<h3>Meus Interesses:</h3>
+			<% end %>
 		</div>
 		<% @volunteer.interests.each do |interest| %>
 			<div class="panel">
