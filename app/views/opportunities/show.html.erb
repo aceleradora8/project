@@ -125,6 +125,7 @@
 					 		<button class="btn btn-primary outline" data-toggle="modal" data-target="#myModal">Candidatar-se</button>
 				 		<%end%>
 			 		<%else%>
+			 			<%flash[:notice] = "Para se candidatar, você precisa estar logado!"%>
 			 			<%=link_to "Candidatar-se", login_path, :class=>"btn btn-primary outline"%>
 				 	<%end%>
 				</div>
