@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    session[:return_to] ||= request.referer
+    session[:return_to] ||= request.referer unless request.referer.include?("new") || request.referer.include?("create")
   end
 
   def create
