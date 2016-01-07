@@ -60,13 +60,18 @@
           <%= f.telephone_field :phone, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone-vol" %>
         </div>
         <div class="col-lg-2 form-group">
-          <%= f.telephone_field :phone1, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone1-vol" %>
+          <%= f.telephone_field :phone1, :class => "form-control phone_with_ddd", :placeholder => "(99)9999-9999", :id =>"phone1-vol" %>
         </div>
         <div class="col-lg-2 form-group">
-          <%= f.telephone_field :phone2, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone2-vol" %>
+          <%= f.telephone_field :phone2, :class => "form-control phone_with_ddd", :placeholder => "(99)9999-9999", :id =>"phone2-vol" %>
         </div>
       </div>
     </div>
+    <div class="col-lg-offset-2 col-lg-7">
+        <div id="phone-error" class="col-lg-3 alert alert-danger custom-alert-danger phone-error-invalid">
+              <p>Campo Obrigatório!</p>
+          </div>
+      </div>
   <%= render 'users/form', f:f %>
     <div class="row">
       <div class="col-lg-offset-2 col-lg-4 form-group">
