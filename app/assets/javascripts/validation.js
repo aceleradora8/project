@@ -112,8 +112,8 @@ VALIDATION.disableButtonOnSubmit = function validateForm() {
 }
 
 VALIDATION.validateDate = function validateDate() {
-  var startDate = new Date($('#opportunity_start_date_1i').val() + "/" + $('#opportunity_start_date_2i').val() + "/" + $('#opportunity_start_date_3i').val());
-  var finishDate = new Date($('#opportunity_finish_date_1i').val() + "/" + $('#opportunity_finish_date_2i').val() + "/" + $('#opportunity_finish_date_3i').val());
+  var startDate = new Date($("select[name='opportunity[start_date(1i)]']").val() + "/" + $("select[name='opportunity[start_date(2i)]']").val() + "/" + $("select[name='opportunity[start_date(3i)]']").val());
+  var finishDate = new Date($("select[name='opportunity[finish_date(1i)]']").val() + "/" + $("select[name='opportunity[finish_date(2i)]']").val() + "/" + $("select[name='opportunity[finish_date(3i)]']").val());
   if (startDate > finishDate) {
     $('.error-date-opportunities').show();
   } else {
