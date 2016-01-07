@@ -9,6 +9,7 @@ NGO.validateFormOnSubmit = function validateForm() {
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     if ($(".input-text-error").length == 0) {  
+      VALIDATION.disableButtonOnSubmit();
       return true;
     }
     return false;
