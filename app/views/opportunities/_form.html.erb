@@ -46,11 +46,11 @@
 			</div>
 			<div class="row margin-end-top margin-end-bot">
 				<div class="col-lg-offset-1 form-group">
-					<div class="col-lg-4">
+					<div class="col-lg-4 div-date">
 						<%= f.label "Início:", {:class => "control-label labelmarginright"}, :for => "start_date" %>
 						<%= f.date_select :start_date, {start_year: Time.now.year, end_year: Time.now.year + 1 }, {:class => "cd_data", :id => "start_date"}%>
 					</div>
-					<div class="col-lg-4">
+					<div class="col-lg-4 div-date">
 						<%= f.label "Término:", {:class => "control-label labelmarginright"}, :for => "finish_date" %>
 						<%= f.date_select :finish_date, {start_year: Time.now.year, end_year: Time.now.year + 2}, {:class => "cd_data", :id =>"finish_date"}%>
 					</div>

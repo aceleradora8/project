@@ -16,29 +16,6 @@ VALIDATION.validateName = function validateName() {
     validate =  VALIDATION.validateEmpty($(".validate-name"));
 };
 
-VALIDATION.eventsValidate = function eventsValidate(){
-  $(".validate-name").focusout(function(){
-    VALIDATION.validateName();
-  });
-  $(".validate-description").focusout(function(){
-    VALIDATION.validateDescription();
-  });
-  $(".validate-password").focusout(function(){
-    VALIDATION.validatePassword();
-  });
-  $(".validate-password-confirmation-user").keyup(function(){
-    VALIDATION.validatePasswordConfirmation();
-  });
-  $(".validate-email").focusout(function(){
-    VALIDATION.validateEmail();
-  });
-  $(".validate-zipcode").focusout(function(){
-    VALIDATION.validateZipCode();
-  });
-  $(".validate-vacancies").change(function(){
-    VALIDATION.validateVacancies();
-  });
-}
 
 VALIDATION.validateDescription = function validateDescription() {
     return VALIDATION.validateEmpty($(".validate-description"));
@@ -115,8 +92,10 @@ VALIDATION.validateDate = function validateDate() {
   var startDate = new Date($("select[name='opportunity[start_date(1i)]']").val() + "/" + $("select[name='opportunity[start_date(2i)]']").val() + "/" + $("select[name='opportunity[start_date(3i)]']").val());
   var finishDate = new Date($("select[name='opportunity[finish_date(1i)]']").val() + "/" + $("select[name='opportunity[finish_date(2i)]']").val() + "/" + $("select[name='opportunity[finish_date(3i)]']").val());
   if (startDate > finishDate) {
+    $('.error-date-opportunities').addClass("input-text-error");
     $('.error-date-opportunities').show();
   } else {
+      $('.error-date-opportunities').removeClass("input-text-error");
      $('.error-date-opportunities').hide();
   }
   VALIDATION.buttonState();
@@ -137,6 +116,32 @@ VALIDATION.validateZipCode = function validateZipCode() {
   VALIDATION.buttonState();
 };
 
+VALIDATION.eventsValidate = function eventsValidate(){
+  $(".validate-name").focusout(function(){
+    VALIDATION.validateName();
+  });
+  $(".validate-description").focusout(function(){
+    VALIDATION.validateDescription();
+  });
+  $(".validate-password").focusout(function(){
+    VALIDATION.validatePassword();
+  });
+  $(".validate-password-confirmation-user").keyup(function(){
+    VALIDATION.validatePasswordConfirmation();
+  });
+  $(".validate-email").focusout(function(){
+    VALIDATION.validateEmail();
+  });
+  $(".validate-zipcode").focusout(function(){
+    VALIDATION.validateZipCode();
+  });
+  $(".validate-vacancies").change(function(){
+    VALIDATION.validateVacancies();
+  });
+  $(".div-date").change(function(){
+    VALIDATION.validateDate();
+  });
+}
 
 VALIDATION.buttonState = function buttonState() {
   if ($(".input-text-error").length == 0) {
