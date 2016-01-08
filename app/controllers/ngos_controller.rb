@@ -94,6 +94,7 @@ class NgosController < ApplicationController
 		 @error_message = "Email já cadastrado!"
 		 return true
 	 end
+	 return false
  end
 
   private

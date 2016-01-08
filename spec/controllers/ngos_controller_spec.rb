@@ -85,7 +85,7 @@ describe NgosController, type: :controller do
         phones_attributes: {"1"=>{phone_number:"123456789"} }
         }
       }
-      expect(flash[:error]).to eq("ONG já cadastrada!")
+      expect(flash[:error]).to eq("Já existe uma ONG cadastrada com este nome.")
     end
 
       it 'render new if anything goes wrong' do
