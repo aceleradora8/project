@@ -7,7 +7,7 @@ feature 'opportunity list pagination tests' do
 
     before :each do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
-      ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa")
+      ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
       start_date = "2015-03-03"
       finish_date = "2015-04-03"
@@ -37,7 +37,7 @@ feature 'opportunity list pagination tests' do
 
     before :each do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
-      ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa")
+      ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
       start_date = "2015-03-03"
       finish_date = "2015-04-03"

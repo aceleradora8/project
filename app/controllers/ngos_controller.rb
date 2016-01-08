@@ -6,7 +6,6 @@ class NgosController < ApplicationController
 		@ngo = Ngo.new
 		@ngo.build_address
 		@ngo.build_user
-		@ngo.phones.build
 		respond_to do |format|
 			if request.xhr?
 				if params[:zipcode]
@@ -35,7 +34,6 @@ class NgosController < ApplicationController
 					render 'new'
 				end
 			elsif @ngo.save
-				set_ngo_list_phones(ngo_params[:phones_attributes]) unless ngo_params[:phones_attributes].nil?
 				UserMailer.email_confirmation(@ngo).deliver
 				format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
 			else
@@ -52,8 +50,6 @@ class NgosController < ApplicationController
          format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
        end
      else
-       @phones = Hash[@ngo.phones.map {|phone| [phone.id.to_s , phone.phone_number]}]
-       @phones = @phones.to_json
        format.html
      end
    end
@@ -61,9 +57,7 @@ class NgosController < ApplicationController
 
  def update
    @ngo = Ngo.find(params[:id])
-   @ngo.phones = []
-   set_ngo_list_phones(ngo_params[:phones_attributes]) unless ngo_params[:phones_attributes].nil?
-   respond_to do |format|
+    respond_to do |format|
      if @ngo.update(ngo_params)
      format.html { redirect_to @ngo, notice: "ONG atualizada com sucesso" }
      else
@@ -110,15 +104,6 @@ class NgosController < ApplicationController
  end
 
  def ngo_params
-   params.require(:ngo).permit(:user_id, :name, :description, :privacy, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood], user_attributes: [:email, :password, :password_confirmation], phones_attributes: [:phone_number])
- end
-
- def set_ngo_list_phones(phones_list)
-   phones_list.each do |_x, phone|
-     if (phone[:phone_number] != "")
-       new_phone = Phone.new(phone_number: phone[:phone_number], ngo_id: @ngo.id)
-       new_phone.save
-     end
-   end
+   params.require(:ngo).permit(:user_id, :name, :phone1, :phone2, :description, :privacy, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood], user_attributes: [:email, :password, :password_confirmation])
  end
 end

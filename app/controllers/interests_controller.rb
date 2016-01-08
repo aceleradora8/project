@@ -34,6 +34,6 @@ class InterestsController < ApplicationController
   private
 
   def interest_params
-    params.require(:interest).permit(:opportunity_id, volunteer_attributes: [:name, :email, :phone, :observations])
+    params.require(:interest).permit(:opportunity_id)
   end
 end

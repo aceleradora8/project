@@ -16,6 +16,32 @@ VALIDATION.validateName = function validateName() {
     validate =  VALIDATION.validateEmpty($(".validate-name"));
 };
 
+VALIDATION.eventsValidate = function eventsValidate(){
+  $(".validate-name").focusout(function(){
+    VALIDATION.validateName();
+  });
+  $(".validate-description").focusout(function(){
+    VALIDATION.validateDescription();
+  });  
+  $(".validate-phone").focusout(function(){
+    VALIDATION.validatePhone();
+  });
+  $(".validate-password").focusout(function(){
+    VALIDATION.validatePassword();
+  });
+  $(".validate-password-confirmation-user").keyup(function(){
+    VALIDATION.validatePasswordConfirmation();
+  });
+  $(".validate-email").focusout(function(){
+    VALIDATION.validateEmail();
+  });
+  $(".validate-zipcode").focusout(function(){
+    VALIDATION.validateZipCode();
+  });
+  $(".validate-vacancies").change(function(){
+    VALIDATION.validateVacancies();
+  });
+}
 
 VALIDATION.validateDescription = function validateDescription() {
     return VALIDATION.validateEmpty($(".validate-description"));
@@ -71,7 +97,6 @@ VALIDATION.validateEmail = function validateEmail() {
 VALIDATION.validatePhone = function validatePhone() {
   phone = $(".validate-phone");
   var phoneformat = /^([0-9]{2})?(\([0-9]{2})\)([0-9]{3}|[0-9]{4})-[0-9]{4}$/;
-  VALIDATION.validateEmpty($(".validate-phone"))
     if (phone.val().match(phoneformat)) {
       phone.removeClass("input-text-error");
       $('.phone-error-invalid').hide();
@@ -115,33 +140,6 @@ VALIDATION.validateZipCode = function validateZipCode() {
   }
   VALIDATION.buttonState();
 };
-
-VALIDATION.eventsValidate = function eventsValidate(){
-  $(".validate-name").focusout(function(){
-    VALIDATION.validateName();
-  });
-  $(".validate-description").focusout(function(){
-    VALIDATION.validateDescription();
-  });
-  $(".validate-password").focusout(function(){
-    VALIDATION.validatePassword();
-  });
-  $(".validate-password-confirmation-user").keyup(function(){
-    VALIDATION.validatePasswordConfirmation();
-  });
-  $(".validate-email").focusout(function(){
-    VALIDATION.validateEmail();
-  });
-  $(".validate-zipcode").focusout(function(){
-    VALIDATION.validateZipCode();
-  });
-  $(".validate-vacancies").change(function(){
-    VALIDATION.validateVacancies();
-  });
-  $(".div-date").change(function(){
-    VALIDATION.validateDate();
-  });
-}
 
 VALIDATION.buttonState = function buttonState() {
   if ($(".input-text-error").length == 0) {

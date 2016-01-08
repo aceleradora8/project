@@ -26,10 +26,9 @@
 		<div class="panel-body detailopp">
 			<div class="formsession">
 				<div class="row">
-					<strong>Telefone(s): </strong>
-					<%= current_user.volunteer.phone %>
-					<%= current_user.volunteer.phone1 %>
-					<%= current_user.volunteer.phone2 %>
+					<b>Telefone(s): </b> 
+					<%= @volunteer.phone1 %>
+					<%= ", #{@volunteer.phone2}" unless @volunteer.phone2.empty?%></p>
 				</div>
 			</div>
 			<div class="formsession">

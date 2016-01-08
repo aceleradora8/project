@@ -24,7 +24,8 @@
 						<td>
 							<p style="font-size:14px;"><b>Nome: </b> <%= @volunteer.name %></p>
 							<p style="font-size:14px;"><b>Email: </b> <%= @volunteer.user.email %></p>
-							<p style="font-size:14px;"><b>Telefone: </b> <%= @volunteer.phone %></p>
+							<p style="font-size:14px;"><b>Telefone(s): </b> <%= @volunteer.phone1 %></p>
+								<%= ", #{@volunteer.phone2}" unless @volunteer.phone2.nil?%></p>
 							<p style="font-size:14px;"><b>Observações: </b> <%= @volunteer.observations %></p>
 							<br>
 

@@ -7,11 +7,11 @@ describe NgosController, type: :controller do
       user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user2 = User.create!(email:"tw@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user3 = User.create!(email:"twe321@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo = Ngo.create!(address_id: address.id, name:"nome1", description: "Qualquer coisa1",user_id:user.id)
-      @ngo2 = Ngo.create!(address_id: address.id, name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
+      @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user.id)
+      @ngo2 = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
       user_new = User.new(email:"new@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo_new = Ngo.new(address_id: address.id, name:"nome_new", description: "Qualquer coisa",user:user_new)
-      @ngo_private = Ngo.create!(address_id: address.id, name: "qualquer ai", description: "brbrbr", user_id:user3.id, privacy: true)
+      @ngo_new = Ngo.new(address_id: address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
+      @ngo_private = Ngo.create!(address_id: address.id, phone1: "1234", name: "qualquer ai", description: "brbrbr", user_id:user3.id, privacy: true)
       @controller = NgosController.new
     end
 
@@ -55,8 +55,8 @@ describe NgosController, type: :controller do
         address = Address.create!(city:"POA", zipcode: "5", address:"rua")
         user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
         user2 = User.create!(email:"tw@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-        @ngo = Ngo.create!(address_id: address.id, name:"nome1", description: "Qualquer coisa1",user_id:user.id)
-        @ngo2 = Ngo.create!(address_id: address.id, name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
+        @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user.id)
+        @ngo2 = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
       end
 
     it 'return success if NGO was created' do
@@ -65,9 +65,9 @@ describe NgosController, type: :controller do
         name:"ABC",
         description:"Abobora",
         privacy: true,
+        phone1: "1234",
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
-        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"},
-        phones_attributes: {"1"=>{phone_number:"123456789"} }
+        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
         expect(flash[:notice]).to eq("ONG cadastrada com sucesso, confirme o email para continuar")
@@ -77,10 +77,10 @@ describe NgosController, type: :controller do
       post :create, {ngo: {
         name:"nome1",
         description:"Qualquer coisa1",
-        privacy: true,
+        privacy: true,        
+        phone1: "1234",
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
-        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"},
-        phones_attributes: {"1"=>{phone_number:"123456789"} }
+        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
       expect(flash[:error]).to eq("Já existe uma ONG cadastrada com este nome.")
@@ -103,10 +103,10 @@ describe NgosController, type: :controller do
       post :create, {ngo: {
         name: nil,
         description:"Qualquer coisa1",
-        privacy: true,
+        privacy: true,        
+        phone1: "1234",
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
-        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"},
-        phones_attributes: {"1"=>{phone_number:"123456789"} }
+        user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
       expect(response).to render_template("new")
@@ -118,7 +118,7 @@ describe NgosController, type: :controller do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user2 = User.create!(email:"tw@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa",user_id:@user.id)
+      @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
     end
 
     it 'finds ngo when ID is correct' do
@@ -126,22 +126,15 @@ describe NgosController, type: :controller do
       get :edit, id: @ngo.id
       expect(assigns(:ngo)).to eq(@ngo)
     end
-
-    ## NÂO FUNCIONA
-    # it 'abc' do
-    #   cookies[:auth_token] = @ngo.user.auth_token
-    #   get :edit, id: @ngo.id, zipcode: '90840-030'
-    #   expect(JSON.parse(response.body)).to eq('1231')
-    # end
   end
 
   describe '#update' do
     before :each do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa",user_id:@user.id)
+      @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
       user_new = User.new(email:"new@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo_new = Ngo.new(address_id: address.id, name:"nome_new", description: "Qualquer coisa",user:user_new)
+      @ngo_new = Ngo.new(address_id: address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
     end
 
     it 'return success when ngo is updated' do
@@ -173,9 +166,9 @@ describe NgosController, type: :controller do
     before :each do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo = Ngo.create!(address_id: address.id, name:"nome", description: "Qualquer coisa",user_id:@user.id)
+      @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
       user_new = User.new(email:"new@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo_new = Ngo.new(address_id: address.id, name:"nome_new", description: "Qualquer coisa",user:user_new)
+      @ngo_new = Ngo.new(address_id: address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
     end
 
      it 'return success when the NGO was deleted' do

@@ -4,6 +4,8 @@ var ready = function() {
 
   INTEREST.disableButtonOnSubmit();
 
+  VALIDATION.eventsValidate();
+
   LOGIN.validateFormOnSubmit();
 
   MASKS.addMasks();
@@ -17,13 +19,7 @@ var ready = function() {
 
   PASS_RESETS.validateFormResetPassOnSubmit();
 
-  PHONES.addPhones();
-  PHONES.loadPhones();
-  PHONES.removePhones();
-
   VOLUNTEER.validateFormOnSubmit();
-
-  VALIDATION.eventsValidate();
 }
 
 $(document).ready(ready);

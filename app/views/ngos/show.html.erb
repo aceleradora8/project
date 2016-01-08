@@ -51,10 +51,10 @@
 
 			<div class="formsession">
 				<div class="row">
-					<strong>Telefone: </strong>
-					<% @ngo.phones.each do |phone| %>
-						<%= phone.phone_number %>
-					<% end %>
+					<b>Telefone(s): </b> 
+					<%= @ngo.phone1 %>
+					<%= ", #{@ngo.phone2}" unless @ngo.phone2.blank?%></p>
+					
 				</div>
 			</div>
 
