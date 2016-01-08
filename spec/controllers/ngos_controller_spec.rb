@@ -60,8 +60,6 @@ describe NgosController, type: :controller do
       end
 
     it 'return success if NGO was created' do
-      mailer = instance_double("mailer", deliver: "enviou")
-      allow(UserMailer).to receive(:email_confirmation) { mailer }
       post :create, {ngo:
         {
         name:"ABC",

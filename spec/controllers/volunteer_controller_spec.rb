@@ -21,9 +21,6 @@ describe VolunteersController, type: :controller do
 		end
 
 		it 'return success message when passing a volunteer with new email' do
-			mailer = instance_double("mailer", deliver: "enviou")
-			allow(UserMailer).to receive(:email_confirmation) { mailer }
-
 			post :create, volunteer: {
 			name:"name",
 			phone:"(66)6666-6666",
