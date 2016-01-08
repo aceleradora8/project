@@ -19,8 +19,6 @@ class PasswordResetsController < ApplicationController
       redirect_to new_password_reset_path, alert: "Link de recuperação de senha expirado"
     elsif @user.update_attributes(user_params)
       redirect_to login_url, notice: "Sua senha foi alterada com sucesso!"
-    else
-      render :edit
     end
   end
 

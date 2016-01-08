@@ -28,14 +28,8 @@ class ApplicationController < ActionController::Base
 
 	def require_ngo_owner_opportunity(opportunity)
 		if !current_user.nil?
-			redirect_to '/' unless current_user.ngo.id == opportunity.ngo.id
-		else
-			redirect_to '/'
+			redirect_to '/' unless !current_user.nil? && (current_user.ngo.id == opportunity.ngo.id)
 		end
-	end
-
-	def store_location
-		@last_location ||= request.referer
 	end
 
 	def require_user_owner_ngo(ngo)
