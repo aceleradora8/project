@@ -50,10 +50,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-offset-2 col-lg-4 form-group">
-        <%= f.label "Telefone(s):", :class => "control-label" %> 
+      <div class="col-lg-offset-2 col-lg-5 form-group">
+        <label class="control-label", for="phone-volunteer">Telefone(s):<span class="mandatory">*</span></label>
       </div>
-    </div> 
+    </div>
     <div class="row">
       <div class="col-lg-offset-2 col-lg-10 input_fields_wrap">
         <div class="col-lg-2 form-group">
@@ -69,7 +69,7 @@
     </div>
     <div class="col-lg-offset-2 col-lg-7">
         <div id="phone-error" class="col-lg-3 alert alert-danger custom-alert-danger phone-error-invalid">
-              <p>Campo Obrigatório!</p>
+              <p>Telefone Inválido!</p>
           </div>
       </div>
   <%= render 'users/form', f:f %>
