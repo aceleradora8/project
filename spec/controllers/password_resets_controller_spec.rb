@@ -9,15 +9,11 @@ RSpec.describe PasswordResetsController, type: :controller do
     end
 
   	it 'expect success when user email valid' do
-      mailer = instance_double("mailer", deliver: "enviou")
-      allow(UserMailer).to receive(:password_reset) { mailer }
   		post :create, email: @user.email
   		expect(flash[:notice]).to eq("Confira seu email, enviamos instruções de recuperação de senha")
 	 end
 
 	it 'expect error when user email doesnt exists' do
-    mailer = instance_double("mailer", deliver: "enviou")
-    allow(UserMailer).to receive(:password_reset) { mailer }
 		post :create, email: 'qualquercoisa@lol.com'
 		expect(flash[:error]).to eq("Email não cadastrado")
 	end
