@@ -75,7 +75,7 @@ describe NgosController, type: :controller do
         expect(flash[:notice]).to eq("ONG cadastrada com sucesso, confirme o email para continuar")
     end
 
-    it 'return error if ngo exists' do
+    it 'return error if ngo name already is on use' do
       post :create, {ngo: {
         name:"nome1",
         description:"Qualquer coisa1",
@@ -86,6 +86,19 @@ describe NgosController, type: :controller do
         }
       }
       expect(flash[:error]).to eq("Já existe uma ONG cadastrada com este nome.")
+    end
+
+    it 'return error if ngo email already is on use' do
+      post :create, {ngo: {
+        name:"nome13213",
+        description:"Qualquer coisa1",
+        privacy: true,
+        address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
+        user_attributes: {email:"teste@teste.com", password: "123", password_confirmation: "123"},
+        phones_attributes: {"1"=>{phone_number:"123456789"} }
+        }
+      }
+      expect(flash[:error]).to eq("Email já cadastrado!")
     end
 
       it 'render new if anything goes wrong' do
@@ -171,6 +184,12 @@ describe NgosController, type: :controller do
        cookies[:auth_token] = @ngo.user.auth_token
        delete :destroy, id: @ngo.id, password:"123"
        expect(flash[:notice]).to eq("A ONG foi removida com sucesso")
+     end
+
+     it 'return failure message when the NGO password is wrong' do
+       cookies[:auth_token] = @ngo.user.auth_token
+       delete :destroy, id: @ngo.id, password:"4321"
+       expect(flash[:error]).to eq("Senha incorreta")
      end
   end
 
