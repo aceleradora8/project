@@ -52,10 +52,10 @@ class OpportunitiesController < ApplicationController
 
   def create
     @opportunity = Opportunity.new(opportunity_params)
-    if params[:recurrent] == 1
-      @opportunity.start_date = nil
-      @opportunity.finish_date = nil
-    end
+    # if params[:recurrent] == 1
+    #   @opportunity.start_date = nil
+    #   @opportunity.finish_date = nil
+    # end
     respond_to do |format|
       if @opportunity.save
         format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }

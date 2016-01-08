@@ -8,14 +8,7 @@ class Opportunity < ActiveRecord::Base
 	validates :description, presence: true
 	validates :ngo, presence: true
 	validates :cause, presence: true
-	validate :valid_date_range_required
 	accepts_nested_attributes_for :address
-
-	def valid_date_range_required
-		if start_date > finish_date
-			errors.add(:date_range, "Data de inicio deve ser antes que data de termino.")
-		end if recurrent == 0
-	end
 
 	include PgSearch
 	pg_search_scope :search, against: [:title, :description], ignoring: :accents,
