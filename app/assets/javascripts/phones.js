@@ -11,7 +11,7 @@ PHONES.addPhones = function addPhones() {
       count++;
       $(".input_fields_wrap").append('\
             <div class="col-lg-2 form-group">\
-              <input class="form-control phone_with_ddd validate-phone", id="phone-ngo", name="ngo[phones_attributes][' + count + '][phone_number]" type="tel">\
+              <input class="form-control phone_with_ddd validate-phone", placeholder="(99)9999-9999", id="phone-ngo", name="ngo[phones_attributes][' + count + '][phone_number]" type="tel">\
             </div>');
     }
   });
