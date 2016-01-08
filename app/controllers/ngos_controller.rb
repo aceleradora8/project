@@ -31,8 +31,8 @@ class NgosController < ApplicationController
 		respond_to do |format|
 			if ngo_exists?(@ngo)
 				format.html do
-					flash[:error] = "ONG já cadastrada!"
-					render :new
+					flash[:error] = "#{@error_message}"
+					render 'new'
 				end
 			elsif @ngo.save
 				set_ngo_list_phones(ngo_params[:phones_attributes]) unless ngo_params[:phones_attributes].nil?
@@ -87,7 +87,13 @@ class NgosController < ApplicationController
  end
 
  def ngo_exists?(ngo)
-   (ngo.user.user_exists? || !Ngo.find_by_name(ngo.name).nil?) ? true : false
+   if Ngo.find_by_name(ngo.name).present?
+		 @error_message = "Já existe uma ONG cadastrada com este nome."
+		 return true
+	 elsif User.find_by_email(ngo.user.email).present?
+		 @error_message = "Email já cadastrado!"
+		 return true
+	 end
  end
 
   private

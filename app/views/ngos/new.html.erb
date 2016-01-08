@@ -1,12 +1,14 @@
 <div class ="container">
+
+	<% if flash[:error] != nil %>
+	<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
+		<p id="error"><%= error %></p>
+	</div>
+	<%end%>
+
 	<div class="col-lg-12 text-center">
 		<h1>Nova ONG</h1>
 	</div>
-	<% if flash[:error] != nil %>
-		<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
-			<p id="error"><%= error %></p>
-		</div>
-	<%end%>
 	<%= form_for(@ngo,:html=>{:id=>"form-ngo"}) do |f| %>
 	<% if @ngo.errors.any? %>
 	    <div id="error_explanation">
@@ -22,7 +24,7 @@
 	    </div>
 	<% end %>
 	<%= render 'form', f:f %>
-	<%= render 'users/form', f:f %>	
+	<%= render 'users/form', f:f %>
     <div class="row">
         <div class="col-lg-offset-2 col-lg-4 form-group">
         	<span class="mandatory">*Campos Obrigatórios</span>
