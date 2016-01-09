@@ -22,8 +22,8 @@ describe VolunteersController, type: :controller do
 
 		it 'return success message when passing a volunteer with new email' do
 			post :create, volunteer: {
-			name:"name", 
-			phone1:"(66)6666-6666", 
+			name:"name",
+			phone1:"(66)6666-6666",
 			user_attributes: { email: "new_email@teste.com", password: "123", password_confirmation: "123"}
 			}
 
@@ -33,8 +33,8 @@ describe VolunteersController, type: :controller do
 
 		it 'render new if anything goes wrong' do
 			post :create, volunteer: {
-			name: nil, 
-			phone1:"(66)6666-6666", 
+			name: nil,
+			phone1:"(66)6666-6666",
 			user_attributes: { email: "new_email@teste.com", password: "123", password_confirmation: "123"}
 			}
 
@@ -54,8 +54,8 @@ describe VolunteersController, type: :controller do
 		it 'return success message when volunteer was updated' do
 			put :update, id: @volunteer_teste.id,
 			volunteer: {
-			name:"Voluntário atualizado", 
-			phone1:"(66)6666-6666", 
+			name:"Voluntário atualizado",
+			phone1:"(66)6666-6666",
 			user_attributes: { email: "new_email@teste.com", password: "123", password_confirmation: "123"}
 			}
 
@@ -67,7 +67,7 @@ describe VolunteersController, type: :controller do
 			put :update, id: @volunteer_teste.id,
 			volunteer: {
 			name: nil,
-			phone1:"(66)6666-6666", 
+			phone1:"(66)6666-6666",
 			user_attributes: { email: "new_email@teste.com", password: "123", password_confirmation: "123"}
 			}
 
@@ -78,9 +78,9 @@ describe VolunteersController, type: :controller do
 	describe '#destroy' do
 		before :each do
 			user = User.create!(email:"teste_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone:"(66)6666-6666", user_id:user.id)
+			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id)
 			user_new = User.new(email:"teste_novo_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone:"(66)6666-6666", user_id:user_new)
+			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new)
 			@controller = VolunteersController.new
 		end
 
