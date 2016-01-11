@@ -23,6 +23,8 @@ var ready = function() {
   VOLUNTEER.validateFormOnSubmit();
 
   MOUSEFLOW.callMouseFlow();
+
+  ANALYTICS.callGoogleAnalytics();
 }
 
 $(document).ready(ready);
