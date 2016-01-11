@@ -1,3 +1,10 @@
+<% if @ngos_result.empty? %>
+	<div class="panel panel-default">
+		<div class="row panel-body">
+			<h3><%= "Sua pesquisa não encontrou resultados" %></h3>
+		</div>
+	</div>
+<% end %>
 <% @ngos_result.each do |ngo| %>
 	<div class="panel">
 		<div class="row panel-body detailopp bs-callout bs-callout-info">
@@ -6,7 +13,7 @@
 					<h3><%=ngo.name%></h3>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-lg-12 description">
 					<%= ngo.description %>
@@ -18,17 +25,17 @@
 					<%= ngo.user.email %>
 				</div>
 			</div>
- 
+
 			<div class="row">
 				<div class="col-lg-4">
-					<%= ngo.address.city %>, 
+					<%= ngo.address.city %>,
 					<%= ngo.address.state %>
 				</div>
 				<div class="col-lg-offset-4 col-lg-4">
 				<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary pull-right" %>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 <%end%>

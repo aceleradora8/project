@@ -131,4 +131,10 @@ class NgosController < ApplicationController
  def set_cities
 	 @cities = Address.uniq.pluck(:city)
  end
+
+ def filter_with_cities(cities)
+	 cities.each do |city|
+		 @ngos_result.push(@ngos_search.select { |obj| obj.address.city == city})
+	 end
+ end
 end

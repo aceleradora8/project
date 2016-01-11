@@ -11,6 +11,7 @@ var ready = function() {
   MASKS.addMasks();
 
   NGO.validateFormOnSubmit();
+  NGO.getCitiesChecked();
 
   OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getCausesChecked();

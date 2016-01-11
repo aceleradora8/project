@@ -9,10 +9,27 @@ NGO.validateFormOnSubmit = function validateForm() {
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     validatePhone = VALIDATION.validatePhone();
-    if ($(".input-text-error").length == 0) {  
+    if ($(".input-text-error").length == 0) {
       VALIDATION.disableButtonOnSubmit();
       return true;
     }
     return false;
   });
 }
+
+NGO.requestNgos = function() {
+  $.get('/ngos', {
+    cities: citiesList,
+    text_search: $('#text_search').val()
+  });
+};
+
+NGO.getCitiesChecked = function() {
+  $('.cb_city_ngos').on('change', function() {
+    citiesList = [];
+    $('input.cb_city_ngos:checked').each(function() {
+      citiesList.push($(this).val());
+    });
+    NGO.requestNgos();
+  });
+};

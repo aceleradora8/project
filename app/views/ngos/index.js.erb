@@ -1,0 +1,2 @@
+$('#listOngs').html("<%= escape_javascript render 'list_ngos' %>");
+$('.paginator').html("<%= escape_javascript(paginate @ngos_result, :remote => true, :theme => 'twitter-bootstrap-3') %>");
