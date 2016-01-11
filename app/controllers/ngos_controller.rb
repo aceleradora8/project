@@ -1,7 +1,8 @@
 class NgosController < ApplicationController
 	before_action :set_ngo, only: [:show, :edit, :destroy]
- before_action :require_ngo, only: [:edit, :destroy]
- helper NgosHelper
+	before_action :set_cities, only: [:index]
+	before_action :require_ngo, only: [:edit, :destroy]
+	helper NgosHelper
 
 	def new
 		@ngo = Ngo.new
@@ -19,7 +20,26 @@ class NgosController < ApplicationController
 	end
 
 	def index
-		@ngos_result = Ngo.all.includes(:address, :user).page params[:page]
+		if params[:text_search].nil? || params[:text_search] == ""
+      @ngos_search = Ngo.all
+    else
+      @ngos_search = Ngo.search("#{params[:text_search] }")
+    end
+    respond_to do |format|
+      if request.xhr?
+        @ngos_result = []
+        if params[:cities]
+          filter_with_cities(params[:cities])
+        else
+          @opportunities_result = @opportunity_search
+        end
+        @ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
+        format.js
+      else
+        @ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
+        format.html
+      end
+		end
 	end
 
 	def show
@@ -106,5 +126,9 @@ class NgosController < ApplicationController
 
  def ngo_params
    params.require(:ngo).permit(:user_id, :name, :phone1, :phone2, :description, :privacy, :mission, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood], user_attributes: [:email, :password, :password_confirmation])
+ end
+
+ def set_cities
+	 @cities = Address.uniq.pluck(:city)
  end
 end

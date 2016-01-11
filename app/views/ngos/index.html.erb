@@ -1,7 +1,15 @@
-<div class="container"> 
+<%= render './layouts/search_bar_ngos.html' %>
+<div class="container">
 	<div class="row ">
-		<div id="listOngs" class="col-lg-offset-2 col-lg-10">
-			<%= render 'list_ngos' %>
+		<div class="col-lg-2" id="filtros">
+				<%= render 'filterbar' %>
+		</div>
+		<div class="col-lg-10" id="tudo-lado">
+			<div class="row col-lg-12 result-search">
+				<div id="listOngs" class="col-lg-12">
+					<%= render 'list_ngos' %>
+				</div>
+			</div>
 		</div>
 		<div id="paginator" class="pull-right">
 			<%= paginate @ngos_result, :theme => 'twitter-bootstrap-3' %>
