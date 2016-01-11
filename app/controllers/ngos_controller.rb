@@ -1,6 +1,7 @@
 class NgosController < ApplicationController
 	before_action :set_ngo, only: [:show, :edit, :destroy]
  before_action :require_ngo, only: [:edit, :destroy]
+ helper NgosHelper
 
 	def new
 		@ngo = Ngo.new

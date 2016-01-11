@@ -6,8 +6,9 @@ class OpportunitiesController < ApplicationController
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
     opportunity = Opportunity.find(params[:id])
-    require_ngo_owner_opportunity(opportunity)
+    ngo_owner_of_opportunity(opportunity)
   end
+  helper OpportunitiesHelper
 
   def index
     if params[:text_search].nil? || params[:text_search] == ""
