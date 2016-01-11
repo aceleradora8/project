@@ -67,21 +67,21 @@
 
 		<div class="panel-body detailopp">
 			<div>
-				<p> <span class="bold">Descrição: </span> 
+				<p> <span class="bold">Descrição: </span>
 				<br>
-				<span class="leftspace"><%= @opportunity.description %></span> 
+				<span class="leftspace"><%= @opportunity.description %></span>
 				</p>
 			</div>
 			<div>
 				<p> <span class="bold">Local: </span>  <br>
-				<span class="leftspace"><%= @opportunity.address.print_address %> 
+				<span class="leftspace"><%= @opportunity.address.print_address %>
 				</p>
 			</div>
 			<% if @opportunity.recurrent %>
 				<div>
 					<p> <span class="bold">Ocorre com frequência</span> </p>
 				</div>
-			<% else %>	
+			<% else %>
 			<div>
 				<p> <span class="bold">Data de Início: </span> <%= @opportunity.start_date %> </p>
 			</div>
@@ -89,7 +89,7 @@
 				<p> <span class="bold">Data de Término: </span> <%= @opportunity.finish_date %></p>
 			</div>
 			<% end %>
-			<div> 
+			<div>
 
 				<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>
@@ -100,7 +100,7 @@
 				<p> <span class="bold">Vagas: </span><%= @opportunity.vacancies %></p>
 			</div>
 			<div>
-				<p> <span class="bold">Requisitos:</span> 
+				<p> <span class="bold">Requisitos:</span>
 				<span class="leftspace">
 				<ul>
 					<% @opportunity.skills.each do |skill|%>
@@ -123,8 +123,7 @@
 					 		<button class="btn btn-primary outline" data-toggle="modal" data-target="#myModal">Candidatar-se</button>
 				 		<%end%>
 			 		<%else%>
-			 			<%flash[:notice] = "Para se candidatar, você precisa estar logado!"%>
-			 			<%=link_to "Candidatar-se", login_path, :class=>"btn btn-primary outline"%>
+			 			<%=link_to "Candidatar-se", login_path, flash[:notice] = "teste", :class=>"btn btn-primary outline"%>
 				 	<%end%>
 				</div>
 			<%end%>

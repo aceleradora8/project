@@ -10,12 +10,12 @@
 		<div class="row panel-body bs-callout bs-callout-info opportunity-background">
 			<div class="row">
 				<div class="col-lg-12">
-					<h3 class="opportunity-title"><%= opportunity.title %></h3>
+					<a href="opportunities/<%=opportunity.id%>"><h3 class="opportunity-title"><%= opportunity.title %></h3></a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<span class="oppt-ngo">Por <%= opportunity.ngo.name %></span>
+					<span class="oppt-ngo">Por <a href="ngos/<%=opportunity.ngo.id%>"><%= opportunity.ngo.name %></span></a>
 				</div>
 			</div>
 			<div class="row">

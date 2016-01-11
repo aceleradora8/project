@@ -53,7 +53,6 @@ class NgosController < ApplicationController
 				format.html do
 					flash[:error] = "#{@error_message}"
 					render 'new'
-					flash[:error] = nil
 				end
 			elsif @ngo.save
 				UserMailer.email_confirmation(@ngo).deliver
