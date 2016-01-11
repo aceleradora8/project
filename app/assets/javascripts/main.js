@@ -21,6 +21,8 @@ var ready = function() {
   PASS_RESETS.validateFormResetPassOnSubmit();
 
   VOLUNTEER.validateFormOnSubmit();
+
+  MOUSEFLOW.callMouseFlow();
 }
 
 $(document).ready(ready);
