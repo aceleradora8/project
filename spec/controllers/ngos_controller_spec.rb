@@ -77,13 +77,13 @@ describe NgosController, type: :controller do
       post :create, {ngo: {
         name:"nome1",
         description:"Qualquer coisa1",
-        privacy: true,        
+        privacy: true,
         phone1: "1234",
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
-      expect(flash[:error]).to eq("Já existe uma ONG cadastrada com este nome.")
+      expect(assigns(:error_message)).to eq("Já existe uma ONG cadastrada com este nome.")
     end
 
     it 'return error if ngo email already is on use' do
@@ -96,14 +96,14 @@ describe NgosController, type: :controller do
         phones_attributes: {"1"=>{phone_number:"123456789"} }
         }
       }
-      expect(flash[:error]).to eq("Email já cadastrado!")
+      expect(assigns(:error_message)).to eq("Email já cadastrado!")
     end
 
       it 'render new if anything goes wrong' do
       post :create, {ngo: {
         name: nil,
         description:"Qualquer coisa1",
-        privacy: true,        
+        privacy: true,
         phone1: "1234",
         address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
