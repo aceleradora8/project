@@ -1,6 +1,6 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :interest, :edit, :update , :destroy]
-  before_action :set_causes, :set_cities, only: [:index, :new]
+  before_action :set_causes, :set_cities, only: [:index, :new, :edit]
   before_action :set_skills, only: [:new, :create, :edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
