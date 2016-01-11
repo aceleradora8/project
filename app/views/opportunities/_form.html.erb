@@ -7,17 +7,34 @@
       </ul>
     </div>
 <% end %>
-<div class="row">
-	<div class="col-lg-2 alert alert-danger custom-alert-danger empty-error-inputZipcode">
-		<p>CEP Obrigatório!</p>
+<div class="row">	
+	<div class="col-lg-offset-1">
+		<div id="titleError" class="col-lg-11 alert alert-danger custom-alert-danger empty-error-title-opportunity">
+			<p>Título Obrigatório!</p>
+		</div>
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-2 alert alert-danger custom-alert-danger error-zipcode-invalid">
-		<p>CEP inválido!</p>
+	<div class="col-lg-offset-1">
+		<div id="description-error" class="col-lg-11 alert alert-danger custom-alert-danger empty-error-description-opportunity">
+			<p>Campo Obrigatório!</p>
+		</div>
 	</div>
 </div>
-
+<div class="row">
+	<div class="col-lg-offset-1">
+		<div class="col-lg-11 alert alert-danger custom-alert-danger empty-error-inputZipcode">
+			<p>CEP Obrigatório!</p>
+		</div>
+	</div>
+</div>
+<div class="row">			
+	<div class="col-lg-offset-1">
+		<div class="col-lg-11 alert alert-danger custom-alert-danger error-zipcode-invalid">
+			<p>CEP inválido!</p>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-lg-offset-1 col-lg-6 form-group">
 		<label class="control-label", for="title-opportunity">Título: <span class="mandatory">*</span></label>
@@ -32,21 +49,11 @@
 		<span class="mandatory">*</span>
 		<%= f.number_field :vacancies, min:1, max:999, :id => "vacancies-opportunity", :class => "form-control validate-vacancies"%>
 	</div>
-	<div class="col-lg-offset-1 col-lg-7">
-		<div id="titleError" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-title-opportunity">
-			<p>Campo Obrigatório!</p>
-		</div>
-	</div>
 </div>
 <div class="row">
 	<div class="col-lg-offset-1 form-group col-lg-10">
 	<label class="control-label", for="description-opportunity">Descrição: <span class="mandatory">*</span></label>
 		<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
-	</div>
-	<div class="col-lg-offset-1 col-lg-7">
-		<div id="description-error" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-description-opportunity">
-			<p>Campo Obrigatório!</p>
-		</div>
 	</div>
 </div>
 <div class="row">
