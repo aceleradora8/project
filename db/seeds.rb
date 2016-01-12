@@ -1,3 +1,67 @@
+# populando causas
+cause = Cause.new(name:"Animais")
+cause.save
+cause = Cause.new(name:"Apoio Psicológico")
+cause.save
+cause = Cause.new(name:"Cultura")
+cause.save
+cause = Cause.new(name:"Crianças e Jovens")
+cause.save
+cause = Cause.new(name:"Dependentes Químicos")
+cause.save
+cause = Cause.new(name:"Desastres Naturais")
+cause.save
+cause = Cause.new(name:"Desabrigados")
+cause.save
+cause = Cause.new(name:"Doações")
+cause.save
+cause = Cause.new(name:"Educação")
+cause.save
+cause = Cause.new(name:"Esportes")
+cause.save
+cause = Cause.new(name:"Etnias")
+cause.save
+cause = Cause.new(name:"Idosos")
+cause.save
+cause = Cause.new(name:"LGBT")
+cause.save
+cause = Cause.new(name:"Meio ambiente")
+cause.save
+cause = Cause.new(name:"Mulheres")
+cause.save
+cause = Cause.new(name:"Pobreza e Fome")
+cause.save
+cause = Cause.new(name:"Portadores de Deficiências")
+cause.save
+cause = Cause.new(name:"Saúde")
+cause.save
+cause = Cause.new(name:"Tecnologia")
+cause.save
+cause = Cause.new(name:"Trânsito")
+cause.save
+
+# populando skills
+skill = Skill.new(name:"Computação")
+skill.save
+skill = Skill.new(name:"Conhecimentos de saúde")
+skill.save
+skill = Skill.new(name:"Cozinhar")
+skill.save
+skill = Skill.new(name:"Engenharia")
+skill.save
+skill = Skill.new(name:"Gostar de animais")
+skill.save
+skill = Skill.new(name:"Facilidade com crianças")
+skill.save
+skill = Skill.new(name:"Gostar de idosos")
+skill.save
+skill = Skill.new(name:"Licenciatura")
+skill.save
+skill = Skill.new(name:"Trabalho manual")
+skill.save
+skill = Skill.new(name:"Trabalho em equipe")
+skill.save
+
 case Rails.env
 when "development"
 # populando enderecos para ongs/oportunidades
@@ -43,48 +107,6 @@ address.save
 address = Address.new(address:"Av Júlio Ruas rua", zipcode:"90143-235", city:"Caxias do Sul", state:"RS", country:"Brasil", neighborhood: "São Pelegrino", complement: "14")
 address.save
 
-# populando causas
-cause = Cause.new(name:"Animais")
-cause.save
-cause = Cause.new(name:"Apoio Psicológico")
-cause.save
-cause = Cause.new(name:"Cultura")
-cause.save
-cause = Cause.new(name:"Crianças e Jovens")
-cause.save
-cause = Cause.new(name:"Dependentes Químicos")
-cause.save
-cause = Cause.new(name:"Desastres Naturais")
-cause.save
-cause = Cause.new(name:"Desabrigados")
-cause.save
-cause = Cause.new(name:"Doações")
-cause.save
-cause = Cause.new(name:"Educação")
-cause.save
-cause = Cause.new(name:"Esportes")
-cause.save
-cause = Cause.new(name:"Etnias")
-cause.save
-cause = Cause.new(name:"Idosos")
-cause.save
-cause = Cause.new(name:"LGBT")
-cause.save
-cause = Cause.new(name:"Meio ambiente")
-cause.save
-cause = Cause.new(name:"Mulheres")
-cause.save
-cause = Cause.new(name:"Pobreza e Fome")
-cause.save
-cause = Cause.new(name:"Portadores de Deficiências")
-cause.save
-cause = Cause.new(name:"Saúde")
-cause.save
-cause = Cause.new(name:"Tecnologia")
-cause.save
-cause = Cause.new(name:"Trânsito")
-cause.save
-
 # populando users
 user = User.new(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
 user.save
@@ -124,27 +146,6 @@ ngo = Ngo.new(name:"ONG Construtores", phone1: "123456789", description:"Gostamo
 ngo.causes.push(Cause.find(8))
 ngo.save
 
-# populando skills
-skill = Skill.new(name:"Computação")
-skill.save
-skill = Skill.new(name:"Conhecimentos de saúde")
-skill.save
-skill = Skill.new(name:"Cozinhar")
-skill.save
-skill = Skill.new(name:"Engenharia")
-skill.save
-skill = Skill.new(name:"Gostar de animais")
-skill.save
-skill = Skill.new(name:"Facilidade com crianças")
-skill.save
-skill = Skill.new(name:"Gostar de idosos")
-skill.save
-skill = Skill.new(name:"Licenciatura")
-skill.save
-skill = Skill.new(name:"Trabalho manual")
-skill.save
-skill = Skill.new(name:"Trabalho em equipe")
-skill.save
 
 # populando oportunidades
 opportunity = Opportunity.new(title:"Contar histórias para crianças", description:"Contar histórias para crianças ajuda no desenvolvimento da linguagem Se na hora de dormir, pais contarem uma história para os filhos, ao menos 2 vezes por semana, criança vai conhecer mais de 500 contos até os 5 anos. Contar histórias ajuda muito no desenvolvimento da linguagem. Você sabe qual a melhor forma de despertar o interesse das crianças? A atriz Flávia Alessandra convidou papais, mamães e um vovô para uma divertida expedição ao reino do faz de conta." , address_id:7, ngo_id:5, cause_id:5, vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
