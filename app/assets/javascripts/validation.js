@@ -5,7 +5,6 @@ VALIDATION.validateEmpty = function validateEmpty(input) {
     input.removeClass("input-text-error");
     $('.empty-error-' + input.attr('id')).hide();
   } else {
-    input.focus();
     input.addClass("input-text-error");
     $('.empty-error-' + input.attr('id')).show();
   }
@@ -22,10 +21,13 @@ VALIDATION.eventsValidate = function eventsValidate(){
   });
   $(".validate-description").focusout(function(){
     VALIDATION.validateDescription();
-  });  
+  });
   $(".validate-phone").focusout(function(){
     VALIDATION.validatePhone();
   });
+  $(".validate-contact-email").focusout(function(){
+    VALIDATION.validateContactEmail();
+  })
   $(".validate-password").focusout(function(){
     VALIDATION.validatePassword();
   });
@@ -55,7 +57,6 @@ VALIDATION.validateVacancies = function validateVacancies() {
     $('.vacancies-error-invalid').hide();
   }
   else {
-    vacancies.focus();
     vacancies.addClass("input-text-error");
     $('.vacancies-error-invalid').show();
   }
@@ -73,7 +74,6 @@ VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation(
         passwordConfirmation.removeClass("input-text-error");
         $(".password-confirmation-invalid").hide();
       } else {
-        passwordConfirmation.focus();
         passwordConfirmation.addClass("input-text-error");
         $(".password-confirmation-invalid").show();
       }
@@ -87,11 +87,23 @@ VALIDATION.validateEmail = function validateEmail() {
       email.removeClass("input-text-error");
       $('.email-error-invalid').hide();
     } else {
-      email.focus();
       email.addClass("input-text-error");
       $('.email-error-invalid').show();
     }
       VALIDATION.buttonState();
+}
+
+VALIDATION.validateContactEmail = function validateContactEmail() {
+  contactEmail = $(".validate-contact-email")
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(contactEmail.val().match(mailformat)) {
+      contactEmail.removeClass("input-text-error");
+      $('.email-error-invalid').hide();
+    } else {
+      contactEmail.addClass("input-text-error");
+      $('.email-error-invalid').show();
+    }
+  VALIDATION.buttonState();
 }
 
 VALIDATION.validatePhone = function validatePhone() {
@@ -101,7 +113,6 @@ VALIDATION.validatePhone = function validatePhone() {
       phone.removeClass("input-text-error");
       $('.phone-error-invalid').hide();
     } else {
-      phone.focus();
       phone.addClass("input-text-error");
       $('.phone-error-invalid').show();
     }
@@ -130,7 +141,6 @@ VALIDATION.validateZipCode = function validateZipCode() {
   zipCode = $(".validate-zipcode");
   if (VALIDATION.validateEmpty($(".validate-zipcode"))) {
     if ($("#inputCity").val().length == 0) {
-      zipCode.focus();
       zipCode.addClass("input-text-error");
       $('.error-zipcode-invalid').show();
     } else {
