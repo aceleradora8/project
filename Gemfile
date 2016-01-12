@@ -25,6 +25,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "codeclimate-test-reporter"
   gem 'capybara'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 group :development do
