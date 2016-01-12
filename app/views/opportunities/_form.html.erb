@@ -42,7 +42,7 @@
 	</div>
 	<div class="col-lg-3 form-group ">
 		<%= f.label "Categoria:", :class => "control-label", :for => "causes-opportunity" %>
-		<%= collection_select :opportunity, :cause_id, @causes, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity" %>
+		<%= collection_select :opportunity, :cause_id, Cause.all, :id, :name, {:class => "btn btn-default dropdown-toggle"}, :id =>"causes-opportunity" %>
 	</div>
 	<div class="col-lg-1 form-group">
 		<%= f.label "Vagas:", :for => "vacancies-opportunity"%>
@@ -108,4 +108,4 @@
     	<span class="mandatory">*Campos Obrigatórios</span>
 	</div>
 	</div>
-<%# f.hidden_field :ngo_id, :value => current_user.ngo.id %>
+<% f.hidden_field :ngo_id, :value => current_user.ngo.id %>
