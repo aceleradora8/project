@@ -27,17 +27,13 @@ OPPORTUNITIES.requestOpportunities = function() {
 };
 
 OPPORTUNITIES.getRecurrentChecked = function() {
-  $('#recurrent').on('change', function() {
-    if ($(this).is(":checked")) {
-      $(".cd_data").prop("disabled", true);
-    } else {
-      $(".cd_data").prop("disabled", false);
-    }
+$("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
+$('#recurrent').on('change', function() {
+    $("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
   });
 };
 
 OPPORTUNITIES.getCausesChecked = function() {
-  $(".cd_data").prop("disabled", true);
   $('.cb_cause').on('change', function() {
     causesList = [];
     $('input.cb_cause:checked').each(function() {
