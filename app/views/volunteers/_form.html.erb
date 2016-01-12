@@ -69,3 +69,25 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-5 form-group">
+    <label class="control-label", for="sex-volunteer">Sexo: </label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-3 form-group">
+    <%= f.select :sex , ['Masculino' , 'Feminino'] %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-5 form-group">
+    <label class="control-label", for="sex-volunteer">Data de Nascimento: </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-4 div-date">
+    <%= f.date_select :birth_date , {start_year: Time.now.year - 90 , end_year: Time.now.year}%>
+  </div>
+</div>
