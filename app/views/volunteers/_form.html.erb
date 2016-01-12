@@ -21,6 +21,13 @@
 </div>
 <div class="row">
   <div class="col-lg-offset-1">
+      <div id="birthDateError" class="col-lg-10 alert alert-danger custom-alert-danger birth-date-error">
+        <p>A data de nascimento deve ser menor que a data de hoje.</p>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-offset-1">
     <div id="emailErrorNil" class="col-lg-10 alert alert-danger custom-alert-danger empty-error-email-user">
         <p>Email Obrigatório!</p>
     </div>
@@ -87,7 +94,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-offset-2 col-lg-4 div-date">
+  <div class="col-lg-offset-2 col-lg-4 div-date birthday-teste">
     <%= f.date_select :birth_date , {start_year: Time.now.year - 90 , end_year: Time.now.year}%>
   </div>
 </div>

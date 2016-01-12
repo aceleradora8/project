@@ -7,7 +7,8 @@ VOLUNTEER.validateFormOnSubmit = function validateForm() {
     validatePhone = VALIDATION.validatePhone();
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
-     if ($(".input-text-error").length == 0) {  
+    validateBirthDay = VALIDATION.validateBirthDay();
+     if ($(".input-text-error").length == 0) {
       VALIDATION.disableButtonOnSubmit();
       return true;
     }

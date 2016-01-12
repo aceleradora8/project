@@ -37,6 +37,9 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-email").focusout(function(){
     VALIDATION.validateEmail();
   });
+  $(".birthday-teste").focusout(function(){
+    VALIDATION.validateBirthDay();
+  });
   $(".validate-zipcode").focusout(function(){
     VALIDATION.validateZipCode();
   });
@@ -136,6 +139,18 @@ VALIDATION.validateDate = function validateDate() {
   }
   VALIDATION.buttonState();
 };
+
+VALIDATION.validateBirthDay = function validateBirthDay(){
+  var currentTime = new Date();
+  var birthDate = new Date($("select[name='volunteer[birth_date(1i)]']").val() + "/" + $("select[name='volunteer[birth_date(2i)]']").val() + "/" + $("select[name='volunteer[birth_date(3i)]").val());
+    if(birthDate > currentTime){
+      $('.birth-date-error').addClass("input-text-error");
+      $('.birth-date-error').show();
+    } else {
+      $('.birth-date-error').hide();
+    }
+    VALIDATION.buttonState();
+}
 
 VALIDATION.validateZipCode = function validateZipCode() {
   zipCode = $(".validate-zipcode");
