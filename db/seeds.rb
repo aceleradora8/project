@@ -1,4 +1,5 @@
-
+case Rails.env
+when "development"
 # populando enderecos para ongs/oportunidades
 
 address = Address.new(address:"Av Ipiranga", zipcode:"90619-900", city:"Porto Alegre", state:"RS", country:"Brasil", neighborhood: "Partenon", complement: "6681")
@@ -206,3 +207,4 @@ opportunity.skills.push(Skill.find(2))
 opportunity = Opportunity.new(title:"Precisa-se de cozinheiro", description:"Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est.", address_id:18, ngo_id:2, cause_id:6, vacancies:30, start_date:"2015-11-19", finish_date:"2015-11-23")
 opportunity.save
 opportunity.skills.push(Skill.find(3))
+end
