@@ -1,5 +1,5 @@
 class NgoMailer < ApplicationMailer
-	default from: 'centrodeinovacaodememes@gmail.com'
+	default from: ENV['USER_NAME_GMAIL']
 
 	def ngo_email(volunteer, opportunity)
 		@volunteer = volunteer

@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'centrodeinovacaodememes@gmail.com'
+  default from: ENV['USER_NAME_GMAIL']
 
   def email_confirmation(user)
     @user = user
