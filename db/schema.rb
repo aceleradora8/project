@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112123232) do
+ActiveRecord::Schema.define(version: 20160112134240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,14 +57,15 @@ ActiveRecord::Schema.define(version: 20160112123232) do
     t.string   "name"
     t.text     "description"
     t.integer  "address_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.string   "cnpj"
     t.boolean  "privacy"
     t.string   "phone1"
     t.string   "phone2"
     t.text     "mission"
+    t.string   "contact_email"
   end
 
   add_index "ngos", ["address_id"], name: "index_ngos_on_address_id", using: :btree
