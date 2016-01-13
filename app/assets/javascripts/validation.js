@@ -147,7 +147,7 @@ VALIDATION.validateBirthDay = function validateBirthDay(){
       $('.birth-date-error').addClass("input-text-error");
       $('.birth-date-error').show();
     } else {
-      $.('birth-date-error').removeClass("input-text-error")
+      $.('birth-date-error').removeClass("input-text-error");
       $('.birth-date-error').hide();
     }
     VALIDATION.buttonState();
