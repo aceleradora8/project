@@ -3,15 +3,15 @@ require 'rails_helper'
 describe NgosController, type: :controller do
   describe '#index' do
     before :each do
-      address = Address.create!(city:"POA", zipcode: "5", address:"rua")
+      @address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user2 = User.create!(email:"tw@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user3 = User.create!(email:"twe321@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user.id)
-      @ngo2 = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
+      @ngo = Ngo.create!(address_id: @address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user.id)
+      @ngo2 = Ngo.create!(address_id: @address.id, phone1: "1234", name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
       user_new = User.new(email:"new@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
-      @ngo_new = Ngo.new(address_id: address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
-      @ngo_private = Ngo.create!(address_id: address.id, phone1: "1234", name: "qualquer ai", description: "brbrbr", user_id:user3.id, privacy: true)
+      @ngo_new = Ngo.new(address_id: @address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
+      @ngo_private = Ngo.create!(address_id: @address.id, phone1: "1234", name: "qualquer ai", description: "brbrbr", user_id:user3.id, privacy: true)
       @controller = NgosController.new
     end
 
@@ -30,6 +30,16 @@ describe NgosController, type: :controller do
       expect(assigns[:ngos_search]).to match_array([@ngo])
     end
 
+    it 'return ngo filtered by city' do
+      xhr :get, :index, {cities: [@address.city]}
+      expect(assigns[:ngos_result]).to match_array([@ngo, @ngo2, @ngo_private])
+    end
+
+    it 'expect ngos result be equals a search when params = nil' do
+      get :index, text_search: ''
+      expect(assigns[:ngos_result]).to eq(assigns[:ngos_search])
+    end
+  
     it 'expect if Ngo privacy is true to have a new Address' do
       get :show, id: @ngo_private.id
       expect(assigns(:ngo).address).to be_a_new(Address)
