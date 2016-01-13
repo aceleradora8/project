@@ -22,7 +22,7 @@ class NgosController < ApplicationController
 	def index
 		if params[:text_search].nil? || params[:text_search] == ""
 	    	@ngos_search = Ngo.all
-	    else
+	  else
 	      @ngos_search = Ngo.search("#{params[:text_search] }")
 	    end
 
@@ -110,7 +110,9 @@ class NgosController < ApplicationController
 	 elsif User.find_by_email(ngo.user.email).present?
 		 @error_message = "Email já cadastrado!"
 		 return true
-	end
+		else
+			return false
+		end
  end
 
   private
