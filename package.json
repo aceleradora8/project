@@ -1,0 +1,19 @@
+{
+  "name": "ongarium-rails",
+  "version": "1.0.0",
+  "description": "## Criando o projeto * `git clone https://github.com/aceleradora8/ongarium-rails.git` * `cd ongarium-rails`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aceleradora8/ongarium-rails.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aceleradora8/ongarium-rails/issues"
+  },
+  "homepage": "https://github.com/aceleradora8/ongarium-rails"
+}
