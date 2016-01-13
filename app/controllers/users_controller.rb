@@ -40,6 +40,18 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def resend_token
+		@user = User.find_by_email(params[:email])
+		respond_to do |format|
+			if @user.nil?
+				format.html { redirect_to login_path, error: "Email não cadastrado, por favor, cadastre-se."}
+			elsif @user.confirmed = false
+				UserMailer.email_confirmation(@user).deliver_later
+				format.html { redirect_to login_path, notice: "Token de ativação enviado com sucesso. Verifique a caixa de entrada do seu Email." }
+			else
+				format.html { redirect_to login_path, error: "Email já ativado. Logue-se!" }
+	end
+
 	private
 
 	def user_params
