@@ -21,24 +21,25 @@ class NgosController < ApplicationController
 
 	def index
 		if params[:text_search].nil? || params[:text_search] == ""
-      @ngos_search = Ngo.all
-    else
-      @ngos_search = Ngo.search("#{params[:text_search] }")
-    end
-    respond_to do |format|
-      if request.xhr?
-        @ngos_result = []
-        if params[:cities]
-          filter_with_cities(params[:cities])
-        else
-          @opportunities_result = @opportunity_search
-        end
-        @ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
-        format.js
-      else
-        @ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
-        format.html
-      end
+	    	@ngos_search = Ngo.all
+	    else
+	      @ngos_search = Ngo.search("#{params[:text_search] }")
+	    end
+
+	    respond_to do |format|
+	    	if request.xhr?
+	        	@ngos_result = []
+	        	if params[:cities]
+	        		filter_with_cities(params[:cities])
+	        	else
+	          		@opportunities_result = @opportunity_search
+	        	end
+		        @ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
+		        format.js
+		    else
+	        @ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
+	        format.html
+	    	end
 		end
 	end
 
@@ -64,18 +65,18 @@ class NgosController < ApplicationController
 		end
 	end
 
- def edit
-   @ngo = Ngo.find(params[:id])
-   respond_to do |format|
-     if request.xhr?
-       if params[:zipcode]
-         format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
-       end
-     else
-       format.html
-     end
-   end
- end
+	def edit
+		@ngo = Ngo.find(params[:id])
+		respond_to do |format|
+			if request.xhr?
+       			if params[:zipcode]
+         			format.json { render json: Address.new(Correios::CEP::AddressFinder.get(params[:zipcode]))}
+			end
+     		else
+       			format.html
+     		end
+   		end
+ 	end
 
  def update
    @ngo = Ngo.find(params[:id])
@@ -89,7 +90,7 @@ class NgosController < ApplicationController
  end
 
  def destroy
-  if @ngo.user.authenticate(params[:password])
+  	if @ngo.user.authenticate(params[:password])
 		@ngo.destroy
    	cookies.delete(:auth_token)
    	respond_to do |format|
@@ -109,8 +110,7 @@ class NgosController < ApplicationController
 	 elsif User.find_by_email(ngo.user.email).present?
 		 @error_message = "Email já cadastrado!"
 		 return true
-	 end
-	 return false
+	end
  end
 
   private
