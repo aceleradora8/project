@@ -23,7 +23,7 @@ class NgosController < ApplicationController
 		if params[:text_search].nil? || params[:text_search] == ""
 			@ngos_search = Ngo.all
 		else
-			@ngos_search = Ngo.search("#{params[:text_search] }")
+			@ngos_search = Ngo.search("#{params[:text_search]}")
 		end
 		respond_to do |format|
 			if request.xhr?
@@ -31,7 +31,7 @@ class NgosController < ApplicationController
 				if params[:cities]
 					filter_with_cities(params[:cities])
 				else
-					@opportunities_result = @opportunity_search
+					@ngos_result = @ngos_search
 				end
 				@ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
 				format.js

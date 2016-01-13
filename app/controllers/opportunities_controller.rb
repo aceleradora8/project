@@ -14,7 +14,7 @@ class OpportunitiesController < ApplicationController
     if params[:text_search].nil? || params[:text_search] == ""
       @opportunity_search = Opportunity.all.includes(:address, :ngo, :cause)
     else
-      @opportunity_search = Opportunity.search("#{params[:text_search] }").includes(:address, :ngo, :cause)
+      @opportunity_search = Opportunity.search("#{params[:text_search]}").includes(:address, :ngo, :cause)
     end
     respond_to do |format|
       if request.xhr?

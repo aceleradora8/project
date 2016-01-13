@@ -20,6 +20,16 @@ describe NgosController, type: :controller do
       expect(assigns[:ngos_result]).to match_array([@ngo, @ngo2, @ngo_private])
     end
 
+    it 'return ngo when search by name' do
+      get :index, text_search: ''
+      expect(assigns[:ngos_search]).to match_array([@ngo, @ngo2, @ngo_private])
+    end
+
+    it 'return all ngos from POA when passed by text_search' do
+      get :index, text_search: 'nome1'
+      expect(assigns[:ngos_search]).to match_array([@ngo])
+    end
+
     it 'expect if Ngo privacy is true to have a new Address' do
       get :show, id: @ngo_private.id
       expect(assigns(:ngo).address).to be_a_new(Address)
