@@ -14,7 +14,11 @@
 				<div class="row">
 					<div class="col-lg-10">
 						<h1>
-							<%= @ngo.name %>
+							<% if @ngo.name.length > 49 %>
+							 	<%= @ngo.name.first(50)+'...' %>
+							<% else %>
+								<%= @ngo.name.first(50)%>
+							<%end%>
 							<% if current_user != nil && current_user.role == "ngo" %>
 								<% if require_user_owner_ngo(@ngo) %>
 									<a href= "<%=@ngo.id%>/edit" class="link-style" title="Editar">
