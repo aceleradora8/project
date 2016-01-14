@@ -57,7 +57,7 @@
 				    	<div class="modal-footer">
 					    	<a href= "/interests/<%=@opportunity.id%>" class="link-style" title="Deletar" data-method="delete">
 									<button type="button" class="btn btn-default btn-danger" aria-label="Left Align">Excluir Interesse</button>
-								</a>
+							</a>
 				      </div>
 				    </div>
 				  </div>
@@ -94,7 +94,15 @@
 				<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>
 			<div>
-				<p> <span class="bold">Causa: </span><%= @opportunity.cause.name %></p>
+				<p> <span class="bold">Categorias:</span> 
+				<span class="leftspace">
+				<ul>
+					<% @opportunity.causes.each do |cause|%>
+						<li> <%= cause.name %> </li>
+					<% end %>
+				</ul>
+				 </span>
+				</p>
 			</div>
 			<div>
 				<p> <span class="bold">Vagas: </span><%= @opportunity.vacancies %></p>

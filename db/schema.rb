@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20160112134240) do
   add_index "causes_ngos", ["cause_id"], name: "index_causes_ngos_on_cause_id", using: :btree
   add_index "causes_ngos", ["ngo_id"], name: "index_causes_ngos_on_ngo_id", using: :btree
 
+  create_table "causes_opportunities", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "cause_id"
+  end
+
+  add_index "causes_opportunities", ["cause_id"], name: "index_causes_opportunities_on_cause_id", using: :btree
+  add_index "causes_opportunities", ["opportunity_id"], name: "index_causes_opportunities_on_opportunity_id", using: :btree
+
   create_table "interests", force: :cascade do |t|
     t.integer  "volunteer_id"
     t.integer  "opportunity_id"
@@ -77,16 +85,13 @@ ActiveRecord::Schema.define(version: 20160112134240) do
     t.date     "start_date"
     t.date     "finish_date"
     t.integer  "ngo_id"
-    t.integer  "cause_id"
     t.integer  "vacancies"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "causes_id"
     t.boolean  "recurrent"
   end
 
   add_index "opportunities", ["address_id"], name: "index_opportunities_on_address_id", using: :btree
-  add_index "opportunities", ["causes_id"], name: "index_opportunities_on_causes_id", using: :btree
   add_index "opportunities", ["ngo_id"], name: "index_opportunities_on_ngo_id", using: :btree
 
   create_table "opportunities_skills", force: :cascade do |t|

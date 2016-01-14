@@ -12,19 +12,19 @@ class OpportunitiesController < ApplicationController
 
   def index
     if params[:text_search].nil? || params[:text_search] == ""
-      @opportunity_search = Opportunity.all.includes(:address, :ngo, :cause)
+      @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
     else
-      @opportunity_search = Opportunity.search("#{params[:text_search]}").includes(:address, :ngo, :cause)
+      @opportunity_search = Opportunity.search("#{params[:text_search]}").includes(:address, :ngo, :causes)
     end
     respond_to do |format|
       if request.xhr?
         @opportunities_result = []
         if params[:causes] && params[:cities]
-          filter_with_causes_and_cities(params[:causes], params[:cities])
+          @opportunities_result = filter_with_cities(filter_with_causes(@opportunity_search, params[:causes]), params[:cities])
         elsif params[:causes]
-          filter_with_causes(params[:causes])
+          @opportunities_result = filter_with_causes(@opportunity_search, params[:causes])
         elsif params[:cities]
-          filter_with_cities(params[:cities])
+          @opportunities_result = filter_with_cities(@opportunity_search, params[:cities])
         else
           @opportunities_result = @opportunity_search
         end
@@ -116,26 +116,23 @@ class OpportunitiesController < ApplicationController
   end
 
   def opportunity_params
-    params.require(:opportunity).permit(:title, :description, :recurrent, :start_date, :finish_date, :ngo_id, :cause_id, :vacancies, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [])
+    params.require(:opportunity).permit(:title, :description, :recurrent, :start_date, :finish_date, :ngo_id, :vacancies, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [], cause_ids: [])
   end
 
-  def filter_with_causes_and_cities(causes, cities)
-    causes.each do |cause|
-      cities.each do |city|
-        @opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i && obj.address.city == city})
+  def filter_with_causes(opportunities, causes)
+      result = []
+      opportunities.each do |opportunity|
+        causes = causes.map {|causeid| Cause.find(causeid)} 
+        result.push(opportunity) if causes.all?{ |e| opportunity.causes.include?(e)}
       end
-    end
+      result  
   end
 
-  def filter_with_causes(causes)
-    causes.each do |cause|
-      @opportunities_result.push(@opportunity_search.select { |obj| obj.cause_id == cause.to_i })
-    end
-  end
-
-  def filter_with_cities(cities)
+  def filter_with_cities(opportunities, cities)
+    result = []
     cities.each do |city|
-      @opportunities_result.push(@opportunity_search.select { |obj| obj.address.city == city})
+      result.push(opportunities.select { |obj| obj.address.city == city})
     end
+    result
   end
 end
