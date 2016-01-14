@@ -11,7 +11,8 @@ describe InterestsController, type: :controller do
       @volunteer = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id: @user.id)
       @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user2.id)
       @cause_animal = Cause.create!(name:"Animal")
-      @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: address.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: start_date, finish_date: finish_date)
+      @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: address.id, ngo_id: @ngo.id, start_date: start_date, finish_date: finish_date)
+      @opportunity1.causes.push(@cause_animal)
     end
 
     it 'return success when Interest is created' do
@@ -31,7 +32,8 @@ describe InterestsController, type: :controller do
       @volunteer = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id)
       @ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user2.id)
       @cause_animal = Cause.create!(name:"Animal")
-      @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: address.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: start_date, finish_date: finish_date)
+      @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: address.id, ngo_id: @ngo.id, start_date: start_date, finish_date: finish_date)
+      @opportunity1.causes.push(@cause_animal)
       @interest = Interest.create!(volunteer_id: @volunteer.id, opportunity_id: @opportunity1.id, confirmed: true, presence: true)
       cookies[:auth_token] = user.auth_token
     end
