@@ -1,0 +1,5 @@
+Olá <%= @user.email %>,
+</br>
+Foi solicitado o envio de um novo token. Aperte no botao para confirmar.
+</br>
+<b><%= link_to "Confirmar", confirm_email_user_url(@user.confirm_token) %> </b>
