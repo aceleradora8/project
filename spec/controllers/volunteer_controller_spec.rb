@@ -86,7 +86,7 @@ describe VolunteersController, type: :controller do
 
 		it 'return success when volunteer is deleted' do
 			cookies[:auth_token] = @volunteer_teste.user.auth_token
-			delete :destroy, id: @volunteer_teste.id
+			delete :destroy, id: @volunteer_teste.id, password: "123"
 			expect(flash[:notice]).to eq("Voluntário deletado com sucesso!")
 			expect(cookies[:auth_token]).to be nil
 		end

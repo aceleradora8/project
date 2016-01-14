@@ -37,10 +37,14 @@ class VolunteersController < ApplicationController
 
   def destroy
     @volunteer = Volunteer.find_by_id(params[:id])
-    cookies.delete(:auth_token)
-    @volunteer.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Voluntário deletado com sucesso!" }
+      if @volunteer.user.authenticate(params[:password])
+        cookies.delete(:auth_token)
+        @volunteer.destroy
+        format.html { redirect_to root_path, notice: "Voluntário deletado com sucesso!" }
+      else
+        format.html {redirect_to edit_user_path, error: "Senha incorreta!"}
+      end
     end
   end
 

@@ -17,6 +17,11 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		if @user.role == "ngo"
+			@accountVariable = Ngo.find_by_user_id(@user.id)
+		elsif @user.role = "volunteer"
+			@accountVariable = Volunteer.find_by_user_id(@user.id)
+		end
 	end
 
 	def update

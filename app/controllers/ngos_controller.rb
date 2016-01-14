@@ -97,7 +97,7 @@ class NgosController < ApplicationController
 			end
 		else
 			respond_to do |format|
-				format.html { redirect_to @ngo, error: "Senha incorreta" }
+				format.html { redirect_to edit_user_path, error: "Senha incorreta" }
 			end
 		end
 	end

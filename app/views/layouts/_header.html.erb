@@ -31,8 +31,14 @@
                   <li>
                     <%= link_to "Meu Perfil", current_user.ngo %>
                     <%= link_to "Cadastrar Oportunidades", new_opportunity_path%>
-                    <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="Editar">
-                      Configurações de conta
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href= "/ngos/<%=current_user.ngo.id%>/edit" class="link-style" title="EditarPerfil">
+                      Editar minhas informações
+                    </a>
+                    <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="EditarConfigs">
+                      Configurações de usuário
                     </a>
                      <li role="separator" class="divider"></li>
                   </li>
@@ -46,7 +52,16 @@
                 <ul class="dropdown-menu">
                   <li>
                     <%= link_to "Meu Perfil", current_user.volunteer%>
-                    <%= link_to "Meus Intereses", '/myinterests'%>
+                    <%= link_to "Minhas Candidaturas", '/myinterests'%>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href= "/volunteers/<%=current_user.volunteer.id%>/edit" class="link-style" title="EditarPerfil">
+                      Editar meu perfil
+                    </a>
+                    <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="Editar">
+                      Configurações de usuário
+                    </a>
                     <li role="separator" class="divider"></li>
                   </li>
                  <li><%= link_to "Sair", logout_path, method: "delete"%></li>
