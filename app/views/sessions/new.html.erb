@@ -38,7 +38,8 @@
 		</div>
 	    <div class="form-group">
 			<div class="col-lg-offset-4 col-lg-3">
-				<%= link_to "Esqueceu sua senha?", new_password_reset_path %>
+			<a data-toggle="modal" data-target="#recover-password-modal"> Esqueceu sua senha? </a>
+				 <%# link_to "Esqueceu sua senha?", new_password_reset_path %>
 			</div>
 		</div>
 		<div class="form-group">
@@ -48,28 +49,12 @@
 	</div>
 		 <div class="form-group">
 			<div class="col-lg-offset-4 col-lg-3">
-				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
-  				<%= label_tag "Manter-me logado" %>
+
+				<%= check_box_tag :remember_me, 1, params[:remember_me], :id => "remember-me" %>
+				<%= f.label "Manter-me logado", :for => "remember-me"%>
 			</div>
 		</div>
+
 	<% end %>
 </div>
-
-<div class="modal fade" id="token-resend" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Reenviar token</h4>
-			</div>
-				<%= form_tag(@user, method: :resend_token) do %>
-			<div class="modal-body">
-				<span> Email:  <%= text_field_tag :email %></span>
-			</div>
-			<div class="modal-footer">
-				<%= submit_tag "Reenviar" %>
-				<%end%>
-			</div>
-		</div>
-	</div>
-</div>
+<%= render 'recover_password' %>

@@ -10,7 +10,9 @@
         </ul>
       </div>
     <% end %>
-
+    <div class="col-lg-12 text-center">
+      <h1>Recuperar Senha</h1>
+    </div>
     <div class="form-group">
       <div class="col-lg-offset-3 col-lg-5">
         <%= f.password_field :password, :id => "password-user", :placeholder => "Nova senha", :class => "form-control validate-password"%>
@@ -34,7 +36,7 @@
 
     <div class="form-group">
       <div class="col-lg-offset-3 col-lg-5">
-      <%= f.submit "Atualizar Senha", :class => "btn btn-default btn-lg btn-block" %>
+      <%= f.submit "Atualizar Senha", :class => "btn btn-primary btn-lg btn-block" %>
       </div>
     </div>
   <% end %>
