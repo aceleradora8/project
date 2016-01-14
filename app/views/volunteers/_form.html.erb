@@ -1,46 +1,4 @@
 <div class="row">
-  <div class="col-lg-offset-1">
-    <div id="nameError" class="col-lg-10 alert alert-danger custom-alert-danger empty-error-name-volunteer">
-      <p>Nome Obrigatório!</p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1">
-    <div id="phone-error" class="col-lg-10 alert alert-danger custom-alert-danger phone-error-invalid">
-      <p>Telefone Inválido!</p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1">
-  <div id="emailErrorInvalid" class="col-lg-10 alert alert-danger custom-alert-danger email-error-invalid">
-      <p>Email Inválido!</p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1">
-      <div id="birthDateError" class="col-lg-10 alert alert-danger custom-alert-danger birth-date-error">
-        <p>A data de nascimento deve ser menor que a data de hoje.</p>
-      </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1">
-    <div id="emailErrorNil" class="col-lg-10 alert alert-danger custom-alert-danger empty-error-email-user">
-        <p>Email Obrigatório!</p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1">
-      <div id="passwordError" class="col-lg-10 alert alert-danger custom-alert-danger empty-error-password-user">
-        <p>Senha Obrigatória!</p>
-      </div>
-  </div>
-</div>
-<div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
     <label class="control-label", for="name-volunteer">Nome: <span class="mandatory">*</span></label>
   </div>
@@ -54,11 +12,6 @@
   <div class="col-lg-offset-2 col-lg-8 form-group">
     <%= f.label "Observações:", :for => "observations-ngo", :class => "control-label" %>
     <%= f.text_area :observations, :class => "form-control validate-observations" , :id => "description-ngo"%>
-  </div>
-  <div class="col-lg-offset-1 col-lg-7">
-    <div id="observations-error" class="col-lg-3 alert alert-danger custom-alert-danger empty-error-observations-ngo">
-          <p>Campo Obrigatório!</p>
-      </div>
   </div>
 </div>
 <div class="row">

@@ -8,11 +8,6 @@
 		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" %>
 		</div>
-		<div class="col-lg-5">
-			<div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
-	    		<p>Email Inválido!</p>
-	  		</div>
-  		</div>
 	</div>
 	
 	<div class="row">
@@ -35,10 +30,5 @@
 		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= ff.password_field :password_confirmation, :id => "password-confirmation-user", :class => "form-control validate-password-confirmation-user" %>
 		</div>
-	<div>
-		<div id="passwordConfirmationError" class="col-lg-4 alert alert-danger custom-alert-danger password-confirmation-invalid">
-			<p>Senhas não são iguais!</p>
-		</div>
-	</div>
 	</div>
 <% end %>
