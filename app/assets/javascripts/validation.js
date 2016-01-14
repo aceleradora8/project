@@ -35,7 +35,12 @@ VALIDATION.eventsValidate = function eventsValidate(){
     VALIDATION.validatePasswordConfirmation();
   });
   $(".validate-email").focusout(function(){
-    VALIDATION.validateEmail();
+    VALIDATION.validateEmail($(".validate-email"),
+      $('.email-error-invalid'));
+  });
+  $(".validate-recover-email").focusout(function(){
+    VALIDATION.validateEmail($(".validate-recover-email"),
+      $('.email-recover-error-invalid'));
   });
   $(".birthday-teste").focusout(function(){
     VALIDATION.validateBirthDay();
@@ -83,15 +88,14 @@ VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation(
         VALIDATION.buttonState();
 }
 
-VALIDATION.validateEmail = function validateEmail() {
-  email = $(".validate-email");
+VALIDATION.validateEmail = function validateEmail(email,div_error) {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.val().match(mailformat)) {
       email.removeClass("input-text-error");
-      $('.email-error-invalid').hide();
+      div_error.hide();
     } else {
       email.addClass("input-text-error");
-      $('.email-error-invalid').show();
+      div_error.show();
     }
       VALIDATION.buttonState();
 }

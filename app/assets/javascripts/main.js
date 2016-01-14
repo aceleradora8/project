@@ -17,6 +17,7 @@ var ready = function() {
   OPPORTUNITIES.getCausesChecked();
   OPPORTUNITIES.getCitiesChecked();
   OPPORTUNITIES.getRecurrentChecked();
+  OPPORTUNITIES.checkCategories();
 
   PASS_RESETS.validateFormResetPassOnSubmit();
 
