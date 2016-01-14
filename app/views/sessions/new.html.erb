@@ -62,11 +62,13 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Reenviar token</h4>
 			</div>
+				<%= form_tag(@user, method: :resend_token) do %>
 			<div class="modal-body">
-				<span> Teste </span>
+				<span> Email:  <%= text_field_tag :email %></span>
 			</div>
 			<div class="modal-footer">
-				</a>
+				<%= submit_tag "Reenviar" %>
+				<%end%>
 			</div>
 		</div>
 	</div>

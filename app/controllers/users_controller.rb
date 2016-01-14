@@ -45,11 +45,13 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if @user.nil?
 				format.html { redirect_to login_path, error: "Email não cadastrado, por favor, cadastre-se."}
-			elsif @user.confirmed = false
-				UserMailer.email_confirmation(@user).deliver_later
+			elsif @user.confirmed == false
+				UserMailer.resend_token(@user).deliver_later
 				format.html { redirect_to login_path, notice: "Token de ativação enviado com sucesso. Verifique a caixa de entrada do seu Email." }
 			else
 				format.html { redirect_to login_path, error: "Email já ativado. Logue-se!" }
+			end
+		end
 	end
 
 	private

@@ -8,6 +8,13 @@ class UserMailer < ApplicationMailer
       content_type: "text/html")
   end
 
+  def resend_token(user)
+    @user = user
+    mail(to: @user.email,
+      subject: "Confirme seu cadastro.",
+      content_type: "text/html")
+  end
+
   def password_reset(user)
     @user = user
     mail to: user.email, subject: "Recuperação de Senha - ONGARIUM"
