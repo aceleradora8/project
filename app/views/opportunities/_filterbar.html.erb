@@ -3,9 +3,9 @@
 		<h3>Filtros</h3>
 		<hr>
 		<div>
-			<ul class="font-title margin"> Causa: 
+			<ul class="font-title margin list-group"> Causa: 
 				<% @causes.each do |cause| %>
-					<li class="margin">
+					<li class="margin list-group-item">
 						<input type="checkbox" name="causes" id="<%=cause.id%>" value="<%=cause.id%>" class="cb_cause">
 						<span class="font-cause" for="<%=cause.id%>"><%=cause.name%></span>
 					</li>
