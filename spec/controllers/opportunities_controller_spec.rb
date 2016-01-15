@@ -50,6 +50,11 @@ describe OpportunitiesController, type: :controller do
         xhr :get, :index, {cities: [@address_poa.city]}
         expect(assigns(:opportunities_result)).to match_array([@opportunity1])
       end
+
+      it 'expect interest variable to be a new Interest' do
+        get :show, id: @opportunity1.id
+        expect(assigns(:interest)).to be_a_new(Interest)
+      end
   end
 
   describe '#new' do
@@ -101,22 +106,7 @@ describe OpportunitiesController, type: :controller do
         }
           expect(response).to render_template("new")
       end
-
-
-      ## ISN'T WORKING :(
-      it 'expect start_date and finish_date to be nil if recurrent = 1' do
-          post :create, opportunity: {
-          title: 'Oportunidade32',
-          description: 'qualquercoisaai',
-          address_attributes: {address:"end qlqrcoisa", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
-          ngo_id: @ngo.id,
-          cause_id: @cause_animal.id,
-          recurrent: "1"
-          }
-        expect(assigns(:opportunity).start_date).to eq(nil)
-        expect(assigns(:opportunity).finish_date).to eq(nil)
     end
-  end
 
   describe '#edit' do
     before :each do

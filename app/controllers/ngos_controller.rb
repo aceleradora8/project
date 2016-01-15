@@ -56,7 +56,7 @@ class NgosController < ApplicationController
 					flash[:error] = nil
 				end
 			elsif @ngo.save
-				UserMailer.email_confirmation(@ngo).deliver
+				UserMailer.email_confirmation(@ngo).deliver_later
 				format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
 			else
 				format.html { render 'new' }

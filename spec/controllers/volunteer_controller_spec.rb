@@ -90,6 +90,13 @@ describe VolunteersController, type: :controller do
 			expect(flash[:notice]).to eq("Voluntário deletado com sucesso!")
 			expect(cookies[:auth_token]).to be nil
 		end
+
+		it 'returns error when password is incorrect' do
+			cookies[:auth_token] = @volunteer_teste.user.auth_token
+			delete :destroy, id: @volunteer_teste.id, password: "321"
+			expect(flash[:error]).to eq("Senha incorreta!")
+		end
+
 	end
 
 	describe '#new' do
