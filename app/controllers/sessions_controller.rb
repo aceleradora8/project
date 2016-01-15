@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    session[:return_to] ||= request.referer unless (request.referer == nil) || (request.referer.include?("new") || request.referer.include?("create") || request.referer.include?("login"))
+    session[:return_to] ||= request.referer unless request.referer.nil? || (request.referer.include?("new") || request.referer.include?("create") || request.referer.include?("login")) || request.referer.include?("password")
   end
 
   def create
