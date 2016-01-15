@@ -78,7 +78,7 @@
 
   <div class="row">
     <div class="col-lg-offset-4 col-lg-4">
-      <a href="#" data-toggle="modal" data-target="#removeModal" class="danger-text">Remover minha conta</a>
+      <a href="" data-toggle="modal" data-target="#removeModal" class="danger-text">Remover minha conta</a>
     </div>
   </div>
 
@@ -91,27 +91,24 @@
   </div>
 <% end %>
 
-
-<%if current_user%>
-	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
-	   <div class="modal-dialog" role="document">
-		  <div class="modal-content">
-		    <div class="modal-header">
-		      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      <h4 class="modal-title" id="removeModalLabel">Você deletar sua conta: <%=@accountVariable.name%>?</h4>
-		    </div>
-				<div>
-					<%= form_tag(@accountVariable, method: :delete) do %>
-					<div class="modal-body">
-						<p>Informe sua senha para concluir o processo de remoção do perfil</p>
-						<span> Senha: </span> <%= password_field_tag :password %>
-					</div>
-		      <div class="modal-footer">
-					<%= submit_tag "Remover minha conta", :class => "btn btn-danger" %>
-					<% end %>
-		      </div>
+<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+   <div class="modal-dialog" role="document">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      <h4 class="modal-title" id="removeModalLabel">Você deletar sua conta: <%=@accountVariable.name%>?</h4>
+	    </div>
+			<div>
+				<%= form_tag(@accountVariable, method: :delete) do %>
+				<div class="modal-body">
+					<p>Informe sua senha para concluir o processo de remoção do perfil</p>
+					<span> Senha: </span> <%= password_field_tag :password %>
 				</div>
-		  </div>
-		</div>
-  </div>
-<%end%>
+	      <div class="modal-footer">
+				<%= submit_tag "Remover minha conta", :class => "btn btn-danger" %>
+				<% end %>
+	      </div>
+			</div>
+	  </div>
+	</div>
+</div>
