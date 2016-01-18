@@ -5,10 +5,9 @@ describe VolunteersController, type: :controller do
 	describe '#create' do
 		before :each do
 			user = User.create!(email:"teste_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id)
+			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id, birth_date: '01/01/2001')
 			user_new = User.new(email:"teste_novo_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new)
-			@controller = VolunteersController.new
+			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new, birth_date: '01/01/2001')
 		end
 
 		it 'return error when passing a volunteer existing email' do
@@ -23,6 +22,7 @@ describe VolunteersController, type: :controller do
 		it 'return success message when passing a volunteer with new email' do
 			post :create, volunteer: {
 			name:"name",
+			birth_date: '01/01/2001',
 			phone1:"(66)6666-6666",
 			user_attributes: { email: "new_email@teste.com", password: "123", password_confirmation: "123"}
 			}
@@ -45,10 +45,9 @@ describe VolunteersController, type: :controller do
 	describe '#update' do
 		before :each do
 			user = User.create!(email:"teste_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id)
+			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id, birth_date: '01/01/2001')
 			user_new = User.new(email:"teste_novo_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new)
-			@controller = VolunteersController.new
+			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new, birth_date: '01/01/2001')
 		end
 
 		it 'return success message when volunteer was updated' do
@@ -78,10 +77,9 @@ describe VolunteersController, type: :controller do
 	describe '#destroy' do
 		before :each do
 			user = User.create!(email:"teste_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id)
+			@volunteer_teste = Volunteer.create!(name:"Voluntário teste",observations:"teste", phone1:"(66)6666-6666", user_id:user.id, birth_date: '01/01/2001')
 			user_new = User.new(email:"teste_novo_voluntario@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"volunteer")
-			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new)
-			@controller = VolunteersController.new
+			@volunteer_new = Volunteer.new(name:"Voluntário Novo",observations:"teste", phone1:"(66)6666-6666", user_id:user_new, birth_date: '01/01/2001')
 		end
 
 		it 'return success when volunteer is deleted' do

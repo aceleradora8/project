@@ -15,7 +15,6 @@ describe OpportunitiesController, type: :controller do
       	@opportunity1.causes.push(@cause_animal)
         @opportunity2 = Opportunity.create!(title: 'Opportunity2', description: "Qualquer coisa", address_id: @address_viamao.id, ngo_id: ngo.id, start_date: start_date, finish_date: finish_date)
         @opportunity2.causes.push(@cause_health)
-        @controller = OpportunitiesController.new
       end
 
       it 'returns all opportunities when text_search is nil' do
