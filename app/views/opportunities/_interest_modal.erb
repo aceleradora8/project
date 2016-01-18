@@ -1,0 +1,25 @@
+<%if current_user%>
+	<%if current_user.volunteer%>
+		<div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Confirmar Interesse</h4>
+		      </div>
+		      <div class="modal-body">
+		        <span> Olá <%= current_user.volunteer.name if current_user.volunteer %>, você confirma seu interesse na oportunidade <%= @opportunity.title %> ? </span>
+		        <span>Seus dados serão enviados para a ong <%= @opportunity.ngo.name %>, informando seu interesse! Aguarde retorno via e-mail ou telefone. </span>
+		      </div>
+		      <div class="modal-footer">
+		        <%= form_for(@interest,:html => {:id => "form-interest"}) do |f| %>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+					<%=  f.hidden_field :opportunity_id, :value => @opportunity.id %>
+					<%= f.submit "Confirmar Interesse", id: "confirm-interest", :class => "btn btn-primary" %>
+				<%end%>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	<%end%>
+<%end%>

@@ -1,3 +1,7 @@
+<%= render "interest_modal" %>
+<%= render "delete_interest_modal" %>
+<%= render "delete_opportunity_modal" %>
+
 <div class="container">
 	<div class="panel ">
 		<% if notice != nil %>
@@ -21,51 +25,7 @@
 			</h1>
 		</div>
 
-		<%if current_user%>
-			<%if current_user.ngo%>
-				<div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Excluir Oportunidade</h4>
-				      </div>
-				      <div class="modal-body">
-				        <span> Olá <%= current_user.ngo.name if current_user.ngo %>, você tem certeza que deseja excluir a oportunidade <%= @opportunity.title %>? </span>
-				      </div>
-				      <div class="modal-footer">
-				        <%= form_tag(@opportunity, method: :delete) do %>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-									<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-danger" %>
-								<%end%>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			<%end%>
-			<%if current_user.volunteer%>
-				<div class="modal fade" id="confirm-delete-interest-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Excluir Interesse</h4>
-				      </div>
-				      <div class="modal-body">
-				        <span> Olá <%= current_user.volunteer.name if current_user.volunteer %>, você tem certeza que deseja excluir o seu interesse na oportunidade <%= @opportunity.title %>? </span>
-				      </div>
-				    	<div class="modal-footer">
-					    	<a href= "/interests/<%=@opportunity.id%>" class="link-style" title="Deletar" data-method="delete">
-									<button type="button" class="btn btn-default btn-danger" aria-label="Left Align">Excluir Interesse</button>
-							</a>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			<%end%>
-		<%end%>
-
-		<div class="panel-body detailopp">
+	<div class="panel-body detailopp">
 			<div>
 				<p> <span class="bold">Descrição: </span>
 				<br>
@@ -90,11 +50,10 @@
 			</div>
 			<% end %>
 			<div>
-
-				<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
+					<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>
 			<div>
-				<p> <span class="bold">Categorias:</span> 
+				<p> <span class="bold">Categorias:</span>
 				<span class="leftspace">
 				<ul>
 					<% @opportunity.causes.each do |cause|%>
@@ -128,7 +87,7 @@
 				<div class="alignright">
 					<%if current_user%>
 						<%if current_user.role != "ngo"%>
-					 		<button class="btn btn-primary outline" data-toggle="modal" data-target="#myModal">Candidatar-se</button>
+					 		<button class="btn btn-primary outline" data-toggle="modal" data-target="#interestModal">Candidatar-se</button>
 				 		<%end%>
 			 		<%else%>
 			 			<%=link_to "Candidatar-se", login_path, :class=>"btn btn-primary outline"%>
@@ -138,29 +97,3 @@
 		</div>
 	</div>
 </div>
-
-<%if current_user%>
-	<%if current_user.volunteer%>
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Confirmar Interesse</h4>
-		      </div>
-		      <div class="modal-body">
-		        <span> Olá <%= current_user.volunteer.name if current_user.volunteer %>, você confirma seu interesse na oportunidade <%= @opportunity.title %> ? </span>
-		        <span>Seus dados serão enviados para a ong <%= @opportunity.ngo.name %>, informando seu interesse! Aguarde retorno via e-mail ou telefone. </span>
-		      </div>
-		      <div class="modal-footer">
-		        <%= form_for(@interest,:html => {:id => "form-interest"}) do |f| %>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-					<%=  f.hidden_field :opportunity_id, :value => @opportunity.id %>
-					<%= f.submit "Confirmar Interesse", id: "confirm-interest", :class => "btn btn-primary" %>
-				<%end%>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	<%end%>
-<%end%>
