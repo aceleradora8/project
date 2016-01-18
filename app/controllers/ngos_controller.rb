@@ -1,6 +1,6 @@
 class NgosController < ApplicationController
 	before_action :set_ngo, only: [:show, :edit, :destroy]
-	before_action :set_cities, only: [:index]
+	before_action :set_causes, :set_cities, only: [:index, :new, :edit]
 	before_action :require_ngo, only: [:edit, :destroy]
 	helper NgosHelper
 
@@ -23,13 +23,15 @@ class NgosController < ApplicationController
 		if params[:text_search].nil? || params[:text_search] == ""
 			@ngos_search = Ngo.all
 		else
-			@ngos_search = Ngo.search("#{params[:text_search]}")
+			@ngos_search = Ngo.search("#{params[:text_search]}").includes(:causes)
 		end
 		respond_to do |format|
 			if request.xhr?
 				@ngos_result = []
 				if params[:cities]
 					filter_with_cities(params[:cities])
+				elsif params[:causes]
+					filter_with_causes(params[:causes])
 				end
 				@opportunities_result = @opportunity_search
 				@ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
@@ -138,9 +140,19 @@ class NgosController < ApplicationController
 		@cities = Address.uniq.pluck(:city)
 	end
 
+	def set_causes
+		@causes = Cause.all
+	end
+
 	def filter_with_cities(cities)
 		cities.each do |city|
 			@ngos_result.push(@ngos_search.select { |obj| obj.address.city == city})
+		end
+	end
+
+	def filter_with_causes(causes)
+		causes.each do |cause|
+			@ngos_result.push(@ngos_search.select { |obj| obj.causes.name == city})
 		end
 	end
 end

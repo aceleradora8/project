@@ -12,5 +12,9 @@ class Ngo < ActiveRecord::Base
 	accepts_nested_attributes_for :user
                         
 	include PgSearch
-	pg_search_scope :search, against: [:name, :description], ignoring: :accents
+	pg_search_scope :search, against: [:name, :description], ignoring: :accents,
+	associated_against: {
+			 address: [:neighborhood, :city, :state],
+			 causes: [:name] 
+		 }
 end
