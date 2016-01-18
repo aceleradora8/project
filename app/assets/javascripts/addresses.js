@@ -25,21 +25,31 @@ ADDRESSES.requestZipCode = requestZipCode = function() {
       zipcode: $("#inputZipcode").val()
     },
     success: function(response) {
+      ADDRESSES.cleanFields();
+      readOnlyFieldsAddress(response.neighborhood, $("#inputNeighborhood"));
+      readOnlyFieldsAddress(response.address, $("#inputAddress"));
       $("#ajax-loader").hide();   
-      $("#inputState").attr("value", response.state);
-      $("#inputState").attr("text", response.state);
-      $("#inputCity").attr("value", response.city);
-      $("#inputCity").attr("text", response.city);
-      $("#inputNeighborhood").attr("value", response.neighborhood);
-      $("#inputNeighborhood").attr("text", response.neighborhood);
-      $("#inputAddress").attr("value", response.address);
-      $("#inputAddress").attr("text", response.address);
+      $("#inputState").val(response.state);
+      $("#inputCity").val(response.city);
+      $("#inputNeighborhood").val(response.neighborhood);
+      $("#inputAddress").val(response.address);
+      VALIDATION.validateZipCode();
     },error: function(){
       ($("#inputZipcode").val().length == 0) ? $("#ajax-loader").hide() : $("#ajax-loader").show(); 
       ADDRESSES.cleanFields();
     }
   });
 };
+
+function readOnlyFieldsAddress(valor, input){
+  if(valor == ""){
+    input.prop('readonly', false)
+    input.attr("placeholder", "");
+  }else{
+     input.prop('readonly', true); 
+     input.attr("placeholder", "Digite o CEP acima");
+  }
+}
 
 ADDRESSES.requestTriggerZipcode = function requestTriggerZipcode() {
   $("#inputZipcode").keyup(function() {

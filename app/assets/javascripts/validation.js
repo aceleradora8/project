@@ -7,6 +7,7 @@ VALIDATION.validateEmpty = function validateEmpty(input) {
     input.removeClass("input-text-error");
     errorArray.pop();
   } else {
+    input.focus();
     input.addClass("input-text-error");
     errorArray.push(true);
   }
@@ -146,7 +147,6 @@ VALIDATION.validateDate = function validateDate() {
 
 VALIDATION.validateZipCode = function validateZipCode() {
   zipCode = $(".validate-zipcode");
-  if (VALIDATION.validateEmpty($(".validate-zipcode"))) {
     if ($("#inputCity").val().length == 0) {
       zipCode.addClass("input-text-error");
       errorArray.push(true);

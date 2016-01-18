@@ -24,7 +24,7 @@
 			<div class="col-lg-6">
 				<%= a.label "Endereço: ", :class => "control-label", :for => "inputAddress"%>
 			
-				<%= a.text_field :address, :id => "inputAddress", :class => "form-control" %>
+				<%= a.text_field :address, :id => "inputAddress", :class => "form-control", :readonly => true, :placeholder => "Digite o CEP acima" %>
 			</div>
 			<div class="col-lg-1">
 				<%= a.label "Número: ", :class => "control-label", :for => "inputNumber"%>
@@ -42,16 +42,16 @@
 			<div class="col-lg-3 form-group">
 				<%= a.label "Bairro: ", :class => "control-label", :for => "inputNeighborhood" %>
 			
-				<%= a.text_field :neighborhood, :id => "inputNeighborhood", :class => "form-control" %>
+				<%= a.text_field :neighborhood, :id => "inputNeighborhood", :class => "form-control", :readonly => true, :placeholder => "Digite o CEP acima"  %>
 			</div>
 			<div class="col-lg-4">
 				<%= a.label "Cidade: ", :class => "control-label", :for => "inputCity"%>
-				<%= a.text_field :city, :id => "inputCity", :class => "form-control" %>
+				<%= a.text_field :city, :id => "inputCity", :class => "form-control", :readonly => true, :placeholder => "Digite o CEP acima"%>
 			</div>
 		
 			<div class="col-lg-1">
 				<%= a.label "Estado: ", :class => "control-label", :for => "inputState"%>
-				<%= a.text_field :state, :id => "inputState", :class => "form-control"%>
+				<%= a.text_field :state, :id => "inputState", :class => "form-control", :readonly => true %>
 			</div>
 		</div>	
 	</div>
