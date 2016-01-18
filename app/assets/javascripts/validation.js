@@ -1,21 +1,24 @@
 var VALIDATION = VALIDATION || {}
 
+var errorArray = [];
+
 VALIDATION.validateEmpty = function validateEmpty(input) {
   if (input.val() != "") {
     input.removeClass("input-text-error");
-    $('.empty-error-' + input.attr('id')).hide();
+    errorArray.pop();
   } else {
     input.addClass("input-text-error");
-    $('.empty-error-' + input.attr('id')).show();
+    errorArray.push(true);
   }
-    VALIDATION.buttonState();
+    VALIDATION.showErrorMessage();
 };
 
 VALIDATION.validateName = function validateName() {
-    validate =  VALIDATION.validateEmpty($(".validate-name"));
+    validate = VALIDATION.validateEmpty($(".validate-name"));
 };
 
 VALIDATION.eventsValidate = function eventsValidate(){
+   VALIDATION.showErrorMessage();
   $(".validate-name").focusout(function(){
     VALIDATION.validateName();
   });
@@ -59,13 +62,13 @@ VALIDATION.validateVacancies = function validateVacancies() {
   VALIDATION.validateEmpty($(".validate-vacancies"))
   if (vacancies.val() > 0 && vacancies.val() < 1000){
     vacancies.removeClass("input-text-error");
-    $('.vacancies-error-invalid').hide();
+    errorArray.pop();
   }
   else {
     vacancies.addClass("input-text-error");
-    $('.vacancies-error-invalid').show();
+    errorArray.push(true);
   }
-  VALIDATION.buttonState();
+  VALIDATION.showErrorMessage();
 };
 
 VALIDATION.validatePassword = function validatePassword() {
@@ -77,24 +80,24 @@ VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation(
     passwordConfirmation = $(".validate-password-confirmation-user");
       if (password.val() == passwordConfirmation.val()) {
         passwordConfirmation.removeClass("input-text-error");
-        $(".password-confirmation-invalid").hide();
+        errorArray.pop();
       } else {
         passwordConfirmation.addClass("input-text-error");
-        $(".password-confirmation-invalid").show();
+        errorArray.push(true);
       }
-        VALIDATION.buttonState();
+        VALIDATION.showErrorMessage();
 }
 
 VALIDATION.validateEmail = function validateEmail(email,div_error) {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.val().match(mailformat)) {
       email.removeClass("input-text-error");
-      div_error.hide();
+      errorArray.pop();
     } else {
       email.addClass("input-text-error");
-      div_error.show();
+      errorArray.push(true);
     }
-      VALIDATION.buttonState();
+      VALIDATION.showErrorMessage();
 }
 
 VALIDATION.validateContactEmail = function validateContactEmail() {
@@ -102,12 +105,12 @@ VALIDATION.validateContactEmail = function validateContactEmail() {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(contactEmail.val().match(mailformat)) {
       contactEmail.removeClass("input-text-error");
-      $('.email-error-invalid').hide();
+      errorArray.pop();
     } else {
       contactEmail.addClass("input-text-error");
-      $('.email-error-invalid').show();
+      errorArray.push(true);
     }
-  VALIDATION.buttonState();
+  VALIDATION.showErrorMessage();
 }
 
 VALIDATION.validatePhone = function validatePhone() {
@@ -115,12 +118,12 @@ VALIDATION.validatePhone = function validatePhone() {
   var phoneformat = /^([0-9]{2})?(\([0-9]{2})\)([0-9]{3}|[0-9]{4})-[0-9]{4}$/;
     if (phone.val().match(phoneformat)) {
       phone.removeClass("input-text-error");
-      $('.phone-error-invalid').hide();
+      errorArray.pop();
     } else {
       phone.addClass("input-text-error");
-      $('.phone-error-invalid').show();
+      errorArray.push(true);
     }
-    VALIDATION.buttonState();
+    VALIDATION.showErrorMessage();
 }
 
 VALIDATION.disableButtonOnSubmit = function validateForm() {
@@ -133,12 +136,12 @@ VALIDATION.validateDate = function validateDate() {
   var finishDate = new Date($("select[name='opportunity[finish_date(1i)]']").val() + "/" + $("select[name='opportunity[finish_date(2i)]']").val() + "/" + $("select[name='opportunity[finish_date(3i)]']").val());
   if (startDate > finishDate) {
     $('.error-date-opportunities').addClass("input-text-error");
-    $('.error-date-opportunities').show();
+    errorArray.push(true);
   } else {
-      $('.error-date-opportunities').removeClass("input-text-error");
-     $('.error-date-opportunities').hide();
+    $('.error-date-opportunities').removeClass("input-text-error");
+    errorArray.pop();
   }
-  VALIDATION.buttonState();
+  VALIDATION.showErrorMessage();
 };
 
 VALIDATION.validateZipCode = function validateZipCode() {
@@ -146,19 +149,19 @@ VALIDATION.validateZipCode = function validateZipCode() {
   if (VALIDATION.validateEmpty($(".validate-zipcode"))) {
     if ($("#inputCity").val().length == 0) {
       zipCode.addClass("input-text-error");
-      $('.error-zipcode-invalid').show();
+      errorArray.push(true);
     } else {
       zipCode.removeClass("input-text-error");
-      $('.error-zipcode-invalid').hide();
+      errorArray.pop();
     }
   }
-  VALIDATION.buttonState();
+  VALIDATION.showErrorMessage();
 };
 
-VALIDATION.buttonState = function buttonState() {
-  if ($(".input-text-error").length == 0) {
-    $("input[name='commit']").prop("disabled", false);
+VALIDATION.showErrorMessage = function showErrorMessage() {
+  if (errorArray.length == 0) {
+    $('.errorMessageJS').hide();
   } else {
-   $("input[name='commit']").prop("disabled", true);
+   $('.errorMessageJS').show();
   }
 }

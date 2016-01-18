@@ -4,6 +4,9 @@
       <p id="error"><%= error %></p>
     </div>
   <%end%>
+  <div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize errorMessageJS">
+    <p id="errorMessage">Erro encontrado, verifique os campos em vermelho.</p>
+  </div>
   <%= form_for(@volunteer,:html=>{:id=>"form-volunteer"}) do |f| %>
     <% if @volunteer.errors.any? %>
         <div id="error_explanation">
@@ -21,7 +24,7 @@
     <div class="col-lg-12 text-center">
       <h1>Novo Voluntário</h1>
     </div>
-    <%= render 'form', f:f %>  
+    <%= render 'form', f:f %>
     <%= render 'users/form', f:f %>
     <div class="row">
       <div class="col-lg-offset-2 col-lg-4 form-group">
