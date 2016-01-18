@@ -5,4 +5,4 @@ INTEREST.disableButtonOnSubmit = function validateForm() {
     $("#confirm-interest").prop("disabled", true);
     $("#confirm-interest").val("Confirmando interesse...")
   });
-}
+};

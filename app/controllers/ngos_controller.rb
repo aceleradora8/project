@@ -36,6 +36,11 @@ class NgosController < ApplicationController
 				format.js
 			else
 				@ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
+				@ngos_result.each do |ngo|
+					if ngo.user.confirmed == false
+						@ngos_result.delete(ngo)
+					end
+				end
 				format.html
 			end
 		end

@@ -6,35 +6,33 @@
 	</div>
 <% end %>
 <% @ngos_result.each do |ngo| %>
-	<%if ngo.user.confirmed == true %>
-		<div class="panel">
-			<div class="row panel-body detailopp bs-callout bs-callout-info">
-				<div class="row">
-					<div class="col-lg-12 ngo-title">
-						<a href="ngos/<%=ngo.id%>"><h3><%=ngo.name%></h3></a>
-					</div>
+	<div class="panel">
+		<div class="row panel-body detailopp bs-callout bs-callout-info">
+			<div class="row">
+				<div class="col-lg-12 ngo-title">
+					<a href="ngos/<%=ngo.id%>"><h3><%=ngo.name%></h3></a>
 				</div>
+			</div>
+				<div class="row">
+				<div class="col-lg-12 description">
+					<%= ngo.description %>
+				</div>
+			</div>
 
-				<div class="row">
-					<div class="col-lg-12 description">
-						<%= ngo.description %>
-					</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<%= ngo.user.email %>
 				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<%= ngo.user.email %>
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<%= ngo.address.city %>,
+					<%= ngo.address.state %>
 				</div>
-				<div class="row">
-					<div class="col-lg-4">
-						<%= ngo.address.city %>,
-						<%= ngo.address.state %>
-					</div>
-					<div class="col-lg-offset-4 col-lg-4">
-					<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary pull-right" %>
-					</div>
+				<div class="col-lg-offset-4 col-lg-4">
+				<%= link_to "Ver mais", ngo, :class=>"link-style btn btn-primary pull-right" %>
 				</div>
 			</div>
 		</div>
-	<%end%>		
+	</div>
 <%end%>
