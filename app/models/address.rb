@@ -6,7 +6,7 @@ class Address < ActiveRecord::Base
 
   def print_address
     if zipcode
-      "#{address}, #{number},  #{complement} -
+      "#{address}, #{number}, #{complement} -
        #{neighborhood}, #{city} -
        #{state}, #{country}, #{zipcode}"
     else
