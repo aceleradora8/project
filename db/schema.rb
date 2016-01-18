@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20160112134240) do
     t.string   "phone2"
     t.integer  "user_id"
     t.string   "sex"
-    t.date     "birth_date"
+    t.date     "birth_date",   null: false
   end
 
 end
