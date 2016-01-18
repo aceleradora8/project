@@ -14,6 +14,17 @@ VALIDATION.validateEmpty = function validateEmpty(input) {
     VALIDATION.showErrorMessage();
 };
 
+VALIDATION.validateEmptyDate = function validateEmptyDate(input) {
+  if (input.val() != "") {
+    $('.birthday-teste').removeClass("input-text-error");
+    errorArray.pop();
+  } else {
+    $('.birthday-teste').addClass("input-text-error");
+    errorArray.push(true);
+  }
+    VALIDATION.showErrorMessage();
+};
+
 VALIDATION.validateName = function validateName() {
     validate = VALIDATION.validateEmpty($(".validate-name"));
 };
@@ -28,6 +39,15 @@ VALIDATION.eventsValidate = function eventsValidate(){
   });
   $(".validate-phone").focusout(function(){
     VALIDATION.validatePhone();
+  });
+  $("#volunteer_birth_date_3i").focusout(function(){
+    VALIDATION.validateEmptyDate($("#volunteer_birth_date_3i"));
+  });
+  $("#volunteer_birth_date_2i").focusout(function(){
+    VALIDATION.validateEmptyDate($("#volunteer_birth_date_2i"));
+  });
+  $("#volunteer_birth_date_1i").focusout(function(){
+    VALIDATION.validateEmptyDate($("#volunteer_birth_date_1i"));
   });
   $(".validate-contact-email").focusout(function(){
     VALIDATION.validateContactEmail();

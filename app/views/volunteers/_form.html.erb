@@ -46,7 +46,7 @@
     <label class="control-label", for="sex-volunteer">Data de Nascimento: </label>
     <div class="row">
       <div class="col-lg-10 div-date birthday-teste">
-        <%= f.date_select :birth_date , {start_year: Time.now.year - 80 , end_year: Time.now.year - 10}%>
+        <%= f.date_select :birth_date, prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 60 , end_year: Time.now.year - 10 %>
       </div>
     </div>
   </div>
