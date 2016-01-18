@@ -1,0 +1,24 @@
+<%if current_user%>
+<div class="panel-body detailopp">
+	<%if current_user.ngo%>
+		<div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	      <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Excluir Oportunidade</h4>
+			      </div>
+			      <div class="modal-body">
+			        <span> Olá <%= current_user.ngo.name if current_user.ngo %>, você tem certeza que deseja excluir a oportunidade <%= @opportunity.title %>? </span>
+			      </div>
+			      <div class="modal-footer">
+			        <%= form_tag(@opportunity, method: :delete) do %>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+								<%= submit_tag "Excluir", id: "delete-opportunity", :class => "btn btn-danger" %>
+						<%end%>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+  <%end%>
+<%end%>
