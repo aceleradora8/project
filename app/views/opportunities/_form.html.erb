@@ -8,13 +8,13 @@
     </div>
 <% end %>
 <div class="row">
-	<div class="col-lg-offset-1 col-lg-9 form-group">
+	<div class="col-lg-offset-1 col-lg-8 form-group">
 		<label class="control-label", for="title-opportunity">Título: <span class="mandatory">*</span></label>
 		<%= f.text_field :title, :id => "title-opportunity", :class => "form-control validate-name col-lg-3" ,:placeholder => "Título da oportunidade" %>
-	</div> 
+	</div>
 
-	<div class="col-lg-1 form-group">
-		<%= f.label "Vagas:", :for => "vacancies-opportunity"%>
+	<div class="col-lg-2 form-group">
+		<%= f.label "Número de vagas:", :for => "vacancies-opportunity"%>
 		<span class="mandatory">*</span>
 		<%= f.number_field :vacancies, min:1, max:999, :id => "vacancies-opportunity", :class => "form-control validate-vacancies"%>
 	</div>
@@ -49,9 +49,9 @@
 	</div>
 </div>
 <div class="row margin-end-top br">
-	<div class="col-lg-offset-1 form-group ">
+	<div class="col-lg-offset-1 form-group">
 		<div class="col-lg-4">
-			<%= f.label "Categorias:", :class => "control-label" %>
+			<%= f.label "Causas da oportunidade:", :class => "control-label" %>
 		</div>
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
@@ -67,7 +67,7 @@
 <div class="row margin-end-top br">
 	<div class="col-lg-offset-1 form-group ">
 		<div class="col-lg-4">
-			<%= f.label "Requisitos:", :class => "control-label" %>
+			<%= f.label "Pré-requisitos:", :class => "control-label" %>
 		</div>
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
