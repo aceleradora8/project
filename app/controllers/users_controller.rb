@@ -26,10 +26,16 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update(user_params)
-			redirect_to root_url
-		else
-			render 'edit'
+		respond_to do |format|
+				if @user.authenticate(params[:current_password])
+						if @user.update(user_params)
+								format.html { redirect_to login_path, notice: "Senha atualizada com sucesso!"}
+						else
+								render 'edit'
+						end
+				else
+						format.html { redirect_to edit_user_path, error: "Senha antiga errada!" }
+				end
 		end
 	end
 
@@ -38,7 +44,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if !@user.nil?
 				@user.email_activate
-				format.html { redirect_to login_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
+				format.html { redirect_to root_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
 			else
 				format.html { redirect_to login_path, error: "Token não encontrado. Usuário já ativado ou não existe." }
 			end

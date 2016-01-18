@@ -10,84 +10,23 @@
 <%end%>
 
 <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 form-group">
-      <h1> Alterar Senha / Email </h1>
+    <div class="col-lg-offset-4 col-lg-6 form-group">
+      <h1> Configurações de Usuário: </h1>
     </div>
 </div>
 
-<%= form_for @user do |f| %> <!-- Model Address-->
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4">
-      <%= f.label "Email:", :for => "email-user", :class => "control-label" %>
+<div class="row">
+	<div class="col-lg-offset-4 col-lg-4">
+		<a href="" data-toggle="modal" data-target="#changeEmailModal">Mudar meu email</a>
+	</div>
+		<div class="col-lg-offset-4 col-lg-4">
+      <a href="" data-toggle="modal" data-target="#changePasswordModal">Mudar minha senha</a>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 form-group">
-      <%= f.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" %>
-    </div>
-    <div class="col-lg-5">
-      <div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
-          <p>Email Inválido!</p>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div id="emailErrorNil" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-email-user">
-            <p>Campo Obrigatório!</p>
-        </div>
-      </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4">
-      <%= f.label "Senha:", :for => "password-user", :class => "control-label" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 form-group">
-      <%= f.password_field :password, :id => "password-user", :class => "form-control validate-password" %>
-    </div>
-  <div class="col-lg-5">
-    <div id="passwordError" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-password-user">
-      <p>Campo Obrigatório!</p>
-    </div>
-  </div>
-
-  </div>
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4">
-      <%= f.label "Confirmar Senha:", :for => "password-confirmation-user", :class => "control-label" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 form-group">
-      <%= f.password_field :password_confirmation, :id => "password-confirmation-user", :class => "form-control validate-password-confirmation-user" %>
-    </div>
-    <div class="col-lg-5">
-      <div id="passwordConfirmationError" class="col-lg-5 alert alert-danger custom-alert-danger password-confirmation-invalid">
-        <p>Senhas não são iguais!</p>
-      </div>
-    </div>
-    <div class="col-lg-5">
-        <div id="passwordConfirmationErrorNil" class="col-lg-5 alert alert-danger custom-alert-danger empty-error-password-confirmation-user">
-          <p>Campo Obrigatório!</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-lg-offset-4 col-lg-4">
       <a href="" data-toggle="modal" data-target="#removeModal" class="danger-text">Remover minha conta</a>
     </div>
-  </div>
+</div>
 
-  </br>
-
-  <div class="row">
-    <div class="col-lg-offset-4 col-lg-4">
-      <%= f.submit "Enviar", :class => "btn btn-lg btn-block btn-primary" %>
-    </div>
-  </div>
-<% end %>
 
 <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
    <div class="modal-dialog" role="document">
@@ -110,3 +49,57 @@
 	  </div>
 	</div>
 </div>
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel">
+   <div class="modal-dialog" role="document">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      <h4 class="modal-title" id="changePasswordModalLabel">Mudar senha: </h4>
+	    </div>
+			<div>
+		  <%= form_for(@user) do |f| %>
+		  <div class="modal-body">
+					<span> Senha atual: </span> <%= password_field_tag :current_password, params[:current_password]%><br>
+					<span> Senha nova: </span> <%= f.password_field :password %><br>
+					<span> Confirmar senha: </span> <%= f.password_field :password_confirmation %><br>
+				</div>
+	      <div class="modal-footer">
+				<%= f.submit "Mudar minha senha", :class => "btn btn-primary" %>
+				<% end %>
+	      </div>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<%= form_for @user do |f| %> <!-- Model Address-->
+	<div class="modal fade" id="changeEmailModal" tabindex="-1" role="dialog" aria-labelledby="changeEmailModalLabel">
+	   <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      <h4 class="modal-title" id="changePasswordModalLabel">Mudar email: </h4>
+		    </div>
+				<div>
+			  <div class="modal-body">
+					<div class="row">
+						<div class="col-lg-10">
+						<span> Email: </span> <%= f.text_field :email %>
+						</div>
+					</div>
+					<div class="col-lg-5">
+							<div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
+									<p>Email Inválido!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+		      <div class="modal-footer">
+					<%= f.submit "Mudar meu email", :class => "btn btn-primary" %>
+					<% end %>
+		      </div>
+			</div>
+		 </div>
+		</div>
+	</div>
