@@ -1,9 +1,10 @@
 .font-cause {
    font-size : 14px;
+   margin: 0px;
 }
 
 .margin{
-	padding : 0px;
+	padding: 0px;
 	margin-top : 2px;
 	list-style-type: none;
 }
@@ -11,12 +12,5 @@
 .font-title{
 	font-size : 18px;
 	margin-bottom : 10px;
+  font-weight: bold;
 }
-
-.margin{
-	list-style-type: none;
-	padding: 0;
-	margin-left: 0;
-	font-weight: bold;
-}
-
