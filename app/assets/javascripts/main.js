@@ -7,6 +7,7 @@ var ready = function() {
   VALIDATION.eventsValidate();
 
   LOGIN.validateFormOnSubmit();
+  LOGIN.disableButtonOnSubmitForgotPass();
 
   MASKS.addMasks();
 
