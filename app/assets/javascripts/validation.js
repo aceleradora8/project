@@ -154,7 +154,6 @@ VALIDATION.validateZipCode = function validateZipCode() {
       zipCode.removeClass("input-text-error");
       errorArray.pop();
     }
-  }
   VALIDATION.showErrorMessage();
 };
 
