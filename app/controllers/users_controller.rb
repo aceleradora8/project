@@ -33,9 +33,15 @@ class UsersController < ApplicationController
 						else
 								render 'edit'
 						end
-				else
+				elsif params[:current_password] != nil && @user.authenticate(params[:current_password]) == false
 						format.html { redirect_to edit_user_path, error: "Senha antiga errada!" }
-				end
+				elsif params[:current_password] == nil
+					if @user.update(user_params)
+							format.html { redirect_to root_path, notice: "Email atualizado com sucesso!"}
+					else
+							render 'edit'
+					end
+			 end
 		end
 	end
 
@@ -44,7 +50,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if !@user.nil?
 				@user.email_activate
-				format.html { redirect_to root_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
+				format.html { redirect_to login_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
 			else
 				format.html { redirect_to login_path, error: "Token não encontrado. Usuário já ativado ou não existe." }
 			end
