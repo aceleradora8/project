@@ -43,7 +43,7 @@
 </div>
 <div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
-    <label class="control-label", for="sex-volunteer">Data de Nascimento: </label>
+    <label class="control-label", for="sex-volunteer">Data de Nascimento: <span class="mandatory">*</span></label>
     <div class="row">
       <div class="col-lg-7 div-date birthday-teste">
         <%= f.date_select :birth_date, prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 60 , end_year: Time.now.year - 10 %>
