@@ -1,0 +1,60 @@
+<div class="container">
+  <% if notice != nil %>
+    <div class="row">
+      <div class= "alert alert-success text-center col-lg-offset-3 col-lg-6">
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div>
+  <%end%>
+
+  <div class="row">
+    <div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize errorMessageJS">
+      <p id="errorMessage">Erro encontrado, verifique os campos em vermelho.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="text-center">
+      <h1> Fale Conosco: </h1>
+      <br>
+    </div>
+  </div>
+
+    <%= form_tag('/about_us', method: :post, :id=>"form-contact-us") do %>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 form-group">
+        <span> Sou um(a): </span><span class="mandatory">*</span><%= select_tag :type, "<option>ONG</option><option>Voluntário(a)</option>".html_safe, include_blank: true, :class => "form-control dropdown type-contact-us" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 form-group">
+        <span> Nome: </span><span class="mandatory">*</span><%= text_field_tag :name, '', :class => "form-control validate-name" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 form-group">
+        <span> Email: </span><span class="mandatory">*</span><%= text_field_tag :email, '', :class => "form-control validate-contact-email" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 form-group">
+        <span> Telefone para contato: </span><%= phone_field_tag :phone, '', placeholder: "(XX)XXXX-XXXX", :class => "form-control phone_with_ddd" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 form-group">
+        <span> Mensagem: </span><span class="mandatory">*</span><%= text_area_tag :message, '', rows: 7,:class => "form-control validate-description" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-4 form-group">
+        <span class="mandatory">* Campos Obrigatórios</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-6 col-lg-3 form-group">
+        <%= submit_tag :Enviar, class: "form-control btn btn-primary" %>
+      </div>
+    </div>
+  <%end%>
+</div>

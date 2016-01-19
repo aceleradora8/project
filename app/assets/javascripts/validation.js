@@ -51,7 +51,7 @@ VALIDATION.eventsValidate = function eventsValidate(){
   });
   $(".validate-contact-email").focusout(function(){
     VALIDATION.validateContactEmail();
-  })
+  });
   $(".validate-password").focusout(function(){
     VALIDATION.validatePassword();
   });
@@ -123,6 +123,7 @@ VALIDATION.validateEmail = function validateEmail(email,div_error) {
 
 VALIDATION.validateContactEmail = function validateContactEmail() {
   contactEmail = $(".validate-contact-email")
+  VALIDATION.validateEmpty($(".validate-contact-email"))
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(contactEmail.val().match(mailformat)) {
       contactEmail.removeClass("input-text-error");

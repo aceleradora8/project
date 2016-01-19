@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/myopportunities' => 'opportunities#my_opportunities'
   get 'password_resets/new'
   post 'sessions/new' => 'users#resend_token'
+  get 'about_us' => 'about_us#index'
+  post 'about_us' => 'about_us#contact'
 end

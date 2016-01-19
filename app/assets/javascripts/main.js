@@ -15,13 +15,16 @@ var ready = function() {
   NGO.getCitiesChecked();
   NGO.checkCauses();
 
+  ABOUTUS.validateFormContactUsSubmit();
+
+  OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getRecurrentChecked();
   OPPORTUNITIES.checkCategories();
   OPPORTUNITIES.validateFormOnSubmit();
 
   FILTER.getCausesChecked();
   FILTER.getCitiesChecked();
-  
+
   PASS_RESETS.validateFormResetPassOnSubmit();
 
   VOLUNTEER.validateFormOnSubmit();
