@@ -29,7 +29,7 @@
 			<div>
 				<p> <span class="bold">Descrição: </span>
 				<br>
-				<span class="leftspace"><%= @opportunity.description %></span>
+				<span class="leftspace"><%= simple_format @opportunity.description %></span>
 				</p>
 			</div>
 			<div>
@@ -52,6 +52,7 @@
 			<div>
 					<p> <span class="bold">Ong: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>
+			<% unless @opportunity.causes.empty? %>
 			<div>
 				<p> <span class="bold">Categorias:</span>
 				<span class="leftspace">
@@ -63,11 +64,13 @@
 				 </span>
 				</p>
 			</div>
+			<%end%>
 			<div>
-				<p> <span class="bold">Vagas: </span><%= @opportunity.vacancies %></p>
+				<p> <span class="bold">Número de vagas: </span><%= @opportunity.vacancies %></p>
 			</div>
+			<% unless @opportunity.skills.blank? %>
 			<div>
-				<p> <span class="bold">Requisitos:</span>
+				<p> <span class="bold">Habilidades:</span>
 				<span class="leftspace">
 				<ul>
 					<% @opportunity.skills.each do |skill|%>
@@ -77,6 +80,16 @@
 				 </span>
 				</p>
 			</div>
+			<%end%>
+			<% unless @opportunity.requirements.blank? %>
+			<div>
+				<p> <span class="bold">Requisitos:</span>
+				<span class="leftspace">
+					<%= simple_format @opportunity.requirements %>
+				 </span>
+				</p>
+			</div>
+			<%end%>
 			<%if volunteer_is_interested(@opportunity)%>
 				<div class="col-lg-1">
 					<button class="btn btn-danger outline" data-toggle="modal" data-target="#confirm-delete-interest-modal">

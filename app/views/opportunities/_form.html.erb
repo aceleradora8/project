@@ -67,7 +67,7 @@
 <div class="row margin-end-top br">
 	<div class="col-lg-offset-1 form-group ">
 		<div class="col-lg-4">
-			<%= f.label "Pré-requisitos:", :class => "control-label" %>
+			<%= f.label "Habilidades:", :class => "control-label" %>
 		</div>
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
@@ -78,6 +78,12 @@
 				<%end%>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-offset-1 form-group col-lg-10">
+	<label class="control-label", for="requirements-opportunity">Requisitos:</label>
+		<%= f.text_area :requirements, :id => "requirements-opportunity", :class => "form-control", :rows => "3" %>
 	</div>
 </div>
 <div class="row">
