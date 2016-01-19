@@ -9,6 +9,7 @@ NGO.validateFormOnSubmit = function validateForm() {
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     validatePhone = VALIDATION.validatePhone();
+    validateZipCode = VALIDATION.validateZipCode();
     if (errorArray.length == 0) {
       VALIDATION.disableButtonOnSubmit();
       return true;

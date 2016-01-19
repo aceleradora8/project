@@ -8,14 +8,10 @@ ADDRESSES.validateForm = function validateForm() {
 }
 
 ADDRESSES.cleanFields = function cleanFields() { 
-  $("#inputState").attr("text", "");
-  $("#inputState").attr("value", "");
-  $("#inputCity").attr("text", "");
-  $("#inputCity").attr("value", "");
-  $("#inputNeighborhood").attr("text", "");
-  $("#inputNeighborhood").attr("value", "");
-  $("#inputAddress").attr("text", "");
-  $("#inputAddress").attr("value", "");
+  $("#inputState").val("");
+  $("#inputCity").val("");
+  $("#inputNeighborhood").val("");
+  $("#inputAddress").val("");
 }
 
 ADDRESSES.requestZipCode = requestZipCode = function() {
@@ -35,7 +31,7 @@ ADDRESSES.requestZipCode = requestZipCode = function() {
       $("#inputAddress").val(response.address);
       VALIDATION.validateZipCode();
     },error: function(){
-      ($("#inputZipcode").val().length == 0) ? $("#ajax-loader").hide() : $("#ajax-loader").show(); 
+      $("#ajax-loader").hide();
       ADDRESSES.cleanFields();
     }
   });
@@ -53,6 +49,11 @@ function readOnlyFieldsAddress(valor, input){
 
 ADDRESSES.requestTriggerZipcode = function requestTriggerZipcode() {
   $("#inputZipcode").keyup(function() {
-      ADDRESSES.requestZipCode();
+    if($("#inputZipcode").val().length == 9){
+        $("#ajax-loader").show()
+        ADDRESSES.requestZipCode();
+    }else{
+      ADDRESSES.cleanFields();
+    }
   });
 }
