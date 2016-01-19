@@ -181,7 +181,7 @@ describe OpportunitiesController, type: :controller do
 
     it 'return success when Opportunity is deleted' do
       delete :destroy, id: @opportunity1.id
-      expect(flash[:notice]).to eq("A oportunidade #{@opportunity1.title} foi removida com sucesso")
+      expect(flash[:notice]).to eq("A oportunidade #{@opportunity1.title} foi removida com sucesso!")
     end
   end
 end

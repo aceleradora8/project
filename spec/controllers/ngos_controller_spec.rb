@@ -39,7 +39,7 @@ describe NgosController, type: :controller do
       get :index, text_search: ''
       expect(assigns[:ngos_result]).to eq(assigns[:ngos_search])
     end
-  
+
     it 'expect if Ngo privacy is true to have a new Address' do
       get :show, id: @ngo_private.id
       expect(assigns(:ngo).address).to be_a_new(Address)
@@ -90,7 +90,7 @@ describe NgosController, type: :controller do
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
-        expect(flash[:notice]).to eq("ONG cadastrada com sucesso, confirme o email para continuar")
+        expect(flash[:notice]).to eq("ONG cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada.")
     end
 
     it 'return error if ngo name already is on use' do
@@ -166,7 +166,7 @@ describe NgosController, type: :controller do
           address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}
         }
       }
-      expect(flash[:notice]).to eq("ONG atualizada com sucesso")
+      expect(flash[:notice]).to eq("Informações atualizadas com sucesso!")
     end
 
     it 'render edit if fails and show "Error" on notice' do

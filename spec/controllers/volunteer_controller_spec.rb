@@ -16,7 +16,7 @@ describe VolunteersController, type: :controller do
 			}
 
 			redirect_to new_volunteer_url
-			expect(flash[:error]).to eq("O email informado já está cadastrado")
+			expect(flash[:error]).to eq("O e-mail informado já está cadastrado!")
 		end
 
 		it 'return success message when passing a volunteer with new email' do
@@ -28,7 +28,7 @@ describe VolunteersController, type: :controller do
 			}
 
 			redirect_to login_url
-			expect(flash[:notice]).to eq("Voluntário cadastrado com sucesso, confirme o email para continuar!")
+			expect(flash[:notice]).to eq("Voluntário cadastrado com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada.")
 		end
 
 		it 'render new if anything goes wrong' do
@@ -59,7 +59,7 @@ describe VolunteersController, type: :controller do
 			}
 
 			redirect_to @volunteer_teste
-			expect(flash[:notice]).to eq("Voluntário atualizado com sucesso!")
+			expect(flash[:notice]).to eq("Informações atualizadas com sucesso!")
 		end
 
 		it 'render new if anything goes wrong' do

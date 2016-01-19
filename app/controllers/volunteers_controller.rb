@@ -26,7 +26,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.user.role = "volunteer"
     if @volunteer.user.user_exists?
-      redirect_to new_volunteer_url, error: "O e-mail informado já está cadastrado."
+      redirect_to new_volunteer_url, error: "O e-mail informado já está cadastrado!"
     elsif @volunteer.save
       UserMailer.email_confirmation(@volunteer).deliver_later
       redirect_to login_url, notice: "Voluntário cadastrado com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada."

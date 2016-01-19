@@ -10,12 +10,12 @@ RSpec.describe PasswordResetsController, type: :controller do
 
   	it 'expect success when user email valid' do
   		post :create, email: @user.email
-  		expect(flash[:notice]).to eq("Confira seu email, enviamos instruções de recuperação de senha")
+  		expect(flash[:notice]).to eq("Confira seu e-mail, enviamos instruções de recuperação de senha.")
 	 end
 
 	it 'expect error when user email doesnt exists' do
 		post :create, email: 'qualquercoisa@lol.com'
-		expect(flash[:error]).to eq("Email não cadastrado")
+		expect(flash[:error]).to eq("E-mail não cadastrado!")
 	end
 end
 
@@ -51,7 +51,7 @@ end
   			id: @user2.password_reset_token,
   			user: { email:"teste@teste.com", password: "321", password_confirmation: "321"}
   		}
-  		expect(flash[:alert]).to eq("Link de recuperação de senha expirado")
+  		expect(flash[:alert]).to eq("Link de recuperação de senha expirado!")
   	end
 
   	# Teste desnecessário, retirar o IF da Controller

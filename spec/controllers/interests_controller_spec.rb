@@ -18,7 +18,7 @@ describe InterestsController, type: :controller do
     it 'return success when Interest is created' do
       cookies[:auth_token] = @user.auth_token
       post :create, {interest: {opportunity_id: @opportunity1.id}}
-      expect(flash[:notice]).to eq("Interesse registrado com sucesso")
+      expect(flash[:notice]).to eq("Candidatura registrada com sucesso!")
     end
   end
 
@@ -40,7 +40,7 @@ describe InterestsController, type: :controller do
 
     it 'return success when interest is destroyed' do
       delete :destroy, id: @opportunity1.id
-      expect(flash[:notice]).to eq("Interesse desmarcado com sucesso")
+      expect(flash[:notice]).to eq("Candidatura desmarcada com sucesso!")
     end
   end
 
