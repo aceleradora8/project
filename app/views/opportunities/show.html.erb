@@ -34,7 +34,10 @@
 			</div>
 			<div>
 				<p> <span class="bold">Local: </span>  <br>
-				<span class="leftspace"><%= @opportunity.address.print_address %>
+				<span class="leftspace"><%= @opportunity.address.print_address unless @opportunity.address.blank? %>
+				<% if @opportunity.address.blank? %>
+				<span class="leftspace"> Sem local definido!
+				<% end %>
 				</p>
 			</div>
 			<% if @opportunity.recurrent %>

@@ -1,8 +1,7 @@
 class Address < ActiveRecord::Base
   has_one :ngo
   has_one :opportunity
-  validates :address, presence: true
-  validates :zipcode, presence: true
+  after_save :noaddress
 
   def print_address
     if zipcode
@@ -11,6 +10,12 @@ class Address < ActiveRecord::Base
        #{state}, #{country}, #{zipcode}"
     else
       "Endereço não informado."
+    end
+  end
+
+  def noaddress
+    if self.zipcode == nil || self.address
+      self.destroy()
     end
   end
 end
