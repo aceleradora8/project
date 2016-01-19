@@ -93,6 +93,11 @@ class OpportunitiesController < ApplicationController
     end
   end
 
+  def my_opportunities
+    @user = current_user
+    @ngo = Ngo.find_by_user_id(@user.id)
+  end
+
   private
 
   def set_opportunity
@@ -122,10 +127,10 @@ class OpportunitiesController < ApplicationController
   def filter_with_causes(opportunities, causes)
       result = []
       opportunities.each do |opportunity|
-        causes = causes.map {|causeid| Cause.find(causeid)} 
+        causes = causes.map {|causeid| Cause.find(causeid)}
         result.push(opportunity) if causes.all?{ |e| opportunity.causes.include?(e)}
       end
-      result  
+      result
   end
 
   def filter_with_cities(opportunities, cities)

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get '/myinterests' => 'interests#my_interests'
+  get '/myopportunities' => 'opportunities#my_opportunities'
   get 'password_resets/new'
   post 'sessions/new' => 'users#resend_token'
 end

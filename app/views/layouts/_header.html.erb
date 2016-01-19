@@ -14,6 +14,13 @@
         <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li %>
         <%= active_link_to "ONGs", ngos_url, :wrap_tag => :li %>
         <li><a href="#">Sobre Nós</a></li>
+        <% if current_user %>
+          <% if current_user.ngo? %>
+            <%= active_link_to "Minhas Oportunidades",  myopportunities_url, :wrap_tag => :li %>
+          <% else %>
+            <%= active_link_to "Minhas Candidaturas", myinterests_url, :wrap_tag => :li  %>
+          <% end %>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

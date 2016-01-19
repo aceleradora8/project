@@ -38,7 +38,7 @@ class NgosController < ApplicationController
               @ngos_result = @ngos_search
             end
             @ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
-            format.js       
+            format.js
       else
         @ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
         @ngos_result.each do |ngo|
@@ -138,7 +138,7 @@ class NgosController < ApplicationController
 	def ngo_params
 		params.require(:ngo).permit(:user_id, :name, :phone1, :phone2, :contact_email, :description, :privacy, :mission, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood], user_attributes: [:email, :password, :password_confirmation], cause_ids: [])
 	end
-  
+
   def set_cities
     @cities = Address.uniq.pluck(:city)
   end
@@ -150,10 +150,10 @@ class NgosController < ApplicationController
   def filter_with_causes(ngos, causes)
       result = []
       ngos.each do |ngo|
-        causes = causes.map {|causeid| Cause.find(causeid)} 
+        causes = causes.map {|causeid| Cause.find(causeid)}
         result.push(ngo) if causes.all?{ |e| ngo.causes.include?(e)}
       end
-      result  
+      result
   end
 
   def filter_with_cities(ngos, cities)
@@ -163,4 +163,5 @@ class NgosController < ApplicationController
     end
     result
   end
+
 end
