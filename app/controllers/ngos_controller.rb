@@ -66,7 +66,7 @@ class NgosController < ApplicationController
         end
       elsif @ngo.save
         UserMailer.email_confirmation(@ngo).deliver_later
-        format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso, confirme o email para continuar" }
+        format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada." }
       else
         format.html { render 'new' }
       end
@@ -90,7 +90,7 @@ class NgosController < ApplicationController
     @ngo = Ngo.find(params[:id])
     respond_to do |format|
       if @ngo.update(ngo_params)
-        format.html { redirect_to @ngo, notice: "ONG atualizada com sucesso" }
+        format.html { redirect_to @ngo, notice: "Informações atualizadas com sucesso!" }
       else
         format.html { render 'edit', error: "Erro!" }
       end

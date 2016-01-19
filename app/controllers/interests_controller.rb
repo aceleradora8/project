@@ -8,7 +8,7 @@ class InterestsController < ApplicationController
  			if @interest.save
  				VolunteerMailer.volunteer_email(@interest.volunteer, @interest.opportunity).deliver_later
  				NgoMailer.ngo_email(@interest.volunteer, @interest.opportunity).deliver_later
- 				format.html { redirect_to @interest.opportunity, notice: 'Interesse registrado com sucesso' }
+ 				format.html { redirect_to @interest.opportunity, notice: 'Candidatura registrada com sucesso!' }
  			end
  		end
   end
@@ -21,7 +21,7 @@ class InterestsController < ApplicationController
  		interest.destroy
     VolunteerMailer.cancel_interest_email_volunteer(current_user.volunteer, interest.opportunity).deliver_later
     NgoMailer.cancel_interest_email_ngo(current_user.volunteer, interest.opportunity).deliver_later
- 	  redirect_to interest.opportunity, notice: 'Interesse desmarcado com sucesso'
+ 	  redirect_to interest.opportunity, notice: 'Candidatura desmarcada com sucesso!'
   end
 
   def my_interests

@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 						format.html { redirect_to edit_user_path, error: "Senha antiga errada!" }
 				elsif params[:current_password] == nil
 					if @user.update(user_params)
-							format.html { redirect_to root_path, notice: "Email atualizado com sucesso!"}
+							format.html { redirect_to root_path, notice: "E-mail atualizado com sucesso!"}
 					else
 							render 'edit'
 					end
@@ -50,9 +50,9 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if !@user.nil?
 				@user.email_activate
-				format.html { redirect_to login_path, notice: "Email cadastrado com sucesso, bem vindo ao ONGARIUM." }
+				format.html { redirect_to login_path, notice: "E-mail cadastrado com sucesso, bem vindo ao ONGARIUM!" }
 			else
-				format.html { redirect_to login_path, error: "Token não encontrado. Usuário já ativado ou não existe." }
+				format.html { redirect_to login_path, error: "Link de confirmação não encontrado. Usuário já ativado ou não existe." }
 			end
 		end
 	end
@@ -61,12 +61,12 @@ class UsersController < ApplicationController
 		@user = User.find_by_email(params[:email])
 		respond_to do |format|
 			if @user.nil?
-				format.html { redirect_to login_path, error: "Email não cadastrado, por favor, cadastre-se."}
+				format.html { redirect_to login_path, error: "E-mail não cadastrado, por favor, cadastre-se."}
 			elsif @user.confirmed == false
 				UserMailer.resend_token(@user).deliver_later
-				format.html { redirect_to login_path, notice: "Token de ativação enviado com sucesso. Verifique a caixa de entrada do seu Email." }
+				format.html { redirect_to login_path, notice: "Link de confirmação enviado com sucesso. Verifique a caixa de entrada do seu e-mail." }
 			else
-				format.html { redirect_to login_path, error: "Email já ativado. Logue-se!" }
+				format.html { redirect_to login_path, error: "E-mail já confirmado. Você já pode realizar seu login." }
 			end
 		end
 	end

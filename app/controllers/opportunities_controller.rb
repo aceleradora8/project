@@ -55,7 +55,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     respond_to do |format|
       if @opportunity.save
-        format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
+        format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso!' }
       else
         format.html { render :new }
       end
@@ -89,7 +89,7 @@ class OpportunitiesController < ApplicationController
   def destroy
     @opportunity.destroy
     respond_to do |format|
-      format.html { redirect_to ngo_path(@opportunity.ngo), notice: "A oportunidade #{@opportunity.title} foi removida com sucesso" }
+      format.html { redirect_to ngo_path(@opportunity.ngo), notice: "A oportunidade #{@opportunity.title} foi removida com sucesso!" }
     end
   end
 

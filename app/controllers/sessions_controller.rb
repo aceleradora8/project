@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
         redirect_to root_url, notice: "Login realizado com sucesso!"
       end
     elsif @user.confirmed == false
-      redirect_to login_url, error: "Sua conta não foi ativada. Cheque seu email!"
+      redirect_to login_url, error: "Sua conta não foi ativada. Verifique a caixa de entrada do seu e-mail!"
     else
       redirect_to login_url, error: "Email ou senha inválidos!"
     end
