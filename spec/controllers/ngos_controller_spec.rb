@@ -174,7 +174,7 @@ describe NgosController, type: :controller do
       {
         id: @ngo.id, ngo:
         {
-          name:"ONG atualizada", description:"ae", privacy:false,
+          name: nil, description:"ae", privacy:false,
           address_attributes: {zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}
         }
       }

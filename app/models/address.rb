@@ -14,7 +14,7 @@ class Address < ActiveRecord::Base
   end
 
   def noaddress
-    if self.zipcode == nil || self.address
+    if self.zipcode == nil || self.address == nil
       self.destroy()
     end
   end
