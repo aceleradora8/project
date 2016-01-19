@@ -96,6 +96,8 @@ class OpportunitiesController < ApplicationController
   def my_opportunities
     @user = current_user
     @ngo = Ngo.find_by_user_id(@user.id)
+    @ngos_opportunities = @ngo.opportunities
+    @ngos_opportunities = Kaminari.paginate_array(@ngos_opportunities.flatten).page(params[:page])
   end
 
   private

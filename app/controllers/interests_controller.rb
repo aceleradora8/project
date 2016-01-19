@@ -27,6 +27,8 @@ class InterestsController < ApplicationController
   def my_interests
     @user = current_user
     @volunteer = Volunteer.find_by_user_id(@user.id)
+    @volunteer_interests = @volunteer.interests
+    @volunteer_interests = Kaminari.paginate_array(@volunteer_interests.flatten).page(params[:page])
   end
 
   private

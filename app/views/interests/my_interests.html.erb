@@ -1,13 +1,20 @@
 <div class="container">
 	<div class="volunteer-interests">
-		<div>
-			<% if @volunteer.interests.empty? %>
-				<h3>Você não possui interesses registrados</h3>
-			<% else %>
-				<h3>Meus Interesses:</h3>
-			<% end %>
+		<div class="row">
+			<div class="col-lg-5">
+				<% if @volunteer.interests.empty? %>
+					<h3>Você não possui interesses registrados</h3>
+				<% else %>
+					<h3>Meus Interesses:</h3>
+				<% end %>
+			</div>
+			<div class="col-lg-7">
+				<div id="paginatorTop" class="pull-right paginator">
+					<%= paginate @volunteer_interests, :theme => 'twitter-bootstrap-3' %>
+				</div>
+			</div>
 		</div>
-		<% @volunteer.interests.each do |interest| %>
+		<% @volunteer_interests.each do |interest| %>
 			<div class="panel">
 				<div class="row panel-body detailopp bs-callout bs-callout-info">
 					<div class="row">
@@ -37,5 +44,12 @@
 				</div>
 			</div>
 		<% end %>
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="paginatorBottom" class="pull-right paginator">
+					<%= paginate @volunteer_interests, :theme => 'twitter-bootstrap-3' %>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
