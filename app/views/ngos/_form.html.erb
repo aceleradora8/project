@@ -10,6 +10,22 @@
 		<%= f.text_area :description, :class => "form-control validate-description" , :id => "description-ngo"%>
 	</div>
 </div>
+<div class="row margin-end-top br">
+	<div class="col-lg-offset-2 form-group">
+		<div class="col-lg-4">
+			<%= f.label "Causas da ong:", :class => "control-label" %>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 margin-dropdown-lists">
+				<%= collection_check_boxes(:ngo, :cause_ids, @causes, :id, :name) do |b| %>
+					<div class="col-lg-4 margin-checkbox-lists">
+  						<%= b.label(:"data-value" => b.value) { b.check_box(:class => "category-checkbox-ngo") + " " + b.text } %>
+  					</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-lg-offset-2 col-lg-8 form-group">
 	<label class="control-label", for="description-ngo">Missão: </label>

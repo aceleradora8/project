@@ -76,14 +76,15 @@
 
 			<div class="formsession">
 				<div class="row">
-					<strong>Causa:</strong>
-					<% @ngo.causes.each do |cause| %>
-						<%= cause.name %>
-					<% end %>
+					<strong>Categorias:</strong>
+					<ul>
+						<% @ngo.causes.each do |cause|%>
+							<li> <%= cause.name %> </li>
+						<% end %>
+					</ul>
 				</div>
 			</div>
 		</div>
-
 
 		<div class="ngo-opportunities">
 			<div>

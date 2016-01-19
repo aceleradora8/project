@@ -13,6 +13,7 @@ var ready = function() {
 
   NGO.validateFormOnSubmit();
   NGO.getCitiesChecked();
+  NGO.checkCauses();
 
   OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getCausesChecked();

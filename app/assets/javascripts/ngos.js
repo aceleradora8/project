@@ -33,3 +33,13 @@ NGO.getCitiesChecked = function() {
     NGO.requestNgos();
   });
 };
+
+NGO.checkCauses = function() {
+  $('.category-checkbox-ngo').on('change', function() {
+    if ($('.category-checkbox-ngo:checked').length == 4) {
+      $(".category-checkbox-ngo").not(":checked").attr("disabled", true);
+    } else {
+      $(".category-checkbox-ngo").not(":checked").attr("disabled", false);
+    }
+  });
+};
