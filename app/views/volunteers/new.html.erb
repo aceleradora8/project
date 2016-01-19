@@ -36,5 +36,13 @@
         <%= f.submit "Cadastrar Voluntário", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-volunteer" %>
       </div>
     </div>
+    <div class="row text-center">
+      <span>Ao cadastrar-me, declaro que aceito a
+        <a data-toggle="modal" data-target="#user-terms-modal">
+            Política de privacidade e os Termos de uso
+      </a>do Ongarium
+      </span> 
+    </div>
   <% end %>
 </div>
+<%= render 'about_us/user_terms_modal' %>

@@ -31,15 +31,22 @@
         <div class="col-lg-offset-2 col-lg-4 form-group">
         	<span class="mandatory">*Campos Obrigatórios</span>
     	</div>
-    	<button type="button" class="btn btn-default btn-danger" aria-label="Left Align" data-toggle="modal" data-target="#user-terms-modal">
-					  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
+	</div>
+    	
    	</div>
 	<div class="row">
 		<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
 			<%= f.submit "Cadastrar ONG", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-ngo" %>
 		</div>
 	</div>
+
+    <div class="row text-center">
+    	<span>Ao cadastrar-me, declaro que aceito a
+    		<a data-toggle="modal" data-target="#user-terms-modal">
+					  Política de privacidade e os Termos de uso
+			</a>do Ongarium
+    	</span> 
+    </div>
 <% end %>
 </div>
 <%= render 'about_us/user_terms_modal' %>
