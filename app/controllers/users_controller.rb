@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 				if @user.authenticate(params[:current_password])
 						if @user.update(user_params)
-								format.html { redirect_to login_path, notice: "Senha atualizada com sucesso!"}
+								format.html { redirect_to edit_user_path, notice: "Senha atualizada com sucesso!"}
 						else
 								render 'edit'
 						end
