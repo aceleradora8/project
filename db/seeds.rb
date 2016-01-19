@@ -63,7 +63,7 @@ skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
 case Rails.env
-when "development" || "staging"
+when "development", "staging"
 # populando enderecos para ongs/oportunidades
 address = Address.new(address:"Av Ipiranga", zipcode:"90619-900", city:"Porto Alegre", state:"RS", country:"Brasil", neighborhood: "Partenon", complement: "6681")
 address.save
