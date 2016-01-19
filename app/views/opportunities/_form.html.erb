@@ -55,7 +55,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
-				<%= collection_check_boxes(:opportunity, :cause_ids, @causes, :id, :name) do |b| %>
+				<%= collection_check_boxes(:opportunity, :cause_ids, @causes, :id, :name) do |b|  %>
 					<div class="col-lg-4 margin-checkbox-lists">
   						<%= b.label(:"data-value" => b.value) { b.check_box(:class => "category-checkbox") + " " + b.text } %>
   					</div>
@@ -92,6 +92,12 @@
 	</div>
 </div>
 <div id="address">
+  <div class="row">
+  	<div class="col-lg-offset-2 form-group col-lg-10">
+  	<%= check_box_tag :noaddress, checked: false, :id => "no-address-opportunity" %>
+  	<%= label_tag "Marque se a oportunidade não tem um endereço especifíco!", nil, :for => 'noaddress' %>
+  	</div>
+  </div>
 	<%= render './addresses/address_form', f:f %>
 </div>
 <div class="row">

@@ -21,6 +21,7 @@ var ready = function() {
   OPPORTUNITIES.getRecurrentChecked();
   OPPORTUNITIES.checkCategories();
   OPPORTUNITIES.validateFormOnSubmit();
+  OPPORTUNITIES.getNoAddressChecked();
 
   FILTER.getCausesChecked();
   FILTER.getCitiesChecked();

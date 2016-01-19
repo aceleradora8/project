@@ -168,13 +168,15 @@ VALIDATION.validateDate = function validateDate() {
 
 VALIDATION.validateZipCode = function validateZipCode() {
   zipCode = $(".validate-zipcode");
+  if(($("#noaddress").is(":checked") == false)) {
     if ($("#inputCity").val().length == 0) {
       zipCode.addClass("input-text-error");
       errorArray.push(true);
     } else {
       zipCode.removeClass("input-text-error");
       errorArray.pop();
-    }
+    };
+  };
   VALIDATION.showErrorMessage();
 };
 

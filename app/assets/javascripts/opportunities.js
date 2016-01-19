@@ -32,3 +32,17 @@ $('#recurrent').on('change', function() {
     $("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
   });
 };
+
+OPPORTUNITIES.getNoAddressChecked = function() {
+$('[name="noaddress"]').on('change', function(){
+  if ($("#noaddress").is(":checked") == true) {
+    $(".validate-zipcode").prop("disabled", true);
+    $('[name="opportunity[address_attributes][number]"]').prop('disabled', true);
+    $('[name="opportunity[address_attributes][complement]"]').prop('disabled', true);
+  } else {
+      $(".validate-zipcode").prop("disabled", false);
+      $('[name="opportunity[address_attributes][number]"]').prop('disabled', false);
+      $('[name="opportunity[address_attributes][complement]"]').prop('disabled', false);
+    };
+  });
+};
