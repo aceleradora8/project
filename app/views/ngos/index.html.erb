@@ -1,19 +1,20 @@
-<%= render './layouts/search_bar_ngos.html' %>
 <div class="container">
 	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<%= render './layouts/search_bar_ngos.html' %>
+		</div>
+	</div>
+
+	<div class="row bg-content">
 		<div class="col-lg-3" id="filtros">
 			<h3>Filtros</h3>
-			<hr>
+				<hr>
+			<%= render 'layouts/filterbar' %>
 		</div>
 		<div class="col-lg-9">
 			<div id="paginatorTop" class="pull-right paginator">
 				<%= paginate @ngos_result, :theme => 'twitter-bootstrap-3' %>
 			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-3">
-			<%= render 'layouts/filterbar' %>
 		</div>
 		<div class="col-lg-9 result-search">
 			<div id="texto" class="col-lg-6 br">
@@ -28,7 +29,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row bg-content">
 		<div id="paginatorBottom" class="pull-right paginator">
 			<%= paginate @ngos_result, :theme => 'twitter-bootstrap-3' %>
 		</div>
