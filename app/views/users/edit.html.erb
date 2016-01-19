@@ -1,3 +1,7 @@
+<%= render 'edit_email_modal' %>
+<%= render 'change_password_modal' %>
+<%= render 'remove_account_modal' %>
+
 <% if notice != nil %>
 	<div class= "alert alert-success">
 		<p id="notice"><%= notice %></p>
@@ -26,80 +30,3 @@
       <a href="" data-toggle="modal" data-target="#removeModal" class="danger-text">Remover minha conta</a>
     </div>
 </div>
-
-
-<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
-   <div class="modal-dialog" role="document">
-	  <div class="modal-content">
-	    <div class="modal-header">
-	      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	      <h4 class="modal-title" id="removeModalLabel">Você deletar sua conta: <%=@accountVariable.name%>?</h4>
-	    </div>
-			<div>
-				<%= form_tag(@accountVariable, method: :delete) do %>
-				<div class="modal-body">
-					<p>Informe sua senha para concluir o processo de remoção do perfil</p>
-					<span> Senha: </span> <%= password_field_tag :password %>
-				</div>
-	      <div class="modal-footer">
-				<%= submit_tag "Remover minha conta", :class => "btn btn-danger" %>
-				<% end %>
-	      </div>
-			</div>
-	  </div>
-	</div>
-</div>
-
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel">
-   <div class="modal-dialog" role="document">
-	  <div class="modal-content">
-	    <div class="modal-header">
-	      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	      <h4 class="modal-title" id="changePasswordModalLabel">Mudar senha: </h4>
-	    </div>
-			<div>
-		  <%= form_for(@user) do |f| %>
-		  <div class="modal-body">
-					<span> Senha atual: </span> <%= password_field_tag :current_password, params[:current_password]%><br>
-					<span> Senha nova: </span> <%= f.password_field :password %><br>
-					<span> Confirmar senha: </span> <%= f.password_field :password_confirmation %><br>
-				</div>
-	      <div class="modal-footer">
-				<%= f.submit "Mudar minha senha", :class => "btn btn-primary" %>
-				<% end %>
-	      </div>
-		</div>
-	  </div>
-	</div>
-</div>
-
-<%= form_for @user do |f| %> <!-- Model Address-->
-	<div class="modal fade" id="changeEmailModal" tabindex="-1" role="dialog" aria-labelledby="changeEmailModalLabel">
-	   <div class="modal-dialog" role="document">
-		  <div class="modal-content">
-		    <div class="modal-header">
-		      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      <h4 class="modal-title" id="changePasswordModalLabel">Mudar email: </h4>
-		    </div>
-				<div>
-			  <div class="modal-body">
-					<div class="row">
-						<div class="col-lg-10">
-						<span> Email: </span> <%= f.text_field :email %>
-						</div>
-					</div>
-					<div class="col-lg-5">
-							<div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
-									<p>Email Inválido!</p>
-								</div>
-							</div>
-						</div>
-					</div>
-		      <div class="modal-footer">
-					<%= f.submit "Mudar meu email", :class => "btn btn-primary" %>
-					<% end %>
-		      </div>
-			</div>
-		 </div>
-		</div>
-	</div>

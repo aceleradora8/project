@@ -1,0 +1,29 @@
+<%= form_for @user do |f| %> <!-- Model Address-->
+	<div class="modal fade" id="changeEmailModal" tabindex="-1" role="dialog" aria-labelledby="changeEmailModalLabel">
+	   <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      <h4 class="modal-title text-center" id="changePasswordModalLabel">Mudar email: </h4>
+		    </div>
+				<div>
+			  <div class="modal-body">
+					<div class="row">
+						<div class="col-lg-10">
+						<span> Email: </span> <%= f.text_field :email, :class => "form-control" %>
+						</div>
+					</div>
+					<div class="col-lg-5">
+							<div id="emailErrorInvalid" class="col-lg-5 alert alert-danger custom-alert-danger email-error-invalid">
+									<p>Email Inválido!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+		      <div class="modal-footer">
+					<%= f.submit "Mudar meu email", :class => "btn btn-primary" %>
+		      </div>
+			</div>
+		 </div>
+		</div>
+<% end %>
