@@ -104,18 +104,32 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-lg-12">
+								<span>Descrição: </span>
+							</div>
 							<div class="col-lg-12 description">
 								<%= opportunity.description %>
 							</div>
 						</div>
+						
 						<div class="row">
-							<div class="col-lg-4">
-								<span><%= opportunity.address.city %>,
-									<%= opportunity.address.state %> </span>
+							<div class="col-lg-12">
+								<span>Local: </span>
 							</div>
-							<div class="col-lg-4">
-						 		<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
-							</div>
+							<%if opportunity.address != nil%>
+								<div class="col-lg-4">
+									<span><%= opportunity.address.city %>,
+										<%= opportunity.address.state %> </span>
+								</div>
+							<%else%>
+								<div class="col-lg-4">
+									<span>A combinar</span>
+								</div>
+							<%end%>
+						</div>
+						
+						<div class="col-lg-12">
+							<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
 						</div>
 					</div>
 				</div>

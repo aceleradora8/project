@@ -30,7 +30,7 @@ VALIDATION.validateName = function validateName() {
 };
 
 VALIDATION.eventsValidate = function eventsValidate(){
-   VALIDATION.showErrorMessage();
+  VALIDATION.showErrorMessage();
   $(".validate-name").focusout(function(){
     VALIDATION.validateName();
   });
@@ -186,4 +186,4 @@ VALIDATION.showErrorMessage = function showErrorMessage() {
   } else {
    $('.errorMessageJS').show();
   }
-}
+};

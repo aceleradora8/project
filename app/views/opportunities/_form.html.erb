@@ -91,13 +91,14 @@
 		<h3>Endereço da oportunidade</h3>
 	</div>
 </div>
-<div id="address">
-  <div class="row">
+<div class="row">
   	<div class="col-lg-offset-2 form-group col-lg-10">
   	<%= check_box_tag :noaddress, checked: false, :id => "no-address-opportunity" %>
-  	<%= label_tag "Marque se a oportunidade não tem um endereço especifíco!", nil, :for => 'noaddress' %>
+  	<%= label_tag "A combinar", nil, :for => 'noaddress'%>
   	</div>
-  </div>
+ </div>
+<div id="address">
+  
 	<%= render './addresses/address_form', f:f %>
 </div>
 <div class="row">

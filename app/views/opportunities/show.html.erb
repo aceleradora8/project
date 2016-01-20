@@ -33,12 +33,13 @@
 				</p>
 			</div>
 			<div>
-				<p> <span class="bold">Local: </span>  <br>
-				<span class="leftspace"><%= @opportunity.address.print_address unless @opportunity.address.blank? %>
+				<span class="bold">Local:</span>
+				
 				<% if @opportunity.address.blank? %>
-				<span class="leftspace"> Sem local definido!
+					<span class="leftspace"> A combinar</span>
+				<%else%>
+					<span class="leftspace"><%= @opportunity.address.print_address%>
 				<% end %>
-				</p>
 			</div>
 			<% if @opportunity.recurrent %>
 				<div>

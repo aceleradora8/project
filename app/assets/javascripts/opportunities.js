@@ -39,10 +39,12 @@ $('[name="noaddress"]').on('change', function(){
     $(".validate-zipcode").prop("disabled", true);
     $('[name="opportunity[address_attributes][number]"]').prop('disabled', true);
     $('[name="opportunity[address_attributes][complement]"]').prop('disabled', true);
+    $("#address").hide();
   } else {
       $(".validate-zipcode").prop("disabled", false);
       $('[name="opportunity[address_attributes][number]"]').prop('disabled', false);
       $('[name="opportunity[address_attributes][complement]"]').prop('disabled', false);
+      $("#address").show();
     };
   });
 };

@@ -6,31 +6,35 @@
 	</div>
 <% end %>
 <% @opportunities_result.each do |opportunity| %>
-	<div class="panel">
-		<div class="row panel-body bs-callout bs-callout-info opportunity-background">
-			<div class="row">
-				<div class="col-lg-12">
-					<a href="opportunities/<%=opportunity.id%>"><h3 class="opportunity-title"><%= opportunity.title %></h3></a>
+	
+		<div class="panel">
+			<div class="row panel-body bs-callout bs-callout-info opportunity-background">
+				<div class="row">
+					<div class="col-lg-12">
+						<a href="opportunities/<%=opportunity.id%>"><h3 class="opportunity-title"><%= opportunity.title %></h3></a>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="oppt-ngo">Por <a href="ngos/<%=opportunity.ngo.id%>"><%= opportunity.ngo.name %></span></a>
+				<div class="row">
+					<div class="col-lg-12">
+						<span class="oppt-ngo">Por <a href="ngos/<%=opportunity.ngo.id%>"><%= opportunity.ngo.name %></span></a>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="description"><%= opportunity.description %></div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="description"><%= opportunity.description %></div>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4">
-					<span><%= opportunity.address.city %>, <%= opportunity.address.state %></span>
-				</div>
-				<div class="col-lg-4 pull-right">
-			 		<%= link_to "Ver mais", opportunity, :class=>"btn btn-primary pull-right" %>
-				</div>
+				<%if opportunity.address != nil%>
+					<div class="row">
+						<div class="col-lg-4">
+							<span><%= opportunity.address.city %>, <%= opportunity.address.state %></span>
+						</div>
+						<div class="col-lg-4 pull-right">
+					 		<%= link_to "Ver mais", opportunity, :class=>"btn btn-primary pull-right" %>
+						</div>
+					</div>
+				<%end%>
 			</div>
 		</div>
-	</div>
+	
 <% end %>
