@@ -25,6 +25,9 @@ class NgosController < ApplicationController
     else
       @ngos_search = Ngo.search("#{params[:text_search]}").includes(:address, :causes)
     end
+
+    @ngos_search = @ngos_search.select {|ngo| ngo.user.confirmed == true}
+
     respond_to do |format|
       if request.xhr?
             @ngos_result = []
@@ -41,11 +44,6 @@ class NgosController < ApplicationController
             format.js
       else
         @ngos_result = Kaminari.paginate_array(@ngos_search).page(params[:page])
-        @ngos_result.each do |ngo|
-          if ngo.user.confirmed == false
-            @ngos_result.delete(ngo)
-          end
-        end
         format.html
       end
     end
