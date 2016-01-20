@@ -104,7 +104,7 @@ describe NgosController, type: :controller do
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
-        expect(flash[:notice]).to eq("ONG cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada.")
+        expect(flash[:notice]).to eq("Organização cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada.")
     end
 
     it 'return error if ngo name already is on use' do
@@ -117,7 +117,7 @@ describe NgosController, type: :controller do
         user_attributes: {email:"abc@pop.com", password: "123", password_confirmation: "123"}
         }
       }
-      expect(assigns(:error_message)).to eq("Já existe uma ONG cadastrada com este nome.")
+      expect(assigns(:error_message)).to eq("Já existe uma organização cadastrada com este nome.")
     end
 
     it 'return error if ngo email already is on use' do
@@ -130,7 +130,7 @@ describe NgosController, type: :controller do
         phones_attributes: {"1"=>{phone_number:"123456789"} }
         }
       }
-      expect(assigns(:error_message)).to eq("Email já cadastrado!")
+      expect(assigns(:error_message)).to eq("E-mail já cadastrado!")
     end
 
       it 'render new if anything goes wrong' do
@@ -176,7 +176,7 @@ describe NgosController, type: :controller do
       {
         id: @ngo.id, ngo:
         {
-          name:"ONG atualizada", description:"ae", privacy:false,
+          name:"Organização atualizada", description:"ae", privacy:false,
           address_attributes: {address:"end atualizado", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado"}
         }
       }
@@ -208,7 +208,7 @@ describe NgosController, type: :controller do
      it 'return success when the NGO was deleted' do
        cookies[:auth_token] = @ngo.user.auth_token
        delete :destroy, id: @ngo.id, password:"123"
-       expect(flash[:notice]).to eq("A ONG foi removida com sucesso")
+       expect(flash[:notice]).to eq("A organização foi removida com sucesso!")
      end
 
      it 'return failure message when the NGO password is wrong' do

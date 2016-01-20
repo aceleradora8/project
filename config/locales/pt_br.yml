@@ -79,7 +79,7 @@ pt_br:
         opportunity:
           attributes:
             ngo:
-              blank: "ONG deve ser preenchido!"
+              blank: "Organização deve ser preenchida!"
             cause:
               blank: "Causa deve ser preenchido!"
             title:

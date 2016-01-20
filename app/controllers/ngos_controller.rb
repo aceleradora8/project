@@ -62,7 +62,7 @@ class NgosController < ApplicationController
         end
       elsif @ngo.save
         UserMailer.email_confirmation(@ngo).deliver_later
-        format.html { redirect_to login_path, notice: "ONG cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada." }
+        format.html { redirect_to login_path, notice: "Organização cadastrada com sucesso! Foi enviado um e-mail de confirmação, verifique sua caixa de entrada." }
       else
         format.html { render 'new' }
       end
@@ -98,7 +98,7 @@ class NgosController < ApplicationController
       @ngo.destroy
       cookies.delete(:auth_token)
       respond_to do |format|
-        format.html { redirect_to '/', notice: "A ONG foi removida com sucesso" }
+        format.html { redirect_to '/', notice: "A organização foi removida com sucesso!" }
       end
     else
       respond_to do |format|
@@ -109,10 +109,10 @@ class NgosController < ApplicationController
 
   def ngo_exists?(ngo)
     if Ngo.find_by_name(ngo.name).present?
-      @error_message = "Já existe uma ONG cadastrada com este nome."
+      @error_message = "Já existe uma organização cadastrada com este nome."
       return true
     elsif User.find_by_email(ngo.user.email).present?
-      @error_message = "Email já cadastrado!"
+      @error_message = "E-mail já cadastrado!"
       return true
     else
       return false

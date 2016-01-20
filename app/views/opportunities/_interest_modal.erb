@@ -9,7 +9,7 @@
 		      </div>
 		      <div class="modal-body">
 		        <span> Olá <%= current_user.volunteer.name if current_user.volunteer %>, você confirma seu interesse na oportunidade <%= @opportunity.title %> ? </span>
-		        <span>Seus dados serão enviados para a ong <%= @opportunity.ngo.name %>, informando seu interesse! Aguarde retorno via e-mail ou telefone. </span>
+		        <span>Seus dados serão enviados para a organização <%= @opportunity.ngo.name %>, informando seu interesse! Aguarde retorno via e-mail ou telefone. </span>
 		      </div>
 		      <div class="modal-footer">
 		        <%= form_for(@interest,:html => {:id => "form-interest"}) do |f| %>

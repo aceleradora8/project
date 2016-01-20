@@ -23,7 +23,7 @@
     <%= form_tag('/about_us', method: :post, :id=>"form-contact-us") do %>
     <div class="row">
       <div class="col-lg-offset-3 col-lg-6 form-group">
-        <span> Sou um(a): </span><span class="mandatory">*</span><%= select_tag :type, "<option>ONG</option><option>Voluntário(a)</option>".html_safe, include_blank: true, :class => "form-control dropdown type-contact-us" %>
+        <span> Sou um(a): </span><span class="mandatory">*</span><%= select_tag :type, "<option>Organização</option><option>Voluntário(a)</option>".html_safe, include_blank: true, :class => "form-control dropdown type-contact-us" %>
       </div>
     </div>
     <div class="row">
