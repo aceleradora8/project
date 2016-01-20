@@ -34,8 +34,8 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-4">
-							<span><%= interest.opportunity.address.city %>,
-								<%= interest.opportunity.address.state %> </span>
+							<span><%= interest.opportunity.address.city unless interest.opportunity.blank? %>,
+								<%= interest.opportunity.address.state unless interest.opportunity.blank? %> </span>
 						</div>
 						<div class="col-lg-4">
 							<%= link_to "Ver mais", interest.opportunity, :class=>"link-style btn btn-primary pull-right" %>
