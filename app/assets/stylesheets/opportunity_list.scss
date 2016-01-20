@@ -1,6 +1,14 @@
 .opportunity-background {
 	background-color: #fafafa;
 }
+#search-opportunity{
+	margin-top: 100px;
+	background-color: #e4f1fe;
+	padding-top: 25px;
+}
+#search-result{
+	background-color: #e4f1fe;
+}
 
 .opportunity-title {
   font: 20px;
@@ -38,10 +46,6 @@
 .card-cause {
   color: #0488cf;
   font-weight: bold;
-}
-
-.result-search {
-  margin-top: 45px;
 }
 .bg-content{
   background-image: none !important;
