@@ -18,6 +18,8 @@ gem 'active_link_to'
 gem 'correios-cep'
 gem 'bcrypt', '~> 3.1.6'
 gem 'multi-dates-picker-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   post 'sessions/new' => 'users#resend_token'
   get 'about_us' => 'about_us#index'
   post 'about_us' => 'about_us#contact'
+  get "/auth/:provider/callback" => "volunteers#new"
 end

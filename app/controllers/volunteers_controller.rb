@@ -1,6 +1,7 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update]
   def new
+    @auth = request.env['omniauth.auth']
     @volunteer = Volunteer.new
     @volunteer.build_user
   end
