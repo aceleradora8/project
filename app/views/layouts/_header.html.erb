@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <div class="logo">
-      <%= link_to image_tag("ongarium-branco-png.png"), root_path %>
+        <%= link_to image_tag("ongarium-colorido-png.png"), root_path %>
       </div>
     </div>
     <div class="collapse navbar-collapse logo-text" id="navbar-menu-collapse">
@@ -79,15 +79,10 @@
           <% end %>
         <% else %>
           <%= active_link_to "Entrar", login_path, :wrap_tag => :li %>
-          <li>
-            <a href="#" class="dropdown-toggle btn-register" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Cadastre-se <span class="caret"></span></a>
-            <ul class="dropdown-menu register-style">
-              <li><%= link_to "ONG", new_ngo_path %></li>
-              <li><%= link_to "Voluntário", new_volunteer_path %></li>
-            </ul>
-          </li>
+          <%= active_link_to "Cadastre-se", '', :wrap_tag => :li, :class => "btn-register",data: {toggle: "modal", target: "#create-account-modal"}  %>
         <% end %>
       </ul>
     </div>
   </div>
 </nav>
+<%= render './sessions/create_account' %>
