@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default navbar-static-top header-style">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="logo">
+        <%= link_to image_tag("ongarium-colorido-png.png"), root_path %>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse logo-text" id="navbar-menu-collapse">
+      <ul class="nav navbar-nav">
+        <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li %>
+        <%= active_link_to "Organizações", ngos_url, :wrap_tag => :li %>
+        <li><a href="/about_us">Sobre Nós</a></li>
+        <% if current_user %>
+          <% if current_user.ngo? %>
+            <%= active_link_to "Minhas Oportunidades",  myopportunities_url, :wrap_tag => :li %>
+          <% else %>
+            <%= active_link_to "Minhas Candidaturas", myinterests_url, :wrap_tag => :li  %>
+          <% end %>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <% if current_user.ngo? %>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.ngo.name.length > 19 %>
+                  <%= current_user.ngo.name.first(20)+'...' %>
+                <% else %>
+                  <%= current_user.ngo.name.first(20)%>
+                <%end%>
+                <span class="caret"></span>
+              </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "Meu Perfil", current_user.ngo %>
+                    <%= link_to "Cadastrar Oportunidades", new_opportunity_path%>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href= "/ngos/<%=current_user.ngo.id%>/edit" class="link-style" title="EditarPerfil">
+                      Editar minhas informações
+                    </a>
+                    <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="EditarConfigs">
+                      Configurações de usuário
+                    </a>
+                     <li role="separator" class="divider"></li>
+                  </li>
+                   <li><%= link_to "Sair", logout_path, method: "delete"%></li>
+                </ul>
+            </li>
+        </ul>
+          <% else %>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.volunteer.name %><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "Meu Perfil", current_user.volunteer%>
+                    <%= link_to "Minhas Candidaturas", '/myinterests'%>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href= "/volunteers/<%=current_user.volunteer.id%>/edit" class="link-style" title="EditarPerfil">
+                      Editar meu perfil
+                    </a>
+                    <a href= "/users/<%=current_user.id%>/edit" class="link-style" title="Editar">
+                      Configurações de usuário
+                    </a>
+                    <li role="separator" class="divider"></li>
+                  </li>
+                 <li><%= link_to "Sair", logout_path, method: "delete"%></li>
+                </ul>
+            </li>
+          <% end %>
+        <% else %>
+          <%= active_link_to "Entrar", login_path, :wrap_tag => :li %>
+          <%= active_link_to "Cadastre-se", '', :wrap_tag => :li, :class => "btn-register radius",data: {toggle: "modal", target: "#create-account-modal"}  %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<%= render './sessions/create_account' %>
