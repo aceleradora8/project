@@ -9,11 +9,11 @@ describe OpportunitiesController, type: :controller do
       	ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       	@cause_animal = Cause.create!(name:"Animal")
         @cause_health = Cause.create!(name:"health")
-        start_date = "2015-03-03"
+        
         finish_date = "2015-04-03"
-      	@opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: ngo.id, start_date: start_date, finish_date: finish_date)
+      	@opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: ngo.id)
       	@opportunity1.causes.push(@cause_animal)
-        @opportunity2 = Opportunity.create!(title: 'Opportunity2', description: "Qualquer coisa", address_id: @address_viamao.id, ngo_id: ngo.id, start_date: start_date, finish_date: finish_date)
+        @opportunity2 = Opportunity.create!(title: 'Opportunity2', description: "Qualquer coisa", address_id: @address_viamao.id, ngo_id: ngo.id)
         @opportunity2.causes.push(@cause_health)
       end
 
@@ -85,9 +85,7 @@ describe OpportunitiesController, type: :controller do
           description: 'qualquercoisaai',
           address_attributes: {address:"end qlqrcoisa", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
           ngo_id: @ngo.id,
-          cause_id: @cause_animal.id,
-          start_date: "2015-03-03",
-          finish_date: "2015-04-03"
+          cause_id: @cause_animal.id
           }
         }
         this_opportunity = Opportunity.last.id
@@ -98,9 +96,7 @@ describe OpportunitiesController, type: :controller do
         post :create, {opportunity: {
           title: 'Oportunidade32',
           description: 'qualquercoisaai',
-          cause_id: @cause_animal.id,
-          start_date: "2015-03-03",
-          finish_date: "2015-04-03"
+          cause_id: @cause_animal.id
           }
         }
           expect(response).to render_template("new")
@@ -113,9 +109,7 @@ describe OpportunitiesController, type: :controller do
         @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
         @cause_animal = Cause.create!(name:"Animal")
         @ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
-        start_date = "2015-03-03"
-        finish_date = "2015-04-03"
-        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, start_date: start_date, finish_date: finish_date)
+        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id)
         @opportunity1.causes.push(@cause_animal)
         cookies[:auth_token] = @ngo.user.auth_token
     end
@@ -138,9 +132,7 @@ describe OpportunitiesController, type: :controller do
         @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
         @cause_animal = Cause.create!(name:"Animal")
         @ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
-        @start_date = "2015-03-03"
-        @finish_date = "2015-04-03"
-        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, start_date: @start_date, finish_date: @finish_date)
+        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id)
         @opportunity1.causes.push(@cause_animal)
         cookies[:auth_token] = @ngo.user.auth_token
     end
@@ -149,7 +141,7 @@ describe OpportunitiesController, type: :controller do
       put :update, {
         id: @opportunity1.id, opportunity:
         {
-          title: 'Opportunitdade EE', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date
+          title: 'Opportunitdade EE', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id
         }
       }
       expect(response).to redirect_to(@opportunity1)
@@ -159,7 +151,7 @@ describe OpportunitiesController, type: :controller do
       put :update, {
         id: @opportunity1.id, opportunity:
         {
-          title: nil, description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id, start_date: @start_date, finish_date: @finish_date
+          title: nil, description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, cause_id: @cause_animal.id
         }
       }
       expect(response).to render_template("edit")
@@ -172,9 +164,7 @@ describe OpportunitiesController, type: :controller do
         @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
         @cause_animal = Cause.create!(name:"Animal")
         @ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
-        start_date = "2015-03-03"
-        finish_date = "2015-04-03"
-        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, start_date: start_date, finish_date: finish_date)
+        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id)
         @opportunity1.causes.push(@cause_animal)
         cookies[:auth_token] = @ngo.user.auth_token
     end
@@ -193,9 +183,7 @@ describe OpportunitiesController, type: :controller do
         @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
         @cause_animal = Cause.create!(name:"Animal")
         @ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
-        @start_date = "2015-03-03"
-        @finish_date = "2015-04-03"
-        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, start_date: @start_date, finish_date: @finish_date)
+        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id)
         @opportunity1.causes.push(@cause_animal)
         cookies[:auth_token] = @ngo.user.auth_token
     end

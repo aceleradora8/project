@@ -153,19 +153,6 @@ VALIDATION.disableButtonOnSubmit = function validateForm() {
     $("input[name='commit']").val("Aguarde...")
 }
 
-VALIDATION.validateDate = function validateDate() {
-  var startDate = new Date($("select[name='opportunity[start_date(1i)]']").val() + "/" + $("select[name='opportunity[start_date(2i)]']").val() + "/" + $("select[name='opportunity[start_date(3i)]']").val());
-  var finishDate = new Date($("select[name='opportunity[finish_date(1i)]']").val() + "/" + $("select[name='opportunity[finish_date(2i)]']").val() + "/" + $("select[name='opportunity[finish_date(3i)]']").val());
-  if (startDate > finishDate) {
-    $('.error-date-opportunities').addClass("input-text-error");
-    errorArray.push(true);
-  } else {
-    $('.error-date-opportunities').removeClass("input-text-error");
-    errorArray.pop();
-  }
-  VALIDATION.showErrorMessage();
-};
-
 VALIDATION.validateZipCode = function validateZipCode() {
   zipCode = $(".validate-zipcode");
   if(($("#noaddress").is(":checked") == false)) {

@@ -5,7 +5,6 @@ OPPORTUNITIES.validateFormOnSubmit = function validateForm() {
     validateTitle = VALIDATION.validateName();
     validateDescription = VALIDATION.validateDescription();
     validateAddress = VALIDATION.validateZipCode();
-    validateDate = VALIDATION.validateDate();
     validateVacancies = VALIDATION.validateVacancies();
     if (errorArray.length == 0) {
         VALIDATION.disableButtonOnSubmit();

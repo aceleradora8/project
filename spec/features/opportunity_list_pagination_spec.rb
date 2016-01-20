@@ -9,10 +9,8 @@ feature 'opportunity list pagination tests' do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
-      start_date = "2015-03-03"
-      finish_date = "2015-04-03"
       (1..14).each do |index|
-        opp = Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id, start_date: start_date, finish_date: finish_date)
+        opp = Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id)
         opp.causes.push(cause)
       end
     end
@@ -40,10 +38,8 @@ feature 'opportunity list pagination tests' do
       address = Address.create!(city:"POA", zipcode: "5", address:"rua")
       ngo = Ngo.create!(address_id: address.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       cause = Cause.create!
-      start_date = "2015-03-03"
-      finish_date = "2015-04-03"
       (1..5).each do |index|
-        opp = Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id, start_date: start_date, finish_date: finish_date)
+        opp = Opportunity.create!(title: "Opportunity #{index}", description: "Qualquer coisa", address_id: address.id, ngo_id: ngo.id)
         opp.causes.push(cause)
       end
     end
