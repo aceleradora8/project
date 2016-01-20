@@ -2,7 +2,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :interest, :edit, :update , :destroy]
   before_action :set_causes, :set_cities, only: [:index, :new, :edit, :create]
   before_action :set_skills, only: [:new, :create, :edit]
-  before_action :set_dates, only: [:create,:update]
+  before_action :set_dates, only: [:edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
@@ -54,6 +54,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     respond_to do |format|
       if @opportunity.save
+        set_dates
         format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
       else
         format.html { render :new }
@@ -95,6 +96,8 @@ class OpportunitiesController < ApplicationController
   def my_opportunities
     @user = current_user
     @ngo = Ngo.find_by_user_id(@user.id)
+    @ngos_opportunities = @ngo.opportunities
+    @ngos_opportunities = Kaminari.paginate_array(@ngos_opportunities.flatten).page(params[:page])
   end
 
   private
