@@ -1,7 +1,11 @@
 .header-margin{
-	margin-top: 110px;
-	min-height: 450px;
-	padding-top: 45px;
+	min-height: 650px;
+	padding-top: 185px;
+	background: image-url("background-home.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .text-index{
 	font-weight: bold;
@@ -9,12 +13,10 @@
 	height: 120px;
 }
 #sessao1{
-	margin-top: 0 !important;
 	min-height: 400px;
 	background-color: #23527C;
 }
 #sessao2{
-	margin-top: 0 !important;
 	min-height: 400px;
 	background-color: #53B778;
 }

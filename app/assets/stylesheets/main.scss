@@ -1,10 +1,6 @@
 html, body {
   height: 100%;
-  background: image-url("background-home.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #808080;
 }
 
 input:focus {
@@ -12,7 +8,6 @@ input:focus {
 }
 
 section {
-  margin-top: 60px;
   min-height: 100%;
   color: gray;
   height: -200px;
