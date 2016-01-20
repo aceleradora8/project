@@ -3,16 +3,26 @@
 	font-size: 15px;
 	background-color: rgba(0, 0, 0, 0) !important;
 	border-color: rgba(0, 0, 0, 0) !important;
-
-	a, a:focus, a:hover, a:active{
+	a, a:focus, a:active{
 		color: #FFFFFF !important;
 		background-color: rgba(0, 0, 0, 0) !important;
 	}
 }
-
 .btn-register {
 	margin: -1px;
 	border: 1px solid white;	
+	a:hover{
+		background-color: yellow !important;
+		border-color: yellow !important;
+		color: black !important;
+	}
+}
+.radius{
+	border-radius: 6px 6px 6px 6px;
+}
+.navbar-nav > li > a{
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
 }
 
 .dropdown-menu {
@@ -28,7 +38,7 @@
 }
 
 .logo-text {
-	margin-top: 20px;
+	margin-top: 24px;
 	background-color: rgba(0, 0, 0, 0) !important;
 }
 
