@@ -4,10 +4,12 @@ describe NgosController, type: :controller do
   describe '#index' do
     before :each do
       @address = Address.create!(city:"POA", zipcode: "5", address:"rua")
+      @cause = Cause.create!(name: "Animais")
       user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user2 = User.create!(email:"tw@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       user3 = User.create!(email:"twe321@tw.com", password:"123321", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       @ngo = Ngo.create!(address_id: @address.id, phone1: "1234", name:"nome1", description: "Qualquer coisa1",user_id:user.id)
+      @ngo.causes.push(@cause)
       @ngo2 = Ngo.create!(address_id: @address.id, phone1: "1234", name:"nome2", description: "Qualquer coisa2",user_id:user2.id)
       user_new = User.new(email:"new@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
       @ngo_new = Ngo.new(address_id: @address.id, phone1: "1234", name:"nome_new", description: "Qualquer coisa",user:user_new)
@@ -33,6 +35,16 @@ describe NgosController, type: :controller do
     it 'return ngo filtered by city' do
       xhr :get, :index, {cities: [@address.city]}
       expect(assigns[:ngos_result]).to match_array([@ngo, @ngo2, @ngo_private])
+    end
+
+    it 'return ngo filtered by causes' do
+      xhr :get, :index, {causes: [@cause.id]}
+      expect(assigns[:ngos_result]).to match_array([@ngo])
+    end
+
+    it 'return ngo filtered by causes and cities' do
+      xhr :get, :index, {causes: [@cause.id], cities: [@address.city]}
+      expect(assigns[:ngos_result]).to match_array([@ngo])
     end
 
     it 'expect ngos result be equals a search when params = nil' do
