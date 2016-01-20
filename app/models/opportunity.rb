@@ -4,6 +4,7 @@ class Opportunity < ActiveRecord::Base
 	has_and_belongs_to_many :skills
 	has_and_belongs_to_many :causes
 	has_many :interests, dependent: :destroy
+  has_many :dates_opportunities, dependent: :destroy
 	validates :title, presence: true
 	validates :description, presence: true
 	validates :ngo, presence: true

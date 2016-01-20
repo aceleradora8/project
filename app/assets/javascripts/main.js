@@ -18,10 +18,12 @@ var ready = function() {
   ABOUTUS.validateFormContactUsSubmit();
 
   OPPORTUNITIES.validateFormOnSubmit();
-  OPPORTUNITIES.getRecurrentChecked();
   OPPORTUNITIES.checkCategories();
   OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getNoAddressChecked();
+
+  DATES.getRecurrentChecked();
+  DATES.getSpecificDateChecked();
 
   FILTER.getCausesChecked();
   FILTER.getCitiesChecked();

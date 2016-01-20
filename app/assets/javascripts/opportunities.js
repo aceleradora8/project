@@ -15,7 +15,6 @@ OPPORTUNITIES.validateFormOnSubmit = function validateForm() {
   });
 };
 
-
 OPPORTUNITIES.checkCategories = function() {
   $('.category-checkbox').on('change', function() {
     if ($('.category-checkbox:checked').length == 5) {
@@ -26,12 +25,6 @@ OPPORTUNITIES.checkCategories = function() {
   });
 };
 
-OPPORTUNITIES.getRecurrentChecked = function() {
-$("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
-$('#recurrent').on('change', function() {
-    $("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
-  });
-};
 
 OPPORTUNITIES.getNoAddressChecked = function() {
 $('[name="noaddress"]').on('change', function(){

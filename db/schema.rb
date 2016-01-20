@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119131624) do
+ActiveRecord::Schema.define(version: 20160120133324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20160119131624) do
 
   add_index "causes_opportunities", ["cause_id"], name: "index_causes_opportunities_on_cause_id", using: :btree
   add_index "causes_opportunities", ["opportunity_id"], name: "index_causes_opportunities_on_opportunity_id", using: :btree
+
+  create_table "dates_opportunities", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "opportunity_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "interests", force: :cascade do |t|
     t.integer  "volunteer_id"
@@ -95,6 +102,14 @@ ActiveRecord::Schema.define(version: 20160119131624) do
   add_index "opportunities", ["address_id"], name: "index_opportunities_on_address_id", using: :btree
   add_index "opportunities", ["ngo_id"], name: "index_opportunities_on_ngo_id", using: :btree
 
+  create_table "opportunities_shifts", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "shift_id"
+  end
+
+  add_index "opportunities_shifts", ["opportunity_id"], name: "index_opportunities_shifts_on_opportunity_id", using: :btree
+  add_index "opportunities_shifts", ["shift_id"], name: "index_opportunities_shifts_on_shift_id", using: :btree
+
   create_table "opportunities_skills", force: :cascade do |t|
     t.integer "opportunity_id"
     t.integer "skill_id"
@@ -102,6 +117,14 @@ ActiveRecord::Schema.define(version: 20160119131624) do
 
   add_index "opportunities_skills", ["opportunity_id"], name: "index_opportunities_skills_on_opportunity_id", using: :btree
   add_index "opportunities_skills", ["skill_id"], name: "index_opportunities_skills_on_skill_id", using: :btree
+
+  create_table "opportunities_weekdays", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "weekday_id"
+  end
+
+  add_index "opportunities_weekdays", ["opportunity_id"], name: "index_opportunities_weekdays_on_opportunity_id", using: :btree
+  add_index "opportunities_weekdays", ["weekday_id"], name: "index_opportunities_weekdays_on_weekday_id", using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
@@ -112,6 +135,12 @@ ActiveRecord::Schema.define(version: 20160119131624) do
   end
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+
+  create_table "shifts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
@@ -142,6 +171,12 @@ ActiveRecord::Schema.define(version: 20160119131624) do
     t.integer  "user_id"
     t.string   "sex"
     t.date     "birth_date"
+  end
+
+  create_table "weekdays", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

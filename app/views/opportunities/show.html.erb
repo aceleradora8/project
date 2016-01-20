@@ -47,11 +47,11 @@
 				</div>
 			<% else %>
 			<div>
-				<p> <span class="bold">Data de Início: </span> <%= @opportunity.start_date %> </p>
-			</div>
-			<div>
-				<p> <span class="bold">Data de Término: </span> <%= @opportunity.finish_date %></p>
-			</div>
+        <p> <span class="bold">Data(s): </span>  <br>
+        <% @opportunity.dates_opportunities.each do |date| %>
+          <%= date.date %>
+        <% end %>
+      </div>
 			<% end %>
 			<div>
 					<p> <span class="bold">Organização: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>

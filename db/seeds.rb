@@ -62,6 +62,19 @@ skill.save
 skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
+Shift.create(name:"A combinar")
+Shift.create(name:"Manhã")
+Shift.create(name:"Tarde")
+Shift.create(name:"Noite")
+
+Weekday.create(name:"Segunda-feira")
+Weekday.create(name:"Terça-feira")
+Weekday.create(name:"Quarta-feira")
+Weekday.create(name:"Quinta-feira")
+Weekday.create(name:"Sexta-feira")
+Weekday.create(name:"Sábado")
+Weekday.create(name:"Domingo")
+
 case Rails.env
 when "development", "staging"
 # populando enderecos para ongs/oportunidades
@@ -236,5 +249,6 @@ opportunity.save
 opportunity.skills.push(Skill.find(3))
 opportunity.causes.push(Cause.find(3))
 opportunity.causes.push(Cause.find(1))
+
 
 end

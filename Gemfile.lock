@@ -104,6 +104,8 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -124,6 +126,7 @@ GEM
     mini_portile (0.6.2)
     minisyntax (0.2.5)
     minitest (5.8.2)
+    multi-dates-picker-rails (0.1.1)
     multi_json (1.11.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -264,8 +267,10 @@ DEPENDENCIES
   jasmine-jquery-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   kaminari
   livingstyleguide
+  multi-dates-picker-rails
   pg
   pg_search
   rails (= 4.2.4)

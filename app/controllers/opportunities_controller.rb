@@ -2,6 +2,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :interest, :edit, :update , :destroy]
   before_action :set_causes, :set_cities, only: [:index, :new, :edit, :create]
   before_action :set_skills, only: [:new, :create, :edit]
+  before_action :set_dates, only: [:create,:update]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
@@ -116,6 +117,12 @@ class OpportunitiesController < ApplicationController
 
   def set_cities
     @cities = Address.uniq.pluck(:city)
+  end
+
+  def set_dates
+    params[:dates_opportunities].split(',').each do |date|
+      DatesOpportunity.create(date:date, opportunity_id:@opportunity.id)
+    end
   end
 
   def opportunity_params
