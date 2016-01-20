@@ -166,6 +166,27 @@ describe OpportunitiesController, type: :controller do
     end
   end
 
+  describe '#my_opportunities' do
+    before :each do
+        @address_poa = Address.create!(city:"POA", zipcode: "5", address:"rua")
+        @user = User.create!(email:"teste@teste.com", password:"123", confirmed: true, auth_token: "esseehmeutoken", role:"ngo")
+        @cause_animal = Cause.create!(name:"Animal")
+        @ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa",user_id:@user.id)
+        start_date = "2015-03-03"
+        finish_date = "2015-04-03"
+        @opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: @ngo.id, start_date: start_date, finish_date: finish_date)
+        @opportunity1.causes.push(@cause_animal)
+        cookies[:auth_token] = @ngo.user.auth_token
+    end
+
+    it 'return my opportunities' do
+      get :my_opportunities
+      expect(assigns[:user]).to eq(@user)
+      expect(assigns[:ngo]).to eq(@ngo)
+    end
+
+  end
+
     describe '#destroy' do
       before :each do
         @address_poa = Address.create!(city:"POA", zipcode: "5", address:"rua")

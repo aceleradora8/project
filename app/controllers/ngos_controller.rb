@@ -37,8 +37,6 @@ class NgosController < ApplicationController
               @ngos_result = filter_with_causes(@ngos_search, params[:causes])
             elsif params[:cities]
               @ngos_result = filter_with_cities(@ngos_search, params[:cities])
-            else
-              @ngos_result = @ngos_search
             end
             @ngos_result = Kaminari.paginate_array(@ngos_result.flatten).page(params[:page])
             format.js
