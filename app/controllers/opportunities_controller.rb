@@ -120,8 +120,10 @@ class OpportunitiesController < ApplicationController
   end
 
   def set_dates
-    params[:dates_opportunities].split(',').each do |date|
-      DatesOpportunity.create(date:date, opportunity_id:@opportunity.id)
+    unless params[:dates_opportunities].nil?
+      params[:dates_opportunities].split(',').each do |date|
+        DatesOpportunity.create(date:date, opportunity_id:@opportunity.id)
+      end
     end
   end
 
