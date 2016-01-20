@@ -29,11 +29,17 @@
 						<div class="col-lg-4">
 							<span><%= opportunity.address.city %>, <%= opportunity.address.state %></span>
 						</div>
-						<div class="col-lg-4 pull-right">
-					 		<%= link_to "Ver mais", opportunity, :class=>"btn btn-primary pull-right" %>
-						</div>
+					</div>
+				<%else%>
+					<div>
+						<span>A combinar</span>
 					</div>
 				<%end%>
+				<div class="col-lg-12">
+
+					 		<%= link_to "Ver mais", opportunity, :class=>"btn btn-primary pull-right" %>
+						
+				</div>
 			</div>
 		</div>
 	
