@@ -1,16 +1,14 @@
 <div class="">
-	<div class="col-lg-10 col-lg-offset-1">
-		<button class="btn button-search-style" value="Oportunidade">Oportunidades</button>
-		<button class="btn button-search-style" value="Organizações">Organizações</button>
-	</div>
-	<div class="col-lg-10 col-lg-offset-1">
-			<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :enforce_utf8 => false) do %>
-			<%= text_field_tag :text_search, params[:text_search], :placeholder => "Ex.: Patas Dadas", :class => "form-control search-box" %>
-			<span class="glyphicon glyphicon-map-marker map-marker"></span>
-			<%= text_field_tag :text_search, params[:text_search], :placeholder => "Porto Alegre, RS", :class => "form-control search-city" %>
-			<button type="submit" class="btn btn-primary">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
-			<% end %>
-	</div>
+	<button class="btn button-search-style" value="Oportunidade">Oportunidades</button>
+	<button class="btn button-search-style" value="Organizações">Organizações</button>
+</div>
+<div class="">
+		<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :enforce_utf8 => false) do %>
+		<%= text_field_tag :text_search, params[:text_search], :placeholder => "Ex.: Patas Dadas", :class => "form-control search-box" %>
+		<span class="glyphicon glyphicon-map-marker map-marker"></span>
+		<%= text_field_tag :text_search, params[:text_search], :placeholder => "Porto Alegre, RS", :class => "form-control search-city" %>
+		<button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
+		<% end %>
 </div>
