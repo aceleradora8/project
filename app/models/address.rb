@@ -12,6 +12,8 @@ class Address < ActiveRecord::Base
       "#{address}, S/N -
        #{neighborhood}, #{city} -
        #{state}, #{country}, #{zipcode}"
+     else
+       "Endereço não informado."
     end
   end
 
