@@ -6,9 +6,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3 form-group">
-			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" if @auth == nil%>
-			<%= ff.text_field :email, :value => @auth.info.email , :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email" if @auth != nil %>
-			<%= @auth %>
+			<%= ff.text_field :email, :id => "email-user", :placeholder => 'exemplo@exemplo.com', :class => "form-control validate-email"%>
 		</div>
 	</div>
 

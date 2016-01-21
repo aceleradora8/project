@@ -5,8 +5,7 @@
 </div>
 <div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
-    <%= f.text_field :name, :id => "name-volunteer", :class => "form-control validate-name" if @auth == nil %>
-    <%= f.text_field :name, :value => @auth.info.name, :id => "name-volunteer", :class => "form-control validate-name" if @auth != nil %>
+    <%= f.text_field :name, :id => "name-volunteer", :class => "form-control validate-name"%>
   </div>
 </div>
 <div class="row">
@@ -37,7 +36,7 @@
     <label class="control-label", for="sex-volunteer">Gênero: </label>
     <div class="row">
       <div class="col-lg-3 form-group">
-        <%= f.select :sex , ['Masculino' , 'Feminino', 'Outro'] if @auth == nil%>
+        <%= f.select :sex , ['Masculino' , 'Feminino', 'Outro']%>
       </div>
     </div>
   </div>
