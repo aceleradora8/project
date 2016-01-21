@@ -26,6 +26,8 @@ class OpportunitiesController < ApplicationController
           @opportunities_result = filter_with_causes(@opportunity_search, params[:causes])
         elsif params[:cities]
           @opportunities_result = filter_with_cities(@opportunity_search, params[:cities])
+        else
+          @opportunities_result = @opportunity_search
         end
         @opportunities_result = Kaminari.paginate_array(@opportunities_result.flatten).page(params[:page])
         format.js
