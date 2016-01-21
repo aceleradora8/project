@@ -5,7 +5,6 @@ NGO.validateFormOnSubmit = function validateForm() {
     validateName = VALIDATION.validateName();
     validateDescription = VALIDATION.validateDescription();
     validateAddress = VALIDATION.validateZipCode();
-    validateEmail = VALIDATION.validateEmail($(".validate-email"),$('.email-error-invalid'));
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     validatePhone = VALIDATION.validatePhone();
@@ -13,10 +12,10 @@ NGO.validateFormOnSubmit = function validateForm() {
     if (errorArray.length == 0) {
       VALIDATION.disableButtonOnSubmit();
       return true;
-    }
+    };
     return false;
   });
-}
+};
 
 NGO.requestNgos = function() {
   $.get('/ngos', {

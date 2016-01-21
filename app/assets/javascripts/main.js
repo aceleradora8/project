@@ -19,7 +19,6 @@ var ready = function() {
 
   OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.checkCategories();
-  OPPORTUNITIES.validateFormOnSubmit();
   OPPORTUNITIES.getNoAddressChecked();
 
   DATES.getRecurrentChecked();

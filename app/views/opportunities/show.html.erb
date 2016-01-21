@@ -50,7 +50,11 @@
         <p> <span class="bold">Data(s): </span>  <br>
         <ul>
         <% @opportunity.dates_opportunities.each do |date| %>
+<<<<<<< HEAD
           <li><%= date.date %></li>
+=======
+          <%= l date.date %>,
+>>>>>>> #0 <@ghig> - Começando a resolver JS
         <% end %>
         </ul>
       </div>

@@ -9,7 +9,7 @@ pt_br:
       - Sab
       - Dom
     abbr_month_names:
-      - 
+      -
       - Jan.
       - Fev.
       - Mar.
@@ -33,7 +33,7 @@ pt_br:
     formats:
       default: "%d/%m/%Y"
     month_names:
-      - 
+      -
       - Janeiro
       - Fevereiro
       - Março
