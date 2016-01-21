@@ -2,13 +2,14 @@
 	<button class="btn button-search-style" value="Oportunidade">Oportunidades</button>
 	<button class="btn button-search-style" value="Organizações">Organizações</button>
 </div>
-<div class="">
+<div class="border_search">
 		<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :enforce_utf8 => false) do %>
-		<%= text_field_tag :text_search, params[:text_search], :placeholder => "Ex.: Patas Dadas", :class => "form-control search-box" %>
-		<span class="glyphicon glyphicon-map-marker map-marker"></span>
+		<span class="flaticon-palm1"></span>
+		<%= text_field_tag :text_search, params[:text_search], :placeholder => "O que você deseja procurar?", :class => "form-control search-box" %>
+		<span class="flaticon-pin56"></span>
 		<%= text_field_tag :text_search, params[:text_search], :placeholder => "Porto Alegre, RS", :class => "form-control search-city" %>
-		<button type="submit" class="btn btn-primary">
-			<span class="glyphicon glyphicon-search"></span>
+		<button type="submit" class="btn button-search">
+			<span>Pesquisar</span>
 		</button>
 		<% end %>
 </div>

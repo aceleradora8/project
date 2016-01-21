@@ -1,26 +1,56 @@
 .bg-color-search{
 	background: rgba(0,0,0,0.3);
-	height: 150px;
-	padding-top: 25px;
+	height:127px;
+	padding-top: 14px;
 }
 .search-box{
-	margin-right: -5px;
-	width: 60% !important;
+	margin-right: -7px;
+	width: 55% !important;
+	padding-left: 36px !important;
+	border: none !important;
+	border-radius: 6px 0px 0px 6px !important;
 }
 .search-city{
 	margin-right: -7px;
-	margin-left: 5px !important;
+	margin-left: 2px !important;
 	width: 28% !important;
-	padding-left: 18px !important;
+	padding-left: 45px !important;
+	border: none !important;
+	border-radius: 0px 0px 0px 0px !important;
+	box-shadow: none !important;
 }
 .button-search-style{
 	margin-right: -3px;
 	font-weight: bold;
-	color: #FFFFFF !important;
-	background-color: rgba(79, 197, 255, 0.7);
+	color: #000 !important;
+	background-color: rgba(163, 208, 242, 1);
+	border-radius: 6px 6px 0px 0px !important;
+	padding: 10px 10px 13px 10px !important;
+	font-weight: 600 !important;
 }
 .map-marker{
 	margin-right: -21px;
 	left: 4px;
+}
+.button-search{
+	background-color: rgba(255, 239, 40, 1);
+	color: black;
+	font-weight: 600 !important;
+	padding-right: 30px !important;
+	padding-left: 30px !important;
+}
+.border_search{
+	padding: 10px 3px 10px 10px;
+	background-color: rgba(163, 208, 242, 1);
+	border-radius: 0px 6px 6px 6px;
+}
+.flaticon-pin56 {
+    position: absolute;
+    padding: 3px 0px;
+}
 
+.flaticon-palm1{
+	position: absolute;
+    padding: 3px 0px;
+    margin-left: -13px;
 }
