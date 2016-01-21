@@ -4,12 +4,14 @@ class Address < ActiveRecord::Base
   after_save :noaddress
 
   def print_address
-    if zipcode
+    if zipcode && number != nil
       "#{address}, #{number}, #{complement} -
        #{neighborhood}, #{city} -
        #{state}, #{country}, #{zipcode}"
-    else
-      "Endereço não informado."
+    elsif zipcode && number == nil
+      "#{address}, S/N -
+       #{neighborhood}, #{city} -
+       #{state}, #{country}, #{zipcode}"
     end
   end
 

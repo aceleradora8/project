@@ -34,9 +34,9 @@
 			</div>
 			<div>
 				<span class="bold">Local:</span>
-				
+
 				<% if @opportunity.address.blank? %>
-					<span class="leftspace"> A combinar</span>
+					<span class="leftspace">A combinar</span>
 				<%else%>
 					<span class="leftspace"><%= @opportunity.address.print_address%></span>
 				<% end %>
