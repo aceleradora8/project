@@ -38,7 +38,7 @@
 				<% if @opportunity.address.blank? %>
 					<span class="leftspace"> A combinar</span>
 				<%else%>
-					<span class="leftspace"><%= @opportunity.address.print_address%>
+					<span class="leftspace"><%= @opportunity.address.print_address%></span>
 				<% end %>
 			</div>
 			<% if @opportunity.recurrent %>
