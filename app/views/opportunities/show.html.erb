@@ -36,7 +36,7 @@
 				<span class="bold">Local:</span>
 
 				<% if @opportunity.address.blank? %>
-					<span class="leftspace">A combinar</span>
+					<span class="leftspace"> A combinar</span>
 				<%else%>
 					<span class="leftspace"><%= @opportunity.address.print_address%></span>
 				<% end %>
@@ -48,15 +48,9 @@
 			<% else %>
 			<div>
         <p> <span class="bold">Data(s): </span>  <br>
-        <ul>
         <% @opportunity.dates_opportunities.each do |date| %>
-<<<<<<< HEAD
-          <li><%= date.date %></li>
-=======
-          <%= l date.date %>,
->>>>>>> #0 <@ghig> - Começando a resolver JS
+          <li> <%= l date.date %> </li>
         <% end %>
-        </ul>
       </div>
 			<% end %>
 			<div>
