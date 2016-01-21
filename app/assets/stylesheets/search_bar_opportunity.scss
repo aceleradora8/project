@@ -8,7 +8,7 @@
 	width: 55% !important;
 	padding-left: 36px !important;
 	border: none !important;
-	border-radius: 6px 0px 0px 6px !important;
+	border-radius: 4px 0px 0px 4px !important;
 }
 .search-city{
 	margin-right: -7px;
@@ -19,12 +19,20 @@
 	border-radius: 0px 0px 0px 0px !important;
 	box-shadow: none !important;
 }
-.button-search-style{
-	margin-right: -3px;
+.button-search-enabled{
+	margin-right: -4px;
 	font-weight: bold;
 	color: #000 !important;
 	background-color: rgba(163, 208, 242, 1);
-	border-radius: 6px 6px 0px 0px !important;
+	border-radius: 4px 4px 0px 0px !important;
+	padding: 10px 10px 13px 10px !important;
+	font-weight: 600 !important;
+}
+.button-search-disabled{
+	margin-right: -4px;
+	font-weight: bold;
+	color: #fff !important;
+	background-color: rgba(0, 0, 0, 0);
 	padding: 10px 10px 13px 10px !important;
 	font-weight: 600 !important;
 }
@@ -42,14 +50,14 @@
 .border_search{
 	padding: 10px 3px 10px 10px;
 	background-color: rgba(163, 208, 242, 1);
-	border-radius: 0px 6px 6px 6px;
+	border-radius: 0px 4px 4px 4px;
 }
 .flaticon-pin56 {
     position: absolute;
     padding: 3px 0px;
 }
 
-.flaticon-palm1{
+.flaticon-palm1, .flaticon-house28{
 	position: absolute;
     padding: 3px 0px;
     margin-left: -13px;

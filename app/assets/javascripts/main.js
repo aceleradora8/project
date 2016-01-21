@@ -32,9 +32,7 @@ var ready = function() {
 
   VOLUNTEER.validateFormOnSubmit();
 
-  MOUSEFLOW.callMouseFlow();
-
-  ANALYTICS.callGoogleAnalytics();
+  SEARCH.clickButtonSearch();  
 }
 
 $(document).ready(ready);

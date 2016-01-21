@@ -14,9 +14,12 @@
         font-size: 20px;
 font-style: normal;
 margin-left: 20px;
-}.flaticon-palm1:before {
+}.flaticon-house28:before {
 	content: "\e000";
 }
-.flaticon-pin56:before {
+.flaticon-palm1:before {
 	content: "\e001";
+}
+.flaticon-pin56:before {
+	content: "\e002";
 }
