@@ -14,15 +14,22 @@ DATES.getSpecificDateChecked = function() {
       DATES.setDatesPicker();
     }else{
       $("#dates_field").hide();
+      
       $("#dates_opportunities").val("");
     }
   });
 };
 
 DATES.setDatesPicker = function(){
+   array = [];
+  array2 = $("#dates_opportunities").val().split(",");
+  $.each(array2,function(i,date){
+   array.push(date.replace(" ","").split("-").reverse().join("/"));
+  });
+  array.pop();
+
   $("#dates_field").multiDatesPicker({
-        altField: '#dates_opportunities', 
-        minDate: 0,
+        altField: '#dates_opportunities',
         dateFormat: 'dd/mm/yy',
         dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
         dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
@@ -30,6 +37,7 @@ DATES.setDatesPicker = function(){
         monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
         monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
         nextText: 'Próximo',
-        prevText: 'Anterior'
+        prevText: 'Anterior',
+        addDates: array.length > 0 ? array : ""
       });
 }

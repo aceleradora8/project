@@ -48,9 +48,11 @@
 			<% else %>
 			<div>
         <p> <span class="bold">Data(s): </span>  <br>
+        <ul>
         <% @opportunity.dates_opportunities.each do |date| %>
-          <%= date.date %>
+          <li><%= date.date %></li>
         <% end %>
+        </ul>
       </div>
 			<% end %>
 			<div>

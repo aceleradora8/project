@@ -2,6 +2,8 @@ class Opportunity < ActiveRecord::Base
 	belongs_to :address, dependent: :destroy
 	belongs_to :ngo
 	has_and_belongs_to_many :skills
+  has_and_belongs_to_many :weekdays
+  has_and_belongs_to_many :shifts
 	has_and_belongs_to_many :causes
 	has_many :interests, dependent: :destroy
   has_many :dates_opportunities, dependent: :destroy

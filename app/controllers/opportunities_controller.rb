@@ -2,7 +2,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :interest, :edit, :update , :destroy]
   before_action :set_causes, :set_cities, only: [:index, :new, :edit, :create]
   before_action :set_skills, only: [:new, :create, :edit]
-  before_action :set_dates, only: [:edit]
+  before_action :set_weekdays, only: [:new, :create, :edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
@@ -56,7 +56,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(opportunity_params)
     respond_to do |format|
       if @opportunity.save
-        set_dates
+        create_dates
         format.html { redirect_to "/opportunities/#{@opportunity.id}" , notice: 'Oportunidade cadastrada com sucesso' }
       else
         format.html { render :new }
@@ -69,6 +69,8 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
+    params[:dates_opportunities] = @opportunity.dates_opportunities.map { |date| "#{date.date},"}
+    @opportunity.build_address if @opportunity.address.blank?
     respond_to do |format|
       if request.xhr?
         if params[:zipcode]
@@ -82,6 +84,7 @@ class OpportunitiesController < ApplicationController
 
   def update
     if @opportunity.update(opportunity_params)
+      create_dates
       redirect_to @opportunity
     else
       render 'edit'
@@ -116,6 +119,10 @@ class OpportunitiesController < ApplicationController
     @skill = Skill.all
   end
 
+  def set_weekdays
+    @weekday = Weekday.all
+  end
+
   def set_causes
     @causes = Cause.all
   end
@@ -124,8 +131,9 @@ class OpportunitiesController < ApplicationController
     @cities = Address.uniq.pluck(:city)
   end
 
-  def set_dates
+  def create_dates
     unless params[:dates_opportunities].nil?
+      @opportunity.dates_opportunities.each { |date| date.destroy }
       params[:dates_opportunities].split(',').each do |date|
         DatesOpportunity.create(date:date, opportunity_id:@opportunity.id)
       end
@@ -133,7 +141,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def opportunity_params
-    params.require(:opportunity).permit(:title, :description, :recurrent, :ngo_id, :vacancies, :requirements, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [], cause_ids: [])
+    params.require(:opportunity).permit(:title, :description, :recurrent, :ngo_id, :vacancies, :requirements, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [], weekday_ids: [], cause_ids: [])
   end
 
   def filter_with_causes(opportunities, causes)
