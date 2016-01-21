@@ -1,11 +1,8 @@
 <div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
     <label class="control-label", for="name-volunteer">Nome: <span class="mandatory">*</span></label>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-2 col-lg-5 form-group">
-    <%= f.text_field :name, :id => "name-volunteer", :class => "form-control validate-name"%>
+    <%= f.text_field :name, :id => "name-volunteer", :class => "form-control validate-name" if @auth == nil %>
+    <%= f.text_field :name, :value => @auth.info.name, :id => "name-volunteer", :class => "form-control validate-name" if @auth != nil %>
   </div>
 </div>
 <div class="row">
@@ -14,39 +11,42 @@
     <%= f.text_area :observations, :class => "form-control validate-observations" , :id => "description-ngo"%>
   </div>
 </div>
+
 <div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
     <label class="control-label", for="phone-volunteer">Telefone(s): <span class="mandatory">*</span></label>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-2 col-lg-10">
     <div class = "row">
-      <div class="col-lg-2 form-group">
+      <div class="col-lg-5 form-group">
         <%= f.telephone_field :phone1, :class => "form-control phone_with_ddd validate-phone", :placeholder => "(99)9999-9999", :id =>"phone1-vol" %>
       </div>
-      <div class="col-lg-2 form-group">
+      <div class="col-lg-5 form-group">
         <%= f.telephone_field :phone2, :class => "form-control phone_with_ddd", :placeholder => "(99)9999-9999", :id =>"phone2-vol" %>
       </div>
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-lg-offset-2 col-lg-5 form-group">
-    <label class="control-label", for="sex-volunteer">Gênero: </label>
+    <label class="control-label" for="sex-volunteer">Gênero: </label>
     <div class="row">
-      <div class="col-lg-3 form-group">
-        <%= f.select :sex , ['Masculino' , 'Feminino', 'Outro']%>
+      <div class="col-lg-5 form-group">
+        <%= f.select :sex, ['Selecione', 'Masculino', 'Feminino', 'Outro'], {}, {class: 'form-control '} %>
       </div>
     </div>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-lg-offset-2 col-lg-5 form-group">
-    <label class="control-label", for="sex-volunteer">Data de Nascimento: <span class="mandatory">*</span></label>
+  <div class="col-md-offset-2 col-md-6 form-group">
     <div class="row">
-      <div class="col-lg-7 div-date birthday-teste">
-        <%= f.date_select :birth_date, prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 60 , end_year: Time.now.year - 10 %>
+      <div class="col-md-12">
+        <label for="sex-volunteer">Data de Nascimento: <span class="mandatory">*</span></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.date_select :birth_date, { prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 60, end_year: Time.now.year - 10}, { class: 'form-control date-select' } %>
       </div>
     </div>
   </div>

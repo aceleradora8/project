@@ -7,6 +7,13 @@ input:focus {
 	outline: none;
 }
 
+.min-margin-top{
+  margin-top: 74px !important;
+}
+.centralize{
+  margin-top: 25px;
+}
+
 section {
   color: gray;
   height: -200px;
@@ -31,4 +38,10 @@ section {
 }
 .radius{
   border-radius: 4px 4px 4px 4px;
+}
+
+
+.date-select {
+    display: inline-block !important;
+    width: 30% !important;
 }

@@ -1,3 +1,5 @@
+<section id="section-login" class="min-margin-top">
+
 <div class="form-horizontal">
 	<% if notice != nil %>
 		<div class= "alert alert-success col-lg-offset-4 col-lg-4 centralize">
@@ -6,7 +8,7 @@
 	<%end%>
 
 	<% if error != nil %>
-		<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
+		<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize ">
 			<p id="error"><%= error %></p>
 		</div>
 	<%end%>
@@ -57,3 +59,4 @@
 </div>
 <%= render 'recover_password' %>
 <%= render 'create_account' %>
+</section>
