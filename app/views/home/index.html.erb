@@ -21,29 +21,71 @@
 		</div>
 	</div>
 </header>
-<section id="sessao1">
+<section id="section1">
 	<div class="row">
 		<div class="col-lg-12 text-center">
 			<h1 class="section-title">O que é?</h1>
 			<h4>O <strong>Ongarium</strong> é uma plataforma online <strong>100% gratuita</strong> para sempre.</h4>
 		</div>
 	</div>
-	<div class="col-lg-2 col-lg-offset-5 border_section_1"></div>
 	<div class="row">
-		<div class="col-lg-4 col-lg-offset-4">
-			<div class="col-lg-6">
-				blabla1
+		<div class="col-lg-2 col-lg-offset-5">
+			<hr class="border_section_1">
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-lg-offset-3 col-lg-3">
+				<div class="row">
+					<%= image_tag("11.png",:class => "pull-right",:id => "img_11", :alt => "Voluntario") %>
+				</div>
+				<p class="text-center text-section1">Todas as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho</p>
+				<ul class="list_section1">
+ 					<li>de voluntario perto de</li>
+ 					<li>de voluntario perto de</li>
+ 					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+				</ul>
+				<%= active_link_to "Quero ser voluntario", '/volunteers/new', :class => "btn btn-volunteer radius pull-right" %>
 			</div>
-			<div class="col-lg-6">
-				blabla2
+			<div class="col-lg-3">
+				<div class="row">
+					<%= image_tag("12.png", :id => "img_12", :alt => "Ong") %>
+				</div>
+				<p class="text-center text-section1">Todas as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho</p>
+				<ul class="list_section1">
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+					<li>de voluntario perto de</li>
+				</ul>
+					<%= active_link_to "Quero ser organização", '/ngos/new', :class => "btn btn-ong radius" %>
 			</div>
+	</div>
+</section>
+<section id="section2">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-1">
+			<p class="text_section2">Voluntario ou organização, comece a mudar o mundo hoje mesmo!</p>
+		</div>
+		<div class="col-lg-2">
+			<%= active_link_to "Cadastre-se gratuitamente", '', :class => "btn btn-section2 radius",data: {toggle: "modal", target: "#create-account-modal"}  %>
 		</div>
 	</div>
 </section>
-<section id="sessao2">
-
-</section>
-
-<section id="sessao3">
-
+<section id="section3">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h1 class="section-title">Como funciona?</h1>
+			<h4>Estabelece o canal de comunicação entre <strong>voluntários</strong> e <strong>organizações</strong>.</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2 col-lg-offset-5">
+			<hr class="border_section_1">
+		</div>
+	</div>
 </section>

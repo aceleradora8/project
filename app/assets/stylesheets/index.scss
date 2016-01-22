@@ -13,30 +13,75 @@
 	color: #FFFFFF !important;
 	height: 120px;
 }
-#sessao1{
-	min-height: 400px;
-	background-color: #fff;
-	margin-top: 20px;
-}
-#sessao1 h4{
+#section1 h4, #section3 h4{
 	font-weight: 300;
 	color: #444444;
 	margin-top: 20px;
 }
-#sessao2{
-	min-height: 100px;
-	background-color: #000;
-	margin-top: 20px;
-}
-#sessao3{
+#section1{
 	min-height: 400px;
-	background-color: #53B778;
+	background-color: #fff;
+	padding-top: 20px;
+	border-top: solid 2px grey;
 }
 .section-title{
 	color: #333333;
 	font-weight: 600;
 }
 .border_section_1{
-	border-bottom: solid 2px gray;
-	padding-top: 15px;
+	margin-bottom: 60px;
+	width: 100px;
+}
+.text-section1{
+	color: black;
+}
+#img_11{
+	margin-right: 22px;
+}
+#img_12{
+	margin-left: 22px;
+	margin-top: 2px;
+}
+.list_section1{
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+.btn-ong{
+	border: 1px solid purple !important;
+	color: purple;
+	box-shadow: none !important;
+	a:hover{
+		background-color: purple !important;
+		border-color: purple !important;
+		color: white !important;
+	}
+}
+.btn-volunteer{
+	border: 1px solid blue !important;
+	color: blue;
+	box-shadow: none !important;
+	a:hover{
+		background-color: blue !important;
+		border-color: blue !important;
+		color: white !important;
+	}
+}
+#section2{
+	min-height: 100px;
+	background-color: #000;
+	margin-top: 20px;
+}
+.text_section2{
+	color: white;
+	font-weight: bold;
+	padding-top: 40px;
+}
+.btn-section2{
+	margin-top: 34px;
+	border-color: yellow !important;
+	color: yellow !important;
+}
+#section3{
+	min-height: 400px;
+	background-color: #fff;
 }
