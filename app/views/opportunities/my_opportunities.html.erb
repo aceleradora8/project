@@ -1,17 +1,21 @@
 <div class="container">
+<section class="min-margin-top">
 	<div class="ngo-interests">
     <div class="row">
-  		<div class="col-lg-5 title">
-  				<h3>Minhas Oportunidades:</h3>
+  		<div class="text-center">
+  				<h2>Minhas Oportunidades</h2>
   		</div>
-      <div class="col-lg-4 button center-block">
-          <%= link_to "Cadastrar Oportunidades", new_opportunity_url, :class=>"link-style btn btn-primary" %>
-      </div>
-			<div class="col-lg-3 pull-right">
+		</div>
+		<div class="row">
+			<div class="pull-left">
+				<%= link_to "Cadastrar Oportunidades", new_opportunity_url, :class=>"link-style btn btn-primary new_opportunity" %>
+			</div>
+			<div class="pull-right">
           <%= paginate @ngos_opportunities, :theme => 'twitter-bootstrap-3'%>
       </div>
     </div>
-    </div>
+
+
 		<% @ngos_opportunities.each do |opportunity| %>
 			<div class="panel">
 				<div class="row panel-body detailopp bs-callout bs-callout-info">
@@ -55,3 +59,4 @@
     </div>
 	</div>
 </div>
+</section>
