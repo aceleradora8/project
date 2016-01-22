@@ -9,11 +9,11 @@ NGO.validateFormOnSubmit = function validateForm() {
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     validatePhone = VALIDATION.validatePhone();
     validateZipCode = VALIDATION.validateZipCode();
-    if (errorArray.length == 0) {
-      VALIDATION.disableButtonOnSubmit();
-      return true;
-    };
-    return false;
+    if (VALIDATION.hasError()) {
+      return false;
+    }
+    VALIDATION.disableButtonOnSubmit();
+    return true;
   });
 };
 
