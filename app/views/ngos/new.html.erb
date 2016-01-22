@@ -1,33 +1,11 @@
-<section class="min-margin-top">
+<section class="min-margin-top"> 
 	<div class ="container">
-	<% if flash[:error] != nil %>
-	<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
-		<p id="error"><%= error %></p>
-	</div>
-	<%end%>
-	<div class="col-lg-12 text-center">
-		<h1>Nova Organização</h1>
-	</div>
-	<%= form_for(@ngo,:html=>{:id=>"form-ngo"}) do |f| %>
-	<% if @ngo.errors.any? %>
-	    <div id="error_explanation">
-	      <h2>
-	        <%= pluralize(@ngo.errors.count, "error") %> prohibited
-	        this interest from being saved:
-	      </h2>
-	      <ul>
-	        <% @ngo.errors.full_messages.each do |msg| %>
-	          <li><%= msg %></li>
-	        <% end %>
-	      </ul>
+
 		<% if flash[:error] != nil %>
 		<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize">
 			<p id="error"><%= error %></p>
 		</div>
 		<%end%>
-		<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize errorMessageJS">
-			<p id="errorMessage">Erro encontrado, verifique os campos em vermelho.</p>
-		</div>
 		<div class="col-lg-12 text-center">
 			<h1>Nova Organização</h1>
 		</div>
@@ -52,7 +30,7 @@
 	        	<span class="mandatory">*Campos Obrigatórios</span>
 	    	</div>
 		</div>
-	    	
+
 	   	</div>
 		<div class="row">
 			<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
@@ -65,26 +43,9 @@
 	    		<a data-toggle="modal" data-target="#user-terms-modal">
 						  Política de privacidade e os Termos de uso
 				</a>do Ongarium
-	    	</span> 
+	    	</span>
 	    </div>
 	<% end %>
 	</div>
-   	</div>
-	<div class="row">
-		<div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
-			<%= f.submit "Cadastrar organização", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-ngo" %>
-		</div>
-	</div>
-    <div class="row text-center">
-    	<span>Ao cadastrar-me, declaro que aceito a
-    		<a data-toggle="modal" data-target="#user-terms-modal">
-					  Política de privacidade e os Termos de uso
-			</a>do Ongarium
-    	</span>
-    </div>
-<% end %>
-</div>
-<%= render 'about_us/user_terms_modal' %>
-<%= render 'about_us/user_terms_modal' %>
 </section>
-
+	<%= render 'about_us/user_terms_modal' %>
