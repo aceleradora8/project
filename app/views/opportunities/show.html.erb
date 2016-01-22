@@ -34,24 +34,29 @@
 			</div>
 			<div>
 				<span class="bold">Local:</span>
-
 				<% if @opportunity.address.blank? %>
 					<span class="leftspace"> A combinar</span>
 				<%else%>
 					<span class="leftspace"><%= @opportunity.address.print_address%></span>
 				<% end %>
 			</div>
-			<% if @opportunity.recurrent %>
+
+			<p> <span class="bold">Data(s): </span>
+			<% if @opportunity.data_type == "recurrent" %>
 				<div>
-					<p> <span class="bold">Ocorre com frequência</span> </p>
+					<p> <span class="bold">Ocorre com frequência ARRUMAR!!!</span> </p>
 				</div>
-			<% else %>
-			<div>
-        <p> <span class="bold">Data(s): </span>  <br>
-        <% @opportunity.dates_opportunities.each do |date| %>
-          <li> <%= l date.date %> </li>
-        <% end %>
-      </div>
+			<% elsif @opportunity.data_type == "specific_date" %>
+			</br>
+				<div>
+	        <% @opportunity.dates_opportunities.each do |date| %>
+	          <li> <%= l date.date %> </li>
+	        <% end %>
+	      </div>
+			<%else%>
+				<div>
+					<p> <span class="bold">A combinar</span> </p>
+				</div>
 			<% end %>
 			<div>
 					<p> <span class="bold">Organização: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>

@@ -7,6 +7,9 @@
       </ul>
     </div>
 <% end %>
+<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize errorMessageJS">
+	<p id="errorMessage">Erro encontrado, verifique os campos em vermelho.</p>
+</div>
 <div class="row">
 	<div class="col-lg-offset-1 col-lg-8 form-group">
 		<label class="control-label", for="title-opportunity">Título: <span class="mandatory">*</span></label>
@@ -26,22 +29,22 @@
 		<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
 	</div>
 </div>
-<div class="form-group">
+<div class="form-group div-data-type">
   <div class="row">
   	<div class="col-lg-offset-1 col-lg-10">
-  	<%= f.check_box :recurrent, :id => "recurrent" %>
-  	<%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label", :for => "recurrent" %>
-  	</div>
+      <%= f.radio_button :data_type, 'recurrent', :id => "recurrent"%>
+      <%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :for => "recurrent"%>
+  </div>
   </div>
   <div class="row">
     <div class="col-lg-offset-1 col-lg-10">
-    <%= check_box_tag :specific_date, :id => "specific_date" %>
-    <%= f.label "Data(s) especificas", :class => "control-label", :for => "specific_date" %>
+      <%= f.radio_button :data_type, 'specific_date', :id => "specific_date" %>
+      <%= f.label "Data(s) especificas", :class => "control-label", :for => "specific_date" %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-offset-1 col-lg-10">
-    <%= check_box_tag :to_be_defined, :id => "to_be_defined" %>
+    <%= f.radio_button :data_type, 'to_be_defined', :id => "to_be_defined" %>
     <%= f.label "A combinar (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label", :for => "to_be_defined" %>
     </div>
   </div>
@@ -111,7 +114,7 @@
   	</div>
  </div>
 <div id="address">
-  
+
 	<%= render './addresses/address_form', f:f %>
 </div>
 <div class="row">

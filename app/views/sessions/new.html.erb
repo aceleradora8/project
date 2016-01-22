@@ -18,6 +18,10 @@
 		<h4>Entre com o seu usuário para continuar</h4>
 	</div>
 
+	<div class= "alert alert-danger col-lg-offset-4 col-lg-4 centralize errorMessageJS">
+		<p id="errorMessage">Erro encontrado, verifique os campos em vermelho.</p>
+	</div>
+	
 	<%= form_for(:session, url: login_path, :html=>{:id=>"form-login"}) do |f| %>
 	    <div class="form-group">
 			<div class="col-lg-offset-4 col-lg-4">

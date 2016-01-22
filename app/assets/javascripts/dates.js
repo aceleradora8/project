@@ -8,13 +8,19 @@ $('#recurrent').on('change', function() {
 };
 
 DATES.getSpecificDateChecked = function() {
-  $('#specific_date').on('change', function() {
+  if($('#dates_opportunities').val().length > 0){
+    $("#specific_date").attr("checked",true);
+    $("#dates_field").show();
+    DATES.setDatesPicker();
+  }
+
+  $('.div-data-type').on('change', function() {
     if($("#specific_date").is(":checked")){
       $("#dates_field").show();
       DATES.setDatesPicker();
     }else{
       $("#dates_field").hide();
-      
+
       $("#dates_opportunities").val("");
     }
   });
