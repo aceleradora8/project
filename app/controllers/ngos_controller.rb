@@ -23,10 +23,12 @@ class NgosController < ApplicationController
   def index
     if params[:text_search].nil? || params[:text_search] == "" && params[:city].nil?
       @ngos_search = Ngo.all.includes(:address, :causes)
-    elsif (params[:text_search].nil? || params[:text_search] == "") && params[:city] != nil
-      @ngos_search = Ngo.search("#{params[:city]}").includes(:address, :causes)
-    elsif params[:text_search] != nil && params[:city] != nil
-      @ngos_search = Ngo.search("#{params[:text_search]} #{params[:city]}").includes(:address, :causes)
+    elsif (params[:text_search].nil? || params[:text_search] == "") && !params[:city].nil?
+      @city = Address.search("#{params[:city]}").map { |address| address.id }
+      @ngos_search = Ngo.all.where(address: @city).includes(:address, :causes)
+    elsif !params[:text_search].nil? && !params[:city].nil?
+      @city = Address.search("#{params[:city]}").map { |address| address.id }
+      @ngos_search = Ngo.search("#{params[:text_search]}").where(address: @city).includes(:address, :causes)
     else
       @ngos_search = Ngo.search("#{params[:text_search]}").includes(:address, :causes)
     end
@@ -138,9 +140,9 @@ class NgosController < ApplicationController
     end
   end
 
-	def ngo_params
+  def ngo_params
 		params.require(:ngo).permit(:user_id, :name, :phone1, :phone2, :contact_email, :description, :privacy, :mission, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood], user_attributes: [:email, :password, :password_confirmation], cause_ids: [])
-	end
+  end
 
   def set_cities
     @cities = Address.uniq.pluck(:city)
@@ -151,12 +153,12 @@ class NgosController < ApplicationController
   end
 
   def filter_with_causes(ngos, causes)
-      result = []
-      ngos.each do |ngo|
-        causes = causes.map {|causeid| Cause.find(causeid)}
-        result.push(ngo) if causes.all?{ |e| ngo.causes.include?(e)}
-      end
-      result
+    result = []
+    ngos.each do |ngo|
+      causes = causes.map {|causeid| Cause.find(causeid)}
+      result.push(ngo) if causes.all? { |e| ngo.causes.include?(e)}
+    end
+    result
   end
 
   def filter_with_cities(ngos, cities)
@@ -166,5 +168,4 @@ class NgosController < ApplicationController
     end
     result
   end
-
 end

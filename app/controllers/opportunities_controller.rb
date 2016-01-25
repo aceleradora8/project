@@ -15,10 +15,10 @@ class OpportunitiesController < ApplicationController
   def index
     if params[:text_search].nil? || params[:text_search] == "" && params[:city].nil?
       @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
-    elsif (params[:text_search].nil? || params[:text_search] == "") && params[:city] != nil
+    elsif (params[:text_search].nil? || params[:text_search] == "") && !params[:city].nil?
       @city = Address.search("#{params[:city]}").map { |address| address.id }
       @opportunity_search = Opportunity.all.where(address: @city).includes(:address, :ngo, :causes)
-    elsif params[:text_search] != nil && params[:city] != nil
+    elsif !params[:text_search].nil? && !params[:city].nil?
       @city = Address.search("#{params[:city]}").map { |address| address.id }
       @opportunity_search = Opportunity.search("#{params[:text_search]}").where(address: @city).includes(:address, :ngo, :causes)
     else
@@ -159,7 +159,7 @@ class OpportunitiesController < ApplicationController
       result = []
       opportunities.each do |opportunity|
         causes = causes.map {|causeid| Cause.find(causeid)}
-        result.push(opportunity) if causes.all?{ |e| opportunity.causes.include?(e)}
+        result.push(opportunity) if causes.all? { |e| opportunity.causes.include?(e)}
       end
       result
   end
