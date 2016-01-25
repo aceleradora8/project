@@ -55,7 +55,7 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-password").focusout(function(){
     VALIDATION.validatePassword();
   });
-  $(".validate-password-confirmation-user").on('change', function(){
+  $(".validate-password-confirmation-user").focusout(function(){
     VALIDATION.validatePasswordConfirmation();
   });
   $(".validate-email").focusout(function(){
@@ -109,7 +109,7 @@ VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation(
         VALIDATION.showErrorMessage();
 }
 
-VALIDATION.validateEmail = function validateEmail(email,div_error) {
+VALIDATION.validateEmail = function validateEmail(email) {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.val().match(mailformat)) {
       email.removeClass("input-text-error");
@@ -180,7 +180,7 @@ VALIDATION.hasError = function (){
 
 VALIDATION.showErrorMessage = function showErrorMessage() {
   hasError = VALIDATION.hasError();
-  if (hasError) {
+  if (hasError || errorHash == null) {
     $('.errorMessageJS').show();
   } else {
     $('.errorMessageJS').hide();

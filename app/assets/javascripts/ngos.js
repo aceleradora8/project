@@ -8,6 +8,8 @@ NGO.validateFormOnSubmit = function validateForm() {
     validateAddress = VALIDATION.validateZipCode();
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
+    validateContactEmail = VALIDATION.validateContactEmail();
+    validateEmail = VALIDATION.validateEmail($('.validate-email'));
     validatePhone = VALIDATION.validatePhone();
     validateZipCode = VALIDATION.validateZipCode();
     if (VALIDATION.hasError()) {

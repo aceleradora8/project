@@ -1,6 +1,6 @@
 class NgosController < ApplicationController
   before_action :set_ngo, only: [:show, :edit, :destroy]
-  before_action :set_causes, :set_cities, only: [:index, :new, :edit]
+  before_action :set_causes, :set_cities, only: [:index, :new, :edit, :create, :update]
   before_action :require_ngo, only: [:edit, :destroy]
   helper NgosHelper
 
