@@ -1,6 +1,6 @@
-<div class="col-lg-offset-4 col-lg-4">
+<div class="col-lg-12">
 	<% if notice != nil %>
-	  <div class= "alert alert-success centralize">
+	  <div class= "alert alert-success col-lg-offset-4 col-lg-4 text-center centralize">
 	    <p id="notice"><%= notice %></p>
 	  </div>
 	<%end%>
@@ -22,7 +22,7 @@
 		</div>
 	</div>
 </header>
-<section id="section1" class="section_margin">
+<section id="section1">
 	<div class="row">
 		<div class="col-lg-12 text-center">
 			<h1 class="section-title">O que é?</h1>
@@ -60,6 +60,7 @@
 				</ul>
 				<%= active_link_to "Quero ser voluntario", '/volunteers/new', :class => "btn btn-volunteer radius pull-right" %>
 			</div>
+
 			<div class="col-lg-3">
 				<div class="row">
 					<div class="col-lg-5">
@@ -83,11 +84,11 @@
 					<li>de voluntario perto de</li>
 					<li>de voluntario perto de</li>
 				</ul>
-					<%= active_link_to "Quero ser organização", '/ngos/new', :class => "btn btn-ong radius" %>
+					<%= active_link_to "Quero ser organização", '/ngos/new', :class => "btn btn-ong radius pull-left" %>
 			</div>
 	</div>
 </section>
-<section id="section2" class="section_margin">
+<section id="section2">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-1">
 			<p class="text_section2">Voluntario ou organização, comece a mudar o mundo hoje mesmo!</p>
@@ -97,7 +98,7 @@
 		</div>
 	</div>
 </section>
-<section id="section3" class="section_margin">
+<section id="section3">
 	<div class="row">
 		<div class="col-lg-12 text-center">
 			<h1 class="section-title">Como funciona?</h1>
@@ -122,7 +123,7 @@
 		</div>
 		<div class="col-lg-3">
 			<div class="text-center">
-				<%= image_tag("22.png", :id => "img_12", :alt => "comunicacao", :size => "220x130") %>
+				<%= image_tag("22.png", :id => "img_12", :alt => "comunicacao", :size => "270x130") %>
 			</div>
 			<p class="text-center title_section3">2. É feita a comunicação entre a organização e voluntário</p>
 			<p class="text-center text_section3">

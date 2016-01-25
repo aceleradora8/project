@@ -90,7 +90,6 @@
 	border-color: #37A3C6 !important;
 	color: white !important;
 }
-
 #section2{
 	min-height: 100px;
 	background-color: #1A1A1A;
@@ -102,30 +101,27 @@
 	padding-top: 40px;
 }
 .btn-section2:hover{
-		background-color: rgba(255, 239, 40, 1) !important;
-		border-color: yellow !important;
-		color: black !important;
+  background-color: #DB4490 !important;
+  color: white;
+  
 }
 .btn-section2{
 	margin-top: 34px;
-	border-color: #C9307D !important;
-	color: #C9307D !important;
-}
-.btn-section2:hover{
-		background-color: #C9307D !important;
-		border-color: #C9307D !important;
-		color: white !important;
+	background-color:  #C9307D !important;
+	border-color:  #C9307D !important;
+	color: white !important;
+	  transition: background .25s ease-in-out;
+     -moz-transition: background .25s ease-in-out;
+     -webkit-transition: background .25s ease-in-out;
 }
 #section3{
 	min-height: 400px;
 	background-color: #fff;
 }
-
 .title_section3{
 	color: black;
 	font-weight: bold;
 }
-
 .text_section3 {
 	color: black;
 	margin-bottom: 150px;
