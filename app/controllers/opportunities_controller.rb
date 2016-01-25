@@ -6,7 +6,6 @@ class OpportunitiesController < ApplicationController
   before_action :set_shifts, only: [:new, :create, :edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
-  before_action :user_not_registered, only: [:new]
   before_action only: [:edit, :update, :destroy] do
     opportunity = Opportunity.find(params[:id])
     ngo_owner_of_opportunity(opportunity)
