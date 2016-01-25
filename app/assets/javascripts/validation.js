@@ -37,6 +37,13 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-description").focusout(function(){
     VALIDATION.validateDescription();
   });
+  $("#noaddress").on('change', function(){
+    if (($("#noaddress").is(':checked')) == true) {
+      zipCode.removeClass("input-text-error");
+      errorHash['zipcode'] = false;
+      VALIDATION.showErrorMessage();
+    };
+  });
   $(".validate-phone").focusout(function(){
     VALIDATION.validatePhone();
   });
@@ -159,7 +166,7 @@ VALIDATION.validateZipCode = function validateZipCode() {
     if ($("#inputCity").val().length == 0) {
       zipCode.addClass("input-text-error");
       errorHash['zipcode'] = true;
-    } else {
+ }  else {
       zipCode.removeClass("input-text-error");
       errorHash['zipcode'] = false;
     };
