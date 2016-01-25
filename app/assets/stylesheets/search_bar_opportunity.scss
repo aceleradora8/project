@@ -41,23 +41,36 @@
 	left: 4px;
 }
 .button-search{
-	background-color: rgba(255, 239, 40, 1);
-	color: black;
+	background-color: rgba(219, 68, 144, 1);
+	border-radius:  0px 6px 6px 0px !important;
+	color: white;
 	font-weight: 600 !important;
 	padding-right: 30px !important;
 	padding-left: 30px !important;
+	transition: background .25s ease-in-out;
+	   -moz-transition: background .25s ease-in-out;
+	   -webkit-transition: background .25s ease-in-out;
+}
+.button-search:hover {
+	background-color: #C9307D;
+	border-radius:  0px 6px 6px 0px !important;
+	color: white !important;
 }
 .border_search{
 	padding: 10px 3px 10px 10px;
 	background-color: rgba(163, 208, 242, 1);
 	border-radius: 0px 4px 4px 4px;
 }
-.flaticon-pin56 {
+.flaticon-pin56{
     position: absolute;
     padding: 3px 0px;
 }
-
-.flaticon-palm1, .flaticon-house28{
+.flaticon-palm1{
+	position: absolute;
+    padding: 3px 0px;
+    margin-left: -13px;
+}
+.flaticon-house28{
 	position: absolute;
     padding: 3px 0px;
     margin-left: -13px;

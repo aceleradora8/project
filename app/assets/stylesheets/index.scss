@@ -7,7 +7,6 @@
 	-o-background-size: cover;
 	background-size: cover;
 }
-
 .text-index{
 	font-weight: bold;
 	color: #FFFFFF !important;
@@ -66,6 +65,7 @@
 	margin-bottom: 45px;
 }
 .btn-ong{
+<<<<<<< HEAD
 	border: 1px solid #A232D4 !important;
 	color: #A232D4;
 	box-shadow: none !important;
@@ -74,10 +74,30 @@
 	border: 1px solid #50ADD8 !important;
 	color: #50ADD8;
 	box-shadow: none !important;
+=======
+	border: 1px solid #6c16c7 !important;
+	color: #6c16c7;
+	box-shadow: none !important;
+}
+.btn-ong:hover{
+		background-color: #945bb3 !important;
+		border-color: #945bb3 !important;
+		color: white !important;
+}
+.btn-volunteer{
+	border: 1px solid #3080e8 !important;
+	color: #3080e8;
+	box-shadow: none !important;
+}
+.btn-volunteer:hover{
+	background-color: #37A3C6 !important;
+	border-color: #37A3C6 !important;
+	color: white !important;
+>>>>>>> #0 <@raphaelbraun, @pedrocasarao> - Ajustando estilos
 }
 #section2{
 	min-height: 100px;
-	background-color: #000;
+	background-color: #1A1A1A;
 	margin-top: 20px;
 }
 .text_section2{
@@ -85,10 +105,20 @@
 	font-weight: bold;
 	padding-top: 40px;
 }
+.btn-section2:hover{
+		background-color: rgba(255, 239, 40, 1) !important;
+		border-color: yellow !important;
+		color: black !important;
+}
 .btn-section2{
 	margin-top: 34px;
-	border-color: yellow !important;
-	color: yellow !important;
+	border-color: #C9307D !important;
+	color: #C9307D !important;
+}
+.btn-section2:hover{
+		background-color: #C9307D !important;
+		border-color: #C9307D !important;
+		color: white !important;
 }
 #section3{
 	min-height: 400px;

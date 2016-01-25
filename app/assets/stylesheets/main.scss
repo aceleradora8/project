@@ -32,16 +32,33 @@ section {
   font-size: 11px;
   font-weight: bold;
 }
-
 .danger-text, .danger-text:hover, .danger-text:active, .danger-text:focus {
   color: red;
 }
 .radius{
   border-radius: 4px 4px 4px 4px;
 }
-
-
 .date-select {
     display: inline-block !important;
     width: 30% !important;
+}
+.btn-primary {
+  background-color: #DB4490 !important;
+  border: 1px solid #DB4490 !important;;
+  color: white;
+  transition: background .25s ease-in-out;
+     -moz-transition: background .25s ease-in-out;
+     -webkit-transition: background .25s ease-in-out;
+}
+.btn-primary:hover{
+  background-color: #C9307D !important;
+  color: white;
+}
+.pagination > li > a, .pagination > li > span {
+  color: #DB4490 !important;;
+}
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+  background-color: #DB4490 !important;
+  border: 1px solid #DB4490 !important;;
+  color: white !important;
 }

@@ -22,11 +22,12 @@
 }
 .btn-register {
 	margin: -1px;
-	border: 1px solid white;	
+	border: 1px solid white;
+	
 	a:hover{
-		background-color: rgba(255, 239, 40, 1) !important;
-		border-color: yellow !important;
-		color: black !important;
+		background-color: rgba(219, 68, 144, 1) !important;
+		border-color: #DB4490 ;
+		color: white !important;
 	}
 }
 .navbar-nav > li > a{
@@ -37,7 +38,7 @@
 	background-color: rgba(0, 0, 0, 0) !important;
 	border: 1px solid white !important;
 }
-.register-style li { 
+.register-style li {
 	background-color: rgba(0, 0, 0, 0) !important;
 }
 
