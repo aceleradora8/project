@@ -8,10 +8,12 @@ $('#recurrent').on('change', function() {
 };
 
 DATES.getSpecificDateChecked = function() {
-  if($('#dates_opportunities').val().length > 0){
-    $("#specific_date").attr("checked",true);
-    $("#dates_field").show();
-    DATES.setDatesPicker();
+  if($('#dates_opportunities').length > 0){
+    if($('#dates_opportunities').val().length > 0){
+      $("#specific_date").attr("checked",true);
+      $("#dates_field").show();
+      DATES.setDatesPicker();
+    }
   }
 
   $('.div-data-type').on('change', function() {
