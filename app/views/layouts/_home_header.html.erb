@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav">
         <%= active_link_to "Oportunidades", opportunities_url, :wrap_tag => :li %>
         <%= active_link_to "Organizações", ngos_url, :wrap_tag => :li %>
-        <li><a href="/about_us">Sobre Nós</a></li>
+        <li><a href="/about_us">Fale Conosco</a></li>
         <% if current_user %>
           <% if current_user.ngo? %>
             <%= active_link_to "Minhas Oportunidades",  myopportunities_url, :wrap_tag => :li %>
