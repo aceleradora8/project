@@ -3,6 +3,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_causes, :set_cities, only: [:index, :new, :edit, :create]
   before_action :set_skills, only: [:new, :create, :edit]
   before_action :set_weekdays, only: [:new, :create, :edit]
+  before_action :set_shifts, only: [:new, :create, :edit]
   before_action :require_user, only: [:new, :create]
   before_action :require_ngo, only: [:new, :create, :my_opportunities]
   before_action only: [:edit, :update, :destroy] do
@@ -127,6 +128,10 @@ class OpportunitiesController < ApplicationController
     @weekday = Weekday.all
   end
 
+  def set_shifts
+    @shift = Shift.all
+  end
+
   def set_causes
     @causes = Cause.all
   end
@@ -145,7 +150,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def opportunity_params
-    params.require(:opportunity).permit(:title, :description, :data_type, :ngo_id, :vacancies, :requirements, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [], weekday_ids: [], cause_ids: [])
+    params.require(:opportunity).permit(:title, :description, :data_type, :ngo_id, :vacancies, :requirements, address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :neighborhood], skill_ids: [], weekday_ids: [], cause_ids: [], shift_ids: [])
   end
 
   def filter_with_causes(opportunities, causes)

@@ -45,23 +45,40 @@
 				<% end %>
 			</div>
 
-			<p> <span class="bold">Data(s): </span>
 			<% if @opportunity.data_type == "recurrent" %>
-				<div>
-					<p> <span class="bold">Ocorre com frequência ARRUMAR!!!</span> </p>
-				</div>
+				<p> <span class="bold">Dia(s) de Semana: </span> </p>
+				<span class="leftspace">
+					<ul>
+						<%@opportunity.weekdays.each do |weekday|%>
+						<li> <%= weekday.name %> </li>
+						<%end%>
+					</ul>
+				</span>
 			<% elsif @opportunity.data_type == "specific_date" %>
-			</br>
-				<div>
-	        <% @opportunity.dates_opportunities.each do |date| %>
-	          <li> <%= l date.date %> </li>
-	        <% end %>
-	      </div>
+
+				<p> <span class="bold">Data(s): </span> </p>
+				<span class="leftspace">
+					<ul>
+						<% @opportunity.dates_opportunities.each do |date| %>
+			          		<li> <%= l date.date %> </li>
+			        	<% end %>
+					</ul>
+				</span>
 			<%else%>
-				<div>
-					<p> <span>A combinar</span> </p>
-				</div>
+				<p> <span class="bold">Data(s): A combina</span> </p>
 			<% end %>
+
+			<% unless @opportunity.shifts.empty?%>
+				<p> <span class="bold">Turno(s): </span> </p>
+				<span class="leftspace">
+				<ul>
+					<%@opportunity.shifts.each do |shift|%>
+					<li> <%= shift.name %> </li>
+					<%end%>
+				</ul>
+				 </span>
+			<% end %>
+
 			<div>
 					<p> <span class="bold">Organização: </span><%=link_to @opportunity.ngo.name, @opportunity.ngo %></p>
 			</div>

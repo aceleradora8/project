@@ -1,5 +1,5 @@
 var ready = function() {
-    $("#ajax-loader").hide();
+  $("#ajax-loader").hide();
   ADDRESSES.requestTriggerZipcode();
 
   INTEREST.disableButtonOnSubmit();
@@ -21,8 +21,8 @@ var ready = function() {
   OPPORTUNITIES.checkCategories();
   OPPORTUNITIES.getNoAddressChecked();
 
-  DATES.getRecurrentChecked();
-  DATES.getSpecificDateChecked();
+  DATES.setEventDateType();
+  DATES.setFieldsAccordingToDateType();
 
   FILTER.getCausesChecked();
   FILTER.getCitiesChecked();

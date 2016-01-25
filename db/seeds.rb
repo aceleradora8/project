@@ -62,7 +62,6 @@ skill.save
 skill = Skill.new(name:"Trabalho em equipe")
 skill.save
 
-Shift.create(name:"A combinar")
 Shift.create(name:"Manhã")
 Shift.create(name:"Tarde")
 Shift.create(name:"Noite")

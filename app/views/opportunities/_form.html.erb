@@ -45,23 +45,48 @@
   <div class="row">
     <div class="col-lg-offset-1 col-lg-10">
     <%= f.radio_button :data_type, 'to_be_defined', :id => "to_be_defined" %>
-    <%= f.label "A combinar (Marque este campo se a oportunidade ocorrerá com frequência)", :class => "control-label", :for => "to_be_defined" %>
+    <%= f.label "A combinar", :class => "control-label", :for => "to_be_defined" %>
     </div>
   </div>
   <div class="row form-group">
-    <div id="dates_field" class="col-lg-offset-1 col-lg-4"></div>
+    <div id="div-specific_date" class="col-lg-offset-1 col-lg-4"></div>
     <div>
       <%= hidden_field_tag :dates_opportunities, params[:dates_opportunities]%>
     </div>
   </div>
-  <div class="row form-group">
-    <div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
-      <%= collection_check_boxes(:opportunity, :weekday_ids, @weekday, :id, :name) do |b| %>
-        <div class="col-lg-4 margin-checkbox-lists">
-            <%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %>
-          </div>
-      <%end%>
+
+<div class="row form-group" id="div-weekdays">
+  <div class="col-lg-offset-1">
+    <div class="col-lg-4">
+      <%= f.label "Dia(s) da Semana:", :class => "control-label" %>
     </div>
+    <div class="row">
+      <div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
+        <%= collection_check_boxes(:opportunity, :weekday_ids, @weekday, :id, :name) do |b|  %>
+          <div class="col-lg-4 margin-checkbox-lists">
+              <%= b.label(:"data-value" => b.value) { b.check_box(:class => "weekday-checkbox") + " " + b.text } %>
+            </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row form-group" id="div-shifts">
+  <div class="col-lg-offset-1">
+    <div class="col-lg-4">
+      <%= f.label "Turno(s):", :class => "control-label" %>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-1 col-lg-10 margin-dropdown-lists">
+        <%= collection_check_boxes(:opportunity, :shift_ids, @shift, :id, :name) do |b|  %>
+          <div class="col-lg-4 margin-checkbox-lists">
+              <%= b.label(:"data-value" => b.value) { b.check_box(:class => "shift-checkbox") + " " + b.text } %>
+            </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row form-group">

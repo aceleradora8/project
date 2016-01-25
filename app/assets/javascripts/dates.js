@@ -1,32 +1,50 @@
 var DATES = DATES || {}
 
-DATES.getRecurrentChecked = function() {
-$("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
-$('#recurrent').on('change', function() {
-    $("#recurrent").is(":checked") ? $(".cd_data").prop("disabled", true) : $(".cd_data").prop("disabled", false);
-  });
-};
+DATES.setFieldsRecurrent = function(){
+  $("#div-weekdays").show();
+  $("#div-shifts").show();
+  $("#div-specific_date").hide();      
+  $("#dates_opportunities").val("");
+}
 
-DATES.getSpecificDateChecked = function() {
-  if($('#dates_opportunities').length > 0){
-    if($('#dates_opportunities').val().length > 0){
-      $("#specific_date").attr("checked",true);
-      $("#dates_field").show();
-      DATES.setDatesPicker();
-    }
+DATES.setFieldsSpecifcDates = function(){
+  if($('#dates_opportunities').val().length > 0){
+    $("#specific_date").attr("checked",true);
+    $("#div-specific_date").show();
+    DATES.setDatesPicker();
   }
+  $("#div-specific_date").show();
+  $("#div-shifts").show();
+  $("#div-weekdays").hide();
+  DATES.setDatesPicker();
+  $('.weekday-checkbox:checkbox').prop('checked',false);
+}
 
-  $('.div-data-type').on('change', function() {
+DATES.setFieldsToBeDefined = function(){
+  $("#div-specific_date").hide();      
+  $("#div-weekdays").hide();
+  $("#div-shifts").hide();
+  $("#dates_opportunities").val("");  
+  $('.weekday-checkbox:checkbox').prop('checked',false);  
+  $('.shift-checkbox:checkbox').prop('checked',false);
+}
+
+
+DATES.setFieldsAccordingToDateType = function() {
     if($("#specific_date").is(":checked")){
-      $("#dates_field").show();
-      DATES.setDatesPicker();
+      DATES.setFieldsSpecifcDates();
+    }else if($("#recurrent").is(":checked")) {
+      DATES.setFieldsRecurrent();
     }else{
-      $("#dates_field").hide();
-
-      $("#dates_opportunities").val("");
+      DATES.setFieldsToBeDefined();
     }
-  });
 };
+
+DATES.setEventDateType = function(){
+  $('.div-data-type').on('change', function() {
+    DATES.setFieldsAccordingToDateType();
+  });
+}
 
 DATES.setDatesPicker = function(){
    array = [];
@@ -36,7 +54,7 @@ DATES.setDatesPicker = function(){
   });
   array.pop();
 
-  $("#dates_field").multiDatesPicker({
+  $("#div-specific_date").multiDatesPicker({
         altField: '#dates_opportunities',
         dateFormat: 'dd/mm/yy',
         dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
