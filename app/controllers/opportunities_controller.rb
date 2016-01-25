@@ -13,19 +13,20 @@ class OpportunitiesController < ApplicationController
   helper OpportunitiesHelper
 
   def index
-    if params[:text_search].nil? || params[:text_search] == "" && params[:city].nil?
+    if params[:text_search].blank? && params[:city].blank?
       @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
-    elsif (params[:text_search].nil? || params[:text_search] == "") && !params[:city].nil?
-      @city = Address.search("#{params[:city]}").map { |address| address.id }
-      @opportunity_search = Opportunity.all.where(address: @city).includes(:address, :ngo, :causes)
-    elsif !params[:text_search].nil? && !params[:city].nil?
-      @city = Address.search("#{params[:city]}").map { |address| address.id }
-      @opportunity_search = Opportunity.search("#{params[:text_search]}").where(address: @city).includes(:address, :ngo, :causes)
+    elsif params[:text_search].blank? && params[:city]
+      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
+      @opportunity_search = Opportunity.all.where(address: @address_ids_cities).includes(:address, :ngo, :causes)
+    elsif params[:text_search] && params[:city]
+      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
+      @opportunity_search = Opportunity.search(params[:text_search]).where(address: @address_ids_cities).includes(:address, :ngo, :causes)
     else
-      @opportunity_search = Opportunity.search("#{params[:text_search]}").includes(:address, :ngo, :causes)
+      @opportunity_search = Opportunity.search(params[:text_search]).includes(:address, :ngo, :causes)
     end
     respond_to do |format|
       if request.xhr?
+        puts @opportunity_search[0]
         @opportunities_result = []
         if params[:causes] && params[:cities]
           @opportunities_result = filter_with_cities(filter_with_causes(@opportunity_search, params[:causes]), params[:cities])

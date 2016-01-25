@@ -27,6 +27,7 @@ FILTER.requestFilter = function(){
 	$.get($(location).attr('pathname'), {
     causes: causesList,
     cities: citiesList,
-    text_search: $('#text_search').val()
+    text_search: $('#text_search').val(),
+    city: $('#city').val()
   });
 };
