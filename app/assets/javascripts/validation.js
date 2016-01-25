@@ -55,7 +55,7 @@ VALIDATION.eventsValidate = function eventsValidate(){
   $(".validate-password").focusout(function(){
     VALIDATION.validatePassword();
   });
-  $(".validate-password-confirmation-user").keyup(function(){
+  $(".validate-password-confirmation-user").on('change', function(){
     VALIDATION.validatePasswordConfirmation();
   });
   $(".validate-email").focusout(function(){

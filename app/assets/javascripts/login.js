@@ -1,6 +1,7 @@
 var LOGIN = LOGIN || {}
 
 LOGIN.validateFormOnSubmit = function validateForm() {
+  errorHash = {};
   $("#form-login").submit(function() {
     validateEmail = VALIDATION.validateEmail();
     validatePassword = VALIDATION.validatePassword();

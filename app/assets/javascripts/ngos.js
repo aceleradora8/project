@@ -2,6 +2,7 @@ var NGO = NGO || {}
 
 NGO.validateFormOnSubmit = function validateForm() {
   $("#form-ngo").submit(function() {
+    errorHash = {};
     validateName = VALIDATION.validateName();
     validateDescription = VALIDATION.validateDescription();
     validateAddress = VALIDATION.validateZipCode();
