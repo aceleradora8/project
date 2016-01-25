@@ -16,9 +16,11 @@ class OpportunitiesController < ApplicationController
     if params[:text_search].nil? || params[:text_search] == "" && params[:city].nil?
       @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
     elsif (params[:text_search].nil? || params[:text_search] == "") && params[:city] != nil
-      @opportunity_search = Opportunity.search("#{params[:city]}").includes(:address, :ngo, :causes)
+      @city = Address.search("#{params[:city]}").map { |address| address.id }
+      @opportunity_search = Opportunity.all.where(address: @city).includes(:address, :ngo, :causes)
     elsif params[:text_search] != nil && params[:city] != nil
-      @opportunity_search = Opportunity.search("#{params[:text_search]} #{params[:city]}").includes(:address, :ngo, :causes)
+      @city = Address.search("#{params[:city]}").map { |address| address.id }
+      @opportunity_search = Opportunity.search("#{params[:text_search]}").where(address: @city).includes(:address, :ngo, :causes)
     else
       @opportunity_search = Opportunity.search("#{params[:text_search]}").includes(:address, :ngo, :causes)
     end

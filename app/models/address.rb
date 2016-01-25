@@ -3,6 +3,9 @@ class Address < ActiveRecord::Base
   has_one :opportunity
   after_save :noaddress
 
+  include PgSearch
+  pg_search_scope :search, against: [:address, :city, :state, :country, :neighborhood], ignoring: :accents
+
   def print_address
     if zipcode && number != nil
       "#{address}, #{number}, #{complement} -
