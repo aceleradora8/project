@@ -29,4 +29,4 @@ FILTER.requestFilter = function(){
     cities: citiesList,
     text_search: $('#text_search').val()
   });
-}
+};
