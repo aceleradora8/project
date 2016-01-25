@@ -24,13 +24,19 @@
 	border-top: solid 2px grey;
 	margin-bottom: 80px;
 }
+.section_margin{
+  .row{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  }
+}
 .section-title{
 	color: #333333;
 	font-weight: 600;
 }
 .border_section_1{
 	margin-bottom: 60px;
-	width: 100px;
+	width: z100px;
 }
 .text-section1{
 	color: black;
