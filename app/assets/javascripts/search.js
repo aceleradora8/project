@@ -1,7 +1,15 @@
 var SEARCH = SEARCH || {}
 
 SEARCH.clickButtonSearch = function(){
-	$(".flaticon-house28").hide();
+	if($(location).attr('pathname') === "/ngos"){
+		$(".flaticon-palm1").hide();
+		$(".flaticon-house28").show();
+		$("#form_search").attr('action','/ngos');
+	}else{
+		$(".flaticon-palm1").show();
+		$(".flaticon-house28").hide();
+	}
+
 	$("#btn-search-opportunity").click(function(){
 		if($(this).hasClass("button-search-disabled")){
 			$(this).removeClass("button-search-disabled");
