@@ -1,12 +1,10 @@
 <section id="section-search" class="min-margin-top">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
-				<%= render './layouts/search_bar_ngos.html' %>
-			</div>
-		</div>
+	<div class="container col-lg-8 col-lg-offset-2">	
+		<button id="btn-search-ngo" class="btn button-search-enabled" value="Organizações">Organizações</button>
+		<%= render './layouts/search_bar.html' %>			
 	</div>
 </section>
+
 <section id="search-result">
 	<div class="container">
 		<div class="row">
@@ -18,7 +16,7 @@
 			<div class="col-lg-6" id="resultado_busca">
 				<div id="texto" class="">
 					<% if params[:text_search] == nil || params[:text_search] == ""%>
-						<h3>Exibindo todas as Organizações</h3>
+						<h3>Exibindo todas as organizações</h3>
 					<%else%>
 						<h3>Você pesquisou por <strong><%=params[:text_search] %></strong></h3>
 					<%end%>
