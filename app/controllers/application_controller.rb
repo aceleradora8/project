@@ -3,9 +3,14 @@ class ApplicationController < ActionController::Base
 	add_flash_types :error
 	helper_method :current_user
 	helper_method :ngo_owner_of_opportunity
+	helper_method :user_not_registered
 
 	def current_user
 		@current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+	end
+
+	def user_not_registered
+		redirect_to '/' if current_user
 	end
 
 	def require_user

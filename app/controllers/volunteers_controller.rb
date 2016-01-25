@@ -1,5 +1,6 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update]
+  before_action :user_not_registered, only: [:create]
   def new
     @volunteer = Volunteer.new
     @volunteer.build_user
