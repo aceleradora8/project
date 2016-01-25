@@ -1,9 +1,9 @@
 <div class="border_search">
 		<%= form_tag(opportunities_path, :method => "get", :class => "form-inline", :id => "form_search", :enforce_utf8 => false) do %>
-		<span class="flaticon-palm1"></span>
-		<span class="flaticon-house28"></span>
+		<%= image_tag("palm1.png", size:'32', class: "flaticon-palm1" ) %>
+		<%= image_tag("house28.png", size:'32', class: "flaticon-house28" )%>
 		<%= text_field_tag :text_search, params[:text_search], :placeholder => "O que você deseja procurar?", :class => "form-control search-box" %>
-		<span class="flaticon-pin56"></span>
+		<%= image_tag("pin56.png", size:'32', class: "flaticon-pin56") %>
 		<%= text_field_tag :city, params[:city], :placeholder => "Porto Alegre, RS", :class => "form-control search-city" %>
 		<button type="submit" class="btn button-search">
 			<span>Pesquisar</span>

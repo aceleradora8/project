@@ -19,7 +19,7 @@
 				<div class="row panel-body detailopp bs-callout bs-callout-info">
 					<div class="row">
 						<div class="col-lg-10 interest-title">
-							<h3><%= interest.opportunity.title %></h3>
+							<a href="opportunities/<%=interest.id%>"><h3><%= interest.opportunity.title %></h3></a>
 						</div>
 					</div>
 					<div class="row">
@@ -37,7 +37,7 @@
 							<span><%= interest.opportunity.address.city unless interest.opportunity.blank? %>,
 								<%= interest.opportunity.address.state unless interest.opportunity.blank? %> </span>
 						</div>
-						<div class="col-lg-4">
+						<div class="col-lg-8">
 							<%= link_to "Ver mais", interest.opportunity, :class=>"link-style btn btn-primary pull-right" %>
 						</div>
 					</div>
