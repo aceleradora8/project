@@ -52,8 +52,6 @@ class VolunteersController < ApplicationController
   def set_volunteer
     if Volunteer.where(id: params[:id]).present?
       @volunteer = Volunteer.find(params[:id])
-    else
-      redirect_to "/404"
     end
   end
 
