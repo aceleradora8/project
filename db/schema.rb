@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20160122170001) do
     t.string   "phone2"
     t.integer  "user_id"
     t.string   "sex"
-    t.date     "birth_date"
+    t.date     "birth_date",   null: false
   end
 
   create_table "weekdays", force: :cascade do |t|
