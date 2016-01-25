@@ -21,8 +21,8 @@ class Address < ActiveRecord::Base
   end
 
   def noaddress
-    if self.zipcode == nil || self.address == nil
-      self.destroy()
+    if zipcode == nil || address == nil
+      destroy
     end
   end
 end
