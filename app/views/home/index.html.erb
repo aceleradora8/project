@@ -37,10 +37,20 @@
 	<div class="row">
 			<div class="col-lg-offset-3 col-lg-3">
 				<div class="row">
-					<%= image_tag("11.png",:class => "pull-right",:id => "img_11", :alt => "Voluntario") %>
+					<div class="col-lg-9">
+						<div class="row">
+							<p class="para pull-right">para</p>
+						</div>
+						<div class="row">
+							<p class="vol_title pull-right">Voluntários</p>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<%= image_tag("11.png",:class => "pull-right",:id => "img_11", :alt => "Voluntario") %>
+					</div>
 				</div>
 				<p class="text-center text-section1">Todas as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho</p>
-				<ul class="list_section1">
+				<ul class="list_section1 pull-right">
  					<li>de voluntario perto de</li>
  					<li>de voluntario perto de</li>
  					<li>de voluntario perto de</li>
@@ -52,7 +62,17 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="row">
-					<%= image_tag("12.png", :id => "img_12", :alt => "Ong") %>
+					<div class="col-lg-5">
+						<%= image_tag("12.png", :id => "img_12", :alt => "Ong") %>
+					</div>
+					<div class="col-lg-7">
+						<div class="row">
+							<p class="para">para</p>
+						</div>
+						<div class="row">
+							<p class="ong_title">Organizações</p>
+						</div>
+					</div>
 				</div>
 				<p class="text-center text-section1">Todas as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho</p>
 				<ul class="list_section1">
@@ -87,6 +107,37 @@
 	<div class="row">
 		<div class="col-lg-2 col-lg-offset-5">
 			<hr class="border_section_1">
+		</div>
+	</div>
+	<div class="row align_section3">
+		<div class="col-lg-offset-1 col-lg-3">
+			<div class="text-center">
+				<%= image_tag("21.png", :id => "img_12", :alt => "voluntario", :size => "108x130") %>
+			</div>
+			<p class="text-center title_section3">1. Sou voluntário e procuro por oportunidades de voluntariado</p>
+			<p class="text-center text_section3">
+				Se hoje é o dia das crianças... Ontem eu disse: o dia da criança é o dia da mãe, dos pais, das
+				professoras, mas também é o dia dos animais, sempre que você olha...
+			</p>
+		</div>
+		<div class="col-lg-3">
+			<div class="text-center">
+				<%= image_tag("22.png", :id => "img_12", :alt => "comunicacao", :size => "220x130") %>
+			</div>
+			<p class="text-center title_section3">2. É feita a comunicação entre a organização e voluntário</p>
+			<p class="text-center text_section3">
+				Todas as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso,
+				examina, olha com carinho.
+			</p>
+		</div>
+		<div class="col-lg-3">
+			<div class="text-center">
+				<%= image_tag("23.png", :id => "img_12",:alt => "acao", :size => "150x130") %>
+			</div>
+			<p class="text-center title_section3">3. A organização e o voluntário baile de favela qualquer coisa</p>
+			<p class="text-center text_section3">
+				Primeiro eu queria cumprimentas os internautas. -Oi internautas! Depois dizer que o meio ambiente é...
+			</p>
 		</div>
 	</div>
 </section>

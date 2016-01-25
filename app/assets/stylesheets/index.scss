@@ -23,6 +23,7 @@
 	background-color: #fff;
 	padding-top: 20px;
 	border-top: solid 2px grey;
+	margin-bottom: 80px;
 }
 .section-title{
 	color: #333333;
@@ -34,37 +35,45 @@
 }
 .text-section1{
 	color: black;
+	margin-bottom: 20px;
 }
+
+.vol_title {
+	font-size: 25px;
+	color: #50ADD8;
+}
+
+.ong_title {
+	font-size: 25px;
+	color: #A232D4;
+}
+
+.para {
+	color: black;
+	font-weight: bold;
+	padding-top: 60px;
+	margin-bottom: -5px;
+}
+
 #img_11{
 	margin-right: 22px;
 }
 #img_12{
-	margin-left: 22px;
+	margin-left: 8px;
 	margin-top: 2px;
 }
 .list_section1{
-	margin-top: 45px;
 	margin-bottom: 45px;
 }
 .btn-ong{
-	border: 1px solid purple !important;
-	color: purple;
+	border: 1px solid #A232D4 !important;
+	color: #A232D4;
 	box-shadow: none !important;
-	a:hover{
-		background-color: purple !important;
-		border-color: purple !important;
-		color: white !important;
-	}
 }
 .btn-volunteer{
-	border: 1px solid blue !important;
-	color: blue;
+	border: 1px solid #50ADD8 !important;
+	color: #50ADD8;
 	box-shadow: none !important;
-	a:hover{
-		background-color: blue !important;
-		border-color: blue !important;
-		color: white !important;
-	}
 }
 #section2{
 	min-height: 100px;
@@ -84,4 +93,18 @@
 #section3{
 	min-height: 400px;
 	background-color: #fff;
+}
+
+.title_section3{
+	color: black;
+	font-weight: bold;
+}
+
+.text_section3 {
+	color: black;
+	margin-bottom: 150px;
+}
+
+.align_section3 {
+	padding-left: 100px !important;
 }
