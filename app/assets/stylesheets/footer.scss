@@ -1,7 +1,17 @@
 footer {
-	background-color: #CCFFCC;
-  border: 1px solid transparent;
-  border-color: #E7E7E7;
-  padding-top: 20px;
-  padding-bottom: 20px;
+	background-color: #F1F4F5;
+  	border: 1px solid transparent;
+  	border-color: #E7E7E7;
+  	padding-top: 20px;
+  	padding-bottom: 20px;
+  	margin : 0;
+  	vertical-align: initial !important;
+}
+
+.icons{
+	float: right;
+}
+
+.vertical{
+	vertical-align: -10px;
 }
