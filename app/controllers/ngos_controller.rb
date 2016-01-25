@@ -20,8 +20,12 @@ class NgosController < ApplicationController
   end
 
   def index
-    if params[:text_search].nil? || params[:text_search] == ""
+    if params[:text_search].nil? || params[:text_search] == "" && params[:city].nil?
       @ngos_search = Ngo.all.includes(:address, :causes)
+    elsif (params[:text_search].nil? || params[:text_search] == "") && params[:city] != nil
+      @ngos_search = Ngo.search("#{params[:city]}").includes(:address, :causes)
+    elsif params[:text_search] != nil && params[:city] != nil
+      @ngos_search = Ngo.search("#{params[:text_search]} #{params[:city]}").includes(:address, :causes)
     else
       @ngos_search = Ngo.search("#{params[:text_search]}").includes(:address, :causes)
     end

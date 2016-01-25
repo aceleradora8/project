@@ -16,7 +16,6 @@ class OpportunitiesController < ApplicationController
       @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
     elsif (params[:text_search].nil? || params[:text_search] == "") && params[:city] != nil
       @opportunity_search = Opportunity.search("#{params[:city]}").includes(:address, :ngo, :causes)
-      puts "FOI FOI FOI FOI"
     elsif params[:text_search] != nil && params[:city] != nil
       @opportunity_search = Opportunity.search("#{params[:text_search]} #{params[:city]}").includes(:address, :ngo, :causes)
     else
