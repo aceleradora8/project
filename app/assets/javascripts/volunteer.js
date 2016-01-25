@@ -10,10 +10,10 @@ VOLUNTEER.validateFormOnSubmit = function validateForm() {
     validateDayBirthday = VALIDATION.validateEmptyDate($("#volunteer_birth_date_3i"));
     validateMonthBirthday = VALIDATION.validateEmptyDate($("#volunteer_birth_date_2i"));
     validateYearBirthday = VALIDATION.validateEmptyDate($("#volunteer_birth_date_1i"));
-     if (errorArray.length == 0) {
+    if (VALIDATION.hasError()) {
+      return false;
+      }
       VALIDATION.disableButtonOnSubmit();
       return true;
-    }
-    return false;
   });
 };

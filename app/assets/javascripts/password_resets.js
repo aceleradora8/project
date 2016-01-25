@@ -4,9 +4,10 @@ PASS_RESETS.validateFormResetPassOnSubmit = function validateFormResetPass() {
   $("#form-password-reset").submit(function() {
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
-    if (errorArray.length == 0) {
+    if (VALIDATION.hasError()) {
+      return false;
+      }
+      VALIDATION.disableButtonOnSubmit();
       return true;
-    }
-    return false;
   });
 };

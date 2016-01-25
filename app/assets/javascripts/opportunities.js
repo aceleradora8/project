@@ -6,11 +6,11 @@ OPPORTUNITIES.validateFormOnSubmit = function validateForm() {
     validateDescription = VALIDATION.validateDescription();
     validateAddress = VALIDATION.validateZipCode();
     validateVacancies = VALIDATION.validateVacancies();
-    if (errorArray.length == 0) {
-        VALIDATION.disableButtonOnSubmit();
-        return true;
+    if (VALIDATION.hasError()) {
+      return false;
       }
-    return false;
+      VALIDATION.disableButtonOnSubmit();
+      return true;
   });
 };
 
