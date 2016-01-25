@@ -26,7 +26,7 @@ VALIDATION.validateEmptyDate = function validateEmptyDate(input) {
 };
 
 VALIDATION.validateName = function validateName() {
-    validate = VALIDATION.validateEmpty($(".validate-name"),'name');
+  VALIDATION.validateEmpty($(".validate-name"),'name');
 };
 
 VALIDATION.eventsValidate = function eventsValidate(){
@@ -82,7 +82,7 @@ VALIDATION.eventsValidate = function eventsValidate(){
 }
 
 VALIDATION.validateDescription = function validateDescription() {
-    return VALIDATION.validateEmpty($(".validate-description"), 'description');
+  VALIDATION.validateEmpty($(".validate-description"), 'description');
 };
 
 VALIDATION.validateVacancies = function validateVacancies() {
@@ -100,7 +100,7 @@ VALIDATION.validateVacancies = function validateVacancies() {
 };
 
 VALIDATION.validatePassword = function validatePassword() {
-    return VALIDATION.validateEmpty($(".validate-password"), 'password');
+  VALIDATION.validateEmpty($(".validate-password"), 'password');
 };
 
 VALIDATION.validatePasswordConfirmation = function validatePasswordConfirmation() {

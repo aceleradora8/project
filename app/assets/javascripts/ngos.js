@@ -1,11 +1,10 @@
 var NGO = NGO || {}
 
-NGO.validateFormOnSubmit = function validateForm() {
-  $("#form-ngo").submit(function() {
+NGO.validateFormOnSubmit = function() {
     errorHash = {};
+  $("#form-ngo").submit(function() {
     validateName = VALIDATION.validateName();
     validateDescription = VALIDATION.validateDescription();
-    validateAddress = VALIDATION.validateZipCode();
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();
     validateContactEmail = VALIDATION.validateContactEmail();

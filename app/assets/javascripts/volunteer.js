@@ -1,10 +1,10 @@
 var VOLUNTEER = VOLUNTEER || {}
 
-VOLUNTEER.validateFormOnSubmit = function validateForm() {
+VOLUNTEER.validateFormOnSubmit = function() {
   errorHash = {};
   $("#form-volunteer").submit(function() {
     validateName = VALIDATION.validateName();
-    validateEmail = VALIDATION.validateEmail($(".validate-email"),$('.email-error-invalid'));
+    validateEmail = VALIDATION.validateEmail($(".validate-email"));
     validatePhone = VALIDATION.validatePhone();
     validatePassword = VALIDATION.validatePassword();
     validatePasswordConfirmation = VALIDATION.validatePasswordConfirmation();

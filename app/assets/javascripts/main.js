@@ -1,5 +1,9 @@
 var ready = function() {
   $("#ajax-loader").hide();
+  NGO.getCitiesChecked();
+  NGO.checkCauses();
+  NGO.validateFormOnSubmit();
+  
   ADDRESSES.requestTriggerZipcode();
 
   INTEREST.disableButtonOnSubmit();
@@ -11,9 +15,6 @@ var ready = function() {
 
   MASKS.addMasks();
 
-  NGO.validateFormOnSubmit();
-  NGO.getCitiesChecked();
-  NGO.checkCauses();
 
   ABOUTUS.validateFormContactUsSubmit();
 
