@@ -94,7 +94,8 @@ describe OpportunitiesController, type: :controller do
           description: 'qualquercoisaai',
           address_attributes: {address:"end qlqrcoisa", zipcode:"66666-333", complement:"atualizado", state:"UP", city:"Atual", country:"Brasil", neighborhood:"Atualizado" },
           ngo_id: @ngo.id,
-          cause_id: @cause_animal.id
+          cause_id: @cause_animal.id,
+          dates_opportunities: '02-01-2015'
           }
         }
         this_opportunity = Opportunity.last.id
