@@ -9,7 +9,7 @@ describe OpportunitiesController, type: :controller do
       	ngo = Ngo.create!(address_id: @address_poa.id, phone1: "1234", name:"nome", description: "Qualquer coisa")
       	@cause_animal = Cause.create!(name:"Animal")
         @cause_health = Cause.create!(name:"health")
-        
+
         finish_date = "2015-04-03"
       	@opportunity1 = Opportunity.create!(title: 'Opportunity1', description: "Qualquer coisa", address_id: @address_poa.id, ngo_id: ngo.id)
       	@opportunity1.causes.push(@cause_animal)
@@ -25,8 +25,17 @@ describe OpportunitiesController, type: :controller do
 
       it 'returns all opportunities when text_search is empty' do
         get :index, text_search: ''
-
         expect(assigns(:opportunity_search)).to match_array([@opportunity1,@opportunity2])
+      end
+
+      it 'returns all opportunities from POA when passed in city params' do
+        get :index, text_search: '', city: 'POA'
+        expect(assigns(:opportunities_result)).to match_array([@opportunity1])
+      end
+
+      it 'return a specific opportunity from POA when passed in city params with name' do
+        get :index, text_search: 'Opportunity1' , city: 'POA'
+        expect(assigns(:opportunities_result)).to match_array([@opportunity1])
       end
 
       it 'returns the opportunity when text_search matches the title' do

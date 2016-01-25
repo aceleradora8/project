@@ -34,6 +34,16 @@ describe NgosController, type: :controller do
       expect(assigns[:ngos_search]).to match_array([@ngo])
     end
 
+    it 'return all ngos from POA when passed by params city' do
+      get :index, text_search: '', city: 'POA'
+      expect(assigns[:ngos_search]).to match_array([@ngo, @ngo2, @ngo_private])
+    end
+
+    it 'return a specific NGO when name passed by params with city' do
+      get :index, text_search: 'nome1', city: 'POA'
+      expect(assigns[:ngos_search]).to match_array([@ngo])
+    end
+
     it 'return ngo filtered by city' do
       xhr :get, :index, {cities: [@address.city]}
       expect(assigns[:ngos_result]).to match_array([@ngo, @ngo2, @ngo_private])
