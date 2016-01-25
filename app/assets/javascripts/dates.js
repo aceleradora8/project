@@ -32,7 +32,7 @@ DATES.setFieldsToBeDefined = function(){
 
 DATES.setFieldsAccordingToDateType = function() {
     if($("#specific_date").is(":checked")){
-      DATES.setFieldsSpecificDates();
+      DATES.setFieldsSpecifcDates();
     }else if($("#recurrent").is(":checked")) {
       DATES.setFieldsRecurrent();
     }else{
