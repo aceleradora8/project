@@ -3,7 +3,7 @@ var DATES = DATES || {}
 DATES.setFieldsRecurrent = function(){
   $("#div-weekdays").show();
   $("#div-shifts").show();
-  $("#div-specific_date").hide();      
+  $("#div-specific_date").hide();
   $("#dates_opportunities").val("");
 }
 
@@ -21,18 +21,18 @@ DATES.setFieldsSpecifcDates = function(){
 }
 
 DATES.setFieldsToBeDefined = function(){
-  $("#div-specific_date").hide();      
+  $("#div-specific_date").hide();
   $("#div-weekdays").hide();
   $("#div-shifts").hide();
-  $("#dates_opportunities").val("");  
-  $('.weekday-checkbox:checkbox').prop('checked',false);  
+  $("#dates_opportunities").val("");
+  $('.weekday-checkbox:checkbox').prop('checked',false);
   $('.shift-checkbox:checkbox').prop('checked',false);
 }
 
 
 DATES.setFieldsAccordingToDateType = function() {
     if($("#specific_date").is(":checked")){
-      DATES.setFieldsSpecifcDates();
+      DATES.setFieldsSpecificDates();
     }else if($("#recurrent").is(":checked")) {
       DATES.setFieldsRecurrent();
     }else{
