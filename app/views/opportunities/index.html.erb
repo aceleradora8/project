@@ -6,11 +6,11 @@
 </section>
 
 <section id="search-result">
-	<div class="container">
+	<div class="container container-layout">
 		<div class="row">
 			<div class="col-lg-3" id="filtros">
-				<h3>Filtros</h3>
-				<hr>
+				<h3 class="col-lg-offset-2 container-layout">Filtros <hr></h3>
+				
 				<%= render 'layouts/filterbar' %>
 			</div>
 			<div class="col-lg-6" id="resultado_busca">
@@ -28,7 +28,7 @@
 					<%= paginate @opportunities_result, :theme => 'twitter-bootstrap-3' %>
 				</div>
 			</div>
-			<div class="col-lg-9" id="listOpportunities">
+			<div class="col-lg-9 container-layout" id="listOpportunities">
 						<%= render 'list_opportunities' %>
 			</div>
 		</div>
