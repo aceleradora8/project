@@ -13,18 +13,20 @@
 	background-color: #6bb9f0 !important;
 	border-color: rgba(0, 0, 0, 0) !important;
 	margin-bottom: -74px !important;
-	color: #fff !important;
 	min-height: 87px !important;
-	a, a:focus, a:active{
+	a{
 		color: #FFF !important;
 	}
+}
+.button-user-list:focus{
+		background-color: #DB4490 !important;
 }
 .btn-register {
 	margin: -1px;
 	border: 1px solid white;
 	a:hover{
 		background-color: rgba(219, 68, 144, 1) !important;
-		border-color: #DB4490 ;
+		border-color: #DB4490;
 		color: white !important;
 	}
 }
@@ -35,6 +37,10 @@
 .dropdown-menu {
 	background-color: #6bb9f0 !important;
 	border: 1px solid white !important;
+	border-radius: 4px 4px 4px 4px !important;
+	a:focus, a:hover{
+		background-color: #C9307D !important;
+	}
 }
 
 .register-style li {
