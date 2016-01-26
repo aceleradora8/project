@@ -5,6 +5,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   process resize_to_fit: [200, 200]
+  process :convert => 'png'
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -34,6 +35,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [30, 30]
+    process :rounded_corner => [30]
   end
 
   def extension_white_list

@@ -39,13 +39,13 @@ class UsersController < ApplicationController
 					if @user.update(user_params)
 							format.html { redirect_to root_path, notice: "E-mail atualizado com sucesso!"}
 					else
-							render 'edit'
+							format.html { redirect_to edit_user_path, error: "Erro, email não atualizado." }
 					end
 				elsif !params[:user][:photo].nil?
 					if @user.update(user_params)
 							format.html { redirect_to root_path, notice: "Foto atualizada com sucesso!"}
 					else
-							render 'edit'
+							format.html { redirect_to edit_user_path, error: "Foto não atualizada." }
 					end
 			 end
 		end
