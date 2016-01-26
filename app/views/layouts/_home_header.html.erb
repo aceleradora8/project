@@ -29,6 +29,7 @@
           <% if current_user.ngo? %>
             <li>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <%= cl_image_tag("xwqiraah48rkjd1mpv21.png", :width => 30, :height => 30, :radius=>"max", :class => "image-header") if !current_user.photo? %>
                 <%= image_tag (current_user.photo_url(:thumb)), :class => "image-header" if current_user.photo? %>
                 <% if current_user.ngo.name.length > 19 %>
                   <%= current_user.ngo.name.first(20)+'...' %>
