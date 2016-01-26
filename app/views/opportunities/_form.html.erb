@@ -29,9 +29,21 @@
 		<%= f.text_area :description, :id => "description-opportunity", :class => "form-control validate-description", :rows => "3" %>
 	</div>
 </div>
+
+<div class="row">
+  <div class="col-lg-offset-1 col-lg-10">
+    <label class="control-label", for="description-opportunity">Data(s):</label>
+  </div>
+</div>
 <div class="form-group div-data-type">
   <div class="row">
-  	<div class="col-lg-offset-1 col-lg-10">
+    <div class="col-lg-offset-1 col-lg-10">
+    <%= f.radio_button :data_type, 'to_be_defined', :checked => (@opportunity.data_type != "recurrent" && @opportunity.data_type != "specific_date"), :id => "to_be_defined" %>
+    <%= f.label "A combinar", :class => "control-label", :for => "to_be_defined" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
       <%= f.radio_button :data_type, 'recurrent', :id => "recurrent"%>
       <%= f.label "Recorrente (Marque este campo se a oportunidade ocorrerá com frequência)", :for => "recurrent"%>
   </div>
@@ -40,12 +52,6 @@
     <div class="col-lg-offset-1 col-lg-10">
       <%= f.radio_button :data_type, 'specific_date', :id => "specific_date" %>
       <%= f.label "Data(s) especificas", :class => "control-label", :for => "specific_date" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-offset-1 col-lg-10">
-    <%= f.radio_button :data_type, 'to_be_defined', :id => "to_be_defined" %>
-    <%= f.label "A combinar", :class => "control-label", :for => "to_be_defined" %>
     </div>
   </div>
   <div class="row form-group">

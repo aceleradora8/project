@@ -39,7 +39,7 @@ VALIDATION.eventsValidate = function eventsValidate(){
   });
   $("#noaddress").on('change', function(){
     if (($("#noaddress").is(':checked')) == true) {
-      zipCode.removeClass("input-text-error");
+      $(".validate-zipcode").removeClass("input-text-error");
       errorHash['zipcode'] = false;
       VALIDATION.showErrorMessage();
     };

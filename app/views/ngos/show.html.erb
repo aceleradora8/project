@@ -54,7 +54,11 @@
 			<div class="formsession">
 				<div class="row">
 					<strong>Local: </strong>
-					<%= @ngo.address.print_address %>
+          <% if @ngo.privacy %>
+            <%= "#{@ngo.address.city} - #{@ngo.address.state}, #{@ngo.address.country}" %>
+          <%else%>
+            <%= @ngo.address.print_address %>
+          <%end%>
 				</div>
 			</div>
 

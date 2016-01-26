@@ -25,18 +25,20 @@ OPPORTUNITIES.checkCategories = function() {
 };
 
 
+
 OPPORTUNITIES.getNoAddressChecked = function() {
-$('[name="noaddress"]').on('change', function(){
-  if ($("#noaddress").is(":checked") == true) {
-    $(".validate-zipcode").prop("disabled", true);
-    $('[name="opportunity[address_attributes][number]"]').prop('disabled', true);
-    $('[name="opportunity[address_attributes][complement]"]').prop('disabled', true);
-    $("#address").hide();
-  } else {
-      $(".validate-zipcode").prop("disabled", false);
-      $('[name="opportunity[address_attributes][number]"]').prop('disabled', false);
-      $('[name="opportunity[address_attributes][complement]"]').prop('disabled', false);
-      $("#address").show();
+  if($(location).attr('pathname').contains("edit")){
+    if($("#inputZipcode").val() === ""){
+      $("#noaddress").attr("checked",true);
+      ADDRESSES.showFields(false);
+    }
+  }
+
+$("#noaddress").on('change', function(){
+    if ($("#noaddress").is(":checked") == true) {
+      ADDRESSES.showFields(false);
+    } else {
+      ADDRESSES.showFields(true);
     };
   });
 };

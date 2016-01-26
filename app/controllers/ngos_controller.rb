@@ -126,9 +126,6 @@ class NgosController < ApplicationController
   def set_ngo
     if Ngo.where(id: params[:id]).present?
       @ngo = Ngo.find(params[:id])
-      if @ngo.privacy == true
-        @ngo.address = Address.new
-      end
     else
       redirect_to "/404"
     end

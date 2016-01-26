@@ -47,6 +47,20 @@ function readOnlyFieldsAddress(valor, input){
   }
 }
 
+ADDRESSES.showFields = function(visible){
+  if(visible){
+    $("#inputZipcode").prop("disabled", false);
+    $("#inputNumber").prop('disabled', false);
+    $("#inputComplement").prop('disabled', false);
+    $("#address").show();
+  }else{
+    $("#inputZipcode").prop("disabled", true);
+    $("#inputNumber").prop('disabled', true);
+    $("#inputComplement").prop('disabled', true);
+    $("#address").hide();
+  }
+}
+
 ADDRESSES.requestTriggerZipcode = function requestTriggerZipcode() {
   $("#inputZipcode").keyup(function() {
     if($("#inputZipcode").val().length == 9){
