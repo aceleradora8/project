@@ -17,4 +17,7 @@ class Ngo < ActiveRecord::Base
 			 address: [:neighborhood, :city, :state],
 			 causes: [:name]
 		 }
+
+  pg_search_scope :search_city, associated_against: { address: [:city] }, ignoring: :accents,
+  using: {tsearch: {prefix: true, dictionary: "english"}}
 end

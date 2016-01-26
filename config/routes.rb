@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'about_us' => 'about_us#index'
   post 'about_us' => 'about_us#contact'
   get "/auth/:provider/callback" => "volunteers#new"
+  get "autocomplete/opportunities/cities" => "opportunities#search_cities"
+  get "autocomplete/ngos/cities" => "ngos#search_cities"
 end

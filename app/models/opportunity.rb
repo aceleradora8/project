@@ -19,5 +19,10 @@ class Opportunity < ActiveRecord::Base
 			 address: [:neighborhood, :city, :state],
 			 causes: [:name],
 			 skills: [:name]
-		 }
+		 },
+     using: {tsearch: {prefix: true, dictionary: "english"}}
+
+  pg_search_scope :search_city, associated_against: { address: [:city] }, ignoring: :accents,
+  using: {tsearch: {prefix: true, dictionary: "english"}}
+
 end

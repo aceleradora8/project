@@ -33,6 +33,7 @@ var ready = function() {
   VOLUNTEER.validateFormOnSubmit();
 
   SEARCH.clickButtonSearch();  
+  SEARCH.beginSearchAutocomplete();
 }
 
 $(document).ready(ready);

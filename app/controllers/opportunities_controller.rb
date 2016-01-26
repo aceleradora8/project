@@ -109,6 +109,15 @@ class OpportunitiesController < ApplicationController
     @ngos_opportunities = Kaminari.paginate_array(@ngos_opportunities.flatten).page(params[:page])
   end
 
+  def search_cities
+    respond_to do |format|
+      if request.xhr?
+        cities = Opportunity.search_city(params[:city]).map {|opp| opp.address.city}
+        format.json { render json: cities.uniq}
+      end
+    end  
+  end
+
   private
 
   def set_opportunity

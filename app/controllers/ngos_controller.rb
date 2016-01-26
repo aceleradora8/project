@@ -122,6 +122,15 @@ class NgosController < ApplicationController
     end
   end
 
+  def search_cities
+    respond_to do |format|
+      if request.xhr?
+        cities = Ngo.search_city(params[:city]).map {|opp| opp.address.city}
+        format.json { render json: cities.uniq}
+      end
+    end  
+  end
+
   private
   def set_ngo
     if Ngo.where(id: params[:id]).present?
