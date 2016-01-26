@@ -17,7 +17,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #  end
 
   def default_url
-   "http://res.cloudinary.com/dhtx494no/image/upload/v1453816183/default-ongarium_ji52sh.png"
+   'http://res.cloudinary.com/dhtx494no/image/upload/v1453823407/xwqiraah48rkjd1mpv21.png'
+  end
+
+  def default_public_id
+    'headshot'
   end
 
   # Process files as they are uploaded:

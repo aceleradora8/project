@@ -81,7 +81,7 @@
 			<div class="formsession">
 				<div class="row">
 					<strong>Avatares: </strong>
-					<%= image_tag (@ngo.user.photo_url(:thumb)) if @ngo.user.photo? %>
+					<%= cl_image_tag("xwqiraah48rkjd1mpv21.png") if !@ngo.user.photo? %>
 					<%= image_tag (@ngo.user.photo_url) if @ngo.user.photo? %>
 				</div>
 			</div>

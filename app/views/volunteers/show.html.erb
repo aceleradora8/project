@@ -29,7 +29,7 @@
 			<div class="formsession">
 				<div class="row">
 					<strong>Avatares: </strong>
-					<%= image_tag (@volunteer.user.photo_url(:thumb)) if @volunteer.user.photo? %>
+					<%= cl_image_tag("xwqiraah48rkjd1mpv21.png") if !@volunteer.user.photo? %>
 					<%= image_tag (@volunteer.user.photo_url) if @volunteer.user.photo? %>
 				</div>
 			</div>
