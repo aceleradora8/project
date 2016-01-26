@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="col-lg-3">
-				<%= cl_image_tag("xwqiraah48rkjd1mpv21.png", :class => "image-user") if !@ngo.user.photo? %>
+				<%= cl_image_tag("xwqiraah48rkjd1mpv21.png", :width => 200, :height => 200, :class => "image-user" ) if !@ngo.user.photo? %>
 				<%= image_tag (@ngo.user.photo_url) , :class => "image-user" if @ngo.user.photo? %>
 			</div>
 		<div class="col-lg-9 margin-left-info">
