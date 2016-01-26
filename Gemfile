@@ -18,6 +18,8 @@ gem 'active_link_to'
 gem 'correios-cep'
 gem 'bcrypt', '~> 3.1.6'
 gem 'multi-dates-picker-rails'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug'

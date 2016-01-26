@@ -76,6 +76,14 @@
 
 			<div class="formsession">
 				<div class="row">
+					<strong>Avatares: </strong>
+					<%= image_tag (@ngo.user.photo_url(:thumb)) if @ngo.user.photo? %>
+					<%= image_tag (@ngo.user.photo_url) if @ngo.user.photo? %>
+				</div>
+			</div>
+
+			<div class="formsession">
+				<div class="row">
 					<strong>Categorias:</strong>
 					<ul>
 						<% @ngo.causes.each do |cause|%>
@@ -111,7 +119,7 @@
 								<%= opportunity.description %>
 							</div>
 						</div>
-						
+
 						<div class="row">
 							<div class="col-lg-12">
 								<span>Local: </span>
@@ -127,7 +135,7 @@
 								</div>
 							<%end%>
 						</div>
-						
+
 						<div class="col-lg-12">
 							<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
 						</div>

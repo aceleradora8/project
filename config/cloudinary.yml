@@ -1,0 +1,18 @@
+development:
+  cloud_name: dhtx494no
+  api_key: '574981721798238'
+  api_secret: h-fCuwUzvw6NCfSjCsKhxk0-irw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dhtx494no
+  api_key: '574981721798238'
+  api_secret: h-fCuwUzvw6NCfSjCsKhxk0-irw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dhtx494no
+  api_key: '574981721798238'
+  api_secret: h-fCuwUzvw6NCfSjCsKhxk0-irw
+  enhance_image_tag: true
+  static_image_support: false

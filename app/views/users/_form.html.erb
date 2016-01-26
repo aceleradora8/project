@@ -1,6 +1,18 @@
 <%= f.fields_for :user do |ff| %> <!-- Model Address-->
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3">
+			<label class="control-label">Foto: </label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-3 form-group">
+			<%= ff.hidden_field :photo_cache, :id => "photo-cache"%>
+			<%= ff.file_field :photo, :id => "photo-cache"%>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-3">
 		<label class="control-label", for="email-user">E-mail: <span class="mandatory">*</span></label>
 		</div>
 	</div>
@@ -19,8 +31,8 @@
 		<div class="col-lg-offset-2 col-lg-3 form-group">
 			<%= ff.password_field :password, :id => "password-user", :class => "form-control validate-password" %>
 		</div>
-
 	</div>
+
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-3">
 			<label class="control-label", for="password-confirmation-user">Confirmar senha: <span class="mandatory">*</span></label>

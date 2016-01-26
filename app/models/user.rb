@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
   before_create { generate_token(:confirm_token) }
 
+  mount_uploader :photo, PhotoUploader
+
   def email_activate
     self.confirmed = true
     self.confirm_token = nil
