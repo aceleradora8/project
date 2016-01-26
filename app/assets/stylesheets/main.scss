@@ -3,6 +3,16 @@ html, body {
   background-color: #fff;
 }
 
+::selection {
+  background: #ED79B3;
+  color: white;
+}
+
+::-moz-selection {
+  background: #ED79B3;
+  colort:white;
+}
+
 input:focus {
 	outline: none;
 }
