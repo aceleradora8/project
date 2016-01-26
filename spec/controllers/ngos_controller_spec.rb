@@ -64,11 +64,6 @@ describe NgosController, type: :controller do
       expect(assigns[:ngos_result]).to eq(assigns[:ngos_search])
     end
 
-    it 'expect if Ngo privacy is true to have a new Address' do
-      get :show, id: @ngo_private.id
-      expect(assigns(:ngo).address).to be_a_new(Address)
-    end
-
     it 'expect redirect to 404 if ngo isnt present' do
       get :show, id: -20
       expect(response).to redirect_to('/404')
