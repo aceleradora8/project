@@ -21,20 +21,16 @@ class NgosController < ApplicationController
   end
 
   def index
-    if params[:text_search].blank? && params[:city].blank?
-      @ngos_search = Ngo.all.includes(:address, :causes)
-    elsif params[:text_search].blank? && params[:city]
-      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
-      @ngos_search = Ngo.all.where(address: @address_ids_cities).includes(:address, :causes)
-    elsif params[:text_search] && params[:city]
-      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
-      @ngos_search = Ngo.search(params[:text_search]).where(address: @address_ids_cities).includes(:address, :causes)
+    if params[:text_search].blank?
+       @ngos_search = Ngo.all.includes(:address, :causes)
     else
-      @ngos_search = Ngo.search(params[:text_search]).includes(:address, :causes)
+       @ngos_search = Ngo.search(params[:text_search]).includes(:address, :causes)
     end
-
+    unless params[:city].blank?
+       address_ids_cities = Address.search(params[:city]).map { |address| address.id }
+       @ngos_search = @ngos_search.where(address: address_ids_cities)
+    end
     @ngos_search = @ngos_search.select {|ngo| ngo.user.confirmed == true}
-
     respond_to do |format|
       if request.xhr?
             @ngos_result = []

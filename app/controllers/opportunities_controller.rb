@@ -13,16 +13,14 @@ class OpportunitiesController < ApplicationController
   helper OpportunitiesHelper
 
   def index
-    if params[:text_search].blank? && params[:city].blank?
-      @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
-    elsif params[:text_search].blank? && params[:city]
-      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
-      @opportunity_search = Opportunity.all.where(address: @address_ids_cities).includes(:address, :ngo, :causes)
-    elsif params[:text_search] && params[:city]
-      @address_ids_cities = Address.search(params[:city]).map { |address| address.id }
-      @opportunity_search = Opportunity.search(params[:text_search]).where(address: @address_ids_cities).includes(:address, :ngo, :causes)
+    if params[:text_search].blank?
+       @opportunity_search = Opportunity.all.includes(:address, :ngo, :causes)
     else
-      @opportunity_search = Opportunity.search(params[:text_search]).includes(:address, :ngo, :causes)
+       @opportunity_search = Opportunity.search(params[:text_search]).includes(:address, :ngo, :causes)
+    end
+    unless params[:city].blank?
+       address_ids_cities = Address.search(params[:city]).map { |address| address.id }
+       @opportunity_search = @opportunity_search.where(address: address_ids_cities)
     end
     respond_to do |format|
       if request.xhr?
