@@ -1,6 +1,7 @@
 <%= render 'edit_email_modal' %>
 <%= render 'change_password_modal' %>
 <%= render 'remove_account_modal' %>
+<%= render 'change_profile_modal' %>
 
 <% if notice != nil %>
 	<div class= "alert alert-success col-lg-offset-4 col-lg-4 centralize">
@@ -22,6 +23,9 @@
 </div>
 
 <div class="row">
+	<div class="col-lg-offset-4 col-lg-4">
+		<a href="" data-toggle="modal" data-target="#changePictureModal">Mudar minha foto</a>
+	</div>
 	<div class="col-lg-offset-4 col-lg-4">
 		<a href="" data-toggle="modal" data-target="#changeEmailModal">Mudar meu email</a>
 	</div>

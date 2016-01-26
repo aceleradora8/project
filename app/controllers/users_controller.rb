@@ -35,9 +35,15 @@ class UsersController < ApplicationController
 						end
 				elsif !params[:current_password].nil? && @user.authenticate(params[:current_password]) == false
 						format.html { redirect_to edit_user_path, error: "Senha antiga errada!" }
-				elsif params[:current_password].nil?
+				elsif params[:current_password].nil? && params[:user][:photo].nil?
 					if @user.update(user_params)
 							format.html { redirect_to root_path, notice: "E-mail atualizado com sucesso!"}
+					else
+							render 'edit'
+					end
+				elsif !params[:user][:photo].nil?
+					if @user.update(user_params)
+							format.html { redirect_to root_path, notice: "Foto atualizada com sucesso!"}
 					else
 							render 'edit'
 					end
