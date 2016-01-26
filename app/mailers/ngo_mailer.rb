@@ -5,7 +5,7 @@ class NgoMailer < ApplicationMailer
 		@volunteer = volunteer
 		@opportunity = opportunity
 		@ngo = @opportunity.ngo
-		mail(to: @ngo.user.email,
+		mail(to: @ngo.contact_email,
 			subject: "Recebemos interesse na sua vaga: #{@opportunity.title}",
 			content_type: "text/html")
 	end
@@ -14,7 +14,7 @@ class NgoMailer < ApplicationMailer
 		@volunteer = volunteer
 		@opportunity = opportunity
 		@ngo = @opportunity.ngo
-		mail(to: @ngo.user.email,
+		mail(to: @ngo.contact_email,
 			subject: "Houve um cancelamento no interesse na sua vaga: #{@opportunity.title}",
 			content_type: "text/html")
 	end
