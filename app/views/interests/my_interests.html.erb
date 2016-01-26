@@ -1,14 +1,14 @@
 <div class="container min-height-page">
 	<div class="volunteer-interests">
 		<div class="row">
-			<div class="col-lg-5 myinterests-title">
+			<div class="col-lg-6 text-center">
 				<% if @volunteer.interests.empty? %>
 					<h3>Você não possui interesses registrados</h3>
 				<% else %>
-					<h3>Meus Interesses:</h3>
+					<h3 class="myinterests-title">Meus Interesses</h3>
 				<% end %>
 			</div>
-			<div class="col-lg-7">
+			<div class="col-lg-6">
 				<div id="paginatorTop" class="pull-right paginator">
 					<%= paginate @volunteer_interests, :theme => 'twitter-bootstrap-3' %>
 				</div>
