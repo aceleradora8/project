@@ -138,22 +138,22 @@ user = User.new(email:"testj@teste.com", password:"123", confirmed: true, auth_t
 user.save
 
 # populando ongs
-ngo = Ngo.new(name:"Patas Dadas", phone1: "123456789", description:"O Patas Dadas surgiu em 2009, em resposta ao envenenamento de diversos cães em Porto Alegre. Atualmente, o projeto é responsável por cerca de 80 cães e sempre busca dar a melhor qualidade de vida possível a eles, oferecendo boa ração, vacinações em dia, castração aos animais saudáveis e todo atendimento veterinário que for necessário.", address_id:1, user_id:1)
+ngo = Ngo.new(name:"Patas Dadas", contact_email:"teste@teste.com",  phone1: "123456789", description:"O Patas Dadas surgiu em 2009, em resposta ao envenenamento de diversos cães em Porto Alegre. Atualmente, o projeto é responsável por cerca de 80 cães e sempre busca dar a melhor qualidade de vida possível a eles, oferecendo boa ração, vacinações em dia, castração aos animais saudáveis e todo atendimento veterinário que for necessário.", address_id:1, user_id:1)
 ngo.causes.push(Cause.find(1))
 ngo.save
-ngo = Ngo.new(name:"Vida Urgente", phone1: "123456789", description:"O Vida Urgente possui um conjunto de programas, projetos e ações que visam promover a preservação e valorização da vida, mobilizando a sociedade através de ações educativas e culturais para uma mudança de comportamento que resulte em um trânsito mais humano e seguro.", address_id:2, user_id:2)
+ngo = Ngo.new(name:"Vida Urgente", contact_email:"teste@teste.com", phone1: "123456789", description:"O Vida Urgente possui um conjunto de programas, projetos e ações que visam promover a preservação e valorização da vida, mobilizando a sociedade através de ações educativas e culturais para uma mudança de comportamento que resulte em um trânsito mais humano e seguro.", address_id:2, user_id:2)
 ngo.causes.push(Cause.find(2))
 ngo.save
-ngo = Ngo.new(name:"Doutores da Alegria", phone1: "123456789", description:"Doutores da Alegria é uma organização da sociedade civil sem fins lucrativos que há 24 anos promove as relações humanas e qualifica a experiência de internação em hospitais por meio da visita contínua de palhaços profissionais especialmente treinados em São Paulo e no Recife. Fundada por Wellington Nogueira em 1991, a ONG foi inspirada no trabalho do Clown Care Unit, criada por Michael Christensen, diretor do Big Apple Circus de Nova York. Wellington integrou a trupe de palhaços em 1988, satirizando as rotinas médicas e hospitalares mais conhecidas. Ao retornar ao Brasil, decidiu implantar um programa semelhante. Vinte e três anos depois, a ONG já realizou mais de um milhão de visitas a crianças hospitalizadas, seus acompanhantes e profissionais de saúde. A base do trabalho é o resgate do lado saudável da vida e todos os seus projetos se utilizam da arte para potencializar as relações.", address_id:3, user_id:3)
+ngo = Ngo.new(name:"Doutores da Alegria", contact_email:"teste@teste.com", phone1: "123456789", description:"Doutores da Alegria é uma organização da sociedade civil sem fins lucrativos que há 24 anos promove as relações humanas e qualifica a experiência de internação em hospitais por meio da visita contínua de palhaços profissionais especialmente treinados em São Paulo e no Recife. Fundada por Wellington Nogueira em 1991, a ONG foi inspirada no trabalho do Clown Care Unit, criada por Michael Christensen, diretor do Big Apple Circus de Nova York. Wellington integrou a trupe de palhaços em 1988, satirizando as rotinas médicas e hospitalares mais conhecidas. Ao retornar ao Brasil, decidiu implantar um programa semelhante. Vinte e três anos depois, a ONG já realizou mais de um milhão de visitas a crianças hospitalizadas, seus acompanhantes e profissionais de saúde. A base do trabalho é o resgate do lado saudável da vida e todos os seus projetos se utilizam da arte para potencializar as relações.", address_id:3, user_id:3)
 ngo.causes.push(Cause.find(7))
 ngo.save
-ngo = Ngo.new(name:"Bicho de Rua", phone1: "123456789", description:"O Projeto Bicho de Rua foi fundado em 10/05/2004 por um grupo de amigos que, já trabalhando voluntariamente na causa de proteção, apoio e promoção do bem-estar animal, decidiu juntar forças e potencializar essa atividade.", address_id:4, user_id:4)
+ngo = Ngo.new(name:"Bicho de Rua", contact_email:"teste@teste.com", phone1: "123456789", description:"O Projeto Bicho de Rua foi fundado em 10/05/2004 por um grupo de amigos que, já trabalhando voluntariamente na causa de proteção, apoio e promoção do bem-estar animal, decidiu juntar forças e potencializar essa atividade.", address_id:4, user_id:4)
 ngo.causes.push(Cause.find(1))
 ngo.save
-ngo = Ngo.new(name:"Amigos da Escola", phone1: "123456789", description:"Somos amigos da escola", address_id:5, user_id:5)
+ngo = Ngo.new(name:"Amigos da Escola", contact_email:"teste@teste.com", phone1: "123456789", description:"Somos amigos da escola", address_id:5, user_id:5)
 ngo.causes.push(Cause.find(3))
 ngo.save
-ngo = Ngo.new(name:"ONG Construtores", phone1: "123456789", description:"Gostamos de obra", address_id:6, user_id:6)
+ngo = Ngo.new(name:"ONG Construtores", contact_email:"teste@teste.com", phone1: "123456789", description:"Gostamos de obra", address_id:6, user_id:6)
 ngo.causes.push(Cause.find(8))
 ngo.save
 
