@@ -38,6 +38,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :rounded_corner => [30]
   end
 
+  version :list do
+    process :resize_to_fill => [100, 100]
+  end
+
   def extension_white_list
     %w(jpg jpeg png)
   end

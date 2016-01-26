@@ -11,141 +11,100 @@
 		</div>
 		<br>
 	<%end%>
-	<div class="panel ">
-			<div class="col-lg-12">
-				<div class="row">
-					<div class="col-lg-10">
-						<h1>
-							<% if @ngo.name.length > 49 %>
-							 	<%= @ngo.name.first(50)+'...' %>
-							<% else %>
-								<%= @ngo.name.first(50)%>
-							<%end%>
-							<% if current_user != nil && current_user.role == "ngo" %>
-								<% if require_user_owner_ngo(@ngo) %>
-									<a href= "<%=@ngo.id%>/edit" class="link-style" title="Editar minhas informações">
-										<button type="button" class="btn btn-default btn-primary" aria-label="Left Align">
-											<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-										</button>
-									</a>
-								<%end%>
-							<%end%>
-						</h1>
-					</div>
-				</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="col-lg-3">
+				<%= cl_image_tag("xwqiraah48rkjd1mpv21.png", :class => "image-user") if !@ngo.user.photo? %>
+				<%= image_tag (@ngo.user.photo_url) , :class => "image-user" if @ngo.user.photo? %>
 			</div>
-		<div class="panel-body detailopp">
-			<div class="formsession">
-				<div class="row">
-					<strong>Descrição: </strong>
-				</div>
-				<div class="row">
-					<span class="leftspace"><%= @ngo.description %></span>
-				</div>
+		<div class="col-lg-9 margin-left-info">
+			<div class="row info-user">
+				<h1 class="name-user"><%= @ngo.name%>
+					<% if current_user != nil && current_user.role == "ngo" %>
+						<% if require_user_owner_ngo(@ngo) %>
+							<a href= "<%=@ngo.id%>/edit" class="link-style" title="Editar minhas informações">
+								<button type="button" class="btn btn-default btn-primary" aria-label="Left Align">
+									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								</button>
+							</a>
+						<%end%>
+					<%end%>
+				</h1>
 			</div>
-			<div class="formsession">
-				<div class="row">
-					<strong>Missão: </strong>
-				</div>
-				<div class="row">
-					<span class="leftspace"><%= @ngo.mission %></span>
-				</div>
+			<div class="row info-user">
+				<strong>Descrição: </strong>
+				<span> <%=@ngo.description %></span>
 			</div>
-			<div class="formsession">
-				<div class="row">
-					<strong>Local: </strong>
-          <% if @ngo.privacy %>
-            <%= "#{@ngo.address.city} - #{@ngo.address.state}, #{@ngo.address.country}" %>
-          <%else%>
-            <%= @ngo.address.print_address %>
-          <%end%>
-				</div>
+			<div class="row info-user">
+				<strong>Missão: </strong>
+				<span><%= @ngo.mission %></span>
 			</div>
-
-			<div class="formsession">
-				<div class="row">
-					<b>Telefone(s): </b>
-					<%= @ngo.phone1 %>
-					<%= ", #{@ngo.phone2}" unless @ngo.phone2.blank?%></p>
-
-				</div>
+			<div class="row info-user">
+				<strong>Local: </strong>
+				<% if @ngo.privacy %>
+				<%= "#{@ngo.address.city} - #{@ngo.address.state}, #{@ngo.address.country}" %>
+				<%else%>
+				<%= @ngo.address.print_address %>
+				<%end%>
 			</div>
-
-			<div class="formsession">
-				<div class="row">
-					<strong>Email de Contato: </strong>
-					<%= @ngo.contact_email %>
-				</div>
+			<div class="row info-user">
+				<b>Telefone(s): </b>
+				<%= @ngo.phone1 %>
+				<%= ", #{@ngo.phone2}" unless @ngo.phone2.blank?%>
 			</div>
-
-			<div class="formsession">
-				<div class="row">
-					<strong>Avatares: </strong>
-					<%= cl_image_tag("xwqiraah48rkjd1mpv21.png") if !@ngo.user.photo? %>
-					<%= image_tag (@ngo.user.photo_url) if @ngo.user.photo? %>
-				</div>
+			<div class="row info-user">
+				<strong>Email de Contato: </strong>
+				<%= @ngo.contact_email %>
 			</div>
-
-			<div class="formsession">
-				<div class="row">
-					<strong>Categorias:</strong>
-					<ul>
-						<% @ngo.causes.each do |cause|%>
-							<li> <%= cause.name %> </li>
-						<% end %>
-					</ul>
-				</div>
+			<div class="row info-user">
+				<strong>Causas:</strong>
+				<ul>
+					<% @ngo.causes.each do |cause|%>
+					<li> <%= cause.name %> </li>
+					<% end %>
+				</ul>
 			</div>
 		</div>
-
-		<div class="ngo-opportunities">
-			<div>
-				<h3 class="">Lista De Oportunidades:</h3>
-			</div>
-			<% @ngo.opportunities.each do |opportunity| %>
-				<div class="panel">
-					<div class="row panel-body detailopp bs-callout bs-callout-info">
-						<div class="row">
-							<div class="col-lg-12 opportunity-title">
-								<h3><%= opportunity.title %></h3>
-							</div>
+	</div>
+</div>
+	<div class="ngo-opportunities">
+		<div>
+			<h3 class="">Lista de Oportunidades:</h3>
+		</div>
+		<% @ngo.opportunities.each do |opportunity| %>
+			<div class="panel">
+				<div class="row panel-body bs-callout bs-callout-info">
+					<div class="row">
+						<div class="col-lg-12">
+							<h3 class="opportunity-title"><%= opportunity.title %></h3>
 						</div>
-						<div class="row">
-							<div class="col-lg-12 oppt-ngo">
-								<span>Por <%= opportunity.ngo.name %></span>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<span class=" oppt-ngo">Por <a href="ngos/<%=opportunity.ngo.id%>"><%= opportunity.ngo.name %></a></span>
 						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<span>Descrição: </span>
-							</div>
-							<div class="col-lg-12 description">
-								<%= opportunity.description %>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 description">
+							<span>Descrição: </span><%= opportunity.description %>
 						</div>
-
-						<div class="row">
-							<div class="col-lg-12">
-								<span>Local: </span>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3">
+							<span>Local: </span>
 							<%if opportunity.address != nil%>
-								<div class="col-lg-4">
 									<span><%= opportunity.address.city %>,
 										<%= opportunity.address.state %> </span>
-								</div>
 							<%else%>
-								<div class="col-lg-4">
 									<span>A combinar</span>
-								</div>
 							<%end%>
 						</div>
-
-						<div class="col-lg-12">
+						<div class="col-lg-9">
 							<%= link_to "Ver mais", opportunity, :class=>"link-style btn btn-primary pull-right" %>
 						</div>
 					</div>
 				</div>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 	</div>
 </div>
