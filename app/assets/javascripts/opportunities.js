@@ -27,9 +27,10 @@ OPPORTUNITIES.checkCategories = function() {
 
 
 OPPORTUNITIES.getNoAddressChecked = function() {
-  if($(location).attr("pathname:contains('edit')")) {
-    if($("#inputZipcode").val() === ""){
-      $("#noaddress").attr("checked",true);
+  var currentURL = $(location).attr('href');
+  if (currentURL.indexOf('edit') != -1) {
+    if($("#inputZipcode").val() === "") {
+      $("#noaddress").prop("checked",true);
       ADDRESSES.showFields(false);
     }
   }
