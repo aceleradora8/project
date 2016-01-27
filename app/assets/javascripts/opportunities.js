@@ -27,7 +27,7 @@ OPPORTUNITIES.checkCategories = function() {
 
 
 OPPORTUNITIES.getNoAddressChecked = function() {
-  if($(location).attr('pathname').contains("edit")){
+  if($(location).attr("pathname:contains('edit')")) {
     if($("#inputZipcode").val() === ""){
       $("#noaddress").attr("checked",true);
       ADDRESSES.showFields(false);
